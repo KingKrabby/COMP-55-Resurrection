@@ -1,4 +1,4 @@
-
+package classes;
 public class score_streak{
 	int streak = 0;
 	int score = 0;

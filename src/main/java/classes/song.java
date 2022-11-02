@@ -1,4 +1,4 @@
-
+package classes;
 /*
  * Typical usage of the AudioPlayer.java
  * ----------------------------------
