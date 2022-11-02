@@ -10,6 +10,12 @@ public class map extends GraphicsProgram implements ActionListener{
 	Timer t = new Timer(1000,this);
 	// Conveyor
 	// int: current note -- > pulls from conductor
+	Action Waction;
+	Action Aaction;
+	Action Saction;
+	Action Daction;
+	
+	
 	public class Waction extends AbstractAction{
 		@Override
 		public void actionPerformed(ActionEvent e) {
