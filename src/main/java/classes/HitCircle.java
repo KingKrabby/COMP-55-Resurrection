@@ -1,10 +1,10 @@
 package classes;
 
-public class hitCircle {
+public class HitCircle {
 	public int hitCircleX;
 	public int hitCircleY;
 	
-	hitCircle(int x, int y) {
+	HitCircle(int x, int y) {
 			hitCircleX = x;
 			hitCircleY = y;
 	}		
