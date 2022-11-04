@@ -1,5 +1,8 @@
 package classes;
 
-public class FoodType {
+public enum FoodType {
+	
+	BUN, TOMATO, KETCHUP, TOFU;
+	
 
 }
