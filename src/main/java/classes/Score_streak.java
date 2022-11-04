@@ -1,5 +1,5 @@
 package classes;
-public class score_streak{
+public class Score_streak{
 	
 	
 	private int streak = 0; //initializes streak to start at 0

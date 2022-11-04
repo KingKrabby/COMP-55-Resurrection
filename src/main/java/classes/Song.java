@@ -17,14 +17,14 @@ import javafx.embed.swing.JFXPanel;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-public final class song {
+public final class Song {
 	private final Map<String, MediaPlayer> players;
 
 	private static class AudioPlayerInit {
-		public static final song INSTANCE = new song();
+		public static final Song INSTANCE = new Song();
 	}
 
-	private song() {
+	private Song() {
 		final JFXPanel fxPanel = new JFXPanel();
 		players = new HashMap<String, MediaPlayer>();
 	}
@@ -35,7 +35,7 @@ public final class song {
 	 * 
 	 * @return instance of the AudioPlayer
 	 */
-	public static song getInstance() {
+	public static Song getInstance() {
 		return AudioPlayerInit.INSTANCE;
 	}
 

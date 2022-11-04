@@ -2,10 +2,10 @@ package classes;
 import java.awt.event.KeyEvent;
 import acm.graphics.GObject;
 
-public class title_screen {
+public class Title_screen {
 	private play_game program;
 	
-	public title_screen(){
+	public Title_screen(){
 		
 	}
 	

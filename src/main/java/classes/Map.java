@@ -9,9 +9,9 @@ import org.apache.commons.math3.ode.events.Action;
 
 import acm.program.GraphicsProgram;
 
-public class map extends GraphicsProgram implements ActionListener{
+public class Map extends GraphicsProgram implements ActionListener{
 	Timer t = new Timer(1000,this);
-	score_streak box;
+	Score_streak box;
 	int map_track  = 0;
 	
 	

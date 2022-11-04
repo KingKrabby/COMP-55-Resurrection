@@ -1,7 +1,7 @@
 package classes;
 
-public class conductor {
-	public conductor(int bpm, song music, int speed, food notes[]){
+public class Conductor {
+	public Conductor(int bpm, song music, int speed, food notes[]){
 		BPM = bpm;
 		Song = music;
 		reactionTime = speed;
@@ -18,6 +18,9 @@ public class conductor {
 	int getBPM(){
 		return BPM;
 	}
+	void playSong() {
+		
+	}
 	void stopSong() {
 		
 	}
@@ -25,3 +28,8 @@ public class conductor {
 		return 0;
 	}
 }
+
+//public static void main(String[] args) {
+////	song testSong = song.getInstance();
+////	conductor testConductor = new conductor(150, )
+//}
