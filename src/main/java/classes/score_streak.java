@@ -2,12 +2,12 @@ package classes;
 public class score_streak{
 	
 	
-	int streak = 0; //initializes streak to start at 0
+	private int streak = 0; //initializes streak to start at 0
 	
-	int score = 0; // user start at 0 points
-	int failCount = 0; // user starts at 0 fail count
+	private int score = 0; // user start at 0 points
+	private int failCount = 0; // user starts at 0 fail count
 	
-	//accessors
+	//accessor
 	private int get_score() {
 		return score;
 	}

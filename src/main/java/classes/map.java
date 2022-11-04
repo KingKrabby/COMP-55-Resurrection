@@ -11,10 +11,18 @@ import acm.program.GraphicsProgram;
 
 public class map extends GraphicsProgram implements ActionListener{
 	Timer t = new Timer(1000,this);
+	score_streak box;
 	
+	/*
+	 * Menu Screen
+	 * Pass Screen
+	 * play game
+	 * title screen
+	 */
 	
 	// Conveyor
 	// int: current note -- > pulls from conductor
+	
 	Action Waction;
 	Action Aaction;
 	Action Saction;
