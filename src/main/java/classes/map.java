@@ -12,21 +12,22 @@ import acm.program.GraphicsProgram;
 public class map extends GraphicsProgram implements ActionListener{
 	Timer t = new Timer(1000,this);
 	score_streak box;
-	
+	int map_track  = 0;
 	
 	
 	
 	
 	/*
 	 * Will Run each one:
-		 * Menu Screen
-		 * Pass Screen
-		 * play game
-		 * title screen
+	 	* title screen -- > 0
+		 * Menu Screen --> 1
+		 * Pass Screen --> 2
+		 * play game --> 3
 	 */
 	
 	// Conveyor
 	// int: current note -- > pulls from conductor
+	//gets boolean from conveyor
 	
 	Action Waction;
 	Action Aaction;
@@ -50,7 +51,7 @@ public class map extends GraphicsProgram implements ActionListener{
 		// pulls from conductor
 	}
 	
-	//map.getInputMap().put(Key.Stroke.getKeyStroke("w"), "Waction");
+	//root.getInputMap.put(Key.Stroke.getKeyStroke("w"), "Waction");
 	//label.getActionMap().put("Waction",Waction);
 	
 	//map.getInputMap().put(Key.Stroke.getKeyStroke("a"), "Aaction");
