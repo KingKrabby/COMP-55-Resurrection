@@ -10,7 +10,19 @@ public class food {
 		spawnOnBeat = beat;
 	}
 	
-	// add public FoodType getFoodType() {
+	public FoodType getFoodType() {
+		if (ftype.toString() == "bun") {
+			return FoodType.BUN;
+		}
+		if (ftype.toString() == "tomato") {
+			return FoodType.TOMATO;
+		}
+	if (ftype.toString() == "ketchup") {
+			return FoodType.KETCHUP;
+		}
+		return FoodType.TOFU;
+	}
+
 		
 	
 	public double getSpawnBeat(food currFood) {
