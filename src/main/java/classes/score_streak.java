@@ -1,9 +1,22 @@
 package classes;
 public class score_streak{
+	
+	
 	int streak = 0; //initializes streak to start at 0
 	
 	int score = 0; // user start at 0 points
 	int failCount = 0; // user starts at 0 fail count
+	
+	//accessors
+	private int get_score() {
+		return score;
+	}
+	private int get_streak() {
+		return streak;
+	}
+	private int get_failCount() {
+		return failCount;
+	}
 	
 	// increments score by one for each successive combo
 	void incrementScore() {

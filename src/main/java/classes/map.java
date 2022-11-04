@@ -11,6 +11,8 @@ import acm.program.GraphicsProgram;
 
 public class map extends GraphicsProgram implements ActionListener{
 	Timer t = new Timer(1000,this);
+	
+	
 	// Conveyor
 	// int: current note -- > pulls from conductor
 	Action Waction;
