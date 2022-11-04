@@ -13,11 +13,16 @@ public class map extends GraphicsProgram implements ActionListener{
 	Timer t = new Timer(1000,this);
 	score_streak box;
 	
+	
+	
+	
+	
 	/*
-	 * Menu Screen
-	 * Pass Screen
-	 * play game
-	 * title screen
+	 * Will Run each one:
+		 * Menu Screen
+		 * Pass Screen
+		 * play game
+		 * title screen
 	 */
 	
 	// Conveyor
@@ -27,6 +32,7 @@ public class map extends GraphicsProgram implements ActionListener{
 	Action Aaction;
 	Action Saction;
 	Action Daction;
+	Action escape;
 	// All map library
 	
 	void failChecker() {
@@ -56,6 +62,8 @@ public class map extends GraphicsProgram implements ActionListener{
 	//map.getInputMap().put(Key.Stroke.getKeyStroke("d"), "Daction");
 	//label.getActionMap().put("daction",Daction);
 	
+	//map.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "escape");
+	//label.getActionMap().put("escape",escape);
 	
 	public class Waction extends AbstractAction{
 		@Override
@@ -76,6 +84,12 @@ public class map extends GraphicsProgram implements ActionListener{
 		}
 	}
 	public class Daction extends AbstractAction{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+		}
+	}
+	public class escape extends AbstractAction{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
