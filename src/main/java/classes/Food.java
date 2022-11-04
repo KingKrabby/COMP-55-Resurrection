@@ -1,11 +1,11 @@
 package classes;
 
-public class food {
+public class Food {
 	public FoodType ftype;
 	public double spawnOnBeat;
 	public boolean rightSpawn;
 
-	food(FoodType type, double beat) {
+	Food(FoodType type, double beat) {
 		ftype = type;
 		spawnOnBeat = beat;
 	}
@@ -25,7 +25,7 @@ public class food {
 
 		
 	
-	public double getSpawnBeat(food currFood) {
+	public double getSpawnBeat(Food currFood) {
 		return spawnOnBeat;
 	}
 
