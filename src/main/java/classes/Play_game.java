@@ -1,4 +1,6 @@
 package classes;
 
 
-public class Play_game
+public class Play_game {
+	
+}
