@@ -1,35 +1,35 @@
 package classes;
 
 public class Conductor {
-	public Conductor(int bpm, song music, int speed, food notes[]){
+	public Conductor(int bpm, Song music, int speed, Food notes[]){
 		BPM = bpm;
-		Song = music;
+		song = music;
 		reactionTime = speed;
 		mapNotes = notes;
 	}
 	private int BPM;
 	private double currentBeat;
-	private song Song;
+	private Song song;
 	private int reactionTime;
-	private food mapNotes[];
+	private Food mapNotes[];
 	void setBPM(int bpm) {
 		BPM = bpm;
 	}
 	int getBPM(){
 		return BPM;
 	}
-	void playSong() {
-		
+	void playSong(String level) {
+		song.playSound("songs", level + ".mp3");
 	}
-	void stopSong() {
-		
+	void stopSong(String level) {
+		song.stopSound("songs", level + ".mp3");
 	}
 	double getCurrentBeat() {
 		return 0;
 	}
+	public static void main(String[] args) {
+		Song testSong = Song.getInstance();
+		Conductor testConductor = new Conductor(150, testSong, 1, null);
+		testConductor.playSong("tutorial");
+	}
 }
-
-//public static void main(String[] args) {
-////	song testSong = song.getInstance();
-////	conductor testConductor = new conductor(150, )
-//}
