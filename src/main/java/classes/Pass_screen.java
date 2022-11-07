@@ -9,7 +9,12 @@ public class Pass_screen {
 		return identifier;
 	}
 	public Pass_screen(){
-		
+		//area for creating a pass screen once we start communicating between classes
+		//"Great Work!" at the top of the screen
+		//Picture of a tofu cartoon dancing at the bottom right
+		//"Press space bar to move onto the next level" underneath "Great Work!"
+		//"Press Enter to return back to the menu" underneath "Press space bar to move onto the next level"
+		//"World's Hardest Games" symbol in the bottom left
 	}
 	
 	public void onSpacePressed(KeyEvent s) {
