@@ -88,27 +88,32 @@ public class Map extends GraphicsProgram implements ActionListener{
 		}
 		
 		
-		//press W
-		
-		if (key == KeyEvent.VK_W) {
-			
+
+		if (map_track == 2) {
+			//after pressing a button, do HitCircle
+			//if HitCircle is positive, run score_streak box functions
+			//press W
+			if (key == KeyEvent.VK_W) {
+				
+			}
+			// press A
+			if (key == KeyEvent.VK_A) {
+				
+			}
+			//press S
+			if (key == KeyEvent.VK_S) {
+				
+			}
+			//press D
+			if (key == KeyEvent.VK_D) {
+				
+			}
+			//press escape
+			if (key == KeyEvent.VK_ESCAPE) {
+				
+			}
 		}
-		// press A
-		if (key == KeyEvent.VK_A) {
-			
-		}
-		//press S
-		if (key == KeyEvent.VK_S) {
-			
-		}
-		//press D
-		if (key == KeyEvent.VK_D) {
-			
-		}
-		//press escape
-		if (key == KeyEvent.VK_ESCAPE) {
-			
-		}
+
 		
 	}
 	@Override
