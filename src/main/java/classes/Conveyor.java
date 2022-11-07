@@ -17,6 +17,9 @@ public class Conveyor {
 		length = currLength;
 		noteSpeed = currNoteSpeed;
 		numConveyors = 1;
+		if (currHard == true) {
+			numConveyors = 2;
+		}
 			for (int i = 0; i < numConveyors; i++) {
 				//?? idk how spawners will work yet
 				//trying to add spawners to arraylist
