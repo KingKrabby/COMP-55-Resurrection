@@ -6,5 +6,4 @@ public class Spawner{
 	Conductor tempo;
 	int spawnerX;
 	int spawnerY;
-	void spawnFood(spawnerX, )
 }
