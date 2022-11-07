@@ -28,16 +28,6 @@ public class Conveyor {
 		
 			
 	}
-	
-	//public void moveNote() {
-		//get info from spawner to move note
-		//timer?
-		//conductor?
-	//}
-	
-	//maybe moveNote() should be in graphics?
-	
-	
 
 
 }
