@@ -2,6 +2,11 @@ package classes;
 import java.awt.event.KeyEvent;
 
 public class Fail_screen{
+	// function to identify map 
+	private int identifier = 3;
+	int get_identifier() {
+		return identifier;
+	}
 	
 	public Fail_screen(){
 		
