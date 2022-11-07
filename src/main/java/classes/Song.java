@@ -119,7 +119,7 @@ public final class Song {
 		return resource.toString();
 	}
 
-	public MediaPlayer findSound(String folder, String filename) {
+	private MediaPlayer findSound(String folder, String filename) {
 		return players.get(folder + filename);
 	}
 
