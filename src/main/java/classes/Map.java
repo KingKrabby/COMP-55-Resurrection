@@ -1,6 +1,7 @@
 package classes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Timer;
@@ -66,40 +67,43 @@ public class Map extends GraphicsProgram implements ActionListener{
 	//map.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "escape");
 	//label.getActionMap().put("escape",escape);
 	
-	public class Waction extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
+	@Override
+	public void keyPressed(KeyEvent e) {
+		int key = e.getKeyCode();
+		// if map.get(int) == play_game etc...
+		//boolean of conveyor is true
+		//perform action, which is to add to score streak box
+		
+		//press W
+		if (key == KeyEvent.VK_W) {
 			
 		}
+		// press A
+		if (key == KeyEvent.VK_A) {
+			
+		}
+		//press S
+		if (key == KeyEvent.VK_S) {
+			
+		}
+		//press D
+		if (key == KeyEvent.VK_D) {
+			
+		}
+		//press escape
+		if (key == KeyEvent.VK_ESCAPE) {
+			
+		}
+		
 	}
-	public class Aaction extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			
-		}
-	}
-	public class Saction extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			
-		}
-	}
-	public class Daction extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			
-		}
-	}
-	public class escape extends AbstractAction{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			
-		}
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		
 	}
 	
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		
 		
 	} 
 
