@@ -37,6 +37,12 @@ public class Map extends GraphicsProgram implements ActionListener{
 	Action escape;
 	// All map library
 	
+	//Title Screen
+	//Take Screen to menu screen
+	
+	
+	
+	
 	void failChecker() {
 		//activates when buttons are pressed
 		// looks at current map --> fail screen
@@ -74,7 +80,16 @@ public class Map extends GraphicsProgram implements ActionListener{
 		//boolean of conveyor is true
 		//perform action, which is to add to score streak box
 		
+		if (key == KeyEvent.VK_SPACE && map_track == 0) {
+			map_track = 1 ;
+			// employ graphics for Menu screen
+			
+			
+		}
+		
+		
 		//press W
+		
 		if (key == KeyEvent.VK_W) {
 			
 		}
