@@ -12,7 +12,11 @@ public class Title_screen {
 	
 	
 	public Title_screen(){
-		
+		//area for creating a title screen once we start communicating between classes
+		//"Turnt Up Tofu" at the top of the screen
+		//Picture of a record player with a spinning burger bun instead of a vinyl at the center of the screen
+		//"Press space bar to start!" underneath record player
+		//"World's Hardest Games" symbol in the bottom right
 	}
 	
 	public void keyPressed(KeyEvent s) {
