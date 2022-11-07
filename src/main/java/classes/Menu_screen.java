@@ -8,7 +8,13 @@ public class Menu_screen {
 		return identifier;
 	}
 	public Menu_screen(){
-		
+		//area for creating a menu screen once we start communicating between classes
+		//"Turnt Up Tofu" at the top left of the screen
+		//Picture of a tofu cartoon dancing at the middle left
+		//"Press 'L' to play the Tutorial!" at middle right
+		//"Press Space bar to play the first level!" underneath "Press 'L' to play the Tutorial!"
+		//"Press 'Esc' to quit the game" underneath "Press Space bar to play the first level!"
+		//"World's Hardest Games" symbol in the bottom right
 	}
 	
 	public void onSpacePressed(KeyEvent s) {
