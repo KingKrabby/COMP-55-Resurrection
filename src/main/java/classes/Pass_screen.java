@@ -18,4 +18,11 @@ public class Pass_screen {
 		}
 	}
 	
+	public void keyPressed(KeyEvent r) {
+		int keyCode = r.getKeyCode();
+		if (keyCode == KeyEvent.VK_ENTER) {
+			//returns back to menu
+		}
+	}
+	
 }

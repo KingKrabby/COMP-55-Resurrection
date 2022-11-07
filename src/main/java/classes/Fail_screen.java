@@ -13,4 +13,11 @@ public class Fail_screen{
 			//replays level
 		}
 	}
+	
+	public void keyPressed(KeyEvent r) {
+		int keyCode = r.getKeyCode();
+		if (keyCode == KeyEvent.VK_ENTER) {
+			//returns back to menu
+		}
+	}
 }
