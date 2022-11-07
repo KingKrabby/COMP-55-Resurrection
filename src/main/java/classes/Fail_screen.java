@@ -2,6 +2,7 @@ package classes;
 import java.awt.event.KeyEvent;
 
 public class Fail_screen{
+	private Play_game program;
 	// function to identify map 
 	private int identifier = 3;
 	int get_identifier() {
@@ -23,6 +24,7 @@ public class Fail_screen{
 		int keyCode = r.getKeyCode();
 		if (keyCode == KeyEvent.VK_ENTER) {
 			//returns back to menu
+			program.switchToMenu();
 		}
 	}
 }

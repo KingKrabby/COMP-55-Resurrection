@@ -2,6 +2,7 @@ package classes;
 import java.awt.event.KeyEvent;
 
 public class Pass_screen {
+	private Play_game program;
 	// function to identify map 
 	private int identifier = 2;
 	int get_identifier() {
@@ -22,6 +23,7 @@ public class Pass_screen {
 		int keyCode = r.getKeyCode();
 		if (keyCode == KeyEvent.VK_ENTER) {
 			//returns back to menu
+			program.switchToMenu();
 		}
 	}
 	
