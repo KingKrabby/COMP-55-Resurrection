@@ -2,7 +2,7 @@
 public class Level{
 	// Food Array
 	// Song
-	// Conveyor Belt
+	// Conveyer Belt
 	// hitCircle Array
 	
 	
