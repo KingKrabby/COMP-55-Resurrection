@@ -2,10 +2,10 @@ package classes;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
-import acm.graphics.GLabel;
-import acm.graphics.GObject;
+import acm.program.*;
+import acm.graphics.*;
 
-public class Title_screen {
+public class Title_screen extends GraphicsProgram{
 	private Play_game program;
 	// function to identify map 
 	private int identifier = 0;
@@ -29,12 +29,12 @@ public class Title_screen {
 		GLabel x = new GLabel("Turnt Up Tofu!", 20, 50);
 		x.setColor(Color.black);
 		x.setFont("Arial-18");
-		//add(x);
+		add(x);
 		
 		GLabel y = new GLabel("Press Spacebar to Start!", 20, 50);
 		y.setColor(Color.black);
 		y.setFont("Arial-18");
-		//add(y);
+		add(y);
 		
 		
 		//area for creating a title screen once we start communicating between classes
