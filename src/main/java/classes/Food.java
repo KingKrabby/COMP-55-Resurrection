@@ -25,7 +25,7 @@ public class Food {
 
 		
 	
-	public double getSpawnBeat(Food currFood) {
+	public double getSpawnBeat() {
 		return spawnOnBeat;
 	}
 
