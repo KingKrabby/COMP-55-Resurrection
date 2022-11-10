@@ -14,19 +14,19 @@ public class Map extends GraphicsProgram implements ActionListener{
 	Timer t = new Timer(1000,this);
 	Score_streak box;
 	int map_track  = 0;
+	Timer g;
 	
 	
+	// All Maps
+	Title_screen title; // 0
+	Menu_screen menu; // 1
+	Pass_screen pass; // 2
+	Play_game game; // 3
 	
+	// 3 Levels
+	Conveyor belt;
 	
-	/*
-	 * Will Run each one:
-	 	* title screen -- > 0
-		 * Menu Screen --> 1
-		 * Pass Screen --> 2
-		 * play game --> 3
-	 */
-	
-	// Conveyor
+
 	// int: current note -- > pulls from conductor
 	//gets boolean from conveyor
 	
@@ -80,6 +80,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 		//boolean of conveyor is true
 		//perform action, which is to add to score streak box
 		
+		//TITLE 
 		if (key == KeyEvent.VK_SPACE && map_track == 0) {
 			map_track = 1 ;
 			// employ graphics for Menu screen
@@ -89,9 +90,12 @@ public class Map extends GraphicsProgram implements ActionListener{
 		
 		
 
-		if (map_track == 2) {
+		if (map_track == 3) {
 			//after pressing a button, do HitCircle
 			//if HitCircle is positive, run score_streak box functions
+			
+			
+			
 			//press W
 			if (key == KeyEvent.VK_W) {
 				
