@@ -1,13 +1,18 @@
 package classes;
 
 public class Level{
-	// Food Array
-	// Song
-	// Conveyer Belt
-	// hitCircle Array
 	
-	//conductor 1,2,3
+	Level() {
+		//initializes a conductor, conveyor array, food array, song, hit circle array, soawner
+	}
+
+	
+	
 	//getConductor
+	//getConveyor
+	//getFoodArray
+	//getHitCircleArray
+	//getSpawner
 	
 	
 	
