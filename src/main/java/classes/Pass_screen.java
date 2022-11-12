@@ -21,6 +21,9 @@ public class Pass_screen {
 		int keyCode = s.getKeyCode();
 		if (keyCode == KeyEvent.VK_SPACE) {
 			//move onto next level
+			//put onSpacePressed in mainApplication
+			//what will be our main application
+			//keep the logic in the classes
 		}
 	}
 	
