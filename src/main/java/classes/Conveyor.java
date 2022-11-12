@@ -25,9 +25,26 @@ public class Conveyor {
 				//trying to add spawners to arraylist
 				//add hitcircles to arraylist
 			}
-		
-			
+	
 	}
-
+	
+	public void moveNote() {
+		/* 
+		purpose: moving ingredient across screen
+		gets reaction time from conductor: 
+			reaction time is number of beats the user sees before they need to hit it
+		gets bpm from conductor: 
+			bpm = beats/60 seconds 
+		timer to move note?
+		should get food item as input
+		
+		in map:
+		for (int i = 0; i < level1.length(); i++) {
+			belt.moveNote(level1[i]);
+		}
+		
+		
+		*/
+	}
 
 }
