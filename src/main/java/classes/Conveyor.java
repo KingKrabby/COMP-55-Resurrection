@@ -28,7 +28,7 @@ public class Conveyor {
 	
 	}
 	
-	public void moveNote() {
+	public void moveNote(Food foodMoving) {
 		/* 
 		purpose: moving ingredient across screen
 		gets reaction time from conductor: 
@@ -43,8 +43,13 @@ public class Conveyor {
 			belt.moveNote(level1[i]);
 		}
 		
+		?? this is graphics is it not am i stupid
+		dont think this is needed in this class honestly
+		
 		
 		*/
+		
+		
 	}
 
 }
