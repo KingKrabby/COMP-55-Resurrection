@@ -6,6 +6,9 @@ public class Level{
 	// Conveyer Belt
 	// hitCircle Array
 	
+	//conductor 1,2,3
+	//getConductor
+	
 	
 	
 }
