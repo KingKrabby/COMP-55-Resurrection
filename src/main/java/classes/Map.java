@@ -58,20 +58,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 		// pulls from conductor
 	}
 	
-	//root.getInputMap.put(Key.Stroke.getKeyStroke("w"), "Waction");
-	//label.getActionMap().put("Waction",Waction);
-	
-	//map.getInputMap().put(Key.Stroke.getKeyStroke("a"), "Aaction");
-	//label.getActionMap().put("Aaction",Aaction);
-	
-	//map.getInputMap().put(Key.Stroke.getKeyStroke("s"), "Saction");
-	//label.getActionMap().put("Saction",Saction);
-	
-	//map.getInputMap().put(Key.Stroke.getKeyStroke("d"), "Daction");
-	//label.getActionMap().put("daction",Daction);
-	
-	//map.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "escape");
-	//label.getActionMap().put("escape",escape);
+
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -87,6 +74,28 @@ public class Map extends GraphicsProgram implements ActionListener{
 			
 			
 		}
+		//plays first level
+		if (key == KeyEvent.VK_SPACE && map_track == 1) {
+			map_track = 3 ;
+			// employ graphics for first level
+			
+			
+		}
+		//plays tutorial
+		if (key == KeyEvent.VK_L && map_track == 1) {
+			map_track = 1 ;
+			// employ graphics for tutorial
+			
+			
+		}
+		//exit
+		if (key == KeyEvent.VK_ESCAPE && map_track == 1) {
+			map_track = 0 ;
+			// employ graphics for title screen
+			
+			
+		}
+		
 		
 		
 
@@ -117,6 +126,9 @@ public class Map extends GraphicsProgram implements ActionListener{
 				
 			}
 		}
+		// passing level conditions
+		// converts map track: 3 -- > 2
+		
 
 		
 	}
@@ -130,5 +142,18 @@ public class Map extends GraphicsProgram implements ActionListener{
 		
 		
 	} 
-
+	//root.getInputMap.put(Key.Stroke.getKeyStroke("w"), "Waction");
+	//label.getActionMap().put("Waction",Waction);
+	
+	//map.getInputMap().put(Key.Stroke.getKeyStroke("a"), "Aaction");
+	//label.getActionMap().put("Aaction",Aaction);
+	
+	//map.getInputMap().put(Key.Stroke.getKeyStroke("s"), "Saction");
+	//label.getActionMap().put("Saction",Saction);
+	
+	//map.getInputMap().put(Key.Stroke.getKeyStroke("d"), "Daction");
+	//label.getActionMap().put("daction",Daction);
+	
+	//map.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "escape");
+	//label.getActionMap().put("escape",escape);
 }
