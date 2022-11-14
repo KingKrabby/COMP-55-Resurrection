@@ -34,6 +34,19 @@ public final class Map_Database {
 	Level level1 = new Level(conductor1, conveyor1, food1, song1, circles1, spawner1);
 	Level level2 = new Level(conductor2, conveyor2, food2, song2, circles2, spawner2);
 	Level level3 = new Level(conductor3, conveyor3, food3, song3, circles3, spawner3);
+	// get hitcircles
 	
+	
+	
+	//get level function
+	Level get_level1() {
+		return level1;
+	}
+	Level get_level2() {
+		return level2;
+	}
+	Level get_level3() {
+		return level3;
+	}
 	
 }
