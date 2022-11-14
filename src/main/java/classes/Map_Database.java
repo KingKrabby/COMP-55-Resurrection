@@ -27,9 +27,9 @@ public final class Map_Database {
 	public static HitCircle[] circles2; //I need to complete initialization
 	public static HitCircle[] circles3; //I need to complete initialization
 	
-	public static Spawner spawner1;  //I need to complete initialization
-	public static Spawner spawner2;  //I need to complete initialization
-	public static Spawner spawner3;  //I need to complete initialization
+	public static Spawner spawner1;  //Nate need to complete initialization
+	public static Spawner spawner2;  //Nate need to complete initialization
+	public static Spawner spawner3;  //Nate need to complete initialization
 	
 	Level level1 = new Level(conductor1, conveyor1, food1, song1, circles1, spawner1);
 	Level level2 = new Level(conductor2, conveyor2, food2, song2, circles2, spawner2);
