@@ -34,4 +34,6 @@ public class HitCircle {
 	}
 */
 	
+	//need a way to get currentLevel?
+	
 }
