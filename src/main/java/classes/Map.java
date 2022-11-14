@@ -25,7 +25,11 @@ public class Map extends GraphicsProgram implements ActionListener{
 	Play_game game; // 3
 	
 	// 3 Levels
-	Conveyor belt;
+	Map_Database data;
+	
+	Level level_1 = data.get_level1();
+	Level level_2 = data.get_level2();
+	Level level_3 = data.get_level3();
 	
 
 	// int: current note -- > pulls from conductor
@@ -44,16 +48,17 @@ public class Map extends GraphicsProgram implements ActionListener{
 	
 	
 	
-	void failChecker() {
+	boolean failChecker() {
 		//activates when buttons are pressed
 		// looks at current map --> fail screen
-		
-
+		if (box.get_failCount() == 3) {
+			return true;
+		}
+		return false;
 	}
 	
-	void passChecker() {
-		//activates when buttons are pressed
-		// looks at current map --> pass screen
+	void Correct_button_Checker() {
+		
 	}
 	void SpawnNotes() {
 		// pulls from conductor

@@ -8,13 +8,13 @@ public class Score_streak{
 	private int failCount = 0; // user starts at 0 fail count
 	
 	//accessor
-	private int get_score() {
+	int get_score() {
 		return score;
 	}
-	private int get_streak() {
+	int get_streak() {
 		return streak;
 	}
-	private int get_failCount() {
+	int get_failCount() {
 		return failCount;
 	}
 	
