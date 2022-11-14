@@ -1,6 +1,8 @@
 package classes;
 //The main screen where everything is displayed
 
+import java.awt.event.KeyEvent;
+
 public class Play_game extends Map{
 	//screen windows
 	public static final int WINDOW_WIDTH = 800;
@@ -10,11 +12,12 @@ public class Play_game extends Map{
 	private static final String[] SOUND_FILES = { "tutorial.mp3" };
 	
 	private Title_screen title;
+	private KeyEvent menu2;
 	private Menu_screen menu;
 	private Pass_screen pass;
 	private Fail_screen fail;
 	private int count;
-	
+
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	}
@@ -23,15 +26,16 @@ public class Play_game extends Map{
 		System.out.println("Turnt Up Tofu!");
 		title = new Title_screen();
 		menu = new Menu_screen();
-		switchToMenu();
+		//switchToMenu();
 	}
 	
 	
 	public void switchToMenu() {
 		playBackgroundNoise();
 		count++;
-		int map_track = 0;
+		//map_track = 1;
 		//switchToScreen(menu);
+		keyPressed(menu2);
 	}
 	
 	public void switchToFail() {
