@@ -17,7 +17,7 @@ public final class Map_Database {
 			new Food(FoodType.TOMATO, 13)};
 	public static Food[] food1; //nate needs to complete initialization
 	public static Food[] food2; //nate needs to complete initialization
-	public static Food[] food3; //nate needs to complete initialization
+	public static Food[] food3; //nate needs to complete initialization ifweo
 	
 	public static Song song1; //nate needs to complete initialization
 	public static Song song2; //nate needs to complete initialization
