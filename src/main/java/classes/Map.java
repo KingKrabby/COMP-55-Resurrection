@@ -15,6 +15,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 	Score_streak box;
 	int map_track  = 0;
 	Timer g;
+	Conductor bob;
 	
 	
 	// All Maps
@@ -100,29 +101,59 @@ public class Map extends GraphicsProgram implements ActionListener{
 		
 
 		if (map_track == 3) {
+			//how to implement tutorial
 			//after pressing a button, do HitCircle
 			//if HitCircle is positive, run score_streak box functions
 			
+			//waiting for Map_data base to be filled up
 			
-			
+			//must extract food item for different levels
 			//press W
 			if (key == KeyEvent.VK_W) {
-				
+				if (true) {
+					box.incrementScore();
+				}
+				else {
+					box.reset_streak();
+					box.incrementFail();
+				}
 			}
 			// press A
 			if (key == KeyEvent.VK_A) {
+				if (true) {
+					box.incrementScore();
+				}
+				else {
+					box.reset_streak();
+					box.incrementFail();
+				}
 				
 			}
 			//press S
 			if (key == KeyEvent.VK_S) {
+				if (true) {
+					box.incrementScore();
+				}
+				else {
+					box.reset_streak();
+					box.incrementFail();
+				}
 				
 			}
 			//press D
 			if (key == KeyEvent.VK_D) {
+				if (true) {
+					box.incrementScore();
+				}
+				else {
+					box.reset_streak();
+					box.incrementFail();
+				}
 				
 			}
 			//press escape
 			if (key == KeyEvent.VK_ESCAPE) {
+				// leaves the game
 				
 			}
 		}
@@ -139,7 +170,8 @@ public class Map extends GraphicsProgram implements ActionListener{
 	
 	@Override
 	public void run() {
-		
+		t.start();
+		t.stop();
 		
 	} 
 	//root.getInputMap.put(Key.Stroke.getKeyStroke("w"), "Waction");

@@ -22,6 +22,14 @@ public class Score_streak{
 	void incrementScore() {
 		score ++;
 	}
+	//add to fail count
+	void incrementFail() {
+		failCount ++;
+	}
+	//reset fail count
+	void reset_fail() {
+		failCount = 0;
+	}
 	// increments streak by one for each successive combo
 	void incrementStreak() {
 		streak ++;
