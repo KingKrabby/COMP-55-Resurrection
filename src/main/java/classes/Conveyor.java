@@ -20,11 +20,11 @@ public class Conveyor {
 		if (currHard == true) {
 			numConveyors = 2;
 		}
-			for (int i = 0; i < numConveyors; i++) {
+			//for (int i = 0; i < numConveyors; i++) {
 				//?? idk how spawners will work yet
 				//trying to add spawners to arraylist
 				//add hitcircles to arraylist
-			}
+			//}
 	
 	}
 	
