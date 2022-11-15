@@ -9,7 +9,7 @@ public class HitCircle {
 			hitCircleY = y;
 	}		
 
-	public boolean isHit(Food currentFood) { 
+	/*public boolean isHit(Food currentFood) { 
 		//currentBeat will be from conductor and spawnOnBeat will be from Food
 		double currentBeat = currentLevel.getConductor().getCurrentBeat(currentLevel);
 		double spawnOnBeat = currentFood.getSpawnBeat();

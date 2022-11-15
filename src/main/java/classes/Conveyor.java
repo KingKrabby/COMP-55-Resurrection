@@ -20,13 +20,26 @@ public class Conveyor {
 		if (currHard == true) {
 			numConveyors = 2;
 		}
-			for (int i = 0; i < numConveyors; i++) {
+			//for (int i = 0; i < numConveyors; i++) {
 				//?? idk how spawners will work yet
 				//trying to add spawners to arraylist
 				//add hitcircles to arraylist
-			}
+			//}
 	
 	}
+	
+	public int getLength() {
+		return length;
+	}
+	
+	public int getnoteSpeed() {
+		return noteSpeed;
+	}
+	
+	public int getNumConveyors() {
+		return numConveyors;
+	}
+	
 	
 	public void moveNote(Food foodMoving) {
 		/* 
