@@ -17,7 +17,7 @@ public class Map_graphics{
 	
 	
 	// score streak 
-	
+	Grect
 	// spawner
 	
 	// Food items
