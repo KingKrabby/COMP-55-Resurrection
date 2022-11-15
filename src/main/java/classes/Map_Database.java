@@ -31,9 +31,9 @@ public final class Map_Database {
 	public static Spawner spawner2;  //Nate need to complete initialization
 	public static Spawner spawner3;  //Nate need to complete initialization
 	
-	Level level1 = new Level(conductor1, conveyor1, food1, song1, circle1, spawner1);
-	Level level2 = new Level(conductor2, conveyor2, food2, song2, circle2, spawner2);
-	Level level3 = new Level(conductor3, conveyor3, food3, song3, circle3, spawner3);
+	Level level1 = new Level("level1",conductor1, conveyor1, food1, song1, circle1, spawner1);
+	Level level2 = new Level("level2",conductor2, conveyor2, food2, song2, circle2, spawner2);
+	Level level3 = new Level("level3", conductor3, conveyor3, food3, song3, circle3, spawner3);
 	// get hitcircles
 	
 	

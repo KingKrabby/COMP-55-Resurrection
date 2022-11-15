@@ -8,14 +8,15 @@ public class Level{
 	Song song;
 	HitCircle hitCircle;
 	Spawner spawner;
-	
-	Level(Conductor currConductor, Conveyor[] currBelts, Food[] currItems, Song currSong, HitCircle currCircle, Spawner currSpawner) {
+	String s;
+	Level(String string, Conductor currConductor, Conveyor[] currBelts, Food[] currItems, Song currSong, HitCircle currCircle, Spawner currSpawner) {
 		conductor = currConductor;
 		conveyorBelts = currBelts;
 		foodItems = currItems;
 		song = currSong;
 		hitCircle = currCircle;
 		spawner = currSpawner;
+		s = string;
 		
 	}
 
@@ -43,5 +44,8 @@ public class Level{
 		return spawner;
 	}
 	
+	public String get_string() {
+		return s;
+	}
 	
 }

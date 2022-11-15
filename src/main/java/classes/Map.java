@@ -124,10 +124,10 @@ public class Map extends GraphicsProgram implements ActionListener{
 			 *  if (food.getFoodtype == "Bun and current.getHitCircle.isHit(food)){
 			 *  }
 			 */
-			
+			Food curr_food = current.getConductor().getCurrentNote(current.get_string());
 			
 			if (key == KeyEvent.VK_W) {
-				if (true) {
+				if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food)) {
 					box.incrementScore();
 				}
 				else {
@@ -137,7 +137,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 			}
 			// press A
 			if (key == KeyEvent.VK_A) {
-				if (true) {
+				if (curr_food.getFoodType().toString() == "tomato" && current.getHitCircle().isHit(curr_food)) {
 					box.incrementScore();
 				}
 				else {
@@ -148,7 +148,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 			}
 			//press S
 			if (key == KeyEvent.VK_S) {
-				if (true) {
+				if (curr_food.getFoodType().toString() == "tofu" && current.getHitCircle().isHit(curr_food)) {
 					box.incrementScore();
 				}
 				else {
@@ -159,7 +159,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 			}
 			//press D
 			if (key == KeyEvent.VK_D) {
-				if (true) {
+				if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food)) {
 					box.incrementScore();
 				}
 				else {
