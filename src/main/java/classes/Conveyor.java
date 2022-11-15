@@ -28,6 +28,19 @@ public class Conveyor {
 	
 	}
 	
+	public int getLength() {
+		return length;
+	}
+	
+	public int getnoteSpeed() {
+		return noteSpeed;
+	}
+	
+	public int getNumConveyors() {
+		return numConveyors;
+	}
+	
+	
 	public void moveNote(Food foodMoving) {
 		/* 
 		purpose: moving ingredient across screen
