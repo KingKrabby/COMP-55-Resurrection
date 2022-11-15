@@ -57,7 +57,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 		return false;
 	}
 	
-	void Correct_button_Checker() {
+	void Correct_button_Checker(Level level) {
 		
 	}
 	void SpawnNotes() {
@@ -103,8 +103,10 @@ public class Map extends GraphicsProgram implements ActionListener{
 		}
 		
 		
-		
-
+	}
+	//for play_game
+	public void play_game_check(KeyEvent e) {
+		int key = e.getKeyCode();
 		if (map_track == 3) {
 			//how to implement tutorial
 			//after pressing a button, do HitCircle
@@ -114,6 +116,16 @@ public class Map extends GraphicsProgram implements ActionListener{
 			
 			//must extract food item for different levels
 			//press W
+			Level current = level_1;
+			// Play song
+			// song updates a variable
+			
+			/*	food = current.getConductor.getCurrentNote;
+			 *  if (food.getFoodtype == "Bun and current.getHitCircle.isHit(food)){
+			 *  }
+			 */
+			
+			
 			if (key == KeyEvent.VK_W) {
 				if (true) {
 					box.incrementScore();
@@ -164,10 +176,8 @@ public class Map extends GraphicsProgram implements ActionListener{
 		}
 		// passing level conditions
 		// converts map track: 3 -- > 2
-		
-
-		
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
