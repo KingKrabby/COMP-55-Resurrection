@@ -140,7 +140,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 						current.getConductor().stopSong(current.get_string());
 					}
 				}
-			}
+			} 
 			// press A
 			if (key == KeyEvent.VK_A) {
 				if (curr_food.getFoodType().toString() == "tomato" && current.getHitCircle().isHit(curr_food)) {
