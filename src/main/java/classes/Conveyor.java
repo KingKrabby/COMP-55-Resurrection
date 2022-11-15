@@ -10,8 +10,8 @@ public class Conveyor {
 	public int noteSpeed;
 	public boolean hardMode;
 	int numConveyors;
-	ArrayList<Spawner> spawners = new ArrayList<Spawner>();
-	ArrayList<HitCircle> hitCircles = new ArrayList<HitCircle>();
+	//ArrayList<Spawner> spawners = new ArrayList<Spawner>(); no longer needed due to map database?
+	//ArrayList<HitCircle> hitCircles = new ArrayList<HitCircle>(); no longer needed due to map database?
 
 	Conveyor(int currLength, int currNoteSpeed, boolean currHard) {
 		length = currLength;
