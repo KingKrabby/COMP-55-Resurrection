@@ -121,7 +121,8 @@ public class Map extends GraphicsProgram implements ActionListener{
 			// song updates a variable
 			
 			/*	food = current.getConductor.getCurrentNote;
-			 *  if (food.getFoodtype == 
+			 *  if (food.getFoodtype == "Bun and current.getHitCircle.isHit(food)){
+			 *  }
 			 */
 			
 			
