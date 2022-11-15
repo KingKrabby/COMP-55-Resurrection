@@ -48,10 +48,11 @@ public class Map extends GraphicsProgram implements ActionListener{
 	
 	
 	
-	boolean failChecker() {
+	boolean fail() {
 		//activates when buttons are pressed
 		// looks at current map --> fail screen
 		if (box.get_failCount() == 3) {
+			box.reset_fail();
 			return true;
 		}
 		return false;
@@ -117,6 +118,8 @@ public class Map extends GraphicsProgram implements ActionListener{
 			//must extract food item for different levels
 			//press W
 			Level current = level_1;
+			current.getConductor().playSong(current.get_string());
+			
 			// Play song
 			// song updates a variable
 			
@@ -133,6 +136,9 @@ public class Map extends GraphicsProgram implements ActionListener{
 				else {
 					box.reset_streak();
 					box.incrementFail();
+					if (fail()) {
+						current.getConductor().stopSong(current.get_string());
+					}
 				}
 			}
 			// press A
@@ -143,6 +149,9 @@ public class Map extends GraphicsProgram implements ActionListener{
 				else {
 					box.reset_streak();
 					box.incrementFail();
+					if (fail()) {
+						current.getConductor().stopSong(current.get_string());
+					}
 				}
 				
 			}
@@ -154,6 +163,9 @@ public class Map extends GraphicsProgram implements ActionListener{
 				else {
 					box.reset_streak();
 					box.incrementFail();
+					if (fail()) {
+						current.getConductor().stopSong(current.get_string());
+					}
 				}
 				
 			}
@@ -161,10 +173,14 @@ public class Map extends GraphicsProgram implements ActionListener{
 			if (key == KeyEvent.VK_D) {
 				if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food)) {
 					box.incrementScore();
+					current.getConductor().stopSong(current.get_string());
 				}
 				else {
 					box.reset_streak();
 					box.incrementFail();
+					if (fail()) {
+						current.getConductor().stopSong(current.get_string());
+					}
 				}
 				
 			}
@@ -189,18 +205,5 @@ public class Map extends GraphicsProgram implements ActionListener{
 		t.stop();
 		
 	} 
-	//root.getInputMap.put(Key.Stroke.getKeyStroke("w"), "Waction");
-	//label.getActionMap().put("Waction",Waction);
-	
-	//map.getInputMap().put(Key.Stroke.getKeyStroke("a"), "Aaction");
-	//label.getActionMap().put("Aaction",Aaction);
-	
-	//map.getInputMap().put(Key.Stroke.getKeyStroke("s"), "Saction");
-	//label.getActionMap().put("Saction",Saction);
-	
-	//map.getInputMap().put(Key.Stroke.getKeyStroke("d"), "Daction");
-	//label.getActionMap().put("daction",Daction);
-	
-	//map.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "escape");
-	//label.getActionMap().put("escape",escape);
+
 }
