@@ -130,7 +130,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 			Food curr_food = current.getConductor().getCurrentNote(current.get_string());
 			
 			if (key == KeyEvent.VK_W) {
-				if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food)) {
+				if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
 					box.incrementScore();
 				}
 				else {
@@ -143,7 +143,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 			} 
 			// press A
 			if (key == KeyEvent.VK_A) {
-				if (curr_food.getFoodType().toString() == "tomato" && current.getHitCircle().isHit(curr_food)) {
+				if (curr_food.getFoodType().toString() == "tomato" && current.getHitCircle().isHit(curr_food, current)) {
 					box.incrementScore();
 				}
 				else {
@@ -157,7 +157,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 			}
 			//press S
 			if (key == KeyEvent.VK_S) {
-				if (curr_food.getFoodType().toString() == "tofu" && current.getHitCircle().isHit(curr_food)) {
+				if (curr_food.getFoodType().toString() == "tofu" && current.getHitCircle().isHit(curr_food, current)) {
 					box.incrementScore();
 				}
 				else {
@@ -171,7 +171,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 			}
 			//press D
 			if (key == KeyEvent.VK_D) {
-				if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food)) {
+				if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
 					box.incrementScore();
 					current.getConductor().stopSong(current.get_string());
 				}
