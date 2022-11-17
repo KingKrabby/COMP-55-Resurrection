@@ -1,5 +1,15 @@
 package classes;
-public class Score_streak{
+
+import javax.swing.Timer;
+
+import acm.graphics.GLabel;
+import acm.graphics.GRect;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class Score_streak implements ActionListener{
 	
 	
 	private int streak = 0; //initializes streak to start at 0
@@ -45,5 +55,24 @@ public class Score_streak{
 	}
 	// 
 	int streak_multiplier;
+	
+	//GRAPHICS
+	// score streak 
+
+	int score_streak_SIZE = 100;
+	int score_streak_loc_x = 400;
+	int score_streak_loc_y = 400;
+	int score_streak_ms = 50;
+	GRect score_streak = new GRect(score_streak_SIZE, score_streak_SIZE, score_streak_loc_x,score_streak_loc_y );
+	Timer score_streak_graphic = new Timer(score_streak_ms, this);
+	GLabel score1;
+	GLabel streak1;
+	GLabel fail;
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	} 
 	
 }
