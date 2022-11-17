@@ -9,9 +9,9 @@ public class HitCircle {
 			hitCircleY = y;
 	}		
 
-	/*public boolean isHit(Food currentFood) { 
+	public boolean isHit(Food currentFood, Level currentLevel) { 
 		//currentBeat will be from conductor and spawnOnBeat will be from Food
-		double currentBeat = currentLevel.getConductor().getCurrentBeat(currentLevel);
+		double currentBeat = currentLevel.getConductor().getCurrentBeat(currentLevel.get_string());
 		double spawnOnBeat = currentFood.getSpawnBeat();
 		if ((currentBeat <= (spawnOnBeat + 0.25)) && currentBeat >= (spawnOnBeat - 0.25)) {
 			return true;
@@ -19,21 +19,6 @@ public class HitCircle {
 		else {
 			return false;
 		}
-		
-		/*
-		 in map:
-		 for (int i = 0; i < level1.length(); i++) {
-		 	if (level1[i].isHit == true) {
-		 	
-		 	}
-		 	else {
-		 	
-		 	}
-		 }
-		 
-	}
-*/
-	
-	//need a way to get currentLevel?
+
 	
 }
