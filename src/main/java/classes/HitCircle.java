@@ -19,6 +19,6 @@ public class HitCircle {
 		else {
 			return false;
 		}
-
+	}
 	
 }
