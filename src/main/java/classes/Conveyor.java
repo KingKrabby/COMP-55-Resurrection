@@ -1,4 +1,7 @@
 package classes;
+import acm.program.*;
+import acm.util.*;
+import java.awt.*;
 
 public class Conveyor {
 	public int length;
@@ -26,5 +29,20 @@ public class Conveyor {
 	public int getNumConveyors() {
 		return numConveyors;
 	}
-
+	
+	/*
+	 //public void setUpConveyor() {
+	  	if (numConveyors == 1) {
+	  		GImage singleConveyor = new GImage();
+	  		add(singleConveyor)
+	  	}
+	  	if (numConveyors ==2) {
+	  		GImage conveyor1 = new GImage();
+	  		add(conveyor1);
+	  		GImage conveyor2 = new GImage();
+	  		add(conveyor2);
+	  	}
+	  
+	  }
+	 */
 }
