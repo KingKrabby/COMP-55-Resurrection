@@ -14,4 +14,4 @@ public class Spawner{
 	Boolean hardMode;
 	int spawnerX;
 	int spawnerY;
-}
+} 

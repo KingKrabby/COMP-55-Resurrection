@@ -3,14 +3,6 @@ package classes;
 public final class Map_Database {
 	private Map_Database() {}
 	
-	public static Conductor conductor1; //nate needs to complete initialization
-	public static Conductor conductor2; //nate needs to complete initialization
-	public static Conductor conductor3; //nate needs to complete initialization
-	
-	public static Conveyor[] conveyor1; //I need to complete initialization
-	public static Conveyor[] conveyor2; //I need to complete initialization
-	public static Conveyor[] conveyor3; //I need to complete initialization
-	
 	public static Food[] tutorialFood = new Food[] { new Food(FoodType.BUN, 1), 
 			new Food(FoodType.KETCHUP, 5),
 			new Food(FoodType.TOFU, 9),
@@ -18,6 +10,14 @@ public final class Map_Database {
 	public static Food[] food1; //nate needs to complete initialization
 	public static Food[] food2; //nate needs to complete initialization
 	public static Food[] food3; //nate needs to complete initialization ifweo
+	
+	public static Conductor conductor1 = new Conductor(109, Song.getInstance(), 3, food1);
+	public static Conductor conductor2 = new Conductor(118, Song.getInstance(), 2, food2); 
+	public static Conductor conductor3 = new Conductor(160, Song.getInstance(), 1, food3);
+	
+	public static Conveyor[] conveyor1; //I need to complete initialization
+	public static Conveyor[] conveyor2; //I need to complete initialization
+	public static Conveyor[] conveyor3; //I need to complete initialization
 	
 	public static Song song1; //nate needs to complete initialization
 	public static Song song2; //nate needs to complete initialization
