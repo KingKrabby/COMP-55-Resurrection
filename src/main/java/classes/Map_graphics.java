@@ -37,7 +37,7 @@ public class Map_graphics extends GraphicsProgram implements ActionListener{
 	// spawner
 	
 	
-	// Food items
+	// Food items 
 	public void run() {
 		
 	}
