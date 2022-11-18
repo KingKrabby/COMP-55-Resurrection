@@ -51,4 +51,8 @@ public class Level{
 		return s;
 	}
 	
+	public HitCircle[] getHitCircles() {
+		return hitCircles;
+	}
+	
 }
