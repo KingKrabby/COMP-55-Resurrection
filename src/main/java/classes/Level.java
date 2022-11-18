@@ -9,7 +9,9 @@ public class Level{
 	HitCircle hitCircle;
 	Spawner spawner;
 	String s;
-	Level(String string, Conductor currConductor, Conveyor[] currBelts, Food[] currItems, Song currSong, HitCircle currCircle, Spawner currSpawner) {
+	HitCircle[] hitCircles;
+	
+	Level(String string, Conductor currConductor, Conveyor[] currBelts, Food[] currItems, Song currSong, HitCircle currCircle, Spawner currSpawner, HitCircle[] currCircles) {
 		conductor = currConductor;
 		conveyorBelts = currBelts;
 		foodItems = currItems;
@@ -17,6 +19,7 @@ public class Level{
 		hitCircle = currCircle;
 		spawner = currSpawner;
 		s = string;
+		hitCircles = currCircles;
 		
 	}
 
