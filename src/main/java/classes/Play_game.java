@@ -3,6 +3,7 @@ package classes;
 
 import java.awt.event.KeyEvent;
 
+
 public class Play_game extends Map{
 	//screen windows
 	public static final int WINDOW_WIDTH = 800;
@@ -11,11 +12,11 @@ public class Play_game extends Map{
 	public static final String MUSIC_FOLDER = "songs";
 	private static final String[] SOUND_FILES = { "tutorial.mp3" };
 	
-	private Title_screen title;
-	private KeyEvent menu2;
-	private Menu_screen menu;
-	private Pass_screen pass;
-	private Fail_screen fail;
+	//private Title_screen title;
+	//comment added
+	private KeyEvent menu;
+	private KeyEvent pass;
+	private KeyEvent fail;
 	private int count;
 
 	public void init() {
@@ -24,8 +25,8 @@ public class Play_game extends Map{
 	
 	public void run() {
 		System.out.println("Turnt Up Tofu!");
-		title = new Title_screen();
-		menu = new Menu_screen();
+		title = new Title_screen(this);
+		//menu = new Menu_screen();
 		//switchToMenu();
 	}
 	
@@ -33,17 +34,22 @@ public class Play_game extends Map{
 	public void switchToMenu() {
 		playBackgroundNoise();
 		count++;
-		//map_track = 1;
-		//switchToScreen(menu);
-		keyPressed(menu2);
+		map_track = 1;
+		play_game_check(menu);
 	}
 	
 	public void switchToFail() {
-		//switchToScreen(fail);
+		playBackgroundNoise();
+		count++;
+		map_track = 3;
+		play_game_check(fail);
 	}
 	
 	public void switchToPass() {
-		//switchToScreen(pass);
+		playBackgroundNoise();
+		count++;
+		map_track = 2;
+		play_game_check(pass);
 	}
 	
 	private void playBackgroundNoise() {
