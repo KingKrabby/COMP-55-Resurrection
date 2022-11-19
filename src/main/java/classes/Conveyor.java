@@ -8,6 +8,14 @@ public class Conveyor {
 	public int noteSpeed;
 	public boolean hardMode;
 	int numConveyors;
+	public static final int WINDOW_WIDTH = 800;
+	public static final int WINDOW_HEIGHT = 600;
+	//public static final int x1; will be for first conveyor
+	//public static final int y1; will be for first conveyor
+	//public static final int x2; will be for second conveyor
+	//public static final int y2; will be for second conveyor
+
+	
 	
 	Conveyor(int currLength, int currNoteSpeed, boolean currHard) {
 		length = currLength;
@@ -42,6 +50,8 @@ public class Conveyor {
 	  		GImage conveyor2 = new GImage();
 	  		add(conveyor2);
 	  	}
+	  
+		//need two different conveyor images, one for the big one and one for the half size
 	  
 	  }
 	 */
