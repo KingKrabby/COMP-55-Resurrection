@@ -1,14 +1,16 @@
 package classes;
 import java.awt.event.KeyEvent;
 
-public class Pass_screen {
+public class Pass_screen extends Play_game{
 	private Play_game program;
 	// function to identify map 
 	private int identifier = 2;
 	int get_identifier() {
 		return identifier;
 	}
-	public Pass_screen(){
+	public Pass_screen(Play_game app){
+		super();
+		program = app;
 		//area for creating a pass screen once we start communicating between classes
 		//"Great Work!" at the top of the screen
 		//Picture of a tofu cartoon dancing at the bottom right
