@@ -25,7 +25,7 @@ public class Play_game extends Map{
 	
 	public void run() {
 		System.out.println("Turnt Up Tofu!");
-		title = new Title_screen(this);
+		map_track = 0;
 		//menu = new Menu_screen();
 		//switchToMenu();
 	}
