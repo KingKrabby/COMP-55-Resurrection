@@ -41,13 +41,13 @@ public class HitCircle {
 	/*
 	 //public void setUpHitCircle() {
 	  	if (numHitCircles == 1) {
-	  		GImage singleHitCircle = new GImage();
+	  		GImage singleHitCircle = new GImage(name, x1, y1);
 	  		add(singleHitCircle);
 	  	}
 	  	if (numHitCircles ==2) {
-	  		GImage hitCircle1 = new GImage();
+	  		GImage hitCircle1 = new GImage(name, x2, y2);
 	  		add(hitCircle1);
-	  		GImage hitCircle2 = new GImage();
+	  		GImage hitCircle2 = new GImage(name, x3, y3);
 	  		add(hitCircle2);
 	  	}
 	  
