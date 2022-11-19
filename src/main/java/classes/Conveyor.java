@@ -41,13 +41,13 @@ public class Conveyor {
 	/*
 	 //public void setUpConveyor() {
 	  	if (numConveyors == 1) {
-	  		GImage singleConveyor = new GImage();
+	  		GImage singleConveyor = new GImage(name, x1, y1);
 	  		add(singleConveyor)
 	  	}
 	  	if (numConveyors ==2) {
-	  		GImage conveyor1 = new GImage();
+	  		GImage conveyor1 = new GImage(name, x1, y1);
 	  		add(conveyor1);
-	  		GImage conveyor2 = new GImage();
+	  		GImage conveyor2 = new GImage(name, x2, y2);
 	  		add(conveyor2);
 	  	}
 	  
