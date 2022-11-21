@@ -35,21 +35,21 @@ public class Play_game extends Map{
 		playBackgroundNoise();
 		count++;
 		map_track = 1;
-		play_game_check(menu);
+		//play_game_check(menu);
 	}
 	
 	public void switchToFail() {
 		playBackgroundNoise();
 		count++;
 		map_track = 3;
-		play_game_check(fail);
+		//play_game_check(fail);
 	}
 	
 	public void switchToPass() {
 		playBackgroundNoise();
 		count++;
 		map_track = 2;
-		play_game_check(pass);
+		//play_game_check(pass);
 	}
 	
 	private void playBackgroundNoise() {

@@ -54,5 +54,8 @@ public class Level{
 	public HitCircle[] getHitCircles() {
 		return hitCircles;
 	}
+	//needs a background screen
+	//needs background music
+	
 	
 }

@@ -19,10 +19,10 @@ public class Map extends GraphicsProgram implements ActionListener{
 	
 	
 	// All Maps
-	Title_screen title; // 0
-	Menu_screen menu; // 1
-	Pass_screen pass; // 2
-	Play_game game; // 3
+	static Title_screen title; // 0
+	static Menu_screen menu; // 1
+	static Pass_screen pass; // 2
+	static Play_game game; // 3
 	
 	// 3 Levels
 	Map_Database data;
@@ -30,23 +30,6 @@ public class Map extends GraphicsProgram implements ActionListener{
 	Level level_1 = data.get_level1();
 	Level level_2 = data.get_level2();
 	Level level_3 = data.get_level3();
-	
-
-	// int: current note -- > pulls from conductor
-	//gets boolean from conveyor
-	
-	Action Waction;
-	Action Aaction;
-	Action Saction;
-	Action Daction;
-	Action escape;
-	// All map library
-	
-	//Title Screen
-	//Take Screen to menu screen
-	
-	
-	
 	
 	boolean fail() {
 		//activates when buttons are pressed
@@ -57,76 +40,24 @@ public class Map extends GraphicsProgram implements ActionListener{
 		}
 		return false;
 	}
-	
-	void Correct_button_Checker(Level level) {
-		
-	}
-	void SpawnNotes() {
-		// pulls from conductor
-	}
-	
-
-	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		int key = e.getKeyCode();
-		// if map.get(int) == play_game etc...
-		//boolean of conveyor is true
-		//perform action, which is to add to score streak box
-		
-		//TITLE 
-		if (key == KeyEvent.VK_SPACE && map_track == 0) {
-			map_track = 1 ;
-			// employ graphics for Menu screen
-			
-			
+		int key = e.getKeyCode(); 
+		if (map_track == 0) {
+			title.run();
+			title.keyPressed(e);
 		}
-		//plays first level
-		if (key == KeyEvent.VK_SPACE && map_track == 1) {
-			map_track = 3 ;
-			// employ graphics for first level
-			
-			
-		}
-		//plays tutorial
-		if (key == KeyEvent.VK_L && map_track == 1) {
-			map_track = 1 ;
-			// employ graphics for tutorial
-			
-			
-		}
-		//exit
-		if (key == KeyEvent.VK_ESCAPE && map_track == 1) {
-			map_track = 0 ;
-			// employ graphics for title screen
-			
-			
+		if (map_track == 1) {
+			menu.run();
+			menu.onSpacePressed(e);
+			menu.onLPress(e);
+			menu.keyPressed(e);
 		}
 		
-		
-	}
-	//for play_game
-	public void play_game_check(KeyEvent e) {
-		int key = e.getKeyCode();
 		if (map_track == 3) {
-			//how to implement tutorial
-			//after pressing a button, do HitCircle
-			//if HitCircle is positive, run score_streak box functions
-			
-			//waiting for Map_data base to be filled up
-			
-			//must extract food item for different levels
-			//press W
+			game.run();
 			Level current = level_1;
 			current.getConductor().playSong(current.get_string());
-			
-			// Play song
-			// song updates a variable
-			
-			/*	food = current.getConductor.getCurrentNote;
-			 *  if (food.getFoodtype == "Bun and current.getHitCircle.isHit(food)){
-			 *  }
-			 */
 			Food curr_food = current.getConductor().getCurrentNote(current.get_string());
 			
 			if (key == KeyEvent.VK_W) {
@@ -185,25 +116,29 @@ public class Map extends GraphicsProgram implements ActionListener{
 				
 			}
 			//press escape
-			if (key == KeyEvent.VK_ESCAPE) {
-				// leaves the game
-				
-			}
 		}
 		// passing level conditions
 		// converts map track: 3 -- > 2
-	}
-	
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
 		
 	}
 	
-	@Override
+	
+	//Title Screen
+	
+	
+	
+	
+	//Take Screen to menu screen
 	public void run() {
-		t.start();
-		t.stop();
-		
-	} 
+		title.run();
+	}
+	
+	public static void main(String args[]) {
+		 title.run();
+			 
+		 
+		 
+	}
+	
 
 }
