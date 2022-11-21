@@ -4,12 +4,13 @@ import javax.swing.Timer;
 
 import acm.graphics.GLabel;
 import acm.graphics.GRect;
+import acm.program.GraphicsProgram;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class Score_streak implements ActionListener{
+public class Score_streak extends GraphicsProgram implements ActionListener{
 	
 	
 	private int streak = 0; //initializes streak to start at 0
@@ -59,20 +60,40 @@ public class Score_streak implements ActionListener{
 	//GRAPHICS
 	// score streak 
 
-	int score_streak_SIZE = 100;
-	int score_streak_loc_x = 400;
-	int score_streak_loc_y = 400;
+	int score_streak_SIZE_x = 60;
+	int score_streak_SIZE_y = 50;
+	int score_streak_loc_x = 0;
+	int score_streak_loc_y = 40;
 	int score_streak_ms = 50;
-	GRect score_streak = new GRect(score_streak_SIZE, score_streak_SIZE, score_streak_loc_x,score_streak_loc_y );
+	GRect score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
 	Timer score_streak_graphic = new Timer(score_streak_ms, this);
 	GLabel score1;
 	GLabel streak1;
 	GLabel fail;
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	
+	public void run() {
+		add(score_streak);
+		score1 = new GLabel("Score: " + get_score(),0, 50);
+		streak1 = new GLabel("Streak: " + get_streak(),0, 60);
+		int fail_x = 0;
+		fail = new GLabel("Fail: " ,0, 70);
+		add(fail);
+		fail_x += 25;
+		for (int i = 0; i < + get_failCount(); i++) {
+			fail = new GLabel("X " , fail_x, 70);
+			fail_x += 10;
+			add(fail);
+		}
 		
-	} 
+		score_streak_graphic.start();
+		add(score1);
+		add(streak1);
+		
+		
+		
+	}
+	public static void main(String args[]) {
+		new Score_streak().start();
+	}
 	
 }

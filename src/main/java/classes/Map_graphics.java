@@ -11,6 +11,8 @@ import acm.program.GraphicsProgram;
 
 public class Map_graphics extends GraphicsProgram implements ActionListener{
 	
+	// Score Streak box
+
 	
 	// Conveyor
 	
@@ -27,6 +29,9 @@ public class Map_graphics extends GraphicsProgram implements ActionListener{
 	
 	
 	// Food items 
+	
+	
+	
 	public void run() {
 		
 	}
