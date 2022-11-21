@@ -28,7 +28,7 @@ public class Pass_screen extends Play_game{
 			//what will be our main application
 			//keep the logic in the classes
 			levelCount++;
-			
+			map_track = 3;
 		}
 	}
 	
