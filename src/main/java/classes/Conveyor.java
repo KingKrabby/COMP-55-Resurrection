@@ -41,15 +41,15 @@ public class Conveyor extends GraphicsProgram {
 	
 	 public void run() {
 	  	if (numConveyors == 1) {
-	  		GImage singleConveyor = new GImage("conveyor.png", x1, y1);
+	  		GImage singleConveyor = new GImage("conveyor1.png", x1, y1);
 	  		add(singleConveyor);
 	  	}
 	  	
 	  	if (numConveyors ==2) {
-	  		GImage conveyor1 = new GImage("conveyor.png", x1, y1);
+	  		GImage conveyor1 = new GImage("conveyor2.png", x1, y1);
 	  		add(conveyor1);
 	  		
-	  		GImage conveyor2 = new GImage("conveyor.png", x2, y2);
+	  		GImage conveyor2 = new GImage("conveyor2.png", x2, y2);
 	  		add(conveyor2);
 	  	}
 	  }
