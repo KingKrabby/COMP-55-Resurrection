@@ -53,6 +53,7 @@ public class Menu_screen extends Play_game{
 		int keyCode = e.getKeyCode();
 		if (keyCode == KeyEvent.VK_ESCAPE) {
 			//quits the game
+			System.exit(0);
 		}
 	}
 	
