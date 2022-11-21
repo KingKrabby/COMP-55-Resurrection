@@ -14,7 +14,7 @@ public class HitCircle extends GraphicsProgram {
 	public static final int x2 = 0; //will be for first HitCircle on smaller conveyors
 	public static final int y2 = 0; //will be for first HitCircle on smaller conveyors
 	public static final int x3 = 0; //will be for second HitCircle on smaller conveyors
-	public static final int y3 = 0; //will be for second HitCircle on smaller conveyors
+	public static final int y3 = 0; //will be for second HitCircle on smaller conveyors b
 	public int numHitCircles;
 	
 	
