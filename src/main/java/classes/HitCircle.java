@@ -5,8 +5,6 @@ import acm.util.*;
 import java.awt.*;
 
 public class HitCircle extends GraphicsProgram {
-	public int hitCircleX;
-	public int hitCircleY;
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
 	public static final int x1 = 0; //will be for HitCircle on large conveyor
@@ -22,9 +20,7 @@ public class HitCircle extends GraphicsProgram {
 	//need to find way to retrieve hitcircle num from mapdatabase?
 	//or maybe change constructor to have number parameter
 	
-	HitCircle(int x, int y, int z) {
-			hitCircleX = x;
-			hitCircleY = y;
+	HitCircle(int z) {
 			numHitCircles = z;
 	}		
 
