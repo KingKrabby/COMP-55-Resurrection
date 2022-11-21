@@ -12,8 +12,7 @@ public class Play_game extends Map{
 	public static final String MUSIC_FOLDER = "songs";
 	private static final String[] SOUND_FILES = { "tutorial.mp3" };
 	
-	//private Title_screen title;
-	//comment added
+	private Title_screen title;
 	private KeyEvent menu;
 	private KeyEvent pass;
 	private KeyEvent fail;
@@ -26,8 +25,9 @@ public class Play_game extends Map{
 	public void run() {
 		System.out.println("Turnt Up Tofu!");
 		map_track = 0;
-		//menu = new Menu_screen();
+		title = new Title_screen();
 		//switchToMenu();
+		playBackgroundNoise();
 	}
 	
 	
