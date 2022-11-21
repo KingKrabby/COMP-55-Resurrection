@@ -8,7 +8,7 @@ public class Fail_screen{
 	int get_identifier() {
 		return identifier;
 	}
-	
+	public int levelCount = 0;
 	public Fail_screen(){
 		//area for creating a pass screen once we start communicating between classes
 		//"Oof, better luck next time" at the top of the screen
@@ -22,6 +22,7 @@ public class Fail_screen{
 		int keyCode = s.getKeyCode();
 		if (keyCode == KeyEvent.VK_SPACE) {
 			//replays level
+			levelCount++;
 		}
 	}
 	

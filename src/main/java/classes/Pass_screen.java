@@ -8,6 +8,7 @@ public class Pass_screen extends Play_game{
 	int get_identifier() {
 		return identifier;
 	}
+	public int levelCount = 0;
 	public Pass_screen(Play_game app){
 		super();
 		program = app;
@@ -26,6 +27,7 @@ public class Pass_screen extends Play_game{
 			//put onSpacePressed in mainApplication
 			//what will be our main application
 			//keep the logic in the classes
+			levelCount++;
 		}
 	}
 	
