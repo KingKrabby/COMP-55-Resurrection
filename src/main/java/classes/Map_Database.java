@@ -1,13 +1,16 @@
 package classes;
 
 public final class Map_Database {
-	private Map_Database() {}
+	public Map_Database() {}
 	
 	public static Food[] tutorialFood = new Food[] { new Food(FoodType.BUN, 1), 
 			new Food(FoodType.KETCHUP, 5),
 			new Food(FoodType.TOFU, 9),
 			new Food(FoodType.TOMATO, 13)};
-	public static Food[] food1; //nate needs to complete initialization
+	public static Food[] food1 = new Food[] { new Food(FoodType.BUN, 1), 
+			new Food(FoodType.KETCHUP, 5),
+			new Food(FoodType.TOFU, 9),
+			new Food(FoodType.TOMATO, 13)};
 	public static Food[] food2; //nate needs to complete initialization
 	public static Food[] food3; //nate needs to complete initialization ifweo
 	
@@ -15,21 +18,21 @@ public final class Map_Database {
 	public static Conductor conductor2 = new Conductor(118, Song.getInstance(), 2, food2); 
 	public static Conductor conductor3 = new Conductor(160, Song.getInstance(), 1, food3);
 	
-	public static Conveyor[] conveyor1; //I need to complete initialization
-	public static Conveyor[] conveyor2; //I need to complete initialization
-	public static Conveyor[] conveyor3; //I need to complete initialization
+	public static Conveyor[] conveyor1 = null; //I need to complete initialization
+	public static Conveyor[] conveyor2 = null; //I need to complete initialization
+	public static Conveyor[] conveyor3 = null; //I need to complete initialization
 	
-	public static Song song1; //nate needs to complete initialization
-	public static Song song2; //nate needs to complete initialization
-	public static Song song3; //nate needs to complete initialization
+	public static Song song1 = null; //nate needs to complete initialization
+	public static Song song2 = null; //nate needs to complete initialization
+	public static Song song3 = null; //nate needs to complete initialization
 	
-	public static HitCircle[] circle1; //I need to complete initialization
-	public static HitCircle[] circle2; //I need to complete initialization
-	public static HitCircle[] circle3; //I need to complete initialization
+	public static HitCircle[] circle1 = null; //I need to complete initialization
+	public static HitCircle[] circle2 = null; //I need to complete initialization
+	public static HitCircle[] circle3 = null; //I need to complete initialization
 	
-	public static Spawner spawner1;  //Nate need to complete initialization
-	public static Spawner spawner2;  //Nate need to complete initialization
-	public static Spawner spawner3;  //Nate need to complete initialization
+	public static Spawner spawner1 = null;  //Nate need to complete initialization
+	public static Spawner spawner2 = null;  //Nate need to complete initialization
+	public static Spawner spawner3 = null;  //Nate need to complete initialization
 	
 
 	Level level1 = new Level("level1",conductor1, conveyor1, food1, song1, circle1[0], spawner1, circle1);

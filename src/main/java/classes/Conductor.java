@@ -49,7 +49,7 @@ public class Conductor {
 	}
 	public static void main(String[] args) {
 		Song testSong = Song.getInstance();
-		Conductor testConductor = new Conductor(150, testSong, 1, Map_Database.tutorial);
+		Conductor testConductor = new Conductor(150, testSong, 1, Map_Database.tutorialFood);
 		Scanner scan = new Scanner(System.in);
 		testConductor.playSong("tutorial");
 		for(int i = 0; i < 10; i++) {
