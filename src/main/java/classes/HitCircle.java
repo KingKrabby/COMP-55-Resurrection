@@ -1,29 +1,31 @@
 package classes;
+import acm.graphics.*;
 import acm.program.*;
 import acm.util.*;
 import java.awt.*;
 
-
-public class HitCircle {
+public class HitCircle extends GraphicsProgram {
 	public int hitCircleX;
 	public int hitCircleY;
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
-	//public static final int x1; will be for HitCircle on large conveyor
-	//public static final int y1; will be for HitCircle on large conveyor
-	//public static final int x2; will be for first HitCircle on smaller conveyors
-	//public static final int y2; will be for first HitCircle on smaller conveyors
-	//public static final int x3; will be for second HitCircle on smaller conveyors
-	//public static final int y3; will be for second HitCircle on smaller conveyors
+	public static final int x1 = 0; //will be for HitCircle on large conveyor
+	public static final int y1 = 0; //will be for HitCircle on large conveyor
+	public static final int x2 = 0; //will be for first HitCircle on smaller conveyors
+	public static final int y2 = 0; //will be for first HitCircle on smaller conveyors
+	public static final int x3 = 0; //will be for second HitCircle on smaller conveyors
+	public static final int y3 = 0; //will be for second HitCircle on smaller conveyors
+	public int numHitCircles;
 	
 	
 	//int numHitCircles;
 	//need to find way to retrieve hitcircle num from mapdatabase?
 	//or maybe change constructor to have number parameter
 	
-	HitCircle(int x, int y) {
+	HitCircle(int x, int y, int z) {
 			hitCircleX = x;
 			hitCircleY = y;
+			numHitCircles = z;
 	}		
 
 	public boolean isHit(Food currentFood, Level currentLevel) { 
@@ -38,20 +40,22 @@ public class HitCircle {
 		}
 	}
 	
-	/*
-	 //public void setUpHitCircle() {
+	
+	
+	
+	 public void run() {
 	  	if (numHitCircles == 1) {
-	  		GImage singleHitCircle = new GImage(name, x1, y1);
+	  		GImage singleHitCircle = new GImage("hitcircle.png", x1, y1);
 	  		add(singleHitCircle);
 	  	}
 	  	if (numHitCircles ==2) {
-	  		GImage hitCircle1 = new GImage(name, x2, y2);
+	  		GImage hitCircle1 = new GImage("hitcircle.png", x2, y2);
 	  		add(hitCircle1);
-	  		GImage hitCircle2 = new GImage(name, x3, y3);
+	  		GImage hitCircle2 = new GImage("hitcircle.png", x3, y3);
 	  		add(hitCircle2);
 	  	}
 	  
 	  }
-	 */
+	 
 	
 }
