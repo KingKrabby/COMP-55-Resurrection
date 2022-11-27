@@ -30,6 +30,9 @@ public class Map extends GraphicsProgram implements ActionListener{
 	Level level_1 = data.get_level1();
 	Level level_2 = data.get_level2();
 	Level level_3 = data.get_level3();
+	Level[] level_arr = new Level[] {level_1, level_2, level_3};
+	int curr_level_num = 0;
+	Level current = level_1;
 	
 	boolean fail() {
 		//activates when buttons are pressed
@@ -40,23 +43,45 @@ public class Map extends GraphicsProgram implements ActionListener{
 		}
 		return false;
 	}
+	boolean pass(int score, Level level) {
+		if(score == level.get_food_length()) {
+			box.reset();
+			curr_level_num ++;
+			if (curr_level_num < 3) {
+				current = level_arr[curr_level_num];
+			}
+			pass.run();
+			return true;
+		}
+		return false;
+	}
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode(); 
 		if (map_track == 0) {
+			//Run Title Graphics
 			title.run();
 			title.keyPressed(e);
 		}
 		if (map_track == 1) {
+			//Run Meu Graphics
 			menu.run();
 			menu.onSpacePressed(e);
 			menu.onLPress(e);
 			menu.keyPressed(e);
 		}
+		if (map_track == 2) {
+			pass.run();
+			}
 		
 		if (map_track == 3) {
+			//Run Game Graphics
+			if (curr_level_num >= 3) {
+				map_track = 2;
+			}
+			pass(box.get_score(), current);
+			box.run();
 			game.run();
-			Level current = level_1;
 			current.getConductor().playSong(current.get_string());
 			Food curr_food = current.getConductor().getCurrentNote(current.get_string());
 			

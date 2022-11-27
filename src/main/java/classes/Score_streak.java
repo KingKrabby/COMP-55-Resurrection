@@ -57,6 +57,11 @@ public class Score_streak extends GraphicsProgram implements ActionListener{
 	// 
 	int streak_multiplier;
 	
+	void reset() {
+		reset_streak();
+		reset_score();
+		reset_fail();
+	}
 	//GRAPHICS
 	// score streak 
 

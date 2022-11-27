@@ -35,6 +35,10 @@ public class Level{
 		return foodItems;
 	}
 	
+	public int get_food_length() {
+		return foodItems.length; // for pass
+	}
+	
 	public Song getSong(){
 		return song;
 	}
