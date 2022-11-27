@@ -102,7 +102,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 				if (curr_food.getFoodType().toString() == "tomato" && current.getHitCircle().isHit(curr_food, current)) {
 					box.incrementScore();
 				}
-				else {
+				else { 
 					box.reset_streak();
 					box.incrementFail();
 					if (fail()) {
