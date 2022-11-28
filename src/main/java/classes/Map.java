@@ -160,7 +160,6 @@ public class Map extends GraphicsProgram implements ActionListener{
 	
 	public static void main(String args[]) {
 		 title.run();
-			 
 		 
 		 
 	}

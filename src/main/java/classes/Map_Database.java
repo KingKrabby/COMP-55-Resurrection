@@ -22,9 +22,9 @@ public final class Map_Database {
 	public static Conveyor[] conveyor2 = null; //I need to complete initialization
 	public static Conveyor[] conveyor3 = null; //I need to complete initialization
 	
-	public static Song song1 = null; //nate needs to complete initialization
-	public static Song song2 = null; //nate needs to complete initialization
-	public static Song song3 = null; //nate needs to complete initialization
+	public static Song song1 ; 
+	public static Song song2 ; 
+	public static Song song3 ; 
 	
 	public static HitCircle[] circle1 = null; //I need to complete initialization
 	public static HitCircle[] circle2 = null; //I need to complete initialization
