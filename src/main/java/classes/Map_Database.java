@@ -18,9 +18,9 @@ public final class Map_Database {
 	public static Conductor conductor2 = new Conductor(118, Song.getInstance(), 2, food2); 
 	public static Conductor conductor3 = new Conductor(160, Song.getInstance(), 1, food3);
 	
-	public static Conveyor[] conveyor1 = null; //I need to complete initialization
-	public static Conveyor[] conveyor2 = null; //I need to complete initialization
-	public static Conveyor[] conveyor3 = null; //I need to complete initialization
+	public static Conveyor conveyor1 = new Conveyor(false);
+	public static Conveyor conveyor2 = new Conveyor(false);
+	public static Conveyor conveyor3 =new Conveyor(true);
 	
 	public static Song song1 ; 
 	public static Song song2 ; 
