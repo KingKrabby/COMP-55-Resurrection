@@ -9,9 +9,9 @@ public class Level{
 	HitCircle hitCircle;
 	Spawner spawner;
 	String s;
-	HitCircle[] hitCircles;
+
 	
-	Level(String string, Conductor currConductor, Conveyor currBelt, Food[] currItems, Song currSong, HitCircle currCircle, Spawner currSpawner, HitCircle[] currCircles) {
+	Level(String string, Conductor currConductor, Conveyor currBelt, Food[] currItems, Song currSong, HitCircle currCircle, Spawner currSpawner) {
 		conductor = currConductor;
 		conveyorBelt = currBelt;
 		foodItems = currItems;
@@ -19,7 +19,6 @@ public class Level{
 		hitCircle = currCircle;
 		spawner = currSpawner;
 		s = string;
-		hitCircles = currCircles;
 		
 	}
 
@@ -55,9 +54,7 @@ public class Level{
 		return s;
 	}
 	
-	public HitCircle[] getHitCircles() {
-		return hitCircles;
-	}
+
 	//needs a background screen
 	//needs background music
 	
