@@ -1,8 +1,7 @@
 package classes;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-
-import acm.graphics.GLabel;
+import acm.graphics.*;
 
 public class Pass_screen extends Play_game{
 	private Play_game program;
@@ -35,6 +34,9 @@ public class Pass_screen extends Play_game{
 		x.setColor(Color.black);
 		x.setFont("Arial-18");
 		add(z);
+		
+		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
+  		add(logo);
 	}
 	
 	public void onSpacePressed(KeyEvent s) {
