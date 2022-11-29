@@ -1,5 +1,8 @@
 package classes;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
+
+import acm.graphics.GLabel;
 
 public class Pass_screen extends Play_game{
 	private Play_game program;
@@ -18,6 +21,20 @@ public class Pass_screen extends Play_game{
 		//"Press space bar to move onto the next level" underneath "Great Work!"
 		//"Press Enter to return back to the menu" underneath "Press space bar to move onto the next level"
 		//"World's Hardest Games" symbol in the bottom left
+		GLabel x = new GLabel("Great Work!", 20, 50);
+		x.setColor(Color.black);
+		x.setFont("Arial-18");
+		add(x);
+		
+		GLabel y = new GLabel("Press Spacebar to move onto the next level!", 20, 90);
+		y.setColor(Color.black);
+		y.setFont("Arial-18");
+		add(y);
+		
+		GLabel z = new GLabel("Press Enter to return back to the menu", 20, 130);
+		x.setColor(Color.black);
+		x.setFont("Arial-18");
+		add(z);
 	}
 	
 	public void onSpacePressed(KeyEvent s) {
