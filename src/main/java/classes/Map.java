@@ -27,7 +27,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 	
 	// 3 Levels
 	Map_Database data = new Map_Database();
-	
+	 
 	Level level_1 = data.get_level1();
 	Level level_2 = data.get_level2();
 	Level level_3 = data.get_level3();
