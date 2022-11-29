@@ -30,8 +30,8 @@ public class Fail_screen extends Play_game{
 		add(y);
 		
 		GLabel z = new GLabel("Press Enter to return back to the menu", 20, 130);
-		x.setColor(Color.black);
-		x.setFont("Arial-18");
+		z.setColor(Color.black);
+		z.setFont("Arial-18");
 		add(z);
 		
 		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
