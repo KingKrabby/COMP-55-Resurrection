@@ -14,16 +14,16 @@ public class Food {
 		ftype = type;
 		spawnOnBeat = beat;
 		
-		if (ftype.toString() == "bun") {
+		if (type == FoodType.BUN) {
 			foodImage = new GImage("bun.png", 0, 0);
 		}
-		if (ftype.toString() == "tomato") {
+		if (type == FoodType.TOMATO) {
 			foodImage = new GImage("tomato.png", 0, 0);
 		}
-		if (ftype.toString() == "ketchup") {
+		if (type == FoodType.KETCHUP) {
 			foodImage = new GImage("ketchup.png", 0, 0);
 		}
-		if (ftype.toString() == "tofu") {
+		if (type == FoodType.TOFU) {
 			foodImage = new GImage("tofu.png", 0, 0);
 		}
 	}
