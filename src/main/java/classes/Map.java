@@ -12,20 +12,21 @@ import acm.program.GraphicsProgram;
 
 public class Map extends GraphicsProgram implements ActionListener{
 	Timer t = new Timer(1000,this);
-	Score_streak box;
+	Score_streak box = new Score_streak();
 	int map_track  = 0;
-	Timer g;
-	Conductor bob;
+	Timer g ;
+
+	
 	
 	
 	// All Maps
-	static Title_screen title; // 0
-	static Menu_screen menu; // 1
-	static Pass_screen pass; // 2
-	static Play_game game; // 3
+	static Title_screen title = new Title_screen(); // 0
+	static Play_game game = new Play_game(); // 3
+	static Menu_screen menu = new Menu_screen(game); // 1
+	static Pass_screen pass = new Pass_screen(game); // 2
 	
 	// 3 Levels
-	Map_Database data;
+	Map_Database data = new Map_Database();
 	
 	Level level_1 = data.get_level1();
 	Level level_2 = data.get_level2();
@@ -155,11 +156,11 @@ public class Map extends GraphicsProgram implements ActionListener{
 	
 	//Take Screen to menu screen
 	public void run() {
-		title.run();
+	
 	}
 	
 	public static void main(String args[]) {
-		 title.run();
+		new Map().start();
 		 
 		 
 	}
