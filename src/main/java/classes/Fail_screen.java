@@ -2,6 +2,7 @@ package classes;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
+import acm.graphics.GImage;
 import acm.graphics.GLabel;
 
 public class Fail_screen extends Play_game{
@@ -32,6 +33,9 @@ public class Fail_screen extends Play_game{
 		x.setColor(Color.black);
 		x.setFont("Arial-18");
 		add(z);
+		
+		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
+  		add(logo);
 	}
 	
 	public void onSpacePressed(KeyEvent s) {
