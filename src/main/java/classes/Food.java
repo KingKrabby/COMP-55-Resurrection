@@ -2,7 +2,7 @@ package classes;
 import acm.graphics.*;
 import acm.program.*;
 import acm.util.*;
-import java.awt.*; //dksn
+import java.awt.*; //dksnef
 
 public class Food {
 	public FoodType ftype;
