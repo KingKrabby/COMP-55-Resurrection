@@ -15,7 +15,7 @@ public class Food {
 		spawnOnBeat = beat;
 		
 		if (type == FoodType.BUN) {
-			foodImage = new GImage("bun.png", 0, 0);
+			foodImage = new GImage("bun.png");
 		}
 		if (type == FoodType.TOMATO) {
 			foodImage = new GImage("tomato.png", 0, 0);
