@@ -36,6 +36,9 @@ public class Title_screen extends GraphicsProgram{
 		y.setFont("Arial-18");
 		add(y);
 		
+		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
+  		add(logo);
+		
 		
 		//area for creating a title screen once we start communicating between classes
 		//"Turnt Up Tofu" at the top of the screen
