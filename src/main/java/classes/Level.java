@@ -3,23 +3,22 @@ package classes;
 public class Level{
 	
 	Conductor conductor;
-	Conveyor[] conveyorBelts;
+	Conveyor conveyorBelt;
 	Food[] foodItems;
 	Song song;
 	HitCircle hitCircle;
 	Spawner spawner;
 	String s;
-	HitCircle[] hitCircles;
+
 	
-	Level(String string, Conductor currConductor, Conveyor[] currBelts, Food[] currItems, Song currSong, HitCircle currCircle, Spawner currSpawner, HitCircle[] currCircles) {
+	Level(String string, Conductor currConductor, Conveyor currBelt, Food[] currItems, Song currSong, HitCircle currCircle, Spawner currSpawner) {
 		conductor = currConductor;
-		conveyorBelts = currBelts;
+		conveyorBelt = currBelt;
 		foodItems = currItems;
 		song = currSong;
 		hitCircle = currCircle;
 		spawner = currSpawner;
 		s = string;
-		hitCircles = currCircles;
 		
 	}
 
@@ -27,8 +26,8 @@ public class Level{
 		return conductor;
 	}
 	
-	public Conveyor[] getConveyorBelts() {
-		return conveyorBelts;
+	public Conveyor getConveyorBelt() {
+		return conveyorBelt;
 	}
 	
 	public Food[] getFoodItems(){
@@ -55,9 +54,7 @@ public class Level{
 		return s;
 	}
 	
-	public HitCircle[] getHitCircles() {
-		return hitCircles;
-	}
+
 	//needs a background screen
 	//needs background music
 	

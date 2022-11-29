@@ -18,26 +18,26 @@ public final class Map_Database {
 	public static Conductor conductor2 = new Conductor(118, Song.getInstance(), 2, food2); 
 	public static Conductor conductor3 = new Conductor(160, Song.getInstance(), 1, food3);
 	
-	public static Conveyor[] conveyor1 = null; //I need to complete initialization
-	public static Conveyor[] conveyor2 = null; //I need to complete initialization
-	public static Conveyor[] conveyor3 = null; //I need to complete initialization
+	public static Conveyor conveyor1 = new Conveyor(false);
+	public static Conveyor conveyor2 = new Conveyor(false);
+	public static Conveyor conveyor3 = new Conveyor(true);
 	
-	public static Song song1 ; 
-	public static Song song2 ; 
-	public static Song song3 ; 
+	public Song song1 = Song.getInstance(); 
+	public Song song2 = Song.getInstance(); 
+	public Song song3 = Song.getInstance(); 
 	
 	public static HitCircle[] circle1 = null; //I need to complete initialization
 	public static HitCircle[] circle2 = null; //I need to complete initialization
 	public static HitCircle[] circle3 = null; //I need to complete initialization
 	
-	public static Spawner spawner1 = null;  //Nate need to complete initialization
-	public static Spawner spawner2 = null;  //Nate need to complete initialization
-	public static Spawner spawner3 = null;  //Nate need to complete initialization
+	public static Spawner spawner1 = new Spawner(-100, 500);  //Nate need to complete initialization
+	public static Spawner spawner2 = new Spawner(-100, 500);;  //Nate need to complete initialization
+	public static Spawner spawner3 = new Spawner(-100, 500);;  //Nate need to complete initialization
 	
 
-	Level level1 = new Level("level1",conductor1, conveyor1, food1, song1, circle1[0], spawner1, circle1);
-	Level level2 = new Level("level2",conductor2, conveyor2, food2, song2, circle2[0], spawner2, circle2);
-	Level level3 = new Level("level3", conductor3, conveyor3, food3, song3, circle3[0], spawner3, circle3);
+	Level level1 = new Level("level1",conductor1, conveyor1, food1, song1, circle1[0], spawner1);
+	Level level2 = new Level("level2",conductor2, conveyor2, food2, song2, circle2[0], spawner2);
+	Level level3 = new Level("level3", conductor3, conveyor3, food3, song3, circle3[0], spawner3);
 
 
 	// get hitcircles
