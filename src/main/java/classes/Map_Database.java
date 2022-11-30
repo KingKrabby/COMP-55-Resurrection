@@ -30,9 +30,9 @@ public final class Map_Database {
 	public static HitCircle[] circle2 = null; //I need to complete initialization
 	public static HitCircle[] circle3 = null; //I need to complete initialization
 	
-	public static Spawner spawner1 = new Spawner(-100, 500);  //Nate need to complete initialization
-	public static Spawner spawner2 = new Spawner(-100, 500);;  //Nate need to complete initialization
-	public static Spawner spawner3 = new Spawner(-100, 500);;  //Nate need to complete initialization
+	public static Spawner spawner1 = new Spawner(-100, 500);  
+	public static Spawner spawner2 = new Spawner(-100, 500);; 
+	public static Spawner spawner3 = new Spawner(-100, 500);; 
 	
 
 	Level level1 = new Level("level1",conductor1, conveyor1, food1, song1, circle1[0], spawner1);

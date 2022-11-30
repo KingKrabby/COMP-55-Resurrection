@@ -1,4 +1,5 @@
 package classes;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import acm.graphics.*;
 
@@ -27,6 +28,28 @@ public class Menu_screen extends Play_game{
 		//"Press 'Esc' to quit the game" underneath "Press Space bar to play the first level!"
 		//"World's Hardest Games" symbol in the bottom right
 		
+		GLabel x = new GLabel("Turnt Up Tofu", 20, 50);
+		x.setColor(Color.black);
+		x.setFont("Arial-18");
+		add(x);
+		
+		GLabel y = new GLabel("Press 'L' to play the Tutorial!", 20, 90);
+		y.setColor(Color.black);
+		y.setFont("Arial-18");
+		add(y);
+		
+		GLabel z = new GLabel("Press Spacebar to play the first level!", 20, 130);
+		z.setColor(Color.black);
+		z.setFont("Arial-18");
+		add(z);
+		
+		GLabel a = new GLabel("Press 'Esc' to quit the game", 20, 170);
+		a.setColor(Color.black);
+		a.setFont("Arial-18");
+		add(a);
+		
+		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
+  		add(logo);
 	}
 	
 	public void onSpacePressed(KeyEvent s) {
