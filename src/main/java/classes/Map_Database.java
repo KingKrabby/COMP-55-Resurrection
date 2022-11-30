@@ -26,18 +26,18 @@ public final class Map_Database {
 	public Song song2 = Song.getInstance(); 
 	public Song song3 = Song.getInstance(); 
 	
-	public static HitCircle[] circle1 = null; //I need to complete initialization
-	public static HitCircle[] circle2 = null; //I need to complete initialization
-	public static HitCircle[] circle3 = null; //I need to complete initialization
+	public static HitCircle circle1 = new HitCircle(1); 
+	public static HitCircle circle2 = new HitCircle(1); 
+	public static HitCircle circle3 = new HitCircle(2);
 	
 	public static Spawner spawner1 = new Spawner(-100, 500);  
 	public static Spawner spawner2 = new Spawner(-100, 500);; 
 	public static Spawner spawner3 = new Spawner(-100, 500);; 
 	
 
-	Level level1 = new Level("level1",conductor1, conveyor1, food1, song1, circle1[0], spawner1);
-	Level level2 = new Level("level2",conductor2, conveyor2, food2, song2, circle2[0], spawner2);
-	Level level3 = new Level("level3", conductor3, conveyor3, food3, song3, circle3[0], spawner3);
+	Level level1 = new Level("level1",conductor1, conveyor1, food1, song1, circle1, spawner1);
+	Level level2 = new Level("level2",conductor2, conveyor2, food2, song2, circle2, spawner2);
+	Level level3 = new Level("level3", conductor3, conveyor3, food3, song3, circle3, spawner3);
 
 
 	// get hitcircles
