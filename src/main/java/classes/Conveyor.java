@@ -13,8 +13,8 @@ public class Conveyor extends GraphicsProgram {
 	public static final int WINDOW_HEIGHT = 600;
 	public static final int x1 = 0; //still need to initialize these
 	public static final int y1 = 500; 
-	public static final int x2 = 0;
-	public static final int y2 = 0; 
+	public static final int x2 = 400;
+	public static final int y2 = 500; 
 	
 	
 	Conveyor(boolean currHard) {
