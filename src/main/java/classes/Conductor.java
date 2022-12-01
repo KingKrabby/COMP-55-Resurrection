@@ -24,13 +24,13 @@ public class Conductor {
 		BPM = bpm;
 	}
 	void playSong(String level) {
-		song.playSound("songs", level + ".mp3");
+		song.playSound("sounds", level + ".mp3");
 	}
 	void stopSong(String level) {
-		song.stopSound("songs", level + ".mp3");
+		song.stopSound("sounds", level + ".mp3");
 	}
 	double getCurrentBeat(String level) {
-		if(song.findSound("songs", level + ".mp3") == null) {
+		if(song.findSound("sounds", level + ".mp3") == null) {
 			return 0;
 		}
 		Duration songDuration = song.findSound("songs", level + ".mp3").getCurrentTime();
