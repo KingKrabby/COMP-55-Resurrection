@@ -3,9 +3,10 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import acm.graphics.*;
 
-public class Menu_screen extends Play_game{
+public class Menu_screen extends Play_game {
 	// function to identify map 
 	private Play_game program;
+	GLabel x;
 	private int identifier = 1;
 	int get_identifier() {
 		return identifier;
@@ -28,7 +29,11 @@ public class Menu_screen extends Play_game{
 		//"Press 'Esc' to quit the game" underneath "Press Space bar to play the first level!"
 		//"World's Hardest Games" symbol in the bottom right
 		
-		GLabel x = new GLabel("Turnt Up Tofu", 20, 50);
+
+
+	}
+	public void run() {
+		x = new GLabel("Turnt Up Tofu", 20, 50);
 		x.setColor(Color.black);
 		x.setFont("Arial-18");
 		add(x);
@@ -51,7 +56,6 @@ public class Menu_screen extends Play_game{
 		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
   		add(logo);
 	}
-	
 	public void onSpacePressed(KeyEvent s) {
 		int keyCode = s.getKeyCode();
 		if (keyCode == KeyEvent.VK_SPACE) {
@@ -60,6 +64,7 @@ public class Menu_screen extends Play_game{
 			map_track = 3;
 		}
 	}
+	
 	
 	public void onLPress(KeyEvent L) {
 		int keyCode = L.getKeyCode();
