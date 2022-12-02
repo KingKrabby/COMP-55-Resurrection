@@ -11,7 +11,7 @@ public class Menu_screen extends Play_game{
 		return identifier;
 	}
 	
-	public static final String MUSIC_FOLDER = "songs";
+	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "menu.mp3" };
 	
 	private int count;

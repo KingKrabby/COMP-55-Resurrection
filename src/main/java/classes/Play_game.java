@@ -9,7 +9,7 @@ public class Play_game extends Map{
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
 	//title screen background music
-	public static final String MUSIC_FOLDER = "songs";
+	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "tutorial.mp3" };
 	
 	private Title_screen title;
