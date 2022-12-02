@@ -20,6 +20,10 @@ public class Pass_screen extends Play_game{
 		//"Press space bar to move onto the next level" underneath "Great Work!"
 		//"Press Enter to return back to the menu" underneath "Press space bar to move onto the next level"
 		//"World's Hardest Games" symbol in the bottom left
+
+	}
+	
+	public void run() {
 		GLabel x = new GLabel("Great Work!", 20, 50);
 		x.setColor(Color.black);
 		x.setFont("Arial-18");
@@ -38,7 +42,6 @@ public class Pass_screen extends Play_game{
 		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
   		add(logo);
 	}
-	
 	public void onSpacePressed(KeyEvent s) {
 		int keyCode = s.getKeyCode();
 		if (keyCode == KeyEvent.VK_SPACE) {
