@@ -7,6 +7,8 @@ import acm.graphics.*;
 
 public class Title_screen extends GraphicsProgram{
 	private Play_game program;
+	public static final String MUSIC_FOLDER = "sounds";
+	private static final String[] SOUND_FILES = { "tutorial.mp3" };
 	// function to identify map 
 	private int identifier = 0;
 	int get_identifier() {
@@ -26,17 +28,18 @@ public class Title_screen extends GraphicsProgram{
 	
 	public void run(){
 		//Title of Game
+		playBackgroundNoise();
 		GLabel x = new GLabel("Turnt Up Tofu!", 20, 50);
 		x.setColor(Color.black);
 		x.setFont("Arial-18");
 		add(x);
 		
-		GLabel y = new GLabel("Press Spacebar to Start!", 20, 50);
+		GLabel y = new GLabel("Press Spacebar to Start!", 20, 80);
 		y.setColor(Color.black);
 		y.setFont("Arial-18");
 		add(y);
 		
-		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
+		GImage logo = new GImage("World's Hardest Games Logo.png", 200, 200);
   		add(logo);
 		
 		
@@ -56,5 +59,12 @@ public class Title_screen extends GraphicsProgram{
 			//takes you too menu screen
 			program.switchToMenu();
 		}
+	}
+	private void playBackgroundNoise() {
+		Song test = Song.getInstance();
+		test.playSound(MUSIC_FOLDER, SOUND_FILES[0]);
+	}
+	public static void main(String[] args) {
+		new Title_screen().start();
 	}
 }

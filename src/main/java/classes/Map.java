@@ -58,9 +58,12 @@ public class Map extends GraphicsProgram implements ActionListener{
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
+		
 		int key = e.getKeyCode(); 
+		
 		if (map_track == 0) {
 			//Run Title Graphics
+			
 			title.run();
 			title.keyPressed(e);
 		}
@@ -156,12 +159,12 @@ public class Map extends GraphicsProgram implements ActionListener{
 	
 	//Take Screen to menu screen
 	public void run() {
-	
+		
 	}
 	
 	public static void main(String args[]) {
 		new Map().start();
-		 
+		
 		 
 	}
 	
