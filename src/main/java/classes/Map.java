@@ -143,10 +143,9 @@ public class Map extends GraphicsProgram implements ActionListener{
 				}
 				
 			}
-			//press escape
+			
 		}
-		// passing level conditions
-		// converts map track: 3 -- > 2
+
 		
 	}
 	
