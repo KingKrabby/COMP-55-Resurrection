@@ -10,7 +10,7 @@ public class Play_game extends Map{
 	public static final int WINDOW_HEIGHT = 600;
 	//title screen background music
 	public static final String MUSIC_FOLDER = "sounds";
-	private static final String[] SOUND_FILES = { "tutorial.mp3" };
+	private static final String[] SOUND_FILES = { "level1.mp3, level2.mp3, level3.mp3, menu.mp3, r2d2.mp3, somethinlikethis.mp3, tutorial.mp3" };
 	
 	private Title_screen title;
 	private KeyEvent menu;
@@ -54,7 +54,7 @@ public class Play_game extends Map{
 	
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
-		test.playSound(MUSIC_FOLDER, SOUND_FILES[count % SOUND_FILES.length]);
+		test.playSound(MUSIC_FOLDER, SOUND_FILES[5], true);
 	}
 	
 	public static void main(String[] args) {
