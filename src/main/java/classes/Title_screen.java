@@ -62,7 +62,8 @@ public class Title_screen extends GraphicsProgram{
 	}
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
-		test.playSound(MUSIC_FOLDER, SOUND_FILES[0]);
+		
+		test.playSound(MUSIC_FOLDER, SOUND_FILES[0], true);
 	}
 	public static void main(String[] args) {
 		new Title_screen().start();

@@ -63,7 +63,6 @@ public class Map extends GraphicsProgram implements ActionListener{
 		
 		if (map_track == 0) {
 			//Run Title Graphics
-			
 			title.run();
 			title.keyPressed(e);
 		}
