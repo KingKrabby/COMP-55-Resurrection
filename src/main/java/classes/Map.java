@@ -61,7 +61,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
+		 
 		int key = e.getKeyCode(); 
 		
 		if (map_track == 0) {
