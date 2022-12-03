@@ -6,6 +6,9 @@ import acm.program.*;
 import acm.graphics.*;
 
 public class Title_screen extends GraphicsProgram{
+	GImage blue = new GImage("title_screen_bluebackground.jpg", 200, 200);
+	GLabel x = new GLabel("Turnt Up Tofu!", 20, 50);
+	GLabel y = new GLabel("Press Spacebar to Start!", 20, 80);
 	private Play_game program;
 	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "tutorial.mp3" };
@@ -25,24 +28,19 @@ public class Title_screen extends GraphicsProgram{
 		//requestFocus();
 	}
 	*/
-	
 	public void run(){
+		
+  		add(blue);
 		//Title of Game
 		System.out.println("title");
 		playBackgroundNoise();
-		GLabel x = new GLabel("Turnt Up Tofu!", 20, 50);
 		x.setColor(Color.black);
 		x.setFont("Arial-18");
 		add(x);
 		
-		GLabel y = new GLabel("Press Spacebar to Start!", 20, 80);
 		y.setColor(Color.black);
 		y.setFont("Arial-18");
 		add(y);
-		
-		GImage blue = new GImage("title_screen_bluebackground.jpg", 200, 200);
-  		add(blue);
-		
 		
 		//area for creating a title screen once we start communicating between classes
 		//"Turnt Up Tofu" at the top of the screen
@@ -53,14 +51,14 @@ public class Title_screen extends GraphicsProgram{
 
 	
 
-//	@Override
-//	public void keyPressed(KeyEvent s) {
-//		int keyCode = s.getKeyCode();
-//		if (keyCode == KeyEvent.VK_SPACE) {
-//			//takes you too menu screen
-//			program.switchToMenu();
-//		}
-//	}
+	@Override
+	public void keyPressed(KeyEvent s) {
+	int keyCode = s.getKeyCode();
+		if (keyCode == KeyEvent.VK_SPACE) {
+			//takes you too menu screen
+			program.switchToMenu();
+		}
+	}
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
 		

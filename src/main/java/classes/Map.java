@@ -1,4 +1,5 @@
 package classes;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -22,6 +23,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 	// All Maps
 	
 	static Title_screen title = new Title_screen(); // 0
+	
 	static Play_game game = new Play_game(); // 3
 	static Menu_screen menu = new Menu_screen(game); // 1
 	static Pass_screen pass = new Pass_screen(game); // 2
@@ -61,14 +63,19 @@ public class Map extends GraphicsProgram implements ActionListener{
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
+		System.out.println("hello");
 		int key = e.getKeyCode(); 
 		
 		if (map_track == 0) {
 			System.out.println("hello");
+			if (key == KeyEvent.VK_SPACE) {
+				//takes you too menu screen
+				map_track = 1;
+				menu.run();
+			}
 			//Run Title Graphics
-			title.run();
-			title.keyPressed(e);
+			//title.run();
+			
 		}
 		if (map_track == 1) {
 			System.out.println("hello");
@@ -165,7 +172,8 @@ public class Map extends GraphicsProgram implements ActionListener{
 	
 	//Take Screen to menu screen
 	public void run() {
-		
+		title.run();
+		addKeyListeners();
 	}
 	
 	public static void main(String args[]) {
