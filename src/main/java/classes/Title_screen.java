@@ -39,8 +39,8 @@ public class Title_screen extends GraphicsProgram{
 		y.setFont("Arial-18");
 		add(y);
 		
-		GImage logo = new GImage("World's Hardest Games Logo.png", 200, 200);
-  		add(logo);
+		GImage blue = new GImage("title_screen_bluebackground.jpg", 200, 200);
+  		add(blue);
 		
 		
 		//area for creating a title screen once we start communicating between classes
