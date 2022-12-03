@@ -64,5 +64,6 @@ public class Pass_screen extends Play_game{
 	public static void main(String[] args) {
 		new Pass_screen(game).start();
 	}
+	 
 	
 }
