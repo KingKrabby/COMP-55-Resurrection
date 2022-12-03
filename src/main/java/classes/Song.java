@@ -51,7 +51,7 @@ public final class Song {
 	 *            filename for the sound, make sure to include the extension
 	 */
 	public void playSound(String folder, String filename) {
-		playSound(folder, filename, false);
+		playSound(folder, filename, true);
 	}
 
 	/**
