@@ -28,6 +28,7 @@ public class Title_screen extends GraphicsProgram{
 	
 	public void run(){
 		//Title of Game
+		System.out.println("title");
 		playBackgroundNoise();
 		GLabel x = new GLabel("Turnt Up Tofu!", 20, 50);
 		x.setColor(Color.black);

@@ -24,6 +24,7 @@ public class Pass_screen extends Play_game{
 	}
 	
 	public void run() {
+		System.out.println("pass");
 		GLabel x = new GLabel("Great Work!", 20, 50);
 		x.setColor(Color.black);
 		x.setFont("Arial-18");
