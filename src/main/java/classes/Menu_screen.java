@@ -20,7 +20,7 @@ public class Menu_screen extends Play_game {
 	public Menu_screen(Play_game app){
 		super();
 		program = app;
-		playBackgroundNoise();
+		//playBackgroundNoise();
 		//area for creating a menu screen once we start communicating between classes
 		//"Turnt Up Tofu" at the top left of the screen
 		//Picture of a tofu cartoon dancing at the middle left
@@ -80,14 +80,14 @@ public class Menu_screen extends Play_game {
 		}
 	}
 	
-	@Override
-	public void keyPressed(KeyEvent e) {
-		int keyCode = e.getKeyCode();
-		if (keyCode == KeyEvent.VK_ESCAPE) {
-			//quits the game
-			System.exit(0);
-		}
-	}
+//	@Override
+//	public void keyPressed(KeyEvent e) {
+//		int keyCode = e.getKeyCode();
+//		if (keyCode == KeyEvent.VK_ESCAPE) {
+//			//quits the game
+//			System.exit(0);
+//		}
+//	}
 	
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();

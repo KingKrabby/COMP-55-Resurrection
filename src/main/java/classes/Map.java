@@ -61,7 +61,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		 
+		
 		int key = e.getKeyCode(); 
 		
 		if (map_track == 0) {
@@ -94,47 +94,47 @@ public class Map extends GraphicsProgram implements ActionListener{
 			game.run();
 			current.getConductor().playSong(current.get_string());
 			Food curr_food = current.getConductor().getCurrentNote(current.get_string());
-			
+						
 			if (key == KeyEvent.VK_W) {
-				if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
-					box.incrementScore();
-				}
-				else {
-					box.reset_streak();
-					box.incrementFail();
-					if (fail()) {
-						current.getConductor().stopSong(current.get_string());
+			if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
+			box.incrementScore();
+			}
+			else {
+			box.reset_streak();
+			box.incrementFail();
+			if (fail()) {
+			current.getConductor().stopSong(current.get_string());
 					}
 				}
 			} 
 			// press A
 			if (key == KeyEvent.VK_A) {
-				
-				if (curr_food.getFoodType().toString() == "tomato" && current.getHitCircle().isHit(curr_food, current)) {
-					box.incrementScore();
-				} 
-				else { 
-					box.reset_streak();
-					box.incrementFail();
-					if (fail()) {
-						current.getConductor().stopSong(current.get_string());
-					}
+			
+			if (curr_food.getFoodType().toString() == "tomato" && current.getHitCircle().isHit(curr_food, current)) {
+			box.incrementScore();
+			} 
+			else { 
+			box.reset_streak();
+			box.incrementFail();
+			if (fail()) {
+			current.getConductor().stopSong(current.get_string());
 				}
-				
+				}
+							
 			}
 			//press S
 			if (key == KeyEvent.VK_S) {
-				if (curr_food.getFoodType().toString() == "tofu" && current.getHitCircle().isHit(curr_food, current)) {
-					box.incrementScore();
-				}
-				else {
-					box.reset_streak();
-					box.incrementFail();
-					if (fail()) {
-						current.getConductor().stopSong(current.get_string());
-					}
-				}
-				
+			if (curr_food.getFoodType().toString() == "tofu" && current.getHitCircle().isHit(curr_food, current)) {
+			box.incrementScore();
+			}
+			else {
+			box.reset_streak();
+			box.incrementFail();
+			if (fail()) {
+			current.getConductor().stopSong(current.get_string());
+			}
+			}
+
 			}
 			//press D
 			if (key == KeyEvent.VK_D) {

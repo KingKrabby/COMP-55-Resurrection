@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import acm.graphics.*;
 
 public class Pass_screen extends Play_game{
-	private Play_game program;
+	//private Play_game program;
 	// function to identify map 
 	private int identifier = 2;
 	int get_identifier() {
@@ -13,7 +13,7 @@ public class Pass_screen extends Play_game{
 	public int levelCount = 0;
 	public Pass_screen(Play_game app){
 		super();
-		program = app;
+		//program = app;
 		//area for creating a pass screen once we start communicating between classes
 		//"Great Work!" at the top of the screen
 		//Picture of a tofu cartoon dancing at the bottom right
@@ -59,11 +59,11 @@ public class Pass_screen extends Play_game{
 		int keyCode = r.getKeyCode();
 		if (keyCode == KeyEvent.VK_ENTER) {
 			//returns back to menu
-			program.switchToMenu();
+			//program.switchToMenu();
 		}
 	}
 	public static void main(String[] args) {
-		new Pass_screen(game).start();
+		//new Pass_screen(game).start();
 	}
 	 
 	
