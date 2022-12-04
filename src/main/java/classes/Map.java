@@ -65,7 +65,7 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 	//Take Screen to menu screen
 	public void run() {
 		t.start();
-		addKeyListeners();
+		addKeyListeners(); 
 		title.start();
 		
 	
