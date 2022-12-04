@@ -1,17 +1,18 @@
 package classes;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
+
+
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-import javax.swing.AbstractAction;
+
 import javax.swing.Timer;
 
-import org.apache.commons.math3.ode.events.Action;
+
 
 import acm.program.GraphicsProgram;
 
-public class Map extends GraphicsProgram implements ActionListener{
+public class Map extends GraphicsProgram implements ActionListener, KeyListener {
 	Timer t = new Timer(1000,this);
 	Score_streak box = new Score_streak();
 	int map_track  = 0;
@@ -63,10 +64,15 @@ public class Map extends GraphicsProgram implements ActionListener{
 	}
 	//Take Screen to menu screen
 	public void run() {
-		Map map = new Map();
+		t.start();
+		addKeyListeners();
 		title.start();
-		//map.addActionListener();
+		
+	
+	
 	}
+
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		System.out.println("hello");

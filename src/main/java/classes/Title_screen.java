@@ -1,11 +1,12 @@
 package classes;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import acm.program.*;
 import acm.graphics.*;
 
-public class Title_screen extends GraphicsProgram{
+public class Title_screen extends GraphicsProgram implements KeyListener{
 	GImage blue = new GImage("title_screen_bluebackground.jpg", 200, 200);
 	GLabel x = new GLabel("Turnt Up Tofu!", 20, 50);
 	GLabel y = new GLabel("Press Spacebar to Start!", 20, 80);
@@ -41,7 +42,7 @@ public class Title_screen extends GraphicsProgram{
 		y.setColor(Color.black);
 		y.setFont("Arial-18");
 		add(y);
-		
+		addKeyListeners();
 		//area for creating a title screen once we start communicating between classes
 		//"Turnt Up Tofu" at the top of the screen
 		//Picture of a record player with a spinning burger bun instead of a vinyl at the center of the screen
@@ -51,14 +52,15 @@ public class Title_screen extends GraphicsProgram{
 
 	
 
-//	@Override
-//	public void keyPressed(KeyEvent s) {
-//	int keyCode = s.getKeyCode();
-//		if (keyCode == KeyEvent.VK_SPACE) {
-//			//takes you too menu screen
-//			program.switchToMenu();
-//		}
-//	}
+	@Override
+public void keyPressed(KeyEvent s) {
+		System.out.println("hello");
+int keyCode = s.getKeyCode();
+	if (keyCode == KeyEvent.VK_SPACE) {
+//takes you too menu screen
+			program.switchToMenu();
+	}
+	}
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
 		
