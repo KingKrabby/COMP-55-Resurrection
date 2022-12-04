@@ -6,7 +6,6 @@ import acm.graphics.GLabel;
 import acm.graphics.GRect;
 import acm.program.GraphicsProgram;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 

@@ -2,11 +2,6 @@ package classes;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.Timer;
-
-import acm.graphics.GLabel;
-import acm.graphics.GRect;
 import acm.program.GraphicsProgram;
 
 public class Map_graphics extends GraphicsProgram implements ActionListener{

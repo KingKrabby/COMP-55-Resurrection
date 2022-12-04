@@ -1,13 +1,6 @@
 package classes;
-import java.awt.Color;
-import java.awt.event.KeyEvent;
 import acm.program.*;
 import acm.graphics.*;
-import acm.util.*;
-import java.awt.*;
-import javafx.util.Duration;
-import java.util.Scanner;
-
 
 public class Spawner extends GraphicsProgram{
 	public Spawner(int x, int y) {

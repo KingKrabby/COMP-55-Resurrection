@@ -1,12 +1,12 @@
 package classes;
 import java.awt.Color;
+
 import java.awt.event.KeyEvent;
 
 import acm.graphics.GImage;
 import acm.graphics.GLabel;
 
 public class Fail_screen extends Map{
-	private Play_game program;
 	// function to identify map 
 	private int identifier = 3;
 	int get_identifier() {

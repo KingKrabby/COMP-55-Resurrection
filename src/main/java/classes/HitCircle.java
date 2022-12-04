@@ -1,8 +1,7 @@
 package classes;
-import acm.graphics.*;
+import acm.graphics.*; 
 import acm.program.*;
-import acm.util.*;
-import java.awt.*;
+
 
 public class HitCircle extends GraphicsProgram {
 	public static final int WINDOW_WIDTH = 800;
