@@ -14,17 +14,38 @@ public class Play_game extends Map{
 	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "tutorial.mp3" };
 
-	private Title_screen title;
-	private KeyEvent menu;
-	private KeyEvent pass;
-	private KeyEvent fail;
+
 	private int count;
 
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	}
-	
+	boolean fail() {
+		System.out.println("fail");
+		//activates when buttons are pressed
+		// looks at current map --> fail screen
+		if (box.get_failCount() == 3) {
+			box.reset_fail();
+			return true;
+		}
+		return false;
+	}
+	boolean pass(int score, Level level) {
+		System.out.println("pass");
+		if(score == level.get_food_length()) {
+			box.reset();
+			curr_level_num ++;
+			if (curr_level_num < 3) {
+				current = level_arr[curr_level_num];
+			}
+			pass.run();
+			return true;
+		}
+		return false;
+	}
 	public void run() {
+		
+		box.run();
 		System.out.println("game is running");
 		System.out.println("Turnt Up Tofu!");
 		map_track = 0;
@@ -34,7 +55,84 @@ public class Play_game extends Map{
 		//switchToMenu();
 		playBackgroundNoise();
 	}
-	
+	@Override
+	public void keyPressed(KeyEvent e) {
+		int key = e.getKeyCode();
+		current.getConductor().playSong(current.get_string());
+		Food curr_food = current.getConductor().getCurrentNote(current.get_string());
+		if (key == KeyEvent.VK_W) {
+			if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
+				box.incrementScore();
+			}
+			else {
+				box.reset_streak();
+				box.incrementFail();
+				
+			}
+			if (fail()) {
+				current.getConductor().stopSong(current.get_string());
+				fail.start();
+			}
+			if (pass(box.get_score(), current)) {
+				current.getConductor().stopSong(current.get_string());
+				pass.start();
+			}
+			
+		}
+		if (key == KeyEvent.VK_A) {
+			if (curr_food.getFoodType().toString()== "tomato" && current.getHitCircle().isHit(curr_food, current)) {
+				box.incrementScore();
+			}
+			else {
+				box.reset_streak();
+				box.incrementFail();
+			}
+			if (fail()) {
+				current.getConductor().stopSong(current.get_string());
+				fail.start();
+			}
+			if (pass(box.get_score(), current)) {
+				current.getConductor().stopSong(current.get_string());
+				pass.start();
+			}
+		}
+		if (key == KeyEvent.VK_S) {
+			if (curr_food.getFoodType().toString()== "tofu" && current.getHitCircle().isHit(curr_food, current)) {
+				box.incrementScore();
+			}
+			else {
+				box.reset_streak();
+				box.incrementFail();
+			}
+			if (fail()) {
+				current.getConductor().stopSong(current.get_string());
+				fail.start();
+			}
+			if (pass(box.get_score(), current)) {
+				current.getConductor().stopSong(current.get_string());
+				pass.start();
+			}
+		}
+		if (key == KeyEvent.VK_D) {
+			if (curr_food.getFoodType().toString()== "bun" && current.getHitCircle().isHit(curr_food, current)) {
+				box.incrementScore();
+			}
+			else {
+				box.reset_streak();
+				box.incrementFail();
+			}
+			if (fail()) {
+				current.getConductor().stopSong(current.get_string());
+				fail.start();
+			}
+			if (pass(box.get_score(), current)) {
+				current.getConductor().stopSong(current.get_string());
+				pass.start();
+			}
+		}
+		
+		
+	}
 	
 	public void switchToMenu() {
 		playBackgroundNoise();

@@ -28,6 +28,7 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 	static Play_game game = new Play_game(); // 3
 	static Menu_screen menu = new Menu_screen(game); // 1
 	static Pass_screen pass = new Pass_screen(game); // 2
+	static Fail_screen fail = new Fail_screen();
 	
 	// 3 Levels
 	Map_Database data = new Map_Database();
@@ -82,76 +83,9 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 			pass.run();
 			}
 		
-		if (map_track == 3) {
-			//Run Game Graphics
-			System.out.println("hello");
-			if (curr_level_num >= 3) {
-				map_track = 2;
-			}
-			pass(box.get_score(), current);
-			box.run();
-			game.run();
-			current.getConductor().playSong(current.get_string());
-			Food curr_food = current.getConductor().getCurrentNote(current.get_string());
-						
-			if (key == KeyEvent.VK_W) {
-			if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
-			box.incrementScore();
-			}
-			else {
-			box.reset_streak();
-			box.incrementFail();
-			if (fail()) {
-			current.getConductor().stopSong(current.get_string());
-					}
-				}
-			} 
-			// press A
-			if (key == KeyEvent.VK_A) {
+		
 			
-			if (curr_food.getFoodType().toString() == "tomato" && current.getHitCircle().isHit(curr_food, current)) {
-			box.incrementScore();
-			} 
-			else { 
-			box.reset_streak();
-			box.incrementFail();
-			if (fail()) {
-			current.getConductor().stopSong(current.get_string());
-				}
-				}
-							
-			}
-			//press S
-			if (key == KeyEvent.VK_S) {
-			if (curr_food.getFoodType().toString() == "tofu" && current.getHitCircle().isHit(curr_food, current)) {
-			box.incrementScore();
-			}
-			else {
-			box.reset_streak();
-			box.incrementFail();
-			if (fail()) {
-			current.getConductor().stopSong(current.get_string());
-			}
-			}
-
-			}
-			//press D
-			if (key == KeyEvent.VK_D) {
-				if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
-					box.incrementScore();
-					current.getConductor().stopSong(current.get_string());
-				}
-				else {
-					box.reset_streak();
-					box.incrementFail();
-					if (fail()) {
-						current.getConductor().stopSong(current.get_string());
-					}
-				}
-				
-			}
-			
-		}
+		
 
 		
 	}
