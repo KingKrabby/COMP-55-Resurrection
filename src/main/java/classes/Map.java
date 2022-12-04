@@ -61,6 +61,12 @@ public class Map extends GraphicsProgram implements ActionListener{
 		}
 		return false;
 	}
+	//Take Screen to menu screen
+	public void run() {
+		Map map = new Map();
+		title.start();
+		//map.addActionListener();
+	}
 	@Override
 	public void keyPressed(KeyEvent e) {
 		System.out.println("hello");
@@ -71,7 +77,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 			if (key == KeyEvent.VK_SPACE) {
 				//takes you too menu screen
 				map_track = 1;
-				menu.run();
+				menu.start();
 			}
 			//Run Title Graphics
 			//title.run();
@@ -79,7 +85,7 @@ public class Map extends GraphicsProgram implements ActionListener{
 		}
 		if (map_track == 1) {
 			System.out.println("hello");
-			//Run Meu Graphics
+			//Run Menu Graphics
 			menu.run();
 			menu.onSpacePressed(e);
 			menu.onLPress(e);
@@ -164,17 +170,12 @@ public class Map extends GraphicsProgram implements ActionListener{
 		
 	}
 	
-	
-	//Title Screen
-	
+
 	
 	
 	
-	//Take Screen to menu screen
-	public void run() {
-		title.run();
-		addKeyListeners();
-	}
+	
+
 	
 	public static void main(String args[]) {
 		new Map().start();

@@ -51,20 +51,21 @@ public class Title_screen extends GraphicsProgram{
 
 	
 
-	@Override
-	public void keyPressed(KeyEvent s) {
-	int keyCode = s.getKeyCode();
-		if (keyCode == KeyEvent.VK_SPACE) {
-			//takes you too menu screen
-			program.switchToMenu();
-		}
-	}
+//	@Override
+//	public void keyPressed(KeyEvent s) {
+//	int keyCode = s.getKeyCode();
+//		if (keyCode == KeyEvent.VK_SPACE) {
+//			//takes you too menu screen
+//			program.switchToMenu();
+//		}
+//	}
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
 		
 		test.playSound(MUSIC_FOLDER, SOUND_FILES[0], true);
 	}
 	public static void main(String[] args) {
+		Title_screen title = new Title_screen();
 		new Title_screen().start();
 	}
 }
