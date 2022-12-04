@@ -39,22 +39,19 @@ public class Fail_screen extends Map{
 		
 		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
   		add(logo);
+  		addKeyListeners();
 	}
 	
-	public void onSpacePressed(KeyEvent s) {
-		int keyCode = s.getKeyCode();
-		if (keyCode == KeyEvent.VK_SPACE) {
-			//replays level
-			map_track = 3;
-		}
-		addKeyListeners();
-	}
 	
 	public void keyPressed(KeyEvent r) {
 		int keyCode = r.getKeyCode();
 		if (keyCode == KeyEvent.VK_ENTER) {
 			//returns back to menu
-			program.switchToMenu();
+			menu.run();
+		}
+		if (keyCode == KeyEvent.VK_SPACE) {
+			//replays level
+			game.run();
 		}
 	}
 }

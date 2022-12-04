@@ -3,7 +3,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import acm.graphics.*;
 
-public class Pass_screen extends Play_game{
+public class Pass_screen extends Map{
 	//private Play_game program;
 	// function to identify map 
 	private int identifier = 2;
@@ -42,24 +42,29 @@ public class Pass_screen extends Play_game{
 		
 		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
   		add(logo);
+  		addKeyListeners();
 	}
-	public void onSpacePressed(KeyEvent s) {
-		int keyCode = s.getKeyCode();
+
+	@Override
+	public void keyPressed(KeyEvent r) {
+		int keyCode = r.getKeyCode();
+		if (keyCode == KeyEvent.VK_ENTER) {
+			menu.start();
+		}
 		if (keyCode == KeyEvent.VK_SPACE) {
 			//move onto next level
 			//put onSpacePressed in mainApplication
 			//what will be our main application
 			//keep the logic in the classes
-			levelCount++;
-			map_track = 3;
-		}
-	}
-	
-	public void keyPressed(KeyEvent r) {
-		int keyCode = r.getKeyCode();
-		if (keyCode == KeyEvent.VK_ENTER) {
-			//returns back to menu
-			//program.switchToMenu();
+			if (curr_level_num == 2) {
+				menu.start();
+			}
+			else {
+				curr_level_num += 1;
+				current = level_arr[curr_level_num];
+				game.run();
+			}
+
 		}
 	}
 	public static void main(String[] args) {
