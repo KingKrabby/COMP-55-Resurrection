@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -24,7 +25,7 @@ public final class Song {
 	}
 
 	private Song() {
-		//final JFXPanel fxPanel = new JFXPanel();
+		final JFXPanel fxPanel = new JFXPanel();
 		players = new HashMap<String, MediaPlayer>();
 	}
 
@@ -78,7 +79,7 @@ public final class Song {
 		if (mPlayer == null || mPlayer.getCycleDuration().lessThanOrEqualTo(mPlayer.getCurrentTime())) {
 			mPlayer = createMediaPlayer(folder, filename);
 		}
-		mPlayer.play(); 
+		mPlayer.play();
 		if (shouldLoop) {
 			mPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 		}

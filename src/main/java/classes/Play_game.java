@@ -45,7 +45,7 @@ public class Play_game extends Map{
 	}
 	public void run() {
 		
-		box.run();
+		box.start();
 		System.out.println("game is running");
 		System.out.println("Turnt Up Tofu!");
 		map_track = 0;
