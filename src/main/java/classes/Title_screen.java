@@ -6,13 +6,14 @@ import java.awt.event.KeyListener;
 import acm.program.*;
 import acm.graphics.*;
 
-public class Title_screen extends GraphicsProgram implements KeyListener{
+public class Title_screen extends Map implements KeyListener{
 	GImage blue = new GImage("title_screen_bluebackground.jpg", 200, 200);
 	GLabel x = new GLabel("Turnt Up Tofu!", 20, 50);
 	GLabel y = new GLabel("Press Spacebar to Start!", 20, 80);
 	private Play_game program;
 	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "tutorial.mp3" };
+	Song test = Song.getInstance();
 	// function to identify map 
 	private int identifier = 0;
 	int get_identifier() {
@@ -49,20 +50,27 @@ public class Title_screen extends GraphicsProgram implements KeyListener{
 		//"Press space bar to start!" underneath record player
 		//"World's Hardest Games" symbol in the bottom right
 	}
-
-	
+	public void stop() {
+		
+		test.stopSound(MUSIC_FOLDER, SOUND_FILES[0]);
+		
+	}
 
 	@Override
-public void keyPressed(KeyEvent s) {
+	public void keyPressed(KeyEvent s) {
 		System.out.println("hello");
-int keyCode = s.getKeyCode();
-	if (keyCode == KeyEvent.VK_SPACE) {
-//takes you too menu screen
-			program.switchToMenu();
+		int keyCode = s.getKeyCode();
+		if (keyCode == KeyEvent.VK_SPACE) {
+			//takes you to menu screen
+			map_track = 1;
+			title.stop();
+			current = level_1;
+			menu.start();
+			
+		}
 	}
-	}
+	
 	private void playBackgroundNoise() {
-		Song test = Song.getInstance();
 		
 		test.playSound(MUSIC_FOLDER, SOUND_FILES[0], true);
 	}

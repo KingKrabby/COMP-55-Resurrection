@@ -3,15 +3,15 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import acm.graphics.*;
 
-public class Menu_screen extends Play_game {
+public class Menu_screen extends Map {
 	// function to identify map 
-	private Play_game program;
+	
 	GLabel x;
 	private int identifier = 1;
 	int get_identifier() {
 		return identifier;
 	}
-	
+	Song test = Song.getInstance();
 	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "menu.mp3" };
 	
@@ -19,7 +19,7 @@ public class Menu_screen extends Play_game {
 	
 	public Menu_screen(Play_game app){
 		super();
-		program = app;
+		//program = app;
 		//playBackgroundNoise();
 		//area for creating a menu screen once we start communicating between classes
 		//"Turnt Up Tofu" at the top left of the screen
@@ -33,6 +33,8 @@ public class Menu_screen extends Play_game {
 
 	}
 	public void run() {
+		playBackgroundNoise();
+		current = level_1;
 		System.out.println("hello");
 		x = new GLabel("Turnt Up Tofu", 20, 50);
 		x.setColor(Color.black);
@@ -58,39 +60,42 @@ public class Menu_screen extends Play_game {
   		add(logo);
   		GImage blue = new GImage("title_screen_bluebackground.jpg", 200, 200);
   		add(blue);
+  		addKeyListeners();
 	}
-	public void onSpacePressed(KeyEvent s) {
+	public void stop() {
+		
+		test.stopSound(MUSIC_FOLDER, SOUND_FILES[0]);
+		
+	}
+	@Override
+	public void keyPressed(KeyEvent s) {
 		int keyCode = s.getKeyCode();
 		if (keyCode == KeyEvent.VK_SPACE) {
 			//plays first level
+			menu.stop();
+			game.start();
 			count++;
 			map_track = 3;
 		}
-
-	}
-	
-	
-	public void onLPress(KeyEvent L) {
-		int keyCode = L.getKeyCode();
 		if (keyCode == KeyEvent.VK_L) {
+			//current = tutorial;
 			//plays the tutorial
+			menu.stop();
+			game.start();
 			count++;
 			map_track = 1;
 			
 		}
+		if (keyCode == KeyEvent.VK_ESCAPE) {
+			menu.stop();
+			title.start();
+		}
+
 	}
 	
-//	@Override
-//	public void keyPressed(KeyEvent e) {
-//		int keyCode = e.getKeyCode();
-//		if (keyCode == KeyEvent.VK_ESCAPE) {
-//			//quits the game
-//			System.exit(0);
-//		}
-//	}
+
 	
 	private void playBackgroundNoise() {
-		Song test = Song.getInstance();
 		test.playSound(MUSIC_FOLDER, SOUND_FILES[count % SOUND_FILES.length]);
 	}
 }

@@ -63,9 +63,8 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 		return false;
 	}
 	//Take Screen to menu screen
-	public void run() {
-		t.start();
-		addKeyListeners(); 
+	public void run() { 
+		addKeyListeners();
 		title.start();
 		
 	
@@ -78,25 +77,6 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 		System.out.println("hello");
 		int key = e.getKeyCode(); 
 		
-		if (map_track == 0) {
-			System.out.println("hello");
-			if (key == KeyEvent.VK_SPACE) {
-				//takes you too menu screen
-				map_track = 1;
-				menu.start();
-			}
-			//Run Title Graphics
-			//title.run();
-			
-		}
-		if (map_track == 1) {
-			System.out.println("hello");
-			//Run Menu Graphics
-			menu.run();
-			menu.onSpacePressed(e);
-			menu.onLPress(e);
-			menu.keyPressed(e);
-		}
 		if (map_track == 2) {
 			System.out.println("hello");
 			pass.run();

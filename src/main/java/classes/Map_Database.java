@@ -34,7 +34,7 @@ public final class Map_Database {
 	public static Spawner spawner2 = new Spawner(-100, 500);; 
 	public static Spawner spawner3 = new Spawner(-100, 500);; 
 	
-
+	// add a level called tutorial
 	Level level1 = new Level("level1",conductor1, conveyor1, food1, song1, circle1, spawner1);
 	Level level2 = new Level("level2",conductor2, conveyor2, food2, song2, circle2, spawner2);
 	Level level3 = new Level("level3", conductor3, conveyor3, food3, song3, circle3, spawner3);
