@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 import acm.graphics.GImage;
 import acm.graphics.GLabel;
 
-public class Fail_screen extends Play_game{
+public class Fail_screen extends Map{
 	private Play_game program;
 	// function to identify map 
 	private int identifier = 3;
@@ -19,6 +19,9 @@ public class Fail_screen extends Play_game{
 		//"Press space bar to try again" underneath "Oof, better luck next time"
 		//"Press Enter to return back to the menu" underneath "Oof, better luck next time"
 		//"World's Hardest Games" symbol in the bottom left
+
+	}
+	public void run() {
 		GLabel x = new GLabel("Oof, better luck next time", 20, 50);
 		x.setColor(Color.black);
 		x.setFont("Arial-18");
@@ -44,6 +47,7 @@ public class Fail_screen extends Play_game{
 			//replays level
 			map_track = 3;
 		}
+		addKeyListeners();
 	}
 	
 	public void keyPressed(KeyEvent r) {
