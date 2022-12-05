@@ -6,12 +6,12 @@ import acm.program.*;
 public class HitCircle extends GraphicsProgram {
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
-	public static final int x1 = 0; //will be for HitCircle on large conveyor
-	public static final int y1 = 0; //will be for HitCircle on large conveyornb
-	public static final int x2 = 0; //will be for first HitCircle on smaller conveyors
-	public static final int y2 = 0; //will be for first HitCircle on smaller conveyors
-	public static final int x3 = 0; //will be for second HitCircle on smaller conveyors
-	public static final int y3 = 0; //will be for second HitCircle on smaller conveyors b
+	public static final int x1 = 550; //will be for HitCircle on large conveyor
+	public static final int y1 = 400; //will be for HitCircle on large conveyornb
+	public static final int x2 = 275; //will be for first HitCircle on smaller conveyors
+	public static final int y2 = 400; //will be for first HitCircle on smaller conveyors
+	public static final int x3 = 425; //will be for second HitCircle on smaller conveyors
+	public static final int y3 = 400; //will be for second HitCircle on smaller conveyors b
 	public int numHitCircles;
 	
 	
