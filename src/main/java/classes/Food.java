@@ -5,7 +5,7 @@ import acm.graphics.*;
 public class Food {
 	public FoodType ftype;
 	public double spawnOnBeat;
-	public boolean rightSpawn;
+	public boolean rightSpawn; //dsnji
 
 	Food(FoodType type, double beat) {
 		ftype = type;
