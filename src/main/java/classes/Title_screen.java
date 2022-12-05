@@ -2,6 +2,13 @@ package classes;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
+
+import java.awt.Graphics2D;
+import java.awt.image.*;
+import java.io.File;
+
+import javax.imageio.*;
 
 import acm.program.*;
 import acm.graphics.*;
@@ -10,8 +17,8 @@ public class Title_screen extends Map implements KeyListener{
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
 	GImage blue = new GImage("title_screen_bluebackground.jpg");
-	GLabel x = new GLabel("Turnt Up Tofu!", 350, 50);
-	GLabel y = new GLabel("Press Spacebar to Start!", 350, 400);
+	GLabel x = new GLabel("Turnt Up Tofu!", WINDOW_WIDTH/2, 50);
+	GLabel y = new GLabel("Press Spacebar to Start!", 300, 400);
 	private Play_game program;
 	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "menu.mp3" };
@@ -21,6 +28,21 @@ public class Title_screen extends Map implements KeyListener{
 	int get_identifier() {
 		return identifier;
 	}
+	/*
+	private static void resizeImage(File originalImage, File residedImage, int width, int height, String format) {
+		try {
+			BufferedImage original = ImageIO.read(originalImage);
+			BufferedImage resized = new BufferedImage(width, height, original.getType());
+			Graphics2D g2 = resized.createGraphics();
+			g2.drawImage(original, 0, 0, width, height, null);
+			g2.dispose();
+			ImageIO.write(resized, format, residedImage);
+		}
+		catch(IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+	*/
 	/*
 	private static final int START_Y = 250;
 	private static final int START_X = 300;
@@ -38,11 +60,11 @@ public class Title_screen extends Map implements KeyListener{
 		//Title of Game
 		System.out.println("title");
 		playBackgroundNoise();
-		x.setColor(Color.white);
+		x.setColor(Color.black);
 		x.setFont("Arial-56");
 		add(x);
 		
-		y.setColor(Color.white);
+		y.setColor(Color.black);
 		y.setFont("Arial-56");
 		add(y);
 		addKeyListeners();
@@ -79,5 +101,8 @@ public class Title_screen extends Map implements KeyListener{
 	public static void main(String[] args) {
 		Title_screen title = new Title_screen();
 		new Title_screen().start();
+		//File jpgOriginal = new File("title_screen_bluebackground.jpg");
+		//File jpgResized = new File("resized.jpg");
+		//resizeImage(jpgOriginal, jpgResized, WINDOW_WIDTH, WINDOW_HEIGHT, "png");
 	}
 }
