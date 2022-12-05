@@ -13,10 +13,10 @@ public class Play_game extends Map{
 	//title screen background music
 	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "tutorial.mp3" };
-
-
+	
+	Conveyor belt = current.getConveyorBelt();
 	private int count;
-
+	
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	}
@@ -44,7 +44,7 @@ public class Play_game extends Map{
 		return false;
 	}
 	public void run() {
-		
+		belt.run();
 		box.start();
 		System.out.println("game is running");
 		System.out.println("Turnt Up Tofu!");
