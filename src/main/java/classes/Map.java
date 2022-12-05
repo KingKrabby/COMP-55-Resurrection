@@ -39,7 +39,8 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 		addKeyListeners();
 		title.start();
 		
-	
+		
+		
 	}
 
 	
