@@ -7,12 +7,14 @@ import acm.program.*;
 import acm.graphics.*;
 
 public class Title_screen extends Map implements KeyListener{
-	GImage blue = new GImage("title_screen_bluebackground.jpg", 200, 200);
-	GLabel x = new GLabel("Turnt Up Tofu!", 20, 50);
-	GLabel y = new GLabel("Press Spacebar to Start!", 20, 80);
+	public static final int WINDOW_WIDTH = 800;
+	public static final int WINDOW_HEIGHT = 600;
+	GImage blue = new GImage("title_screen_bluebackground.jpg");
+	GLabel x = new GLabel("Turnt Up Tofu!", 350, 50);
+	GLabel y = new GLabel("Press Spacebar to Start!", 350, 400);
 	private Play_game program;
 	public static final String MUSIC_FOLDER = "sounds";
-	private static final String[] SOUND_FILES = { "tutorial.mp3" };
+	private static final String[] SOUND_FILES = { "menu.mp3" };
 	Song test = Song.getInstance();
 	// function to identify map 
 	private int identifier = 0;
@@ -36,12 +38,12 @@ public class Title_screen extends Map implements KeyListener{
 		//Title of Game
 		System.out.println("title");
 		playBackgroundNoise();
-		x.setColor(Color.black);
-		x.setFont("Arial-18");
+		x.setColor(Color.white);
+		x.setFont("Arial-56");
 		add(x);
 		
-		y.setColor(Color.black);
-		y.setFont("Arial-18");
+		y.setColor(Color.white);
+		y.setFont("Arial-56");
 		add(y);
 		addKeyListeners();
 		//area for creating a title screen once we start communicating between classes
