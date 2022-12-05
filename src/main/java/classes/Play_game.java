@@ -48,12 +48,9 @@ public class Play_game extends Map{
 	}
 	public void run() {
 		
-		JFrame frame = new JFrame();
 		System.out.println("game is running");
 		System.out.println("Turnt Up Tofu!");
 		map_track = 0;
-		GImage blue = new GImage("title_screen_bluebackground.jpg", 200, 200);
-		add(blue);
 		belt.start();
 		box.start();
 		title = new Title_screen();
