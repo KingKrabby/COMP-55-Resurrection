@@ -15,7 +15,7 @@ public class Play_game extends Map_graphics{
 	public static final int WINDOW_HEIGHT = 600;
 	//title screen background music
 	public static final String MUSIC_FOLDER = "sounds";
-	private static final String[] SOUND_FILES = { "level1.mp3", "level2.mp3", "level3.mp3", "tutorial.mp3" };
+	private static final String[] SOUND_FILES = { "level1", "level2", "level3", "tutorial.mp3" };
 	
 	Conveyor belt = current.getConveyorBelt();
 	private int count;
@@ -47,7 +47,7 @@ public class Play_game extends Map_graphics{
 		playBackgroundNoise();
 		count++;
 		map_track = 3;
-		//play_game_check(fail);
+		//play_game_check(fail)
 	}
 	
 	public void switchToPass() {

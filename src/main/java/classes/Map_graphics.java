@@ -100,6 +100,7 @@ public class Map_graphics extends Map implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		System.out.println(e.getKeyChar());
 		int key = e.getKeyCode();
+		System.out.println(current.get_string());
 		current.getConductor().playSong(current.get_string());
 		Food curr_food = current.getConductor().getCurrentNote(current.get_string());
 		if (key == KeyEvent.VK_W) {
