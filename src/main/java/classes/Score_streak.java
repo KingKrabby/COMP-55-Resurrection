@@ -2,6 +2,7 @@ package classes;
 
 import javax.swing.Timer;
 
+import acm.graphics.GImage;
 import acm.graphics.GLabel;
 import acm.graphics.GRect;
 import acm.program.GraphicsProgram;
@@ -10,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class Score_streak extends GraphicsProgram implements ActionListener{
+public class Score_streak extends GraphicsProgram{
 	
 	
 	private int streak = 0; //initializes streak to start at 0
