@@ -68,7 +68,30 @@ public class Map_graphics extends Map implements KeyListener {
 	  		add(conveyor2);
 	  	}
 		// Spawner
-		spawn.spawnFood(current); 
+	  	Food currentNote = current.getConductor().getCurrentNote(current.get_string());
+		double currentBeat = current.getConductor().getCurrentBeat(current.get_string());
+		GImage toBeSpawned = null;
+		if (Math.round(currentNote.getSpawnBeat()) == Math.round(currentBeat)) {
+			if (currentNote.getFoodType() == FoodType.BUN) {
+				toBeSpawned = new GImage("bun.png", 10, 10);
+				add(toBeSpawned);
+			}
+			if (currentNote.getFoodType() == FoodType.KETCHUP) {
+				toBeSpawned = new GImage("ketchup.png", 10, 10);
+				add(toBeSpawned);
+			}
+			if (currentNote.getFoodType() == FoodType.TOFU) {
+				toBeSpawned = new GImage("tofu.png", 10, 10);
+				add(toBeSpawned);
+			}
+			if (currentNote.getFoodType() == FoodType.TOMATO) {
+				toBeSpawned = new GImage("tomato.png", 10, 10);
+				add(toBeSpawned);
+			}
+			if (toBeSpawned != null) {
+				toBeSpawned.move(5, 300);
+			}
+		}
 		
 		// hit Circle
 
@@ -101,7 +124,9 @@ public class Map_graphics extends Map implements KeyListener {
 		System.out.println(e.getKeyChar());
 		int key = e.getKeyCode();
 		System.out.println(current.get_string());
+		
 		current.getConductor().playSong(current.get_string());
+		
 		Food curr_food = current.getConductor().getCurrentNote(current.get_string());
 		if (key == KeyEvent.VK_W) {
 			if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
@@ -112,11 +137,17 @@ public class Map_graphics extends Map implements KeyListener {
 				box.incrementFail();
 				
 			}
+			
 			if (fail()) {
+				System.out.println("before");
 				current.getConductor().stopSong(current.get_string());
+				System.out.println("after");
+				
+				System.out.println("failure");
 				fail.start();
 			}
 			if (pass(box.get_score(), current)) {
+				System.out.println("lol");
 				current.getConductor().stopSong(current.get_string());
 				pass.start();
 			}
