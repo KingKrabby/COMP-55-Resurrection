@@ -1,9 +1,11 @@
 package classes;
+import java.awt.event.KeyListener;
+
 import acm.graphics.*;
 import acm.program.*;
 
 
-public class Conveyor extends GraphicsProgram {
+public class Conveyor extends GraphicsProgram implements KeyListener{
 	public int length;
 	public int noteSpeed;
 	public boolean hardMode;
@@ -41,6 +43,7 @@ public class Conveyor extends GraphicsProgram {
 	  		GImage conveyor2 = new GImage("conveyor2.png", x2, y2);
 	  		add(conveyor2);
 	  	}
+	  	
 	  }
 	 
 	 //resizing?
