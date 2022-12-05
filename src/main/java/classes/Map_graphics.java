@@ -19,7 +19,7 @@ public class Map_graphics extends Map implements KeyListener {
 	
 	public void run() {
 		addKeyListeners();
-		//play game background 
+		//play game background
 		GImage blue = new GImage("title_screen_bluebackground.jpg", 0, 0);
 		add(blue);
 		// Score Streak box
