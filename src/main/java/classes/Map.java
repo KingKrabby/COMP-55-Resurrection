@@ -15,7 +15,7 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 	Spawner spawn = new Spawner(10,20);
 
 	
-	
+	 
 	
 	// All Maps
 	
