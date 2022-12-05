@@ -64,7 +64,7 @@ public class Title_screen extends Map implements KeyListener{
 		x.setFont("Arial-56");
 		add(x);
 		
-		GImage title = new GImage("turntuptofu!.png", 1, 1);
+		GImage title = new GImage("turntuptofu!.png", 0, 0);
   		add(title);
 		
 		y.setColor(Color.black);
