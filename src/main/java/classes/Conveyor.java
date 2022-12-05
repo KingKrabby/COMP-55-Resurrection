@@ -16,7 +16,7 @@ public class Conveyor extends GraphicsProgram implements KeyListener{
 	public static final int y1 = 500; 
 	public static final int x2 = 400;
 	public static final int y2 = 500; 
-	
+	 
 	
 	Conveyor(boolean currHard) {
 		numConveyors = 1;
