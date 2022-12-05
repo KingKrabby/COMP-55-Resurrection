@@ -8,16 +8,12 @@ public class HitCircle extends GraphicsProgram {
 	public static final int WINDOW_HEIGHT = 600;
 	public static final int x1 = 550; //will be for HitCircle on large conveyor
 	public static final int y1 = 400; //will be for HitCircle on large conveyornb
-	public static final int x2 = 275; //will be for first HitCircle on smaller conveyors
-	public static final int y2 = 400; //will be for first HitCircle on smaller conveyors
-	public static final int x3 = 425; //will be for second HitCircle on smaller conveyors
-	public static final int y3 = 400; //will be for second HitCircle on smaller conveyors b
+	public static final int x2 = 275; //will be for first HitCircle on smaller conveyor
+	public static final int y2 = 400; //will be for first HitCircle on smaller conveyor
+	public static final int x3 = 425; //will be for second HitCircle on smaller conveyor
+	public static final int y3 = 400; //will be for second HitCircle on smaller conveyor
 	public int numHitCircles;
 	
-	
-	//int numHitCircles;
-	//need to find way to retrieve hitcircle num from mapdatabase?
-	//or maybe change constructor to have number parameter
 	
 	HitCircle(int z) {
 			numHitCircles = z;
@@ -34,8 +30,6 @@ public class HitCircle extends GraphicsProgram {
 			return false;
 		}
 	}
-	
-	
 	
 	
 	 public void run() {
