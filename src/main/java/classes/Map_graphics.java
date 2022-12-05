@@ -65,7 +65,7 @@ public class Map_graphics extends Map{
 	  		add(conveyor2);
 	  	}
 		// Spawner
-		
+		spawn.spawnFood(current);
 		
 		// hit Circle
 	}

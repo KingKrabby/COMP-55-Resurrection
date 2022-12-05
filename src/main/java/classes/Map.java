@@ -12,6 +12,7 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 	Score_streak box = new Score_streak();
 	int map_track  = 0;
 	Timer g ;
+	Spawner spawn = new Spawner(10,20);
 
 	
 	
