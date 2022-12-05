@@ -23,29 +23,7 @@ public class Play_game extends Map_graphics{
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	}
-	boolean fail() {
-		System.out.println("fail");
-		//activates when buttons are pressed
-		// looks at current map --> fail screen
-		if (box.get_failCount() == 3) {
-			box.reset_fail();
-			return true;
-		}
-		return false;
-	}
-	boolean pass(int score, Level level) {
-		System.out.println("pass");
-		if(score == level.get_food_length()) {
-			box.reset();
-			curr_level_num ++;
-			if (curr_level_num < 3) {
-				current = level_arr[curr_level_num];
-			}
-			pass.run();
-			return true;
-		}
-		return false;
-	}
+
 	public void run() {
 		
 		System.out.println("game is running");
@@ -55,84 +33,6 @@ public class Play_game extends Map_graphics{
 		map_graphics.start();
 		playBackgroundNoise();
 		//switchToMenu();
-		
-	}
-	@Override
-	public void keyPressed(KeyEvent e) {
-		int key = e.getKeyCode();
-		current.getConductor().playSong(current.get_string());
-		Food curr_food = current.getConductor().getCurrentNote(current.get_string());
-		if (key == KeyEvent.VK_W) {
-			if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
-				box.incrementScore();
-			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
-				
-			}
-			if (fail()) {
-				current.getConductor().stopSong(current.get_string());
-				fail.start();
-			}
-			if (pass(box.get_score(), current)) {
-				current.getConductor().stopSong(current.get_string());
-				pass.start();
-			}
-			
-		}
-		if (key == KeyEvent.VK_A) {
-			if (curr_food.getFoodType().toString()== "tomato" && current.getHitCircle().isHit(curr_food, current)) {
-				box.incrementScore();
-			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
-			}
-			if (fail()) {
-				current.getConductor().stopSong(current.get_string());
-				fail.start();
-			}
-			if (pass(box.get_score(), current)) {
-				current.getConductor().stopSong(current.get_string());
-				pass.start();
-			}
-		}
-		if (key == KeyEvent.VK_S) {
-			if (curr_food.getFoodType().toString()== "tofu" && current.getHitCircle().isHit(curr_food, current)) {
-				box.incrementScore();
-			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
-			}
-			if (fail()) {
-				current.getConductor().stopSong(current.get_string());
-				fail.start();
-			}
-			if (pass(box.get_score(), current)) {
-				current.getConductor().stopSong(current.get_string());
-				pass.start();
-			}
-		}
-		if (key == KeyEvent.VK_D) {
-			if (curr_food.getFoodType().toString()== "bun" && current.getHitCircle().isHit(curr_food, current)) {
-				box.incrementScore();
-			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
-			}
-			if (fail()) {
-				current.getConductor().stopSong(current.get_string());
-				fail.start();
-			}
-			if (pass(box.get_score(), current)) {
-				current.getConductor().stopSong(current.get_string());
-				pass.start();
-			}
-		}
-		
 		
 	}
 	
