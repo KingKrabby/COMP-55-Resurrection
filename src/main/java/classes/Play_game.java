@@ -15,7 +15,7 @@ public class Play_game extends Map_graphics{
 	public static final int WINDOW_HEIGHT = 600;
 	//title screen background music
 	public static final String MUSIC_FOLDER = "sounds";
-	private static final String[] SOUND_FILES = { "tutorial.mp3" };
+	private static final String[] SOUND_FILES = { "level1.mp3", "level2.mp3", "level3.mp3", "tutorial.mp3" };
 	
 	Conveyor belt = current.getConveyorBelt();
 	private int count;
@@ -53,9 +53,9 @@ public class Play_game extends Map_graphics{
 		map_track = 0;
 		Map_graphics map_graphics = new Map_graphics();
 		map_graphics.start();
-		title = new Title_screen();
-		//switchToMenu();
 		playBackgroundNoise();
+		//switchToMenu();
+		
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -159,7 +159,7 @@ public class Play_game extends Map_graphics{
 	
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
-		test.playSound(MUSIC_FOLDER, SOUND_FILES[count % SOUND_FILES.length]);
+		test.playSound(MUSIC_FOLDER, current.get_string());
 	}
 	
 	public static void main(String[] args) {
