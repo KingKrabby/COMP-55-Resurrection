@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import acm.graphics.GImage;
 
 
-public class Play_game extends Map{
+public class Play_game extends Map_graphics{
 	//screen windows
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
@@ -48,14 +48,11 @@ public class Play_game extends Map{
 	}
 	public void run() {
 		
-		JFrame frame = new JFrame();
 		System.out.println("game is running");
 		System.out.println("Turnt Up Tofu!");
 		map_track = 0;
-		GImage blue = new GImage("title_screen_bluebackground.jpg", 200, 200);
-		add(blue);
-		belt.start();
-		box.start();
+		Map_graphics map_graphics = new Map_graphics();
+		map_graphics.start();
 		title = new Title_screen();
 		//switchToMenu();
 		playBackgroundNoise();
