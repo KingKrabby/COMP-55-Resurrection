@@ -17,8 +17,8 @@ public class Title_screen extends Map implements KeyListener{
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
 	GImage blue = new GImage("title_screen_bluebackground.jpg");
-	GLabel x = new GLabel("Turnt Up Tofu!", WINDOW_WIDTH/2, 50);
-	GLabel y = new GLabel("Press Spacebar to Start!", 300, 400);
+	//GLabel x = new GLabel("Turnt Up Tofu!", WINDOW_WIDTH/2, 50);
+	GLabel y = new GLabel("Press Spacebar to Start", 190, 545);
 	private Play_game program;
 	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "menu.mp3" };
@@ -60,15 +60,15 @@ public class Title_screen extends Map implements KeyListener{
 		//Title of Game
 		System.out.println("title");
 		playBackgroundNoise();
-		x.setColor(Color.black);
-		x.setFont("Arial-56");
-		add(x);
+		//x.setColor(Color.black);
+		//x.setFont("Arial-56");
+		//add(x);
 		
 		GImage title = new GImage("turntuptofu!.png", 50, 400);
   		add(title);
 		
-		y.setColor(Color.black);
-		y.setFont("Arial-56");
+		y.setColor(Color.white);
+		y.setFont("Arial-40");
 		add(y);
 		addKeyListeners();
 		//area for creating a title screen once we start communicating between classes
