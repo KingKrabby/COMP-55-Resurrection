@@ -155,7 +155,7 @@ public class Play_game extends Map_graphics{
 		count++;
 		map_track = 2;
 		//play_game_check(pass);
-	}
+	} 
 	
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
