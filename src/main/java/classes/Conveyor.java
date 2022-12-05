@@ -43,9 +43,13 @@ public class Conveyor extends GraphicsProgram implements KeyListener{
 	  		GImage conveyor2 = new GImage("conveyor2.png", x2, y2);
 	  		add(conveyor2);
 	  	}
+
 	  	
 	  }
-	 
+	
+	 public static void main(String[] args) {
+			new Conveyor(false).start();
+		}
 	 //resizing?
 	 
 }
