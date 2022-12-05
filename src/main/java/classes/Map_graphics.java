@@ -96,7 +96,7 @@ public class Map_graphics extends Map implements KeyListener {
 		// hit Circle
 
 	}
-	boolean fail() {
+	boolean fail(Score_streak current) {
 		System.out.println("fail");
 		//activates when buttons are pressed
 		// looks at current map --> fail screen
@@ -104,6 +104,27 @@ public class Map_graphics extends Map implements KeyListener {
 			box.reset_fail();
 			return true;
 		}
+		int score_streak_SIZE_x = 60;
+		int score_streak_SIZE_y = 50;
+		int score_streak_loc_x = 0;
+		int score_streak_loc_y = 40;
+		GRect score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
+		add(score_streak);
+		GLabel score1 = new GLabel("Score: " + current.get_score(),0, 50);
+		GLabel streak1 = new GLabel("Streak: " + current.get_streak(),0, 60);
+		int fail_x = 0;
+		GLabel fail = new GLabel("Fail: " ,0, 70);
+		add(fail);
+		fail_x += 25;
+		for (int i = 0; i < + current.get_failCount(); i++) {
+			fail = new GLabel("X " , fail_x, 70);
+			fail_x += 10;
+			add(fail);
+		}
+		
+		
+		add(score1);
+		add(streak1);
 		return false;
 	}
 	boolean pass(int score, Level level) {
@@ -125,7 +146,7 @@ public class Map_graphics extends Map implements KeyListener {
 		int key = e.getKeyCode();
 		System.out.println(current.get_string());
 		
-		current.getConductor().playSong(current.get_string());
+		//current.getConductor().playSong(current.get_string());
 		
 		Food curr_food = current.getConductor().getCurrentNote(current.get_string());
 		if (key == KeyEvent.VK_W) {
@@ -138,7 +159,7 @@ public class Map_graphics extends Map implements KeyListener {
 				
 			}
 			
-			if (fail()) {
+			if (fail(box)) {
 				System.out.println("before");
 				current.getConductor().stopSong(current.get_string());
 				System.out.println("after");
@@ -161,7 +182,7 @@ public class Map_graphics extends Map implements KeyListener {
 				box.reset_streak();
 				box.incrementFail();
 			}
-			if (fail()) {
+			if (fail(box)) {
 				current.getConductor().stopSong(current.get_string());
 				fail.start();
 			}
@@ -178,7 +199,7 @@ public class Map_graphics extends Map implements KeyListener {
 				box.reset_streak();
 				box.incrementFail();
 			}
-			if (fail()) {
+			if (fail(box)) {
 				current.getConductor().stopSong(current.get_string());
 				fail.start();
 			}
@@ -195,7 +216,7 @@ public class Map_graphics extends Map implements KeyListener {
 				box.reset_streak();
 				box.incrementFail();
 			}
-			if (fail()) {
+			if (fail(box)) {
 				current.getConductor().stopSong(current.get_string());
 				fail.start();
 			}

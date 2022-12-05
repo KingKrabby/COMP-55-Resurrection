@@ -91,7 +91,7 @@ public class Score_streak extends GraphicsProgram{
 			add(fail);
 		}
 		
-		score_streak_graphic.start();
+		
 		add(score1);
 		add(streak1);
 		
