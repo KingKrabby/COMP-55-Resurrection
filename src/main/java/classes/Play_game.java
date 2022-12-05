@@ -1,7 +1,10 @@
 package classes;
 //The main screen where everything is displayed
 
+import java.awt.Component;
 import java.awt.event.KeyEvent;
+
+import javax.swing.JFrame;
 
 import acm.graphics.GImage;
 
@@ -44,13 +47,15 @@ public class Play_game extends Map{
 		return false;
 	}
 	public void run() {
-		belt.run();
-		box.start();
+		
+		JFrame frame = new JFrame();
 		System.out.println("game is running");
 		System.out.println("Turnt Up Tofu!");
 		map_track = 0;
 		GImage blue = new GImage("title_screen_bluebackground.jpg", 200, 200);
 		add(blue);
+		belt.start();
+		box.start();
 		title = new Title_screen();
 		//switchToMenu();
 		playBackgroundNoise();
