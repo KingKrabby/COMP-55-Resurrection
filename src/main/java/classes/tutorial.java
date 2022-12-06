@@ -26,7 +26,7 @@ public class tutorial extends Map{
 	int count1 = 0;
 	int check;
 	Timer movement;
-	GLabel W;
+	GLabel W, A, S, D;
 	ArrayList<GImage> list = new ArrayList<GImage> ();
 	public void run() {
 
@@ -36,6 +36,12 @@ public class tutorial extends Map{
 		GImage hCircle = new GImage("hitcircle.png", 550, 400);
 		W = new GLabel("W", 650, 300);
 		W.setFont("Arial-70");
+		A = new GLabel("W", 650, 300);
+		A.setFont("Arial-70");
+		S = new GLabel("W", 650, 300);
+		S.setFont("Arial-70");
+		D = new GLabel("W", 650, 300);
+		D.setFont("Arial-70");
 		
 		
 		
@@ -48,6 +54,14 @@ public class tutorial extends Map{
 		add(belt);
 		add(hCircle);
 		add(W);
+		add(A);
+		add(S);
+		add(D);
+		W.setVisible(false);
+		A.setVisible(false);
+		S.setVisible(false);
+		D.setVisible(false);
+		
 		
 		
 		movement = new Timer(MS, this);
