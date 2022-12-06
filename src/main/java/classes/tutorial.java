@@ -27,6 +27,8 @@ public class tutorial extends Map{
 	int check;
 	Timer movement;
 	GLabel W, A, S, D;
+	GLabel w_label, a_label, s_label, d_label;
+	int xlabel = 50, ylabel = 50;
 	ArrayList<GImage> list = new ArrayList<GImage> ();
 	public void run() {
 
@@ -34,13 +36,13 @@ public class tutorial extends Map{
 		GImage background = new GImage("title_screen_bluebackground.jpg", 0, 0);
 		
 		GImage hCircle = new GImage("hitcircle.png", 550, 400);
-		W = new GLabel("W", 650, 300);
+		W = new GLabel("W", 635, 290);
 		W.setFont("Arial-70");
-		A = new GLabel("W", 650, 300);
+		A = new GLabel("A", 600, 350);
 		A.setFont("Arial-70");
-		S = new GLabel("W", 650, 300);
+		S = new GLabel("S", 650, 350);
 		S.setFont("Arial-70");
-		D = new GLabel("W", 650, 300);
+		D = new GLabel("D", 700, 350);
 		D.setFont("Arial-70");
 		
 		
@@ -57,10 +59,7 @@ public class tutorial extends Map{
 		add(A);
 		add(S);
 		add(D);
-		W.setVisible(false);
-		A.setVisible(false);
-		S.setVisible(false);
-		D.setVisible(false);
+
 		
 		
 		
@@ -81,12 +80,12 @@ public class tutorial extends Map{
 		for (GImage f:list) {
 			f.move(speed, 0);
 			if (f.getX() > 600 && count1 == i) {
+				label(count1);
 				schange = System.currentTimeMillis();
 				while (change < 2000) {
 					echange = System.currentTimeMillis();
 					change = echange - schange;	
 				}
-				label(count1);
 				count1 ++;
 				
 			}
@@ -96,6 +95,7 @@ public class tutorial extends Map{
 		elapsed = end - start;
 		
 		if (elapsed > check && count < 4) {
+			
 			list.add(food[count]);
 			add(food[count]);
 			check += 4000;
@@ -112,34 +112,37 @@ public class tutorial extends Map{
 		
 		}
 	public void label(int num) {
+		System.out.println(num);
 		// W
 		if (num == 0) {
-			GLabel w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", 20, 20);
+			w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
 			add(w_label);
-			delay();
-			w_label.setVisible(false);
+			//delay();
+			
 		}
-		// 
+		// A
 		else if (num == 1) {
-			GLabel a_label = new GLabel("Pressing the right button generates a streak and adds a point", 20, 20);
+			a_label = new GLabel("Pressing the right button generates a streak and adds a point",xlabel, ylabel);
+			w_label.setVisible(false);
 			add(a_label);
 			delay();
-			a_label.setVisible(false);
+			
 		}
 		// S
 		else if ( num == 2) {
-			GLabel s_label = new GLabel("Pressing the wrong button resets streak and point", 20, 20);
+			s_label = new GLabel("Pressing the wrong button resets streak and point",xlabel, ylabel);
 			add(s_label);
 			delay();
-			s_label.setVisible(false);
+			a_label.setVisible(false);
+			
 		}
 		
 		// D
 		else if ( num == 3) {
-			GLabel d_label = new GLabel("Enjoy game", 20, 20);
+			s_label.setVisible(false);
+			d_label = new GLabel("Enjoy game",xlabel, ylabel);
 			add(d_label);
 			delay();
-			d_label.setVisible(false);
 			
 		}
 	}
@@ -152,7 +155,7 @@ public class tutorial extends Map{
 			speed += 5;
 		}
 		if (keyCode == KeyEvent.VK_LEFT) {
-			if (speed > 0) {
+			if (speed > 1) {
 				speed --;
 			}
 			
