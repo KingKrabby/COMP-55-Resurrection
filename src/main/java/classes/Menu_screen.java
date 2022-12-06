@@ -35,11 +35,20 @@ public class Menu_screen extends Map {
 	public void run() {
 		playBackgroundNoise();
 		current = level_1;
+		
+		GImage blue = new GImage("title_screen_bluebackground.jpg", 0, 0);
+  		add(blue);
+  		
+  		GImage title = new GImage("turntuptofu!.png", 40, 0);
+  		add(title);
+		
+  		/*
 		System.out.println("hello");
 		x = new GLabel("Turnt Up Tofu", 20, 50);
 		x.setColor(Color.black);
 		x.setFont("Arial-18");
 		add(x);
+		*/
 		
 		GLabel y = new GLabel("Press 'L' to play the Tutorial!", 20, 90);
 		y.setColor(Color.black);
@@ -58,8 +67,7 @@ public class Menu_screen extends Map {
 		
 		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
   		add(logo);
-  		GImage blue = new GImage("title_screen_bluebackground.jpg", 200, 200);
-  		add(blue);
+  		
   		addKeyListeners();
 	}
 	public void stop() {

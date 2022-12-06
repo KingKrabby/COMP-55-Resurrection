@@ -60,7 +60,7 @@ public class Play_game extends Map_graphics{
 	
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
-		test.playSound(MUSIC_FOLDER, SOUND_FILES[count % SOUND_FILES.length]);
+		test.playSound(MUSIC_FOLDER, current.get_string());
 		
 	}
 	
