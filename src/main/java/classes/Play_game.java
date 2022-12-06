@@ -34,6 +34,7 @@ public class Play_game extends Map_graphics{
 		map_graphics.start();
 		playBackgroundNoise();
 		//switchToMenu();
+
 		
 	}
 	
