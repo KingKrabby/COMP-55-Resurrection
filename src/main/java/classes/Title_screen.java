@@ -66,6 +66,11 @@ public class Title_screen extends Map implements KeyListener{
 		
 		GImage title = new GImage("turntuptofu!.png", 50, 400);
   		add(title);
+  		
+  		GImage tofuGuy = new GImage("tofuchefimage.png", 150, 10);
+  		add(tofuGuy);
+  		
+  		
 		
 		y.setColor(Color.white);
 		y.setFont("Arial-40");
