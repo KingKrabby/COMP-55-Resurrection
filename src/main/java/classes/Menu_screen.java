@@ -50,22 +50,22 @@ public class Menu_screen extends Map {
 		add(x);
 		*/
 		
-		GLabel y = new GLabel("Press 'L' to play the Tutorial!", 20, 90);
-		y.setColor(Color.black);
-		y.setFont("Arial-18");
+		GLabel y = new GLabel("Press 'L' to play the Tutorial!", 0, 180);
+		y.setColor(Color.white);
+		y.setFont("Arial-47");
 		add(y);
 		
-		GLabel z = new GLabel("Press Spacebar to play the first level!", 20, 130);
-		z.setColor(Color.black);
-		z.setFont("Arial-18");
+		GLabel z = new GLabel("Press Spacebar to play the first level!", 0, 280);
+		z.setColor(Color.white);
+		z.setFont("Arial-47");
 		add(z);
 		
-		GLabel a = new GLabel("Press 'Esc' to quit the game", 20, 170);
-		a.setColor(Color.black);
-		a.setFont("Arial-18");
+		GLabel a = new GLabel("Press 'Esc' to quit the game", 0, 380);
+		a.setColor(Color.white);
+		a.setFont("Arial-47");
 		add(a);
 		
-		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
+		GImage logo = new GImage("World's Hardest Games Logo.png", 200, 200);
   		add(logo);
   		
   		addKeyListeners();
