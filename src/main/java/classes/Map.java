@@ -9,19 +9,11 @@ import javax.swing.Timer;
 import acm.program.GraphicsProgram;
 
 public class Map extends GraphicsProgram implements ActionListener, KeyListener {
-	Timer t = new Timer(1000,this);
+	
 	Score_streak box = new Score_streak();
 	int map_track  = 0;
-	Timer g ;
-	Spawner spawn = new Spawner(0,0);
-
-	
-	 
-	
-	// All Maps
 	
 	static Title_screen title = new Title_screen(); // 0
-	
 	static Play_game game = new Play_game(); // 3
 	static Menu_screen menu = new Menu_screen(game); // 1
 	static Pass_screen pass = new Pass_screen(game); // 2
@@ -40,23 +32,15 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 	public void run() { 
 		addKeyListeners();
 		title.start();
-		
-		
-		
 	}
 
 	
 	public static void main(String args[]) {
 		new Map().start();
-		
-		 
 	}
 
 
 	public void actiobPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
-	
-
 }

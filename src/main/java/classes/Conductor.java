@@ -3,17 +3,19 @@ import javafx.util.Duration;
 import java.util.Scanner;
 //
 public class Conductor {
+	private double BPM;
+	private double currentBeat;
+	private Song song;
+	private int reactionTime;
+	private Food mapNotes[];
+	
 	public Conductor(double bpm, Song music, int speed, Food notes[]){
 		BPM = bpm;
 		song = music;
 		reactionTime = speed;
 		mapNotes = notes;
 	}
-	private double BPM;
-	private double currentBeat;
-	private Song song;
-	private int reactionTime;
-	private Food mapNotes[];
+
 	void setBPM(int bpm) {
 		BPM = bpm;
 	}
@@ -31,6 +33,7 @@ public class Conductor {
 	}
 	double getCurrentBeat(String level) {
 		System.out.println(level);
+		System.out.println(song.toString());
 		if(song.findSound("sounds", level + ".mp3") == null) {
 			return 0;
 		}

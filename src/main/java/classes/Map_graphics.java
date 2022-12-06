@@ -18,6 +18,7 @@ public class Map_graphics extends Map implements KeyListener {
 	
 	
 	public void run() {
+		requestFocus();
 		addKeyListeners();
 		//play game background 
 		GImage blue = new GImage("title_screen_bluebackground.jpg", 0, 0);
@@ -124,6 +125,7 @@ public class Map_graphics extends Map implements KeyListener {
   		add(logo);
 
 	}
+	
 	boolean fail(Score_streak current) {
 		System.out.println("fail");
 		//activates when buttons are pressed
@@ -155,6 +157,7 @@ public class Map_graphics extends Map implements KeyListener {
 		add(streak1);
 		return false;
 	}
+	
 	boolean pass(int score, Level level) {
 		System.out.println("pass");
 		if(score == level.get_food_length()) {
@@ -168,6 +171,7 @@ public class Map_graphics extends Map implements KeyListener {
 		}
 		return false;
 	}
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		System.out.println(e.getKeyChar());

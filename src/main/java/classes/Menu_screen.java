@@ -33,6 +33,7 @@ public class Menu_screen extends Map {
 
 	}
 	public void run() {
+		requestFocus();
 		playBackgroundNoise();
 		current = level_1;
 		
@@ -70,11 +71,11 @@ public class Menu_screen extends Map {
   		
   		addKeyListeners();
 	}
+	
 	public void stop() {
-		
 		test.stopSound(MUSIC_FOLDER, SOUND_FILES[0]);
-		
 	}
+	
 	@Override
 	public void keyPressed(KeyEvent s) {
 		int keyCode = s.getKeyCode();

@@ -28,19 +28,19 @@ public class Play_game implements ActionListener{
 
 	public void run() {
 		spawnerTimer =  new Timer(500, this);
-		spawnerTimer.start();
+		//spawnerTimer.start();
 		System.out.println("game is running");
 		
-		System.out.println("Turnt Up Tofu!");
 		map_graphics = new Map_graphics();
+		map_graphics.map_track = 3;
 		map_graphics.start();
-		map_graphics.map_track = 0;
+		
 		belt = map_graphics.current.getConveyorBelt();
 		playBackgroundNoise();
 		spawner = Map_Database.spawner1;
-		spawner.setGame(map_graphics.game);
-		//switchToMenu();		
+		//spawner.setGame(map_graphics.game);	
 	}
+	
 	public void add(GImage img) {
 		map_graphics.add(img);
 	}
