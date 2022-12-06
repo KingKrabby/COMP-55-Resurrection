@@ -118,6 +118,10 @@ public class Map_graphics extends Map implements KeyListener {
 	  		GImage hitCircle2 = new GImage("hitcircle.png", h3, w3);
 	  		add(hitCircle2);
 	  	}
+	  	
+	  	GImage logo = new GImage("World's Hardest Games Logo.png", 680, -20);
+		logo.sendToFront();
+  		add(logo);
 
 	}
 	boolean fail(Score_streak current) {
