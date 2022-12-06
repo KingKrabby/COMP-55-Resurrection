@@ -65,7 +65,7 @@ public class Menu_screen extends Map {
 		a.setFont("Arial-47");
 		add(a);
 		
-		GImage logo = new GImage("World's Hardest Games Logo.png", -45, 450);
+		GImage logo = new GImage("World's Hardest Games Logo.png", -45, 470);
   		add(logo);
   		
   		addKeyListeners();

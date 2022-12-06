@@ -70,6 +70,9 @@ public class Title_screen extends Map implements KeyListener{
   		GImage tofuGuy = new GImage("tofuchefimage.png", 150, 10);
   		add(tofuGuy);
   		
+  		GImage logo = new GImage("World's Hardest Games Logo.png", -45, 470);
+  		add(logo);
+  		
   		
 		
 		y.setColor(Color.white);
