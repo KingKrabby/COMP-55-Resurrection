@@ -82,10 +82,11 @@ public class tutorial extends Map{
 			f.move(speed, 0);
 			if (f.getX() > 600 && count1 == i) {
 				schange = System.currentTimeMillis();
-				while (change < 5000) {
+				while (change < 2000) {
 					echange = System.currentTimeMillis();
 					change = echange - schange;	
 				}
+				label(count1);
 				count1 ++;
 				
 			}
@@ -102,9 +103,45 @@ public class tutorial extends Map{
 		}
 		
 	}
+	public void delay() {
+		long s = System.currentTimeMillis();
+		long e = System.currentTimeMillis();
+		while (e - s < 4000) {
+			e = System.currentTimeMillis();
+		}
+		
+		}
 	public void label(int num) {
+		// W
+		if (num == 0) {
+			GLabel w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", 20, 20);
+			add(w_label);
+			delay();
+			w_label.setVisible(false);
+		}
+		// 
+		else if (num == 1) {
+			GLabel a_label = new GLabel("Pressing the right button generates a streak and adds a point", 20, 20);
+			add(a_label);
+			delay();
+			a_label.setVisible(false);
+		}
+		// S
+		else if ( num == 2) {
+			GLabel s_label = new GLabel("Pressing the wrong button resets streak and point", 20, 20);
+			add(s_label);
+			delay();
+			s_label.setVisible(false);
+		}
 		
-		
+		// D
+		else if ( num == 3) {
+			GLabel d_label = new GLabel("Enjoy game", 20, 20);
+			add(d_label);
+			delay();
+			d_label.setVisible(false);
+			
+		}
 	}
 	
 	@Override
