@@ -22,27 +22,28 @@ public class Fail_screen extends Map{
 
 	}
 	public void run() {
-		GLabel x = new GLabel("Oof, better luck next time", 20, 50);
-		x.setColor(Color.black);
-		x.setFont("Arial-18");
+		GImage gordon = new GImage("Gordon.jpg");
+		add(gordon);
+		GLabel x = new GLabel("IF YOU CANT HANDLE THE HEAT, STAY OUT OF THE KITCHEN ", 5, 250);
+		x.setColor(Color.red);
+		x.setFont("Arial-26");
 		add(x);
-		
-		GLabel y = new GLabel("Press Spacebar to try again", 20, 90);
-		y.setColor(Color.black);
-		y.setFont("Arial-18");
+		GLabel y = new GLabel("Press Spacebar to try again", 200, 300);
+		y.setColor(Color.white);
+		y.setFont("Arial-26");
 		add(y);
 		
-		GLabel z = new GLabel("Press Enter to return back to the menu", 20, 130);
-		z.setColor(Color.black);
-		z.setFont("Arial-18");
+		GLabel z = new GLabel("Press Enter to return back to the menu", 150, 400);
+		z.setColor(Color.white);
+		z.setFont("Arial-26");
 		add(z);
 		
-		GImage logo = new GImage("World's Hardest Games Logo.png", 0, 400);
+		GImage logo = new GImage("World's Hardest Games Logo.png", 220, 400);
   		add(logo);
   		addKeyListeners();
 	}
 	
-	
+	@Override
 	public void keyPressed(KeyEvent r) {
 		int keyCode = r.getKeyCode();
 		if (keyCode == KeyEvent.VK_ENTER) {
@@ -53,5 +54,8 @@ public class Fail_screen extends Map{
 			//replays level
 			game.run();
 		}
+	}
+	public static void main(String[] args) {
+		new Fail_screen().start();
 	}
 }
