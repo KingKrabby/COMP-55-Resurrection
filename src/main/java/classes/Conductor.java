@@ -1,7 +1,7 @@
 package classes;
 import javafx.util.Duration;
 import java.util.Scanner;
-
+//
 public class Conductor {
 	public Conductor(double bpm, Song music, int speed, Food notes[]){
 		BPM = bpm;
