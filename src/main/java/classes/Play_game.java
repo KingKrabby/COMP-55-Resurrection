@@ -37,16 +37,10 @@ public class Play_game implements ActionListener{
 		map_graphics.map_track = 0;
 		belt = map_graphics.current.getConveyorBelt();
 		playBackgroundNoise();
-<<<<<<< HEAD
 		spawner = Map_Database.spawner1;
 		spawner.setGame(map_graphics.game);
-		//switchToMenu();
-=======
->>>>>>> branch 'main' of https://github.com/COMP55Fall2022/teamproject-group-1-world-s-hardest-games.git
-		
+		//switchToMenu();		
 	}
-<<<<<<< HEAD
-	
 	public void add(GImage img) {
 		map_graphics.add(img);
 	}
@@ -76,9 +70,6 @@ public class Play_game implements ActionListener{
 		map_graphics.map_track = 2;
 		//play_game_check(pass);
 	} 
-=======
-
->>>>>>> branch 'main' of https://github.com/COMP55Fall2022/teamproject-group-1-world-s-hardest-games.git
 	
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
