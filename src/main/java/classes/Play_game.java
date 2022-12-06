@@ -33,30 +33,10 @@ public class Play_game extends Map_graphics{
 		Map_graphics map_graphics = new Map_graphics();
 		map_graphics.start();
 		playBackgroundNoise();
-		//switchToMenu();
+	
 		
 	}
-	
-	public void switchToMenu() {
-		playBackgroundNoise();
-		count++;
-		map_track = 1;
-		//play_game_check(menu);
-	}
-	
-	public void switchToFail() {
-		playBackgroundNoise();
-		count++;
-		map_track = 3;
-		//play_game_check(fail)
-	}
-	
-	public void switchToPass() {
-		playBackgroundNoise();
-		count++;
-		map_track = 2;
-		//play_game_check(pass);
-	} 
+
 	
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
