@@ -22,6 +22,31 @@ public class Spawner {
 	int spawnerY;
 	
 	void spawnFood(Level currLevel) {
+		
+/*t.start()
+ * count = 0;
+ * for currLevel.getFood:
+ * 		if (elapsed > food.getint() && count == i):
+ * 			spawn_image();
+ * 			add image to global list;
+ * 
+ *  // to check
+ *  
+ *  pass():
+ *  * for curr.food.images:
+ *  	* check if any food item matches the key pressed
+ *  		-get string of current food type == bun, tofu...;
+ *  	* within x bounds of the hit circle
+ *  	
+ *  
+ *  
+ *  @Override 
+ *  (if key):
+ *  	
+ *  
+ *  	
+ */
+		
 		double currentBeat = currLevel.getConductor().getCurrentBeat(currLevel.get_string());
 		Food currentNote = currLevel.getConductor().getCurrentNote(currLevel.get_string());
 		GImage toBeSpawned = null;
