@@ -176,6 +176,10 @@ public class Map_graphics extends Map implements KeyListener {
 		if (key == KeyEvent.VK_W) {
 			if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
 				box.incrementScore();
+				GImage dj = new GImage("DJ 2.png", 270, 285);
+				add(dj);
+				dj = new GImage("DJ 1.png", 270, 285);
+				add(dj);
 			}
 			else {
 				box.reset_streak();
@@ -201,6 +205,10 @@ public class Map_graphics extends Map implements KeyListener {
 		if (key == KeyEvent.VK_A) {
 			if (curr_food.getFoodType().toString()== "tomato" && current.getHitCircle().isHit(curr_food, current)) {
 				box.incrementScore();
+				GImage dj = new GImage("DJ 2.png", 270, 285);
+				add(dj);
+				dj = new GImage("DJ 1.png", 270, 285);
+				add(dj);
 			}
 			else {
 				box.reset_streak();
@@ -218,6 +226,10 @@ public class Map_graphics extends Map implements KeyListener {
 		if (key == KeyEvent.VK_S) {
 			if (curr_food.getFoodType().toString()== "tofu" && current.getHitCircle().isHit(curr_food, current)) {
 				box.incrementScore();
+				GImage dj = new GImage("DJ 2.png", 270, 285);
+				add(dj);
+				dj = new GImage("DJ 1.png", 270, 285);
+				add(dj);
 			}
 			else {
 				box.reset_streak();
@@ -235,6 +247,11 @@ public class Map_graphics extends Map implements KeyListener {
 		if (key == KeyEvent.VK_D) {
 			if (curr_food.getFoodType().toString()== "bun" && current.getHitCircle().isHit(curr_food, current)) {
 				box.incrementScore();
+				GImage dj = new GImage("DJ 2.png", 270, 285);
+				add(dj);
+				dj = new GImage("DJ 1.png", 270, 285);
+				add(dj);
+				
 			}
 			else {
 				box.reset_streak();
