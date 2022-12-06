@@ -59,7 +59,7 @@ public class Pass_screen extends Map{
 			menu.start();
 		}
 		if (keyCode == KeyEvent.VK_SPACE) {
-			//move onto next level
+			//move onto next level jbsx
 			//put onSpacePressed in mainApplication
 			//what will be our main application
 			//keep the logic in the classes
