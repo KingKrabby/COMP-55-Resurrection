@@ -22,6 +22,11 @@ public class Map_graphics extends Map implements KeyListener {
 		//play game background 
 		GImage blue = new GImage("title_screen_bluebackground.jpg", 0, 0);
 		add(blue);
+		
+		//DJ
+		GImage dj = new GImage("DJ 1.png", 270, 285);
+		add(dj);
+		
 		// Score Streak box
 		int score_streak_SIZE_x = 60;
 		int score_streak_SIZE_y = 50;
