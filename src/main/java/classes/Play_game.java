@@ -33,7 +33,6 @@ public class Play_game extends Map_graphics{
 		Map_graphics map_graphics = new Map_graphics();
 		map_graphics.start();
 		playBackgroundNoise();
-	
 		
 	}
 
