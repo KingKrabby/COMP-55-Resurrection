@@ -25,6 +25,10 @@ public class Pass_screen extends Map{
 	
 	public void run() {
 		System.out.println("pass");
+		
+		GImage green = new GImage("greenbackground.jpg", 0, 0);
+		add(green);
+		
 		GLabel x = new GLabel("Great Work!", 20, 50);
 		x.setColor(Color.black);
 		x.setFont("Arial-18");
@@ -68,7 +72,7 @@ public class Pass_screen extends Map{
 		}
 	}
 	public static void main(String[] args) {
-		//new Pass_screen(game).start();
+		new Pass_screen(game).start();
 	}
 	 
 	
