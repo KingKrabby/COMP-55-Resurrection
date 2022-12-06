@@ -30,17 +30,17 @@ public class Pass_screen extends Map{
 		add(green);
 		
 		GLabel x = new GLabel("Great Work!", 20, 50);
-		x.setColor(Color.black);
+		x.setColor(Color.white);
 		x.setFont("Arial-18");
 		add(x);
 		
 		GLabel y = new GLabel("Press Spacebar to move onto the next level!", 20, 90);
-		y.setColor(Color.black);
+		y.setColor(Color.white);
 		y.setFont("Arial-18");
 		add(y);
 		
 		GLabel z = new GLabel("Press Enter to return back to the menu", 20, 130);
-		z.setColor(Color.black);
+		z.setColor(Color.white);
 		z.setFont("Arial-18");
 		add(z);
 		
