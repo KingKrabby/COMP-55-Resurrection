@@ -6,7 +6,7 @@ public final class Map_Database {
 	public static Food[] tutorialFood = new Food[] { new Food(FoodType.BUN, 1), 
 			new Food(FoodType.KETCHUP, 5),
 			new Food(FoodType.TOFU, 9),
-			new Food(FoodType.TOMATO, 13)};
+			new Food(FoodType.TOMATO, 30)};
 	public static Food[] food1 = new Food[] { new Food(FoodType.BUN, 1), 
 			new Food(FoodType.KETCHUP, 5),
 			new Food(FoodType.TOFU, 9),
@@ -35,9 +35,9 @@ public final class Map_Database {
 	public static Spawner spawner3 = new Spawner(-100, 500);; 
 	
 	// add a level called tutorial
-	Level level1 = new Level("level1.mp3",conductor1, conveyor1, food1, song1, circle1, spawner1);
-	Level level2 = new Level("level2.mp3",conductor2, conveyor2, food2, song2, circle2, spawner2);
-	Level level3 = new Level("level3.mp3", conductor3, conveyor3, food3, song3, circle3, spawner3);
+	public static Level level1 = new Level("tutorial.mp3",conductor1, conveyor1, food1, circle1, spawner1);
+	public static Level level2 = new Level("level2.mp3",conductor2, conveyor2, food2, circle2, spawner2);
+	public static Level level3 = new Level("level3.mp3", conductor3, conveyor3, food3, circle3, spawner3);
 
 
 	// get hitcircles

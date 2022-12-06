@@ -1,4 +1,5 @@
 package classes;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import javax.swing.Timer;
@@ -49,6 +50,12 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 		new Map().start();
 		
 		 
+	}
+
+
+	public void actiobPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

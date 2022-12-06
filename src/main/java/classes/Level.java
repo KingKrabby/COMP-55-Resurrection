@@ -11,11 +11,11 @@ public class Level{
 	String s;
 
 	
-	Level(String string, Conductor currConductor, Conveyor currBelt, Food[] currItems, Song currSong, HitCircle currCircle, Spawner currSpawner) {
+	Level(String string, Conductor currConductor, Conveyor currBelt, Food[] currItems, HitCircle currCircle, Spawner currSpawner) {
 		conductor = currConductor;
 		conveyorBelt = currBelt;
 		foodItems = currItems;
-		song = currSong;
+		//song = currSong;
 		hitCircle = currCircle;
 		spawner = currSpawner;
 		s = string;

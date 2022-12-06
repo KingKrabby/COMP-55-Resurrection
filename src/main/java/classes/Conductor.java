@@ -33,6 +33,7 @@ public class Conductor {
 		if(song.findSound("sounds", level + ".mp3") == null) {
 			return 0;
 		}
+		System.out.println(level);
 		Duration songDuration = song.findSound("sounds", level + ".mp3").getCurrentTime();
 		double currentPos = (double)songDuration.toSeconds();
 		currentBeat = currentPos * (BPM / 60);
@@ -51,15 +52,17 @@ public class Conductor {
 		Song testSong = Song.getInstance();
 		Conductor testConductor = new Conductor(150, testSong, 1, Map_Database.tutorialFood);
 		Scanner scan = new Scanner(System.in);
-		testConductor.playSong("tutorial");
+		double d = testConductor.getCurrentBeat("level1");
+		
+		testConductor.playSong("level1");
 		for(int i = 0; i < 10; i++) {
 			int input = scan.nextInt();
 			if(input == 1) {
-				testConductor.stopSong("tutorial");
+				testConductor.stopSong("level1");
 			}
 			if (input == 2) {
-				System.out.println(testConductor.getCurrentBeat("tutorial"));
-				System.out.println(testConductor.getCurrentNote("tutorial"));
+				System.out.println(testConductor.getCurrentBeat("level1"));
+				System.out.println(testConductor.getCurrentNote("level1"));
 			}
 		}
 		System.exit(0);

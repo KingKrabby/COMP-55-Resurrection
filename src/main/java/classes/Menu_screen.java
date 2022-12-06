@@ -81,7 +81,7 @@ public class Menu_screen extends Map {
 		if (keyCode == KeyEvent.VK_SPACE) {
 			//plays first level
 			menu.stop();
-			game.start();
+			game.run();
 			count++;
 			map_track = 3;
 		}
@@ -89,7 +89,7 @@ public class Menu_screen extends Map {
 			//current = tutorial;
 			//plays the tutorial
 			menu.stop();
-			game.start();
+			game.run();
 			count++;
 			map_track = 1;
 			
