@@ -33,7 +33,7 @@ public class Conductor {
 		if(song.findSound("sounds", level + ".mp3") == null) {
 			return 0;
 		}
-		Duration songDuration = song.findSound("songs", level + ".mp3").getCurrentTime();
+		Duration songDuration = song.findSound("sounds", level + ".mp3").getCurrentTime();
 		double currentPos = (double)songDuration.toSeconds();
 		currentBeat = currentPos * (BPM / 60);
 		return currentBeat;
