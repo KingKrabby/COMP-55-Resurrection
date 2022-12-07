@@ -44,14 +44,14 @@ public class Map_graphics extends Map implements KeyListener {
 		GLabel streak1;
 		GLabel fail;
 		add(score_streak);
-		score1 = new GLabel("Score: " + box.get_score(),0, 0);
-		streak1 = new GLabel("Streak: " + box.get_streak(),0, 20);
+		score1 = new GLabel("Score: " + box.get_score(),0, 20);
+		streak1 = new GLabel("Streak: " + box.get_streak(),0, 40);
 		int fail_x = 0;
-		fail = new GLabel("Fail: " ,0, 40);
+		fail = new GLabel("Fail: " ,0, 60);
 		add(fail);
 		fail_x += 25;
 		for (int i = 0; i < + box.get_failCount(); i++) {
-			fail = new GLabel("X " , fail_x, 70);
+			fail = new GLabel("X " , fail_x, 60);
 			fail_x += 10;
 			add(fail);
 		}
@@ -138,20 +138,20 @@ public class Map_graphics extends Map implements KeyListener {
 			box.reset_fail();
 			return true;
 		}
-		int score_streak_SIZE_x = 60;
-		int score_streak_SIZE_y = 50;
+		int score_streak_SIZE_x = 100;
+		int score_streak_SIZE_y = 100;
 		int score_streak_loc_x = 0;
-		int score_streak_loc_y = 40;
+		int score_streak_loc_y = 0;
 		GRect score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
 		add(score_streak);
-		GLabel score1 = new GLabel("Score: " + current.get_score(),0, 50);
-		GLabel streak1 = new GLabel("Streak: " + current.get_streak(),0, 60);
+		GLabel score1 = new GLabel("Score: " + current.get_score(),0, 20);
+		GLabel streak1 = new GLabel("Streak: " + current.get_streak(),0, 40);
 		int fail_x = 0;
-		GLabel fail = new GLabel("Fail: " ,0, 70);
+		GLabel fail = new GLabel("Fail: " ,0, 60);
 		add(fail);
 		fail_x += 25;
 		for (int i = 0; i < + current.get_failCount(); i++) {
-			fail = new GLabel("X " , fail_x, 70);
+			fail = new GLabel("X " , fail_x, 60);
 			fail_x += 10;
 			add(fail);
 		}

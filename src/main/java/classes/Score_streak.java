@@ -66,10 +66,10 @@ public class Score_streak extends GraphicsProgram{
 	//GRAPHICS
 	// score streak 
 
-	int score_streak_SIZE_x = 60;
-	int score_streak_SIZE_y = 50;
+	int score_streak_SIZE_x = 100;
+	int score_streak_SIZE_y = 100;
 	int score_streak_loc_x = 0;
-	int score_streak_loc_y = 40;
+	int score_streak_loc_y = 0;
 	int score_streak_ms = 50;
 	//0,40,60,50;
 	GRect score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
@@ -80,14 +80,14 @@ public class Score_streak extends GraphicsProgram{
 	
 	public void run() {
 		add(score_streak);
-		score1 = new GLabel("Score: " + get_score(),0, 50);
-		streak1 = new GLabel("Streak: " + get_streak(),0, 60);
+		score1 = new GLabel("Score: " + get_score(),0, 20);
+		streak1 = new GLabel("Streak: " + get_streak(),0, 40);
 		int fail_x = 0;
-		fail = new GLabel("Fail: " ,0, 70);
+		fail = new GLabel("Fail: " ,0, 60);
 		add(fail);
 		fail_x += 25;
 		for (int i = 0; i < + get_failCount(); i++) {
-			fail = new GLabel("X " , fail_x, 70);
+			fail = new GLabel("X " , fail_x, 60);
 			fail_x += 10;
 			add(fail);
 		}
