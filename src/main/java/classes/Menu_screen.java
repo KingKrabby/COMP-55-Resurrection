@@ -90,7 +90,7 @@ public class Menu_screen extends Map {
 			//current = tutorial;
 			//plays the tutorial
 			menu.stop();
-			game.run();
+			tutor.run();
 			count++;
 			map_track = 1;
 			

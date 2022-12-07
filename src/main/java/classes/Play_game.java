@@ -50,27 +50,6 @@ public class Play_game implements ActionListener{
 		spawner.spawnFood(Map_Database.level1);
 	}
 	
-	public void switchToMenu() {
-		playBackgroundNoise();
-		count++;
-		map_graphics.map_track = 1;
-		//play_game_check(menu);
-	}
-	
-	public void switchToFail() {
-		playBackgroundNoise();
-		count++;
-		map_graphics.map_track = 3;
-		//play_game_check(fail)
-	}
-	
-	public void switchToPass() {
-		playBackgroundNoise();
-		count++;
-		map_graphics.map_track = 2;
-		//play_game_check(pass);
-	} 
-	
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
 		test.playSound(MUSIC_FOLDER, map_graphics.current.get_string());

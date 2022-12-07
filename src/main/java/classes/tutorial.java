@@ -113,6 +113,7 @@ public class tutorial extends Map{
 		}
 	public void label(int num) {
 		System.out.println(num);
+		
 		// W
 		if (num == 0) {
 			w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
