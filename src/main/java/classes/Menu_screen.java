@@ -33,6 +33,7 @@ public class Menu_screen extends Map {
 
 	}
 	public void run() {
+		requestFocus();
 		playBackgroundNoise();
 		current = level_1;
 		
@@ -65,23 +66,23 @@ public class Menu_screen extends Map {
 		a.setFont("Arial-47");
 		add(a);
 		
-		GImage logo = new GImage("World's Hardest Games Logo.png", -45, 470);
+		GImage logo = new GImage("World's Hardest Games Logo.png", -45, 480);
   		add(logo);
   		
   		addKeyListeners();
 	}
+	
 	public void stop() {
-		
 		test.stopSound(MUSIC_FOLDER, SOUND_FILES[0]);
-		
 	}
+	
 	@Override
 	public void keyPressed(KeyEvent s) {
 		int keyCode = s.getKeyCode();
 		if (keyCode == KeyEvent.VK_SPACE) {
 			//plays first level
 			menu.stop();
-			game.start();
+			game.run();
 			count++;
 			map_track = 3;
 		}
@@ -89,7 +90,7 @@ public class Menu_screen extends Map {
 			//current = tutorial;
 			//plays the tutorial
 			menu.stop();
-			game.start();
+			tutor.start();
 			count++;
 			map_track = 1;
 			

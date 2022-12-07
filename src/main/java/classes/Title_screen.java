@@ -55,14 +55,11 @@ public class Title_screen extends Map implements KeyListener{
 	}
 	*/
 	public void run(){
-		
+		requestFocus();
   		add(blue);
 		//Title of Game
 		System.out.println("title");
 		playBackgroundNoise();
-		//x.setColor(Color.black);
-		//x.setFont("Arial-56");
-		//add(x);
 		
 		GImage title = new GImage("turntuptofu!.png", 50, 400);
   		add(title);
@@ -70,7 +67,7 @@ public class Title_screen extends Map implements KeyListener{
   		GImage tofuGuy = new GImage("tofuchefimage.png", 150, 10);
   		add(tofuGuy);
   		
-  		GImage logo = new GImage("World's Hardest Games Logo.png", -45, 470);
+  		GImage logo = new GImage("World's Hardest Games Logo.png", -45, 480);
   		add(logo);
   		
   		
@@ -93,7 +90,6 @@ public class Title_screen extends Map implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent s) {
-		System.out.println("hello");
 		int keyCode = s.getKeyCode();
 		if (keyCode == KeyEvent.VK_SPACE) {
 			//takes you to menu screen

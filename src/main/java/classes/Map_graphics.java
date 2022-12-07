@@ -19,6 +19,7 @@ public class Map_graphics extends Map implements KeyListener {
 	
 	
 	public void run() {
+		requestFocus();
 		addKeyListeners();
 		//play game background 
 		GImage blue = new GImage("title_screen_bluebackground.jpg", 0, 0);
@@ -122,8 +123,13 @@ public class Map_graphics extends Map implements KeyListener {
 	  		GImage hitCircle2 = new GImage("hitcircle.png", h3, w3);
 	  		add(hitCircle2);
 	  	}
+	  	
+	  	GImage logo = new GImage("World's Hardest Games Logo.png", 680, -20);
+		logo.sendToFront();
+  		add(logo);
 
 	}
+	
 	boolean fail(Score_streak current) {
 		System.out.println("fail");
 		//activates when buttons are pressed
@@ -155,6 +161,7 @@ public class Map_graphics extends Map implements KeyListener {
 		add(streak1);
 		return false;
 	}
+	
 	boolean pass(int score, Level level) {
 		System.out.println("pass");
 		if(score == level.get_food_length()) {
@@ -168,6 +175,7 @@ public class Map_graphics extends Map implements KeyListener {
 		}
 		return false;
 	}
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		System.out.println(e.getKeyChar());

@@ -3,17 +3,19 @@ import javafx.util.Duration;
 import java.util.Scanner;
 //
 public class Conductor {
+	private double BPM;
+	private double currentBeat;
+	private Song song;
+	private int reactionTime;
+	private Food mapNotes[];
+	
 	public Conductor(double bpm, Song music, int speed, Food notes[]){
 		BPM = bpm;
 		song = music;
 		reactionTime = speed;
 		mapNotes = notes;
 	}
-	private double BPM;
-	private double currentBeat;
-	private Song song;
-	private int reactionTime;
-	private Food mapNotes[];
+
 	void setBPM(int bpm) {
 		BPM = bpm;
 	}
@@ -30,6 +32,8 @@ public class Conductor {
 		song.stopSound("sounds", level + ".mp3");
 	}
 	double getCurrentBeat(String level) {
+		System.out.println(level);
+		System.out.println(song.toString());
 		if(song.findSound("sounds", level + ".mp3") == null) {
 			return 0;
 		}
@@ -51,15 +55,17 @@ public class Conductor {
 		Song testSong = Song.getInstance();
 		Conductor testConductor = new Conductor(150, testSong, 1, Map_Database.tutorialFood);
 		Scanner scan = new Scanner(System.in);
-		testConductor.playSong("tutorial");
+		double d = testConductor.getCurrentBeat("level1");
+		
+		testConductor.playSong("level1");
 		for(int i = 0; i < 10; i++) {
 			int input = scan.nextInt();
 			if(input == 1) {
-				testConductor.stopSong("tutorial");
+				testConductor.stopSong("level1");
 			}
 			if (input == 2) {
-				System.out.println(testConductor.getCurrentBeat("tutorial"));
-				System.out.println(testConductor.getCurrentNote("tutorial"));
+				System.out.println(testConductor.getCurrentBeat("level1"));
+				System.out.println(testConductor.getCurrentNote("level1"));
 			}
 		}
 		System.exit(0);
