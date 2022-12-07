@@ -1,5 +1,6 @@
 package classes;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -28,21 +29,24 @@ public class Map_graphics extends Map implements KeyListener {
 		add(dj);
 		
 		// Score Streak box
-		int score_streak_SIZE_x = 60;
-		int score_streak_SIZE_y = 50;
+		int score_streak_SIZE_x = 100;
+		int score_streak_SIZE_y = 100;
 		int score_streak_loc_x = 0;
-		int score_streak_loc_y = 40;
+		int score_streak_loc_y = 0;
 		int score_streak_ms = 50;
 		GRect score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
+		score_streak.setFillColor(Color.white);
+		score_streak.setFilled(true);
+		
 		Timer score_streak_graphic = new Timer(score_streak_ms, this);
 		GLabel score1;
 		GLabel streak1;
 		GLabel fail;
 		add(score_streak);
-		score1 = new GLabel("Score: " + box.get_score(),0, 50);
-		streak1 = new GLabel("Streak: " + box.get_streak(),0, 60);
+		score1 = new GLabel("Score: " + box.get_score(),0, 0);
+		streak1 = new GLabel("Streak: " + box.get_streak(),0, 20);
 		int fail_x = 0;
-		fail = new GLabel("Fail: " ,0, 70);
+		fail = new GLabel("Fail: " ,0, 40);
 		add(fail);
 		fail_x += 25;
 		for (int i = 0; i < + box.get_failCount(); i++) {
