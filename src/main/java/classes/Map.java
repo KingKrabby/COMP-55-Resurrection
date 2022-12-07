@@ -40,7 +40,7 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 	}
 
 
-	public void actiobPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 	}
 }
