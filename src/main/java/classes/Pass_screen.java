@@ -32,19 +32,19 @@ public class Pass_screen extends Map{
 		GImage baby = new GImage("babymeme.png", 525, 290);
 		add(baby);
 		
-		GImage x = new GImage("GreatWork.png", 100, 0);
+		GImage x = new GImage("GreatWork.png", 70, 200);
 		//x.setColor(Color.white);
 		//x.setFont("Arial-30");
 		add(x);
 		
-		GLabel y = new GLabel("Press Spacebar to move onto the next level!", 20, 90);
+		GLabel y = new GLabel("Press Spacebar to move onto the next level!", 0, 80);
 		y.setColor(Color.white);
-		y.setFont("Arial-30");
+		y.setFont("Arial-40");
 		add(y);
 		
-		GLabel z = new GLabel("Press Enter to return back to the menu", 20, 130);
+		GLabel z = new GLabel("Press Enter to return back to the menu", 0, 180);
 		z.setColor(Color.white);
-		z.setFont("Arial-30");
+		z.setFont("Arial-40");
 		add(z);
 		
 		GImage logo = new GImage("World's Hardest Games Logo.png", -25, 475);
