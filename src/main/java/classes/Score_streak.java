@@ -71,6 +71,7 @@ public class Score_streak extends GraphicsProgram{
 	int score_streak_loc_x = 0;
 	int score_streak_loc_y = 40;
 	int score_streak_ms = 50;
+	//0,40,60,50;
 	GRect score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
 	Timer score_streak_graphic = new Timer(score_streak_ms, this);
 	GLabel score1;

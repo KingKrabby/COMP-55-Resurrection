@@ -12,6 +12,7 @@ import acm.graphics.GImage;
 import acm.graphics.GLabel;
 import acm.graphics.GObject;
 import acm.graphics.GOval;
+import acm.graphics.GRect;
 import acm.program.GraphicsProgram;
 
 public class tutorial extends Map{
@@ -25,6 +26,11 @@ public class tutorial extends Map{
 	int count;
 	int count1 = 0;
 	int check;
+	// score streak
+	GRect Score_box ;
+	GLabel box_score, box_streak, box_fail;
+	int score = 0, streak = 0, fail;
+	
 	Song test = Song.getInstance();
 	Timer movement;
 	GLabel W, A, S, D;
@@ -45,15 +51,18 @@ public class tutorial extends Map{
 		tofu = new GImage("tofu.png", x_loc, y_loc);
 		tomato = new GImage("tomato.png", x_loc, y_loc);
 		food = new GImage[] {bun, ketchup, tofu, tomato};
-		W = new GLabel("W", 635, 290);
+		W = new GLabel("W", 655, 310);
 		W.setFont("Arial-70");
-		A = new GLabel("A", 600, 350);
+		A = new GLabel("A", 620, 370);
 		A.setFont("Arial-70");
-		S = new GLabel("S", 650, 350);
+		S = new GLabel("S", 670, 370);
 		S.setFont("Arial-70");
-		D = new GLabel("D", 700, 350);
+		D = new GLabel("D", 720, 370);
 		D.setFont("Arial-70");
-		
+		Score_box = new GRect(0,40,60,50);
+		box_score = new GLabel("Score: " + score, 0, 50);
+		box_streak = new GLabel("Streak: " + streak, 0, 60);
+		box_fail = new GLabel("Fail: " ,0, 70);
 
 		w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
 		a_label = new GLabel("Pressing the right button generates a streak and adds a point",xlabel, ylabel);
@@ -73,7 +82,10 @@ public class tutorial extends Map{
 		add(A);
 		add(S);
 		add(D);
-
+		add(Score_box);
+		add(box_score);
+		add(box_streak);
+		add(box_fail);
 		
 		
 		
