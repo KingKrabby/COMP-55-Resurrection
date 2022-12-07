@@ -25,6 +25,7 @@ public class tutorial extends Map{
 	int count;
 	int count1 = 0;
 	int check;
+	Song test = Song.getInstance();
 	Timer movement;
 	GLabel W, A, S, D;
 	GLabel w_label, a_label, s_label, d_label;
@@ -34,7 +35,7 @@ public class tutorial extends Map{
 	int xlabel = 50, ylabel = 50;
 	ArrayList<GImage> list = new ArrayList<GImage> ();
 	public void run() {
-
+		playBackgroundNoise();
 		belt = new GImage("longconveyor.png", 0, 500);
 		background = new GImage("title_screen_bluebackground.jpg", 0, 0);
 		hCircle = new GImage("hitcircle.png", 550, 400);
@@ -173,8 +174,13 @@ public class tutorial extends Map{
 			menu.start();
 		}
 	}
+	
+	private void playBackgroundNoise() {
+		test.playSound("sounds","tutorial.mp3");
+	}
 	public static void main(String args[]) {
 		new tutorial().start();
 	}
+	
 	
 }
