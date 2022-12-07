@@ -38,7 +38,7 @@ public class tutorial extends Map{
 	GImage bun, ketchup, tofu, tomato;
 	GImage belt, background, hCircle;
 	GImage[] food = new GImage[] {};
-	int xlabel = 50, ylabel = 50;
+	int xlabel = 60, ylabel = 110;
 	ArrayList<GImage> list = new ArrayList<GImage> ();
 	public void run() {
 		playBackgroundNoise();
@@ -64,7 +64,7 @@ public class tutorial extends Map{
 		box_streak = new GLabel("Streak: " + streak, 0, 60);
 		box_fail = new GLabel("Fail: " ,0, 70);
 
-		String label_font = "Arial-60";
+		String label_font = "Arial-30";
 		w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
 		a_label = new GLabel("Pressing the right button generates a streak and adds a point",xlabel, ylabel);
 		s_label = new GLabel("Pressing the wrong button resets streak and point",xlabel, ylabel);
