@@ -28,14 +28,22 @@ public class tutorial extends Map{
 	Timer movement;
 	GLabel W, A, S, D;
 	GLabel w_label, a_label, s_label, d_label;
+	GImage bun, ketchup, tofu, tomato;
+	GImage belt, background, hCircle;
+	GImage[] food = new GImage[] {};
 	int xlabel = 50, ylabel = 50;
 	ArrayList<GImage> list = new ArrayList<GImage> ();
 	public void run() {
 
-		GImage belt = new GImage("longconveyor.png", 0, 500);
-		GImage background = new GImage("title_screen_bluebackground.jpg", 0, 0);
+		belt = new GImage("longconveyor.png", 0, 500);
+		background = new GImage("title_screen_bluebackground.jpg", 0, 0);
+		hCircle = new GImage("hitcircle.png", 550, 400);
 		
-		GImage hCircle = new GImage("hitcircle.png", 550, 400);
+		bun = new GImage("bun.png", x_loc, y_loc);
+		ketchup = new GImage("ketchup.png", x_loc, y_loc);
+		tofu = new GImage("tofu.png", x_loc, y_loc);
+		tomato = new GImage("tomato.png", x_loc, y_loc);
+		food = new GImage[] {bun, ketchup, tofu, tomato};
 		W = new GLabel("W", 635, 290);
 		W.setFont("Arial-70");
 		A = new GLabel("A", 600, 350);
@@ -45,6 +53,11 @@ public class tutorial extends Map{
 		D = new GLabel("D", 700, 350);
 		D.setFont("Arial-70");
 		
+
+		w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
+		a_label = new GLabel("Pressing the right button generates a streak and adds a point",xlabel, ylabel);
+		s_label = new GLabel("Pressing the wrong button resets streak and point",xlabel, ylabel);
+		d_label = new GLabel("Enjoy game",xlabel, ylabel);
 		
 		
 		final int MS = 1000;
@@ -70,11 +83,7 @@ public class tutorial extends Map{
 		
 	}
 	public void actionPerformed(ActionEvent e) {
-		GImage bun = new GImage("bun.png", x_loc, y_loc);
-		GImage ketchup = new GImage("ketchup.png", x_loc, y_loc);
-		GImage tofu = new GImage("tofu.png", x_loc, y_loc);
-		GImage tomato = new GImage("tomato.png", x_loc, y_loc);
-		GImage[] food = new GImage[] {bun, ketchup, tofu, tomato};
+
 		long change = 0, schange, echange;
 		int i = 0;
 		for (GImage f:list) {
@@ -95,8 +104,8 @@ public class tutorial extends Map{
 		elapsed = end - start;
 		
 		if (elapsed > check && count < 4) {
-			
 			list.add(food[count]);
+			
 			add(food[count]);
 			check += 4000;
 			count += 1;
@@ -116,14 +125,13 @@ public class tutorial extends Map{
 		
 		// W
 		if (num == 0) {
-			w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
 			add(w_label);
 			//delay();
 			
 		}
 		// A
 		else if (num == 1) {
-			a_label = new GLabel("Pressing the right button generates a streak and adds a point",xlabel, ylabel);
+			
 			w_label.setVisible(false);
 			add(a_label);
 			delay();
@@ -131,7 +139,7 @@ public class tutorial extends Map{
 		}
 		// S
 		else if ( num == 2) {
-			s_label = new GLabel("Pressing the wrong button resets streak and point",xlabel, ylabel);
+			
 			add(s_label);
 			delay();
 			a_label.setVisible(false);
@@ -141,7 +149,7 @@ public class tutorial extends Map{
 		// D
 		else if ( num == 3) {
 			s_label.setVisible(false);
-			d_label = new GLabel("Enjoy game",xlabel, ylabel);
+			
 			add(d_label);
 			delay();
 			
