@@ -64,10 +64,16 @@ public class tutorial extends Map{
 		box_streak = new GLabel("Streak: " + streak, 0, 60);
 		box_fail = new GLabel("Fail: " ,0, 70);
 
+		String label_font = "Arial-60";
 		w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
 		a_label = new GLabel("Pressing the right button generates a streak and adds a point",xlabel, ylabel);
 		s_label = new GLabel("Pressing the wrong button resets streak and point",xlabel, ylabel);
 		d_label = new GLabel("Enjoy game",xlabel, ylabel);
+		GLabel[] label_list = new GLabel[] {w_label, a_label, s_label, d_label};
+		for (int i = 0; i < label_list.length; i++) {
+			GLabel label = label_list[i];
+			label.setFont(label_font);
+		}
 		
 		
 		final int MS = 1000;
