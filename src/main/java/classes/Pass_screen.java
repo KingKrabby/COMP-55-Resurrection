@@ -32,9 +32,9 @@ public class Pass_screen extends Map{
 		GImage baby = new GImage("babymeme.png", 525, 290);
 		add(baby);
 		
-		GLabel x = new GLabel("Great Work!", 20, 50);
-		x.setColor(Color.white);
-		x.setFont("Arial-30");
+		GImage x = new GImage("GreatWork.png", 100, 0);
+		//x.setColor(Color.white);
+		//x.setFont("Arial-30");
 		add(x);
 		
 		GLabel y = new GLabel("Press Spacebar to move onto the next level!", 20, 90);
