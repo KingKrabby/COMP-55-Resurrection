@@ -37,5 +37,11 @@ public class Food {
 	public double getSpawnBeat() {
 		return spawnOnBeat;
 	}
+	public int getDuration() {
+		return time;
+	}
+	public FoodType getType() {
+		return ftype;
+	}
 
 }
