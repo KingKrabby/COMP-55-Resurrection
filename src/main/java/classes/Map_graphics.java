@@ -136,7 +136,6 @@ public class Map_graphics extends Map implements KeyListener {
 		int score_streak_loc_x = 0;
 		int score_streak_loc_y = 0;
 		score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
-		add(score_streak);
 		score1 = new GLabel("Score: " + current.get_score(),0, 20);
 		streak1 = new GLabel("Streak: " + current.get_streak(),0, 40);
 		int fail_x = 0;
@@ -149,19 +148,25 @@ public class Map_graphics extends Map implements KeyListener {
 			add(fail1);
 		}
 		
-		
+		add(score_streak);
 		add(score1);
 		add(streak1);
 		return false;
 	}
 
-	
-
-	void box_display() {
+	void box_display_on() {
 		add(streak1);
 		add(score_streak);
 		add(fail1);
 		add(score1);
+	}
+	
+
+	void box_display_off() {
+		remove(streak1);
+		remove(score_streak);
+		remove(fail1);
+		remove(score1);
 	}
 	
 	boolean pass(int score, int s) {
@@ -224,14 +229,17 @@ public class Map_graphics extends Map implements KeyListener {
 		return item;
 	}
 	public void actionPerformed(ActionEvent e) {
-		
+		ArrayList<GImage> to_delete = new ArrayList<GImage> ();
 		spawn_food();
 		for (GImage i: spawned_list) {
 			i.move(speed, 0);
 			if (i.getX() > 650) {
 				passed_hit_circle.add(i);
-				spawned_list.remove(i);
+				to_delete.add(i);
 			}
+		}
+		for (GImage i: to_delete) {
+			spawned_list.remove(i);
 		}
 	}
 	
@@ -257,6 +265,7 @@ public class Map_graphics extends Map implements KeyListener {
 	@Override
 	
 	public void keyPressed(KeyEvent e) {
+		box_display_on();
 		int key = e.getKeyCode();
 		//up = bun
 		//down = ketchup
@@ -303,11 +312,14 @@ public class Map_graphics extends Map implements KeyListener {
 				box.incrementFail();
 			}
 		}
+		box_display_on();
 		if (fail(box) ){
+			box.reset_fail();
 			stopMusic();
 			fail.start();
 		}
 		if (pass(box.get_score(), box.get_streak())) {
+			box.reset_fail();
 			stopMusic();
 			pass.start();
 		}
