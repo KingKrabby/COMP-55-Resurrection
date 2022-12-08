@@ -6,8 +6,12 @@ public class Food {
 	public FoodType ftype;
 	public double spawnOnBeat;
 	public int time;
-	public boolean rightSpawn; //d
+	//public boolean rightSpawn; //d
 
+	Food(){
+		ftype = FoodType.BUN;
+		time = 0;
+	}
 	Food(FoodType type, int t) {
 		ftype = type;
 		//spawnOnBeat = beat;

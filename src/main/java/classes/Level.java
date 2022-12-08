@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.ArrayList;
+
 public class Level{
 	
 	Conductor conductor;
@@ -11,7 +13,7 @@ public class Level{
 	String s;
 
 	
-	Level(String string, Conductor currConductor, Conveyor currBelt, Food[] currItems, HitCircle currCircle, Spawner currSpawner) {
+	Level(String string, Conductor currConductor, Conveyor currBelt, Food[] currItems, HitCircle currCircle, Spawner currSpawner, ArrayList <Food> list) {
 		conductor = currConductor;
 		conveyorBelt = currBelt;
 		foodItems = currItems;
