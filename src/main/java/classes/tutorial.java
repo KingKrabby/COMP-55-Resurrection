@@ -53,14 +53,6 @@ public class tutorial extends Map{
 		tomato = new GImage("tomato.png", x_loc, y_loc);
 		food = new GImage[] {bun, ketchup, tofu, tomato};
 		GImage wasd = new GImage("wasd2.png", 400, 100);
-		//W = new GLabel("W", 655, 310);
-		//W.setFont("Arial-70");
-		//A = new GLabel("A", 620, 370);
-		//A.setFont("Arial-70");
-		//S = new GLabel("S", 670, 370);
-		//S.setFont("Arial-70");
-		//D = new GLabel("D", 720, 370);
-		//D.setFont("Arial-70");
 		Score_box = new GRect(0,0,100,100);
 		box_score = new GLabel("Score: " + score, 0, 20);
 		box_streak = new GLabel("Streak: " + streak, 0, 40);
@@ -95,10 +87,6 @@ public class tutorial extends Map{
 		add(belt);
 		add(hCircle);
 		add(wasd);
-		//add(W);
-		//add(A);
-		//add(S);
-		//add(D);
 		add(Score_box);
 		add(box_score);
 		add(box_streak);
