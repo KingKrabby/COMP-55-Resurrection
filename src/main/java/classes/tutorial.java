@@ -38,7 +38,7 @@ public class tutorial extends Map{
 	GImage bun, ketchup, tofu, tomato;
 	GImage belt, background, hCircle;
 	GImage[] food = new GImage[] {};
-	int xlabel = 60, ylabel = 110;
+	int xlabel , ylabel ;
 	ArrayList<GImage> list = new ArrayList<GImage> ();
 	public void run() {
 		playBackgroundNoise();
@@ -64,11 +64,13 @@ public class tutorial extends Map{
 		box_streak = new GLabel("Streak: " + streak, 0, 60);
 		box_fail = new GLabel("Fail: " ,0, 70);
 
-		String label_font = "Arial-30";
-		w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
+		xlabel = 60;
+		ylabel = 150;
+		String label_font = "Arial-27";
+		w_label = new GLabel("Press the Correct Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
 		a_label = new GLabel("Pressing the right button generates a streak and adds a point",xlabel, ylabel);
 		s_label = new GLabel("Pressing the wrong button resets streak and point",xlabel, ylabel);
-		d_label = new GLabel("Enjoy game",xlabel, ylabel);
+		d_label = new GLabel("Enjoy game!!!" , xlabel, ylabel);
 		GLabel[] label_list = new GLabel[] {w_label, a_label, s_label, d_label};
 		for (int i = 0; i < label_list.length; i++) {
 			GLabel label = label_list[i];
@@ -126,7 +128,7 @@ public class tutorial extends Map{
 			list.add(food[count]);
 			
 			add(food[count]);
-			check += 4000;
+			check += 1500;
 			count += 1;
 		}
 		
@@ -145,7 +147,7 @@ public class tutorial extends Map{
 		// W
 		if (num == 0) {
 			add(w_label);
-			//delay();
+			delay();
 			
 		}
 		// A

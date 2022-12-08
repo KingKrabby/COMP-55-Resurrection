@@ -5,11 +5,13 @@ import acm.graphics.*;
 public class Food {
 	public FoodType ftype;
 	public double spawnOnBeat;
+	public int time;
 	public boolean rightSpawn; //d
 
-	Food(FoodType type, double beat) {
+	Food(FoodType type, int t) {
 		ftype = type;
-		spawnOnBeat = beat;
+		//spawnOnBeat = beat;
+		time = t;
 		
 	}
 	

@@ -1,5 +1,6 @@
 package classes;
 
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public final class Map_Database {
@@ -23,18 +24,30 @@ public final class Map_Database {
             .current()
             .nextInt(Min, Max + 1);
     }
-/* 
- * 
- * int start1 = 9000 
- * ArrayList<Food> food1 = new ArrayList<Food> ();
- * for (int i = 0; i < 30; i++){
- * 	food.add(list[getRandomValue(0, 4)], start1);
- * 	start += 5000;
- * 		
- * }
- * 
- * 
- */
+	
+	int start1 = 9000;
+	ArrayList<Food> food_level1 = new ArrayList<Food> ();
+	for (int i = 0; i < 30; i ++) {
+		Food f = new Food(list[getRandomValue(0,4)], start1);
+		food_level1.add(f);
+		start1 += 5000;
+	}
+	
+	int start2 = 14000;
+	ArrayList<Food> food_level2 = new ArrayList<Food> ();
+	for (int j = 0; j < 30; j ++) {
+		Food f = new Food(list[getRandomValue(0,4)], start2);
+		food_level2.add(f);
+		start2 += getRandomValue(3000, 5000);
+	}
+	
+	int start3 = 0;
+	ArrayList<Food> food_level3 = new ArrayList<Food> ();
+	for (int k = 0; k < 30; k ++) {
+		Food f = new Food(list[getRandomValue(0,4)], start3);
+		food_level3.add(f);
+		start3 += getRandomValue(300, 400);
+	}
 	
 	
 /* 
