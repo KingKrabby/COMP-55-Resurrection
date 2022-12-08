@@ -7,8 +7,10 @@ import javax.swing.Timer;
 
 
 import acm.program.GraphicsProgram;
+import edu.pacific.comp55.starter.GraphicsApplication;
+import edu.pacific.comp55.starter.MainApplication;
 
-public class Map extends GraphicsProgram implements ActionListener, KeyListener {
+public class Map extends GraphicsApplication implements ActionListener, KeyListener {
 	
 	Score_streak box = new Score_streak();
 	int map_track  = 0;

@@ -13,12 +13,15 @@ import acm.graphics.GImage;
 import acm.graphics.GLabel;
 import acm.graphics.GRect;
 import acm.program.GraphicsProgram;
+import edu.pacific.comp55.starter.GraphicsApplication;
 
 public class Map_graphics extends Map implements KeyListener {
+	GraphicsApplication app = this;
 	long start, end;
 	int speed = 3;
 	int count = 0;
 	int spawned = 0;
+	GImage overall_delete;
 	ArrayList <GImage> spawned_list = new ArrayList<GImage> ();
 	ArrayList <GImage> passed_hit_circle = new ArrayList<GImage> ();
 	ArrayList <String> food_images = new ArrayList<String> ();
@@ -29,7 +32,7 @@ public class Map_graphics extends Map implements KeyListener {
 	GLabel streak1;
 	GLabel fail1;
 	int fail_x = 0;
-
+	Timer score_streak_graphic;
 	
 	public static final String MUSIC_FOLDER = "sounds";
 	
@@ -57,7 +60,7 @@ public class Map_graphics extends Map implements KeyListener {
 		score_streak.setFillColor(Color.white);
 		score_streak.setFilled(true);
 		
-		Timer score_streak_graphic = new Timer(score_streak_ms, this);
+		score_streak_graphic = new Timer(score_streak_ms, this);
 		add(score_streak);
 		score1 = new GLabel("Score: " + box.get_score(),0, 20);
 		streak1 = new GLabel("Streak: " + box.get_streak(),0, 40);
@@ -113,6 +116,13 @@ public class Map_graphics extends Map implements KeyListener {
 		logo.sendToFront();
   		add(logo);
 
+	}
+	public void reset() {
+		overall_delete = null;
+		spawned_list = new ArrayList<GImage> ();
+		passed_hit_circle = new ArrayList<GImage> ();
+		food_images = new ArrayList<String> ();
+		score_streak_graphic.stop();
 	}
 	
 	boolean failed(Score_streak current) {
@@ -193,9 +203,11 @@ public class Map_graphics extends Map implements KeyListener {
 		System.out.println("check");
 		int i = 0;
 		for (GImage f: spawned_list) {
-			if(f.getX() > 550 && f.getX() < 650) {
+			if(f.getX() > 575 && f.getX() < 625) {
 				System.out.println("working");
+				
 				String str = food_images.get(i);
+				overall_delete = f;
 				food_images.remove(i);
 				System.out.println(str);
 				return str;
@@ -221,12 +233,12 @@ public class Map_graphics extends Map implements KeyListener {
 			GLabel x1 = new GLabel("X ", fail_x, 60);
 			add(x1);
 		}
-		fail_x += 25;
+		fail_x += 10;
 		if (total == 2) {
 			GLabel x2 = new GLabel("X ", fail_x, 60);
 			add(x2);
 		}
-		fail_x += 25;
+		fail_x += 10;
 		if (total == 3) {
 			GLabel x3 = new GLabel("X ", fail_x, 60);
 			add(x3);
@@ -237,13 +249,16 @@ public class Map_graphics extends Map implements KeyListener {
 		spawn_food();
 		for (GImage i: spawned_list) {
 			i.move(speed, 0);
-			if (i.getX() > 650) {
+			if (i.getX() > 625) {
 				passed_hit_circle.add(i);
 				remove(getElementAt((i.getX()), (i.getY())));
 				to_delete.add(i);
 				if (failed(box)) {
 					stopMusic();
+					box.reset();
+					reset();
 					fail.start();
+					score_streak_graphic.stop();
 				}
 			}
 		}
@@ -266,6 +281,8 @@ public class Map_graphics extends Map implements KeyListener {
 			if (check() == "bun") {
 				box.incrementScore();
 				box.incrementStreak();
+				spawned_list.remove(overall_delete);
+				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
 			}
 			else {
 				box.reset_streak();
@@ -276,6 +293,8 @@ public class Map_graphics extends Map implements KeyListener {
 			if (check() == "tofu") {
 				box.incrementScore();
 				box.incrementStreak();
+				spawned_list.remove(overall_delete);
+				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
 			}
 			else {
 				box.reset_streak();
@@ -286,6 +305,8 @@ public class Map_graphics extends Map implements KeyListener {
 			if (check() == "ketchup") {
 				box.incrementScore();
 				box.incrementStreak();
+				spawned_list.remove(overall_delete);
+				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
 			}
 			else {
 				box.reset_streak();
@@ -296,6 +317,8 @@ public class Map_graphics extends Map implements KeyListener {
 			if (check() == "tomato") {
 				box.incrementScore();
 				box.incrementStreak();
+				spawned_list.remove(overall_delete);
+				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
 			}
 			else {
 				box.reset_streak();
@@ -305,11 +328,14 @@ public class Map_graphics extends Map implements KeyListener {
 		if (failed(box) ){
 			box.reset_fail();
 			stopMusic();
+			reset();
 			fail.start();
+			//app.switch
 		}
 		if (passed(box.get_score(), box.get_streak())) {
 			box.reset_fail();
 			stopMusic();
+			reset();
 			pass.start();
 		}
 		//box_display_on();
