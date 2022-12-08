@@ -120,9 +120,11 @@ public class Map_graphics extends Map implements KeyListener {
 
 	}
 	
-	boolean fail(Score_streak current) {
+	boolean failed(Score_streak current) {
 		//activates when buttons are pressed
 		// looks at current map --> fail screen
+		System.out.println(passed_hit_circle.size());
+		System.out.println(box.get_failCount());
 		if (box.get_failCount() + passed_hit_circle.size() >= 3) {
 			System.out.println("fail");
 			box.reset_fail();
@@ -221,24 +223,9 @@ public class Map_graphics extends Map implements KeyListener {
 		}
 		return item;
 	}
-	public void actionPerformed(ActionEvent e) {
-		ArrayList<GImage> to_delete = new ArrayList<GImage> ();
-		spawn_food();
-		for (GImage i: spawned_list) {
-			i.move(speed, 0);
-			if (i.getX() > 650) {
-				passed_hit_circle.add(i);
-				to_delete.add(i);
-			}
-		}
-		for (GImage i: to_delete) {
-			spawned_list.remove(i);
-		}
-	}
-	
-	
-		
 
+	
+	
 	String check() {
 		System.out.println("check");
 		int i = 0;
@@ -254,6 +241,32 @@ public class Map_graphics extends Map implements KeyListener {
 		}
 		return "nope";
 
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		ArrayList<GImage> to_delete = new ArrayList<GImage> ();
+		spawn_food();
+		for (GImage i: spawned_list) {
+			i.move(speed, 0);
+			if (i.getX() > 650) {
+				passed_hit_circle.add(i);
+				remove(getElementAt((i.getX()), (i.getY())));
+				to_delete.add(i);
+			}
+		}
+		for (GImage i: to_delete) {
+			spawned_list.remove(i);
+		}
+		if (failed(box) ){
+			box.reset_fail();
+			stopMusic();
+			fail.start();
+		}
+		if (passed(box.get_score(), box.get_streak())) {
+			box.reset_fail();
+			stopMusic();
+			pass.start();
+		}
 	}
 	
 	@Override
@@ -307,18 +320,6 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 		}
 		//box_display_on();
-		if (fail(box) ){
-			box.reset_fail();
-			stopMusic();
-			fail.start();
-		}
-		if (passed(box.get_score(), box.get_streak())) {
-			box.reset_fail();
-			stopMusic();
-			pass.start();
-		}
-
-		
 		 
 	}
 	
