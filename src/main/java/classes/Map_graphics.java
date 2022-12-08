@@ -304,14 +304,16 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 		}
 		if (fail(box) ){
-			fail.run();
+			stopMusic();
+			fail.start();
 		}
 		if (pass(box.get_score(), box.get_streak())) {
-			pass.run();
+			stopMusic();
+			pass.start();
 		}
 
 		
-		
+		 
 	}
 	
 	
