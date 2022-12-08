@@ -11,6 +11,10 @@ public class Pass_screen extends Map{
 		return identifier;
 	}
 	public int levelCount = 0;
+	
+	Song test = Song.getInstance();
+	public static final String MUSIC_FOLDER = "sounds";
+	private static final String[] SOUND_FILES = { "Hurray.mp3" };
 	public Pass_screen(Play_game app){
 		super();
 		//program = app;
@@ -23,7 +27,13 @@ public class Pass_screen extends Map{
 
 	}
 	
+	public void stop() {
+		test.stopSound(MUSIC_FOLDER, SOUND_FILES[0]);
+	}
+	
 	public void run() {
+		//game.stop();
+		playBackgroundNoise();
 		System.out.println("pass");
 		
 		GImage green = new GImage("greenbackground.jpg", 0, 0);
@@ -74,6 +84,11 @@ public class Pass_screen extends Map{
 
 		}
 	}
+	
+	private void playBackgroundNoise() {
+		test.playSound(MUSIC_FOLDER, SOUND_FILES[0], false);
+	}
+	
 	public static void main(String[] args) {
 		new Pass_screen(game).start();
 	}
