@@ -18,11 +18,15 @@ public class Map_graphics extends Map implements KeyListener {
 	long start, end;
 	int speed = 3;
 	int count = 0;
+	int spawned = 0;
 	ArrayList <GImage> spawned_list = new ArrayList<GImage> ();
 	ArrayList <GImage> passed_hit_circle = new ArrayList<GImage> ();
 	ArrayList <String> food_images = new ArrayList<String> ();
 	// String[] food_images = new String[] {"bun", "ketchup", "tofu", "tomato"};
-	
+	GRect score_streak;
+	GLabel score1;
+	GLabel streak1;
+	GLabel fail1;
 	
 	public void run() {
 		start = System.currentTimeMillis();
@@ -49,18 +53,18 @@ public class Map_graphics extends Map implements KeyListener {
 		Timer score_streak_graphic = new Timer(score_streak_ms, this);
 		GLabel score1;
 		GLabel streak1;
-		GLabel fail;
+		GLabel fail1;
 		add(score_streak);
 		score1 = new GLabel("Score: " + box.get_score(),0, 20);
 		streak1 = new GLabel("Streak: " + box.get_streak(),0, 40);
 		int fail_x = 0;
-		fail = new GLabel("Fail: " ,0, 60);
-		add(fail);
+		fail1 = new GLabel("Fail: " ,0, 60);
+		add(fail1);
 		fail_x += 25;
 		for (int i = 0; i < + box.get_failCount(); i++) {
-			fail = new GLabel("X " , fail_x, 60);
+			fail1 = new GLabel("X " , fail_x, 60);
 			fail_x += 10;
-			add(fail);
+			add(fail1);
 		}
 		
 		score_streak_graphic.start();
@@ -125,18 +129,18 @@ public class Map_graphics extends Map implements KeyListener {
 		int score_streak_SIZE_y = 100;
 		int score_streak_loc_x = 0;
 		int score_streak_loc_y = 0;
-		GRect score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
+		score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
 		add(score_streak);
-		GLabel score1 = new GLabel("Score: " + current.get_score(),0, 20);
-		GLabel streak1 = new GLabel("Streak: " + current.get_streak(),0, 40);
+		score1 = new GLabel("Score: " + current.get_score(),0, 20);
+		streak1 = new GLabel("Streak: " + current.get_streak(),0, 40);
 		int fail_x = 0;
-		GLabel fail = new GLabel("Fail: " ,0, 60);
-		add(fail);
+		fail1 = new GLabel("Fail: " ,0, 60);
+		add(fail1);
 		fail_x += 25;
 		for (int i = 0; i < + current.get_failCount(); i++) {
-			fail = new GLabel("X " , fail_x, 60);
+			fail1 = new GLabel("X " , fail_x, 60);
 			fail_x += 10;
-			add(fail);
+			add(fail1);
 		}
 		
 		
@@ -144,10 +148,18 @@ public class Map_graphics extends Map implements KeyListener {
 		add(streak1);
 		return false;
 	}
+
 	
-	boolean pass(int score, Level level) {
+	void box_display() {
+		add(streak1);
+		add(score_streak);
+		add(fail1);
+		add(score1);
+	}
+	
+	boolean pass(int score, int s) {
 		System.out.println("pass");
-		if(score == level.get_food_length()) {
+		if(score == 27 && s >= 30) {
 			box.reset();
 			curr_level_num ++;
 			if (curr_level_num < 3) {
@@ -174,7 +186,7 @@ public class Map_graphics extends Map implements KeyListener {
 				add(image);
 				spawned_list.add(image);
 				count ++;
-				
+				spawned ++;
 			}
 			i ++;
 		}
@@ -205,6 +217,7 @@ public class Map_graphics extends Map implements KeyListener {
 		return item;
 	}
 	public void actionPerformed(ActionEvent e) {
+		
 		spawn_food();
 		for (GImage i: spawned_list) {
 			i.move(speed, 0);
@@ -221,15 +234,14 @@ public class Map_graphics extends Map implements KeyListener {
 		int key = e.getKeyCode();
 		System.out.println(current.get_string());
 		
-		//current.getConductor().playSong(current.get_string());
-		Food curr_food = current.getConductor().getCurrentNote(current.get_string());
 		if (key == KeyEvent.VK_W) {
 			if (check() == "bun") {
 				box.incrementScore();
-				GImage dj = new GImage("DJ 2.png", 270, 285);
-				add(dj);
-				dj = new GImage("DJ 1.png", 270, 285);
-				add(dj);
+				box.incrementStreak();
+////				GImage dj = new GImage("DJ 2.png", 270, 285);
+////				add(dj);
+//				dj = new GImage("DJ 1.png", 270, 285);
+//				add(dj);
 			}
 			else {
 				box.reset_streak();
@@ -238,16 +250,10 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 			
 			if (fail(box)) {
-				System.out.println("before");
-				current.getConductor().stopSong(current.get_string());
-				System.out.println("after");
-				
-				System.out.println("failure");
 				fail.start();
 			}
-			if (pass(box.get_score(), current)) {
-				System.out.println("lol");
-				current.getConductor().stopSong(current.get_string());
+			if (pass(box.get_score(), spawned)) {
+				
 				pass.start();
 			}
 			
@@ -255,64 +261,65 @@ public class Map_graphics extends Map implements KeyListener {
 		if (key == KeyEvent.VK_A) {
 			if (check() == "ketchup") {
 				box.incrementScore();
-				GImage dj = new GImage("DJ 2.png", 270, 285);
-				add(dj);
-				dj = new GImage("DJ 1.png", 270, 285);
-				add(dj);
+				box.incrementStreak();
+//				GImage dj = new GImage("DJ 2.png", 270, 285);
+//				add(dj);
+//				dj = new GImage("DJ 1.png", 270, 285);
+//				add(dj);
 			}
 			else {
 				box.reset_streak();
 				box.incrementFail();
 			}
 			if (fail(box)) {
-				current.getConductor().stopSong(current.get_string());
 				fail.start();
 			}
-			if (pass(box.get_score(), current)) {
-				current.getConductor().stopSong(current.get_string());
+			if (pass(box.get_score(), spawned)) {
 				pass.start();
 			}
 		}
 		if (key == KeyEvent.VK_S) {
 			if (check() == "tofu") {
 				box.incrementScore();
-				GImage dj = new GImage("DJ 2.png", 270, 285);
-				add(dj);
-				dj = new GImage("DJ 1.png", 270, 285);
-				add(dj);
+				box.incrementStreak();
+//				GImage dj = new GImage("DJ 2.png", 270, 285);
+//				add(dj);
+//				dj = new GImage("DJ 1.png", 270, 285);
+//				add(dj);
 			}
 			else {
 				box.reset_streak();
 				box.incrementFail();
+				remove(fail1);
+				remove(score1);
+				remove(streak1);
 			}
 			if (fail(box)) {
-				current.getConductor().stopSong(current.get_string());
+				
 				fail.start();
 			}
-			if (pass(box.get_score(), current)) {
-				current.getConductor().stopSong(current.get_string());
+			if (pass(box.get_score(), spawned)) {
+				
 				pass.start();
 			}
 		}
 		if (key == KeyEvent.VK_D) {
 			if (check() == "tomato") {
 				box.incrementScore();
-				GImage dj = new GImage("DJ 2.png", 270, 285);
-				add(dj);
-				dj = new GImage("DJ 1.png", 270, 285);
-				add(dj);
-				
+				box.incrementStreak();
+//				GImage dj = new GImage("DJ 2.png", 270, 285);
+//				add(dj);
+//				dj = new GImage("DJ 1.png", 270, 285);
+//				add(dj);
 			}
 			else {
 				box.reset_streak();
 				box.incrementFail();
 			}
 			if (fail(box)) {
-				current.getConductor().stopSong(current.get_string());
 				fail.start();
 			}
-			if (pass(box.get_score(), current)) {
-				current.getConductor().stopSong(current.get_string());
+			if (pass(box.get_score(), spawned)) {
 				pass.start();
 			}
 		}
