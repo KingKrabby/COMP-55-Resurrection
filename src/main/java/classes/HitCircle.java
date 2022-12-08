@@ -13,10 +13,14 @@ public class HitCircle extends GraphicsProgram {
 	public static final int x3 = 425; //will be for second HitCircle on smaller conveyor
 	public static final int y3 = 400; //will be for second HitCircle on smaller conveyor
 	public int numHitCircles;
+	public int firstx;
+	public int y;
+	
 	
 	
 	HitCircle(int z) {
 			numHitCircles = z;
+			
 	}		
 
 	public boolean isHit(Food currentFood, Level currentLevel) { 
@@ -46,5 +50,8 @@ public class HitCircle extends GraphicsProgram {
 	  
 	  }
 	 
+	 public int returnNHC() {
+		 return numHitCircles;
+	 }
 	
 }
