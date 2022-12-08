@@ -9,10 +9,10 @@ import acm.graphics.*;
 public class Spawner extends Map{
 	private Play_game game;
 	
-	public Spawner(int x, int y) {
-		spawnerX = x;
-		spawnerY = y;
-	}
+//	public Spawner(int x, int y) {
+//		spawnerX = x;
+//		spawnerY = y;
+//	}
 	
 	public void setGame(Play_game game) {
 		this.game = game;
@@ -115,26 +115,14 @@ public class Spawner extends Map{
 		}
 	}
 	public void run() {
-		
+		spawn_food();
 	}
 	public static void main(String args[]) {
 		/*Spawner testSpawner = new Spawner(-100, 100);
 		testSpawner.start();
 		Song testSong = Song.getInstance();
 		Conductor testConductor = new Conductor(150, testSong, 1, Map_Database.tutorialFood);*/
-		Scanner scan = new Scanner(System.in);
-		Map_Database data = new Map_Database();
-		Level testLevel = data.level1;
-		testLevel.conductor.playSong("tutorial");
-		for(int i = 0; i < 10; i++) {
-			int input = scan.nextInt();
-			if(input == 1) {
-				testLevel.getSpawner().spawnFood(testLevel);
-			}
-			else {
-				System.out.println("no money");
-			}
-		}
+		new Spawner().start();
 
 	}
 } 

@@ -219,6 +219,7 @@ public class tutorial extends Map{
 			
 		}
 		if (keyCode == KeyEvent.VK_ESCAPE) {
+			test.stopSound("sounds","tutorial.mp3");
 			menu.start();
 		}
 	}

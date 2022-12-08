@@ -27,13 +27,13 @@ public final class Map_Database {
 	}
 
 	public void initialize() {
-		int start1 = 9000;
+		int start1 = 5000;
 
 
 		for (int i = 0; i < 30; i++) {
 			Food f = new Food(list[getRandomValue(0, 3)], start1);
 			food_level1.add(f);
-			start1 += 5000;
+			start1 += getRandomValue(1000, 4000);
 		}
 
 		int start2 = 14000;
@@ -94,9 +94,9 @@ public final class Map_Database {
 	public static HitCircle circle2 = new HitCircle(1);
 	public static HitCircle circle3 = new HitCircle(2);
 
-	public static Spawner spawner1 = new Spawner(-100, 500);
-	public static Spawner spawner2 = new Spawner(-100, 500);;
-	public static Spawner spawner3 = new Spawner(-100, 500);;
+	public static Spawner spawner1 = new Spawner();
+	public static Spawner spawner2 = new Spawner();;
+	public static Spawner spawner3 = new Spawner();;
 
 	// add a level called tutorial
 	public static Level level1 = new Level("tutorial.mp3", conductor1, conveyor1, food1, circle1, spawner1, food_level1);

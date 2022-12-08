@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 import javax.swing.Timer;
 
@@ -14,11 +15,14 @@ import acm.graphics.GRect;
 import acm.program.GraphicsProgram;
 
 public class Map_graphics extends Map implements KeyListener {
-
-	
+	long start, end;
+	int speed = 3;
+	int count = 0;
+	ArrayList <GImage> spawned_list = new ArrayList<GImage> ();
 	
 	
 	public void run() {
+		start = System.currentTimeMillis();
 		requestFocus();
 		addKeyListeners();
 		//play game background 
@@ -77,31 +81,7 @@ public class Map_graphics extends Map implements KeyListener {
 	  		GImage conveyor2 = new GImage("conveyor2.png", x2, y2);
 	  		add(conveyor2);
 	  	}
-		// Spawner
-	  	Food currentNote = current.getConductor().getCurrentNote(current.get_string());
-		double currentBeat = current.getConductor().getCurrentBeat(current.get_string());
-		GImage toBeSpawned = null;
-		if (Math.round(currentNote.getSpawnBeat()) == Math.round(currentBeat)) {
-			if (currentNote.getFoodType() == FoodType.BUN) {
-				toBeSpawned = new GImage("bun.png", 10, 10);
-				add(toBeSpawned);
-			}
-			if (currentNote.getFoodType() == FoodType.KETCHUP) {
-				toBeSpawned = new GImage("ketchup.png", 10, 10);
-				add(toBeSpawned);
-			}
-			if (currentNote.getFoodType() == FoodType.TOFU) {
-				toBeSpawned = new GImage("tofu.png", 10, 10);
-				add(toBeSpawned);
-			}
-			if (currentNote.getFoodType() == FoodType.TOMATO) {
-				toBeSpawned = new GImage("tomato.png", 10, 10);
-				add(toBeSpawned);
-			}
-			if (toBeSpawned != null) {
-				toBeSpawned.move(5, 300);
-			}
-		}
+
 		
 		// hit Circle
 		final int WINDOW_WIDTH = 800;
@@ -174,6 +154,54 @@ public class Map_graphics extends Map implements KeyListener {
 			return true;
 		}
 		return false;
+	}
+	//Spawner
+	void spawn_food() {
+		long end = System.currentTimeMillis();
+		int i = 0;
+		ArrayList<Food> items = current.getFoodList();
+		
+		for (Food f: items) {
+			long elapsed = end - start;
+
+			if (elapsed > f.getDuration() && count == i) {
+				System.out.println(count);
+				System.out.println(i);
+				GImage image = creates_new_image(f);
+				add(image);
+				spawned_list.add(image);
+				count ++;
+				
+			}
+			i ++;
+		}
+	}
+	GImage creates_new_image(Food food) {
+		GImage item = null;
+		int x = 0;
+		int y = 435;
+		FoodType type = food.getFoodType();
+		if (type == FoodType.BUN) {
+			item = new GImage("bun.png", x, y);
+		}
+		if (type == FoodType.KETCHUP) {
+			item = new GImage("ketchup.png", x, y);
+			
+		}
+		if (type == FoodType.TOFU) {
+			item = new GImage("tofu.png", x, y);
+			
+		}
+		if (type== FoodType.TOMATO) {
+			item = new GImage("tomato.png", x, y);
+		}
+		return item;
+	}
+	public void actionPerformed(ActionEvent e) {
+		spawn_food();
+		for (GImage i: spawned_list) {
+			i.move(speed, 0);
+		}
 	}
 	
 	@Override
