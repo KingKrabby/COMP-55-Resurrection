@@ -114,10 +114,10 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 	
 	boolean fail(Score_streak current) {
-		System.out.println("fail");
 		//activates when buttons are pressed
 		// looks at current map --> fail screen
 		if (box.get_failCount() + passed_hit_circle.size() >= 3) {
+			System.out.println("fail");
 			box.reset_fail();
 			return true;
 		}
@@ -146,8 +146,8 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 	
 	boolean pass(int score, Level level) {
-		System.out.println("pass");
 		if(score == level.get_food_length()) {
+			System.out.println("pass");
 			box.reset();
 			curr_level_num ++;
 			if (curr_level_num < 3) {
