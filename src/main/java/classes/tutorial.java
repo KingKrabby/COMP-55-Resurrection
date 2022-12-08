@@ -198,7 +198,8 @@ public class tutorial extends Map{
 			
 			add(d_label);
 			delay();
-			
+			//test.stopSound("sounds","tutorial.mp3");
+			//menu.start();
 		}
 	}
 	
