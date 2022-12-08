@@ -20,13 +20,6 @@ public class Fail_screen extends Map{
 	private static final String[] SOUND_FILES = { "Raw.mp3" };
 	public Fail_screen(Play_game app){
 		super();
-		//area for creating a pass screen once we start communicating between classes
-		//"Oof, better luck next time" at the top of the screen
-		//Picture of a tofu cartoon being sad at the bottom right
-		//"Press space bar to try again" underneath "Oof, better luck next time"
-		//"Press Enter to return back to the menu" underneath "Oof, better luck next time"
-		//"World's Hardest Games" symbol in the bottom left
-
 	}
 	
 	public void stop() {

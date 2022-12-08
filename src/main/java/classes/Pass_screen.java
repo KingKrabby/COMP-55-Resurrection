@@ -17,14 +17,6 @@ public class Pass_screen extends Map{
 	private static final String[] SOUND_FILES = { "Hurray.mp3" };
 	public Pass_screen(Play_game app){
 		super();
-		//program = app;
-		//area for creating a pass screen once we start communicating between classes
-		//"Great Work!" at the top of the screen
-		//Picture of a tofu cartoon dancing at the bottom right
-		//"Press space bar to move onto the next level" underneath "Great Work!"
-		//"Press Enter to return back to the menu" underneath "Press space bar to move onto the next level"
-		//"World's Hardest Games" symbol in the bottom left
-
 	}
 	
 	public void stop() {
@@ -67,10 +59,6 @@ public class Pass_screen extends Map{
 			menu.start();
 		}
 		if (keyCode == KeyEvent.VK_SPACE) {
-			//move onto next level jbsx
-			//put onSpacePressed in mainApplication
-			//what will be our main application
-			//keep the logic in the classes
 			if (curr_level_num == 2) {
 				menu.start();
 			}
@@ -79,7 +67,6 @@ public class Pass_screen extends Map{
 				current = level_arr[curr_level_num];
 				game.run();
 			}
-
 		}
 	}
 	
@@ -91,5 +78,4 @@ public class Pass_screen extends Map{
 		new Pass_screen(game).start();
 	}
 	 
-	
 }

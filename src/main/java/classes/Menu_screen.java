@@ -19,18 +19,6 @@ public class Menu_screen extends Map {
 	
 	public Menu_screen(Play_game app){
 		super();
-		//program = app;
-		//playBackgroundNoise();
-		//area for creating a menu screen once we start communicating between classes
-		//"Turnt Up Tofu" at the top left of the screen
-		//Picture of a tofu cartoon dancing at the middle left
-		//"Press 'L' to play the Tutorial!" at middle right
-		//"Press Space bar to play the first level!" underneath "Press 'L' to play the Tutorial!"
-		//"Press 'Esc' to quit the game" underneath "Press Space bar to play the first level!"
-		//"World's Hardest Games" symbol in the bottom right
-		
-
-
 	}
 	public void run() {
 		requestFocus();
@@ -42,14 +30,6 @@ public class Menu_screen extends Map {
   		
   		GImage title = new GImage("turntuptofu!.png", 40, 0);
   		add(title);
-		
-  		/*
-		System.out.println("hello");
-		x = new GLabel("Turnt Up Tofu", 20, 50);
-		x.setColor(Color.black);
-		x.setFont("Arial-18");
-		add(x);
-		*/
 		
 		GLabel y = new GLabel("Press 'L' to play the Tutorial!", 0, 180);
 		y.setColor(Color.white);
@@ -87,22 +67,18 @@ public class Menu_screen extends Map {
 			map_track = 3;
 		}
 		if (keyCode == KeyEvent.VK_L) {
-			//current = tutorial;
 			//plays the tutorial
 			menu.stop();
 			tutor.start();
 			count++;
 			map_track = 1;
-			
 		}
 		if (keyCode == KeyEvent.VK_ESCAPE) {
+			//quits to title
 			menu.stop();
 			title.start();
 		}
-
 	}
-	
-
 	
 	private void playBackgroundNoise() {
 		test.playSound(MUSIC_FOLDER, SOUND_FILES[count % SOUND_FILES.length]);

@@ -28,32 +28,8 @@ public class Title_screen extends Map implements KeyListener{
 	int get_identifier() {
 		return identifier;
 	}
-	/*
-	private static void resizeImage(File originalImage, File residedImage, int width, int height, String format) {
-		try {
-			BufferedImage original = ImageIO.read(originalImage);
-			BufferedImage resized = new BufferedImage(width, height, original.getType());
-			Graphics2D g2 = resized.createGraphics();
-			g2.drawImage(original, 0, 0, width, height, null);
-			g2.dispose();
-			ImageIO.write(resized, format, residedImage);
-		}
-		catch(IOException ex) {
-			ex.printStackTrace();
-		}
-	}
-	*/
-	/*
-	private static final int START_Y = 250;
-	private static final int START_X = 300;
-	public static final int PROGRAM_HEIGHT = 600;
-	public static final int PROGRAM_WIDTH = 800;
 	
-	public void init() {
-		//setSize(PROGRAM_WIDTH, PROGRAM_HEIGHT);
-		//requestFocus();
-	}
-	*/
+	
 	public void run(){
 		requestFocus();
   		add(blue);
