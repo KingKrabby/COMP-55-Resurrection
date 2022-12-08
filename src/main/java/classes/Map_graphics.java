@@ -19,6 +19,7 @@ public class Map_graphics extends Map implements KeyListener {
 	int speed = 3;
 	int count = 0;
 	ArrayList <GImage> spawned_list = new ArrayList<GImage> ();
+	ArrayList <GImage> passed_hit_circle = new ArrayList<GImage> ();
 	
 	
 	public void run() {
@@ -114,7 +115,7 @@ public class Map_graphics extends Map implements KeyListener {
 		System.out.println("fail");
 		//activates when buttons are pressed
 		// looks at current map --> fail screen
-		if (box.get_failCount() == 3) {
+		if (box.get_failCount() + passed_hit_circle.size() >= 3) {
 			box.reset_fail();
 			return true;
 		}
