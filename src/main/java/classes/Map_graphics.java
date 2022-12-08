@@ -28,6 +28,7 @@ public class Map_graphics extends Map implements KeyListener {
 	GLabel score1;
 	GLabel streak1;
 	GLabel fail1;
+	int fail_x = 0;
 
 	
 	public static final String MUSIC_FOLDER = "sounds";
@@ -60,15 +61,9 @@ public class Map_graphics extends Map implements KeyListener {
 		add(score_streak);
 		score1 = new GLabel("Score: " + box.get_score(),0, 20);
 		streak1 = new GLabel("Streak: " + box.get_streak(),0, 40);
-		int fail_x = 0;
 		fail1 = new GLabel("Fail: " ,0, 60);
 		add(fail1);
-		fail_x += 25;
-		for (int i = 0; i < + box.get_failCount(); i++) {
-			fail1 = new GLabel("X " , fail_x, 60);
-			fail_x += 10;
-			add(fail1);
-		}
+		
 		
 		score_streak_graphic.start();
 		add(score1);
@@ -130,41 +125,9 @@ public class Map_graphics extends Map implements KeyListener {
 			box.reset_fail();
 			return true;
 		}
-		int score_streak_SIZE_x = 100;
-		int score_streak_SIZE_y = 100;
-		int score_streak_loc_x = 0;
-		int score_streak_loc_y = 0;
-		score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
-		score1 = new GLabel("Score: " + current.get_score(),0, 20);
-		streak1 = new GLabel("Streak: " + current.get_streak(),0, 40);
-		int fail_x = 0;
-		fail1 = new GLabel("Fail: " ,0, 60);
-		add(fail1);
-		fail_x += 25;
-		for (int i = 0; i < + current.get_failCount(); i++) {
-			fail1 = new GLabel("X " , fail_x, 60);
-			fail_x += 10;
-			add(fail1);
-		}
-		
-		add(score_streak);
-		add(score1);
-		add(streak1);
 		return false;
 	}
 
-	void box_display_on() {
-		streak1.setVisible(true);
-		fail1.setVisible(true);
-		score1.setVisible(true);
-	}
-	
-
-	void box_display_off() {
-		streak1.setVisible(false);
-		fail1.setVisible(false);
-		score1.setVisible(false);
-	}
 	
 	boolean passed(int score, int s) {
 		System.out.println("pass");
@@ -244,6 +207,32 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		int score_streak_SIZE_x = 100;
+		int score_streak_SIZE_y = 100;
+		int score_streak_loc_x = 0;
+		int score_streak_loc_y = 0;
+		score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
+		score1.setLabel("Score: " + box.get_score());
+		streak1.setLabel("Streak: " + box.get_streak());
+		int fail_x = 0;
+		int total = box.get_failCount() + passed_hit_circle.size();
+		fail_x += 25;
+		if (total == 1) {
+			GLabel x1 = new GLabel("X ", fail_x, 60);
+			add(x1);
+		}
+		fail_x += 25;
+		if (total == 2) {
+			GLabel x2 = new GLabel("X ", fail_x, 60);
+			add(x2);
+		}
+		fail_x += 25;
+		if (total == 3) {
+			GLabel x3 = new GLabel("X ", fail_x, 60);
+			add(x3);
+		}
+
+
 		ArrayList<GImage> to_delete = new ArrayList<GImage> ();
 		spawn_food();
 		for (GImage i: spawned_list) {
@@ -252,20 +241,14 @@ public class Map_graphics extends Map implements KeyListener {
 				passed_hit_circle.add(i);
 				remove(getElementAt((i.getX()), (i.getY())));
 				to_delete.add(i);
+				if (failed(box)) {
+					stopMusic();
+					fail.start();
+				}
 			}
 		}
 		for (GImage i: to_delete) {
 			spawned_list.remove(i);
-		}
-		if (failed(box) ){
-			box.reset_fail();
-			stopMusic();
-			fail.start();
-		}
-		if (passed(box.get_score(), box.get_streak())) {
-			box.reset_fail();
-			stopMusic();
-			pass.start();
 		}
 	}
 	
@@ -318,6 +301,16 @@ public class Map_graphics extends Map implements KeyListener {
 				box.reset_streak();
 				box.incrementFail();
 			}
+		}
+		if (failed(box) ){
+			box.reset_fail();
+			stopMusic();
+			fail.start();
+		}
+		if (passed(box.get_score(), box.get_streak())) {
+			box.reset_fail();
+			stopMusic();
+			pass.start();
 		}
 		//box_display_on();
 		 
