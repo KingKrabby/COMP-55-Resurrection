@@ -55,7 +55,7 @@ public class Play_game implements ActionListener{
 		test.playSound(MUSIC_FOLDER, map_graphics.current.get_string());
 	}
 	
-	public void stop() {
+	public void stopMusic() {
 		Song test = Song.getInstance();
 		test.stopSound(MUSIC_FOLDER, map_graphics.current.get_string());
 	}

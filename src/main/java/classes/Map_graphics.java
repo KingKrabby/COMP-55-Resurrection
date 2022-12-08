@@ -23,6 +23,8 @@ public class Map_graphics extends Map implements KeyListener {
 	ArrayList <String> food_images = new ArrayList<String> ();
 	// String[] food_images = new String[] {"bun", "ketchup", "tofu", "tomato"};
 	
+	public static final String MUSIC_FOLDER = "sounds";
+	
 	
 	public void run() {
 		start = System.currentTimeMillis();
@@ -153,10 +155,15 @@ public class Map_graphics extends Map implements KeyListener {
 			if (curr_level_num < 3) {
 				current = level_arr[curr_level_num];
 			}
+			stopMusic();
 			pass.run();
 			return true;
 		}
 		return false;
+	}
+	public void stopMusic() {
+		Song test = Song.getInstance();
+		test.stopSound(MUSIC_FOLDER, current.get_string());
 	}
 	//Spawner
 	void spawn_food() {
@@ -243,11 +250,13 @@ public class Map_graphics extends Map implements KeyListener {
 				System.out.println("after");
 				
 				System.out.println("failure");
+				stopMusic();
 				fail.start();
 			}
 			if (pass(box.get_score(), current)) {
 				System.out.println("lol");
 				current.getConductor().stopSong(current.get_string());
+				stopMusic();
 				pass.start();
 			}
 			
@@ -266,10 +275,12 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 			if (fail(box)) {
 				current.getConductor().stopSong(current.get_string());
+				stopMusic();
 				fail.start();
 			}
 			if (pass(box.get_score(), current)) {
 				current.getConductor().stopSong(current.get_string());
+				stopMusic();
 				pass.start();
 			}
 		}
@@ -287,10 +298,12 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 			if (fail(box)) {
 				current.getConductor().stopSong(current.get_string());
+				stopMusic();
 				fail.start();
 			}
 			if (pass(box.get_score(), current)) {
 				current.getConductor().stopSong(current.get_string());
+				stopMusic();
 				pass.start();
 			}
 		}
@@ -309,10 +322,12 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 			if (fail(box)) {
 				current.getConductor().stopSong(current.get_string());
+				stopMusic();
 				fail.start();
 			}
 			if (pass(box.get_score(), current)) {
 				current.getConductor().stopSong(current.get_string());
+				stopMusic();
 				pass.start();
 			}
 		}
