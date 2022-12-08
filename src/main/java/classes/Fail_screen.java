@@ -8,6 +8,7 @@ import acm.graphics.GLabel;
 
 public class Fail_screen extends Map{
 	// function to identify map 
+	// function to identify map 
 	private int identifier = 3;
 	int get_identifier() {
 		return identifier;
@@ -33,9 +34,22 @@ public class Fail_screen extends Map{
 	}
 	
 	public void run() {
+		
 		playBackgroundNoise();
+		System.out.println("fail");
+		
 		GImage red = new GImage("Red Background.jpg");
 		add(red);
+		
+		
+		GImage gordon = new GImage("Gordon.png", 475, 400);
+		add(gordon);
+		
+		GLabel b = new GLabel("ITS RAW! >:(", 125, 500);
+		b.setColor(Color.white);
+		b.setFont("Arial-50");
+		add(b);
+		
 		GLabel x = new GLabel("IF YOU CANT HANDLE THE HEAT", 0, 80);
 		x.setColor(Color.white);
 		x.setFont("Arial-50");
@@ -44,15 +58,7 @@ public class Fail_screen extends Map{
 		GLabel a = new GLabel("STAY OUT OF THE KITCHEN!", 50, 125);
 		a.setColor(Color.white);
 		a.setFont("Arial-50");
-		add(a);
-		
-		GLabel b = new GLabel("ITS RAW! >:(", 125, 500);
-		b.setColor(Color.white);
-		b.setFont("Arial-50");
-		add(b);
-		GImage gordon = new GImage("Gordon.png", 475, 400);
-		add(gordon);
-		
+		add(a);		
 		
 		GLabel y = new GLabel("Press Spacebar to try again", 0, 280);
 		y.setColor(Color.white);
@@ -74,7 +80,7 @@ public class Fail_screen extends Map{
 		int keyCode = r.getKeyCode();
 		if (keyCode == KeyEvent.VK_ENTER) {
 			//returns back to menu
-			menu.run();
+			menu.start();
 		}
 		if (keyCode == KeyEvent.VK_SPACE) {
 			//replays level
