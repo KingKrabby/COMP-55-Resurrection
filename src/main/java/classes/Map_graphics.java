@@ -20,6 +20,8 @@ public class Map_graphics extends Map implements KeyListener {
 	int count = 0;
 	ArrayList <GImage> spawned_list = new ArrayList<GImage> ();
 	ArrayList <GImage> passed_hit_circle = new ArrayList<GImage> ();
+	ArrayList <String> food_images = new ArrayList<String> ();
+	// String[] food_images = new String[] {"bun", "ketchup", "tofu", "tomato"};
 	
 	
 	public void run() {
@@ -184,17 +186,21 @@ public class Map_graphics extends Map implements KeyListener {
 		FoodType type = food.getFoodType();
 		if (type == FoodType.BUN) {
 			item = new GImage("bun.png", x, y);
+			food_images.add("bun");
 		}
 		if (type == FoodType.KETCHUP) {
 			item = new GImage("ketchup.png", x, y);
+			food_images.add("ketchup");
 			
 		}
 		if (type == FoodType.TOFU) {
 			item = new GImage("tofu.png", x, y);
+			food_images.add("tofu");
 			
 		}
 		if (type== FoodType.TOMATO) {
 			item = new GImage("tomato.png", x, y);
+			food_images.add("tomato");
 		}
 		return item;
 	}
@@ -212,7 +218,6 @@ public class Map_graphics extends Map implements KeyListener {
 		System.out.println(current.get_string());
 		
 		//current.getConductor().playSong(current.get_string());
-		
 		Food curr_food = current.getConductor().getCurrentNote(current.get_string());
 		if (key == KeyEvent.VK_W) {
 			if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
