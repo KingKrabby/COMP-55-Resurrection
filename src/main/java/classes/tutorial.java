@@ -1,5 +1,6 @@
 package classes;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -33,7 +34,6 @@ public class tutorial extends Map{
 	
 	Song test = Song.getInstance();
 	Timer movement;
-	GLabel W, A, S, D;
 	GLabel w_label, a_label, s_label, d_label;
 	GImage bun, ketchup, tofu, tomato;
 	GImage belt, background, hCircle;
@@ -51,18 +51,13 @@ public class tutorial extends Map{
 		tofu = new GImage("tofu.png", x_loc, y_loc);
 		tomato = new GImage("tomato.png", x_loc, y_loc);
 		food = new GImage[] {bun, ketchup, tofu, tomato};
-		W = new GLabel("W", 655, 310);
-		W.setFont("Arial-70");
-		A = new GLabel("A", 620, 370);
-		A.setFont("Arial-70");
-		S = new GLabel("S", 670, 370);
-		S.setFont("Arial-70");
-		D = new GLabel("D", 720, 370);
-		D.setFont("Arial-70");
-		Score_box = new GRect(0,40,60,50);
-		box_score = new GLabel("Score: " + score, 0, 50);
-		box_streak = new GLabel("Streak: " + streak, 0, 60);
-		box_fail = new GLabel("Fail: " ,0, 70);
+		GImage wasd = new GImage("wasd.png", 500, 150);
+		Score_box = new GRect(0,0,100,100);
+		Score_box.setFillColor(Color.white);
+		Score_box.setFilled(true);
+		box_score = new GLabel("Score: " + score, 0, 20);
+		box_streak = new GLabel("Streak: " + streak, 0, 40);
+		box_fail = new GLabel("Fail: " ,0, 60);
 
 		String label_font = "Arial-30";
 		w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
@@ -84,14 +79,11 @@ public class tutorial extends Map{
 		add(background);
 		add(belt);
 		add(hCircle);
-		add(W);
-		add(A);
-		add(S);
-		add(D);
 		add(Score_box);
 		add(box_score);
 		add(box_streak);
 		add(box_fail);
+		add(wasd);
 		
 		
 		
