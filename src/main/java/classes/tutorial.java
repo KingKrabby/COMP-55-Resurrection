@@ -64,11 +64,13 @@ public class tutorial extends Map{
 		box_streak = new GLabel("Streak: " + streak, 0, 60);
 		box_fail = new GLabel("Fail: " ,0, 70);
 
+
 		xlabel = 60;
 		ylabel = 150;
 		String label_font = "Arial-27";
 		w_label = new GLabel("Press the Correct Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
 		a_label = new GLabel("Pressing the right button generates a streak and adds a point",xlabel, ylabel);
+
 		s_label = new GLabel("Pressing the wrong button resets streak and point",xlabel, ylabel);
 		d_label = new GLabel("Enjoy game!!!" , xlabel, ylabel);
 		GLabel[] label_list = new GLabel[] {w_label, a_label, s_label, d_label};
@@ -130,6 +132,11 @@ public class tutorial extends Map{
 			add(food[count]);
 			check += 1500;
 			count += 1;
+		}
+		if (getElementAt(600, 450) != hCircle) {
+			GRect test = new GRect(600, 450, 20, 20);
+			add(test);
+			//System.out.println("Score + Streak +");
 		}
 		
 	}

@@ -17,7 +17,7 @@ public class Map extends GraphicsProgram implements ActionListener, KeyListener 
 	static Play_game game = new Play_game(); // 3
 	static Menu_screen menu = new Menu_screen(game); // 1
 	static Pass_screen pass = new Pass_screen(game); // 2
-	static Fail_screen fail = new Fail_screen();
+	static Fail_screen fail = new Fail_screen(game);
 	static tutorial tutor = new tutorial();
 	// 3 Levels
 	Map_Database data = new Map_Database();

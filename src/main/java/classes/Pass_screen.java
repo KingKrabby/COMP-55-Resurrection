@@ -11,6 +11,10 @@ public class Pass_screen extends Map{
 		return identifier;
 	}
 	public int levelCount = 0;
+	
+	Song test = Song.getInstance();
+	public static final String MUSIC_FOLDER = "sounds";
+	private static final String[] SOUND_FILES = { "Hurray.mp3" };
 	public Pass_screen(Play_game app){
 		super();
 		//program = app;
@@ -23,7 +27,13 @@ public class Pass_screen extends Map{
 
 	}
 	
+	public void stop() {
+		test.stopSound(MUSIC_FOLDER, SOUND_FILES[0]);
+	}
+	
 	public void run() {
+		//game.stop();
+		playBackgroundNoise();
 		System.out.println("pass");
 		
 		GImage green = new GImage("greenbackground.jpg", 0, 0);
@@ -32,19 +42,19 @@ public class Pass_screen extends Map{
 		GImage baby = new GImage("babymeme.png", 525, 290);
 		add(baby);
 		
-		GLabel x = new GLabel("Great Work!", 20, 50);
-		x.setColor(Color.white);
-		x.setFont("Arial-30");
+		GImage x = new GImage("GreatWork.png", 70, 200);
+		//x.setColor(Color.white);
+		//x.setFont("Arial-30");
 		add(x);
 		
-		GLabel y = new GLabel("Press Spacebar to move onto the next level!", 20, 90);
+		GLabel y = new GLabel("Press Spacebar to move onto the next level!", 0, 80);
 		y.setColor(Color.white);
-		y.setFont("Arial-30");
+		y.setFont("Arial-40");
 		add(y);
 		
-		GLabel z = new GLabel("Press Enter to return back to the menu", 20, 130);
+		GLabel z = new GLabel("Press Enter to return back to the menu", 0, 180);
 		z.setColor(Color.white);
-		z.setFont("Arial-30");
+		z.setFont("Arial-40");
 		add(z);
 		
 		GImage logo = new GImage("World's Hardest Games Logo.png", -25, 475);
@@ -74,6 +84,11 @@ public class Pass_screen extends Map{
 
 		}
 	}
+	
+	private void playBackgroundNoise() {
+		test.playSound(MUSIC_FOLDER, SOUND_FILES[0], false);
+	}
+	
 	public static void main(String[] args) {
 		new Pass_screen(game).start();
 	}

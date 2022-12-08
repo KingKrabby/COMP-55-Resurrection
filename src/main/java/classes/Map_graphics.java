@@ -112,12 +112,12 @@ public class Map_graphics extends Map implements KeyListener {
 		final int w2 = 400; //will be for first HitCircle on smaller conveyor
 		final int h3 = 425; //will be for second HitCircle on smaller conveyor
 		final int w3 = 400; //will be for second HitCircle on smaller conveyor
-		int numHitCircles;
-	  	if (current.get_string() == "level1.mp3" || current.get_string() == "level2") {
+		//int numHitCircles;
+	  	if (current.getHitCircle().returnNHC() == 1) {
 	  		GImage singleHitCircle = new GImage("hitcircle.png", h1, w1);
 	  		add(singleHitCircle);
 	  	}
-	  	if (current.get_string() == "level3.mp3") {
+	  	if (current.getHitCircle().returnNHC() == 2) {
 	  		GImage hitCircle1 = new GImage("hitcircle.png", h2, w2);
 	  		add(hitCircle1);
 	  		GImage hitCircle2 = new GImage("hitcircle.png", h3, w3);
