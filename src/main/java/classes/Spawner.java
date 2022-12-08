@@ -1,17 +1,18 @@
 package classes;
 import acm.program.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import acm.graphics.*;
 
-public class Spawner {
+public class Spawner extends Map{
 	private Play_game game;
 	
-	public Spawner(int x, int y) {
-		spawnerX = x;
-		spawnerY = y;
-	}
+//	public Spawner(int x, int y) {
+//		spawnerX = x;
+//		spawnerY = y;
+//	}
 	
 	public void setGame(Play_game game) {
 		this.game = game;
@@ -21,31 +22,71 @@ public class Spawner {
 	int spawnerX;
 	int spawnerY;
 	
+
+	/*t.start()
+	 * count = 0;
+	 * for currLevel.getFood:
+	 * 		if (elapsed > food.getint() && count == i):
+	 * 			spawn_image();
+	 * 			add image to global list;
+	 * 
+	 *  // to check
+	 *  
+	 *  pass():
+	 *  * for curr.food.images:
+	 *  	* check if any food item matches the key pressed
+	 *  		-get string of current food type == bun, tofu...;
+	 *  	* within x bounds of the hit circle
+	 *  	
+	 *  
+	 *  
+	 *  @Override 
+	 *  (if key):
+	 *  	
+	 *  
+	 *  	
+	 */
+	void spawn_food() {
+		long start = System.currentTimeMillis();
+		long end = System.currentTimeMillis();
+		int count = 0;
+		ArrayList<Food> items = current.getFoodList();
+		for (Food f: items) {
+			long elapsed = end - start;
+			if (elapsed > f.getDuration()) {
+				GImage image = creates_new_image(f);
+				add(image);
+				count ++;
+				
+			}
+			
+		}
+	}
+	
+	GImage creates_new_image(Food food) {
+		GImage item = null;
+		int x = 0;
+		int y = 435;
+		FoodType type = food.getFoodType();
+		if (type == FoodType.BUN) {
+			item = new GImage("bun.png", x, y);
+		}
+		if (type == FoodType.KETCHUP) {
+			item = new GImage("ketchup.png", x, y);
+			
+		}
+		if (type == FoodType.TOFU) {
+			item = new GImage("tofu.png", x, y);
+			
+		}
+		if (type== FoodType.TOMATO) {
+			item = new GImage("tomato.png", x, y);
+		}
+		return item;
+	}
+	
 	void spawnFood(Level currLevel) {
 		
-/*t.start()
- * count = 0;
- * for currLevel.getFood:
- * 		if (elapsed > food.getint() && count == i):
- * 			spawn_image();
- * 			add image to global list;
- * 
- *  // to check
- *  
- *  pass():
- *  * for curr.food.images:
- *  	* check if any food item matches the key pressed
- *  		-get string of current food type == bun, tofu...;
- *  	* within x bounds of the hit circle
- *  	
- *  
- *  
- *  @Override 
- *  (if key):
- *  	
- *  
- *  	
- */
 		
 		double currentBeat = currLevel.getConductor().getCurrentBeat(currLevel.get_string());
 		Food currentNote = currLevel.getConductor().getCurrentNote(currLevel.get_string());
@@ -74,26 +115,14 @@ public class Spawner {
 		}
 	}
 	public void run() {
-		
+		spawn_food();
 	}
 	public static void main(String args[]) {
 		/*Spawner testSpawner = new Spawner(-100, 100);
 		testSpawner.start();
 		Song testSong = Song.getInstance();
 		Conductor testConductor = new Conductor(150, testSong, 1, Map_Database.tutorialFood);*/
-		Scanner scan = new Scanner(System.in);
-		Map_Database data = new Map_Database();
-		Level testLevel = data.level1;
-		testLevel.conductor.playSong("tutorial");
-		for(int i = 0; i < 10; i++) {
-			int input = scan.nextInt();
-			if(input == 1) {
-				testLevel.getSpawner().spawnFood(testLevel);
-			}
-			else {
-				System.out.println("no money");
-			}
-		}
+		new Spawner().start();
 
 	}
 } 

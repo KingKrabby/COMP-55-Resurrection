@@ -38,7 +38,7 @@ public class tutorial extends Map{
 	GImage bun, ketchup, tofu, tomato;
 	GImage belt, background, hCircle;
 	GImage[] food = new GImage[] {};
-	int xlabel , ylabel ;
+	int xlabel = 60, ylabel = 110;
 	ArrayList<GImage> list = new ArrayList<GImage> ();
 	public void run() {
 		playBackgroundNoise();
@@ -51,6 +51,7 @@ public class tutorial extends Map{
 		tofu = new GImage("tofu.png", x_loc, y_loc);
 		tomato = new GImage("tomato.png", x_loc, y_loc);
 		food = new GImage[] {bun, ketchup, tofu, tomato};
+		GImage wasd = new GImage("wasd2.png", 400, 100);
 		W = new GLabel("W", 655, 310);
 		W.setFont("Arial-70");
 		A = new GLabel("A", 620, 370);
@@ -64,15 +65,11 @@ public class tutorial extends Map{
 		box_streak = new GLabel("Streak: " + streak, 0, 60);
 		box_fail = new GLabel("Fail: " ,0, 70);
 
-
-		xlabel = 60;
-		ylabel = 150;
-		String label_font = "Arial-27";
-		w_label = new GLabel("Press the Correct Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
-		a_label = new GLabel("Pressing the right button generates a streak and adds a point",xlabel, ylabel);
-
+		String label_font = "Arial-20";
+		w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
+		a_label = new GLabel("Pressing the correct button generates a streak and adds a point",xlabel, ylabel);
 		s_label = new GLabel("Pressing the wrong button resets streak and point",xlabel, ylabel);
-		d_label = new GLabel("Enjoy game!!!" , xlabel, ylabel);
+		d_label = new GLabel("Enjoy game",xlabel, ylabel);
 		GLabel[] label_list = new GLabel[] {w_label, a_label, s_label, d_label};
 		for (int i = 0; i < label_list.length; i++) {
 			GLabel label = label_list[i];
@@ -80,7 +77,7 @@ public class tutorial extends Map{
 		}
 		
 		
-		final int MS = 1000;
+		final int MS = 250;
 		
 		count = 0;
 		check = 1000;
@@ -88,10 +85,11 @@ public class tutorial extends Map{
 		add(background);
 		add(belt);
 		add(hCircle);
-		add(W);
-		add(A);
-		add(S);
-		add(D);
+		add(wasd);
+		//add(W);
+		//add(A);
+		//add(S);
+		//add(D);
 		add(Score_box);
 		add(box_score);
 		add(box_streak);
@@ -130,13 +128,36 @@ public class tutorial extends Map{
 			list.add(food[count]);
 			
 			add(food[count]);
-			check += 1500;
+			check += 4000;
 			count += 1;
 		}
 		if (getElementAt(600, 450) != hCircle) {
-			GRect test = new GRect(600, 450, 20, 20);
-			add(test);
 			//System.out.println("Score + Streak +");
+			remove(getElementAt(600, 450));
+			if(score != 3) {
+				streak++;
+				score++;
+				remove(box_streak);
+				remove(box_score);
+				box_streak = new GLabel("Streak: " + streak, 0, 60);
+				box_score = new GLabel("Score: " + score, 0, 50);
+				add(box_streak);
+				add(box_score);
+			}
+			else {
+				streak = 0;
+				score = 0;
+				fail = 1;
+				remove(box_streak);
+				remove(box_score);
+				remove(box_fail);
+				box_streak = new GLabel("Streak: " + streak, 0, 60);
+				box_score = new GLabel("Score: " + score, 0, 50);
+				box_fail = new GLabel("Fail: " + fail ,0, 70);
+				add(box_streak);
+				add(box_score);
+				add(box_fail);
+			}
 		}
 		
 	}
@@ -154,7 +175,7 @@ public class tutorial extends Map{
 		// W
 		if (num == 0) {
 			add(w_label);
-			delay();
+			//delay();
 			
 		}
 		// A
@@ -198,6 +219,7 @@ public class tutorial extends Map{
 			
 		}
 		if (keyCode == KeyEvent.VK_ESCAPE) {
+			test.stopSound("sounds","tutorial.mp3");
 			menu.start();
 		}
 	}

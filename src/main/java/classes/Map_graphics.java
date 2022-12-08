@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 import javax.swing.Timer;
 
@@ -14,11 +15,17 @@ import acm.graphics.GRect;
 import acm.program.GraphicsProgram;
 
 public class Map_graphics extends Map implements KeyListener {
-
-	
+	long start, end;
+	int speed = 3;
+	int count = 0;
+	ArrayList <GImage> spawned_list = new ArrayList<GImage> ();
+	ArrayList <GImage> passed_hit_circle = new ArrayList<GImage> ();
+	ArrayList <String> food_images = new ArrayList<String> ();
+	// String[] food_images = new String[] {"bun", "ketchup", "tofu", "tomato"};
 	
 	
 	public void run() {
+		start = System.currentTimeMillis();
 		requestFocus();
 		addKeyListeners();
 		//play game background 
@@ -77,31 +84,7 @@ public class Map_graphics extends Map implements KeyListener {
 	  		GImage conveyor2 = new GImage("conveyor2.png", x2, y2);
 	  		add(conveyor2);
 	  	}
-		// Spawner
-	  	Food currentNote = current.getConductor().getCurrentNote(current.get_string());
-		double currentBeat = current.getConductor().getCurrentBeat(current.get_string());
-		GImage toBeSpawned = null;
-		if (Math.round(currentNote.getSpawnBeat()) == Math.round(currentBeat)) {
-			if (currentNote.getFoodType() == FoodType.BUN) {
-				toBeSpawned = new GImage("bun.png", 10, 10);
-				add(toBeSpawned);
-			}
-			if (currentNote.getFoodType() == FoodType.KETCHUP) {
-				toBeSpawned = new GImage("ketchup.png", 10, 10);
-				add(toBeSpawned);
-			}
-			if (currentNote.getFoodType() == FoodType.TOFU) {
-				toBeSpawned = new GImage("tofu.png", 10, 10);
-				add(toBeSpawned);
-			}
-			if (currentNote.getFoodType() == FoodType.TOMATO) {
-				toBeSpawned = new GImage("tomato.png", 10, 10);
-				add(toBeSpawned);
-			}
-			if (toBeSpawned != null) {
-				toBeSpawned.move(5, 300);
-			}
-		}
+
 		
 		// hit Circle
 		final int WINDOW_WIDTH = 800;
@@ -134,7 +117,7 @@ public class Map_graphics extends Map implements KeyListener {
 		System.out.println("fail");
 		//activates when buttons are pressed
 		// looks at current map --> fail screen
-		if (box.get_failCount() == 3) {
+		if (box.get_failCount() + passed_hit_circle.size() >= 3) {
 			box.reset_fail();
 			return true;
 		}
@@ -175,6 +158,58 @@ public class Map_graphics extends Map implements KeyListener {
 		}
 		return false;
 	}
+	//Spawner
+	void spawn_food() {
+		long end = System.currentTimeMillis();
+		int i = 0;
+		ArrayList<Food> items = current.getFoodList();
+		
+		for (Food f: items) {
+			long elapsed = end - start;
+
+			if (elapsed > f.getDuration() && count == i) {
+				System.out.println(count);
+				System.out.println(i);
+				GImage image = creates_new_image(f);
+				add(image);
+				spawned_list.add(image);
+				count ++;
+				
+			}
+			i ++;
+		}
+	}
+	GImage creates_new_image(Food food) {
+		GImage item = null;
+		int x = 0;
+		int y = 435;
+		FoodType type = food.getFoodType();
+		if (type == FoodType.BUN) {
+			item = new GImage("bun.png", x, y);
+			food_images.add("bun");
+		}
+		if (type == FoodType.KETCHUP) {
+			item = new GImage("ketchup.png", x, y);
+			food_images.add("ketchup");
+			
+		}
+		if (type == FoodType.TOFU) {
+			item = new GImage("tofu.png", x, y);
+			food_images.add("tofu");
+			
+		}
+		if (type== FoodType.TOMATO) {
+			item = new GImage("tomato.png", x, y);
+			food_images.add("tomato");
+		}
+		return item;
+	}
+	public void actionPerformed(ActionEvent e) {
+		spawn_food();
+		for (GImage i: spawned_list) {
+			i.move(speed, 0);
+		}
+	}
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -183,7 +218,6 @@ public class Map_graphics extends Map implements KeyListener {
 		System.out.println(current.get_string());
 		
 		//current.getConductor().playSong(current.get_string());
-		
 		Food curr_food = current.getConductor().getCurrentNote(current.get_string());
 		if (key == KeyEvent.VK_W) {
 			if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {

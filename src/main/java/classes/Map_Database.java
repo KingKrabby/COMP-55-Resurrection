@@ -10,7 +10,7 @@ public final class Map_Database {
 	static ArrayList<Food> food_level3 = new ArrayList<Food>();
 	//intialize variable
 	Map_Database() {
-		initualize();
+		initialize();
 	}
 
 	FoodType[] list = new FoodType[] { FoodType.KETCHUP, FoodType.TOFU, FoodType.BUN, FoodType.TOMATO };
@@ -26,20 +26,20 @@ public final class Map_Database {
 		return ThreadLocalRandom.current().nextInt(Min, Max + 1);
 	}
 
-	public void initualize() {
-		int start1 = 9000;
+	public void initialize() {
+		int start1 = 5000;
 
 
 		for (int i = 0; i < 30; i++) {
-			Food f = new Food(list[getRandomValue(0, 4)], start1);
+			Food f = new Food(list[getRandomValue(0, 3)], start1);
 			food_level1.add(f);
-			start1 += 5000;
+			start1 += getRandomValue(1000, 4000);
 		}
 
 		int start2 = 14000;
 		
 		for (int j = 0; j < 30; j++) {
-			Food f = new Food(list[getRandomValue(0, 4)], start2);
+			Food f = new Food(list[getRandomValue(0, 3)], start2);
 			food_level2.add(f);
 			start2 += getRandomValue(3000, 5000);
 		}
@@ -47,7 +47,7 @@ public final class Map_Database {
 		int start3 = 0;
 		
 		for (int k = 0; k < 30; k++) {
-			Food f = new Food(list[getRandomValue(0, 4)], start3);
+			Food f = new Food(list[getRandomValue(0, 3)], start3);
 			food_level3.add(f);
 			start3 += getRandomValue(300, 400);
 		}
@@ -94,9 +94,9 @@ public final class Map_Database {
 	public static HitCircle circle2 = new HitCircle(1);
 	public static HitCircle circle3 = new HitCircle(2);
 
-	public static Spawner spawner1 = new Spawner(-100, 500);
-	public static Spawner spawner2 = new Spawner(-100, 500);;
-	public static Spawner spawner3 = new Spawner(-100, 500);;
+	public static Spawner spawner1 = new Spawner();
+	public static Spawner spawner2 = new Spawner();;
+	public static Spawner spawner3 = new Spawner();;
 
 	// add a level called tutorial
 	public static Level level1 = new Level("tutorial.mp3", conductor1, conveyor1, food1, circle1, spawner1, food_level1);
