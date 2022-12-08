@@ -64,7 +64,7 @@ public class tutorial extends Map{
 		w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
 		a_label = new GLabel("Pressing the correct button generates a streak and adds a point",xlabel, ylabel);
 		s_label = new GLabel("Pressing the wrong button resets streak and point",xlabel, ylabel);
-		d_label = new GLabel("Enjoy game",xlabel, ylabel);
+		d_label = new GLabel("Enjoy the game, press ESC to return to menu",xlabel, ylabel);
 		
 		w_label.setColor(Color.white);
 		a_label.setColor(Color.white);
@@ -198,7 +198,8 @@ public class tutorial extends Map{
 			
 			add(d_label);
 			delay();
-			
+			//test.stopSound("sounds","tutorial.mp3");
+			//menu.start();
 		}
 	}
 	
