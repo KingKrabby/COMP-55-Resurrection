@@ -12,7 +12,13 @@ public class Fail_screen extends Map{
 	int get_identifier() {
 		return identifier;
 	}
-	public Fail_screen(){
+	public int levelCount = 0;
+
+	Song test = Song.getInstance();
+	public static final String MUSIC_FOLDER = "sounds";
+	private static final String[] SOUND_FILES = { "Raw.mp3" };
+	public Fail_screen(Play_game app){
+		super();
 		//area for creating a pass screen once we start communicating between classes
 		//"Oof, better luck next time" at the top of the screen
 		//Picture of a tofu cartoon being sad at the bottom right
@@ -21,24 +27,44 @@ public class Fail_screen extends Map{
 		//"World's Hardest Games" symbol in the bottom left
 
 	}
+	
+	public void stop() {
+		test.stopSound(MUSIC_FOLDER, SOUND_FILES[0]);
+	}
+	
 	public void run() {
-		GImage gordon = new GImage("Gordon.jpg");
-		add(gordon);
-		GLabel x = new GLabel("IF YOU CANT HANDLE THE HEAT, STAY OUT OF THE KITCHEN ", 5, 250);
-		x.setColor(Color.red);
-		x.setFont("Arial-26");
+		playBackgroundNoise();
+		GImage red = new GImage("Red Background.jpg");
+		add(red);
+		GLabel x = new GLabel("IF YOU CANT HANDLE THE HEAT", 0, 80);
+		x.setColor(Color.white);
+		x.setFont("Arial-50");
 		add(x);
-		GLabel y = new GLabel("Press Spacebar to try again", 200, 300);
+		
+		GLabel a = new GLabel("STAY OUT OF THE KITCHEN!", 50, 125);
+		a.setColor(Color.white);
+		a.setFont("Arial-50");
+		add(a);
+		
+		GLabel b = new GLabel("ITS RAW! >:(", 125, 500);
+		b.setColor(Color.white);
+		b.setFont("Arial-50");
+		add(b);
+		GImage gordon = new GImage("Gordon.png", 475, 400);
+		add(gordon);
+		
+		
+		GLabel y = new GLabel("Press Spacebar to try again", 0, 280);
 		y.setColor(Color.white);
-		y.setFont("Arial-26");
+		y.setFont("Arial-40");
 		add(y);
 		
-		GLabel z = new GLabel("Press Enter to return back to the menu", 150, 400);
+		GLabel z = new GLabel("Press Enter to return back to the menu", 0, 380);
 		z.setColor(Color.white);
-		z.setFont("Arial-26");
+		z.setFont("Arial-40");
 		add(z);
 		
-		GImage logo = new GImage("World's Hardest Games Logo.png", 220, 400);
+		GImage logo = new GImage("World's Hardest Games Logo.png", -25, 475);
   		add(logo);
   		addKeyListeners();
 	}
@@ -55,7 +81,11 @@ public class Fail_screen extends Map{
 			game.run();
 		}
 	}
+	
+	private void playBackgroundNoise() {
+		test.playSound(MUSIC_FOLDER, SOUND_FILES[0], false);
+	}
 	public static void main(String[] args) {
-		new Fail_screen().start();
+		new Fail_screen(game).start();
 	}
 }
