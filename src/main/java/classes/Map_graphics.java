@@ -57,9 +57,6 @@ public class Map_graphics extends Map implements KeyListener {
 		score_streak.setFilled(true);
 		
 		Timer score_streak_graphic = new Timer(score_streak_ms, this);
-		GLabel score1;
-		GLabel streak1;
-		GLabel fail1;
 		add(score_streak);
 		score1 = new GLabel("Score: " + box.get_score(),0, 20);
 		streak1 = new GLabel("Streak: " + box.get_streak(),0, 40);
@@ -155,21 +152,19 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 
 	void box_display_on() {
-		add(streak1);
-		add(score_streak);
-		add(fail1);
-		add(score1);
+		streak1.setVisible(true);
+		fail1.setVisible(true);
+		score1.setVisible(true);
 	}
 	
 
 	void box_display_off() {
-		remove(streak1);
-		remove(score_streak);
-		remove(fail1);
-		remove(score1);
+		streak1.setVisible(false);
+		fail1.setVisible(false);
+		score1.setVisible(false);
 	}
 	
-	boolean pass(int score, int s) {
+	boolean passed(int score, int s) {
 		System.out.println("pass");
 		if(score == 27 && s >= 30) {
 			return true;
@@ -192,8 +187,6 @@ public class Map_graphics extends Map implements KeyListener {
 			long elapsed = end - start;
 
 			if (elapsed > f.getDuration() && count == i) {
-				System.out.println(count);
-				System.out.println(i);
 				GImage image = creates_new_image(f);
 				add(image);
 				spawned_list.add(image);
@@ -245,15 +238,16 @@ public class Map_graphics extends Map implements KeyListener {
 	
 	
 		
-	
+
 	String check() {
-		
+		System.out.println("check");
 		int i = 0;
 		for (GImage f: spawned_list) {
 			if(f.getX() > 550 && f.getX() < 650) {
-				spawned_list.remove(i);
+				System.out.println("working");
 				String str = food_images.get(i);
 				food_images.remove(i);
+				System.out.println(str);
 				return str;
 			}
 			i++;
@@ -265,7 +259,7 @@ public class Map_graphics extends Map implements KeyListener {
 	@Override
 	
 	public void keyPressed(KeyEvent e) {
-		box_display_on();
+		//box_display_off();
 		int key = e.getKeyCode();
 		//up = bun
 		//down = ketchup
@@ -312,13 +306,13 @@ public class Map_graphics extends Map implements KeyListener {
 				box.incrementFail();
 			}
 		}
-		box_display_on();
+		//box_display_on();
 		if (fail(box) ){
 			box.reset_fail();
 			stopMusic();
 			fail.start();
 		}
-		if (pass(box.get_score(), box.get_streak())) {
+		if (passed(box.get_score(), box.get_streak())) {
 			box.reset_fail();
 			stopMusic();
 			pass.start();
