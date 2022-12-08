@@ -208,6 +208,10 @@ public class Map_graphics extends Map implements KeyListener {
 		spawn_food();
 		for (GImage i: spawned_list) {
 			i.move(speed, 0);
+			if (i.getX() > 650) {
+				passed_hit_circle.add(i);
+				spawned_list.remove(i);
+			}
 		}
 	}
 	
@@ -220,7 +224,7 @@ public class Map_graphics extends Map implements KeyListener {
 		//current.getConductor().playSong(current.get_string());
 		Food curr_food = current.getConductor().getCurrentNote(current.get_string());
 		if (key == KeyEvent.VK_W) {
-			if (curr_food.getFoodType().toString() == "bun" && current.getHitCircle().isHit(curr_food, current)) {
+			if (check() == "bun") {
 				box.incrementScore();
 				GImage dj = new GImage("DJ 2.png", 270, 285);
 				add(dj);
@@ -249,7 +253,7 @@ public class Map_graphics extends Map implements KeyListener {
 			
 		}
 		if (key == KeyEvent.VK_A) {
-			if (curr_food.getFoodType().toString()== "tomato" && current.getHitCircle().isHit(curr_food, current)) {
+			if (check() == "ketchup") {
 				box.incrementScore();
 				GImage dj = new GImage("DJ 2.png", 270, 285);
 				add(dj);
@@ -270,7 +274,7 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 		}
 		if (key == KeyEvent.VK_S) {
-			if (curr_food.getFoodType().toString()== "tofu" && current.getHitCircle().isHit(curr_food, current)) {
+			if (check() == "tofu") {
 				box.incrementScore();
 				GImage dj = new GImage("DJ 2.png", 270, 285);
 				add(dj);
@@ -291,7 +295,7 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 		}
 		if (key == KeyEvent.VK_D) {
-			if (curr_food.getFoodType().toString()== "bun" && current.getHitCircle().isHit(curr_food, current)) {
+			if (check() == "tomato") {
 				box.incrementScore();
 				GImage dj = new GImage("DJ 2.png", 270, 285);
 				add(dj);
@@ -314,6 +318,22 @@ public class Map_graphics extends Map implements KeyListener {
 		}
 		
 		
+	}
+	
+	String check() {
+		
+		int i = 0;
+		for (GImage f: spawned_list) {
+			if(f.getX() > 550 && f.getX() < 650) {
+				spawned_list.remove(i);
+				String str = food_images.get(i);
+				food_images.remove(i);
+				return str;
+			}
+			i++;
+		}
+		return "nope";
+
 	}
 	
 	public static void main(String args[]) {
