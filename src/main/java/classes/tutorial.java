@@ -66,7 +66,7 @@ public class tutorial extends Map{
 
 		String label_font = "Arial-30";
 		w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
-		a_label = new GLabel("Pressing the right button generates a streak and adds a point",xlabel, ylabel);
+		a_label = new GLabel("Pressing the correct button generates a streak and adds a point",xlabel, ylabel);
 		s_label = new GLabel("Pressing the wrong button resets streak and point",xlabel, ylabel);
 		d_label = new GLabel("Enjoy game",xlabel, ylabel);
 		GLabel[] label_list = new GLabel[] {w_label, a_label, s_label, d_label};
