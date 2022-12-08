@@ -17,7 +17,7 @@ public class Fail_screen extends Map{
 
 	Song test = Song.getInstance();
 	public static final String MUSIC_FOLDER = "sounds";
-	private static final String[] SOUND_FILES = { "Raw.mp3" };
+	private static final String[] SOUND_FILES = { "Gordon Ramsay - Raj, It's f__king raw! SMASH.mp3" };
 	public Fail_screen(Play_game app){
 		super();
 		//area for creating a pass screen once we start communicating between classes
