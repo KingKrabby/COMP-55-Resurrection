@@ -23,10 +23,16 @@ public class Map_graphics extends Map implements KeyListener {
 	ArrayList <GImage> passed_hit_circle = new ArrayList<GImage> ();
 	ArrayList <String> food_images = new ArrayList<String> ();
 	// String[] food_images = new String[] {"bun", "ketchup", "tofu", "tomato"};
+
 	GRect score_streak;
 	GLabel score1;
 	GLabel streak1;
 	GLabel fail1;
+
+	
+	public static final String MUSIC_FOLDER = "sounds";
+	
+
 	
 	public void run() {
 		start = System.currentTimeMillis();
@@ -118,10 +124,10 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 	
 	boolean fail(Score_streak current) {
-		System.out.println("fail");
 		//activates when buttons are pressed
 		// looks at current map --> fail screen
 		if (box.get_failCount() + passed_hit_circle.size() >= 3) {
+			System.out.println("fail");
 			box.reset_fail();
 			return true;
 		}
@@ -150,6 +156,7 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 
 	
+
 	void box_display() {
 		add(streak1);
 		add(score_streak);
@@ -160,15 +167,15 @@ public class Map_graphics extends Map implements KeyListener {
 	boolean pass(int score, int s) {
 		System.out.println("pass");
 		if(score == 27 && s >= 30) {
-			box.reset();
-			curr_level_num ++;
-			if (curr_level_num < 3) {
-				current = level_arr[curr_level_num];
-			}
-			pass.run();
 			return true;
 		}
 		return false;
+		
+
+	}
+	public void stopMusic() {
+		Song test = Song.getInstance();
+		test.stopSound(MUSIC_FOLDER, current.get_string());
 	}
 	//Spawner
 	void spawn_food() {
@@ -228,104 +235,8 @@ public class Map_graphics extends Map implements KeyListener {
 		}
 	}
 	
-	@Override
-	public void keyPressed(KeyEvent e) {
-		System.out.println(e.getKeyChar());
-		int key = e.getKeyCode();
-		System.out.println(current.get_string());
+	
 		
-		if (key == KeyEvent.VK_W) {
-			if (check() == "bun") {
-				box.incrementScore();
-				box.incrementStreak();
-////				GImage dj = new GImage("DJ 2.png", 270, 285);
-////				add(dj);
-//				dj = new GImage("DJ 1.png", 270, 285);
-//				add(dj);
-			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
-				
-			}
-			
-			if (fail(box)) {
-				fail.start();
-			}
-			if (pass(box.get_score(), spawned)) {
-				
-				pass.start();
-			}
-			
-		}
-		if (key == KeyEvent.VK_A) {
-			if (check() == "ketchup") {
-				box.incrementScore();
-				box.incrementStreak();
-//				GImage dj = new GImage("DJ 2.png", 270, 285);
-//				add(dj);
-//				dj = new GImage("DJ 1.png", 270, 285);
-//				add(dj);
-			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
-			}
-			if (fail(box)) {
-				fail.start();
-			}
-			if (pass(box.get_score(), spawned)) {
-				pass.start();
-			}
-		}
-		if (key == KeyEvent.VK_S) {
-			if (check() == "tofu") {
-				box.incrementScore();
-				box.incrementStreak();
-//				GImage dj = new GImage("DJ 2.png", 270, 285);
-//				add(dj);
-//				dj = new GImage("DJ 1.png", 270, 285);
-//				add(dj);
-			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
-				remove(fail1);
-				remove(score1);
-				remove(streak1);
-			}
-			if (fail(box)) {
-				
-				fail.start();
-			}
-			if (pass(box.get_score(), spawned)) {
-				
-				pass.start();
-			}
-		}
-		if (key == KeyEvent.VK_D) {
-			if (check() == "tomato") {
-				box.incrementScore();
-				box.incrementStreak();
-//				GImage dj = new GImage("DJ 2.png", 270, 285);
-//				add(dj);
-//				dj = new GImage("DJ 1.png", 270, 285);
-//				add(dj);
-			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
-			}
-			if (fail(box)) {
-				fail.start();
-			}
-			if (pass(box.get_score(), spawned)) {
-				pass.start();
-			}
-		}
-		
-		
-	}
 	
 	String check() {
 		
@@ -342,6 +253,67 @@ public class Map_graphics extends Map implements KeyListener {
 		return "nope";
 
 	}
+	
+	@Override
+	
+	public void keyPressed(KeyEvent e) {
+		int key = e.getKeyCode();
+		//up = bun
+		//down = ketchup
+		//left = tofu 
+		//right = tomato
+		//W
+		if (key == KeyEvent.VK_W) {
+			if (check() == "bun") {
+				box.incrementScore();
+				box.incrementStreak();
+			}
+			else {
+				box.reset_streak();
+				box.incrementFail();
+			}
+		}
+		if (key == KeyEvent.VK_A) {
+			if (check() == "tofu") {
+				box.incrementScore();
+				box.incrementStreak();
+			}
+			else {
+				box.reset_streak();
+				box.incrementFail();
+			}
+		}
+		if (key == KeyEvent.VK_S) {
+			if (check() == "ketchup") {
+				box.incrementScore();
+				box.incrementStreak();
+			}
+			else {
+				box.reset_streak();
+				box.incrementFail();
+			}
+		}
+		if (key == KeyEvent.VK_D) {
+			if (check() == "tomato") {
+				box.incrementScore();
+				box.incrementStreak();
+			}
+			else {
+				box.reset_streak();
+				box.incrementFail();
+			}
+		}
+		if (fail(box) ){
+			fail.run();
+		}
+		if (pass(box.get_score(), box.get_streak())) {
+			pass.run();
+		}
+
+		
+		
+	}
+	
 	
 	public static void main(String args[]) {
 		//new Map_graphics().start();

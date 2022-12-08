@@ -53,6 +53,10 @@ public class Play_game implements ActionListener{
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
 		test.playSound(MUSIC_FOLDER, map_graphics.current.get_string());
-		
+	}
+	
+	public void stopMusic() {
+		Song test = Song.getInstance();
+		test.stopSound(MUSIC_FOLDER, map_graphics.current.get_string());
 	}
 }
