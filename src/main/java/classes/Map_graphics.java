@@ -128,10 +128,7 @@ public class Map_graphics extends Map implements KeyListener {
 	boolean failed(Score_streak current) {
 		//activates when buttons are pressed
 		// looks at current map --> fail screen
-		System.out.println(passed_hit_circle.size());
-		System.out.println(box.get_failCount());
 		if (box.get_failCount() + passed_hit_circle.size() >= 3) {
-			System.out.println("fail");
 			box.reset_fail();
 			return true;
 		}
@@ -140,7 +137,7 @@ public class Map_graphics extends Map implements KeyListener {
 
 	
 	boolean passed(int score) {
-		System.out.println("pass");
+		
 		if(score == 27) {
 			return true;
 		}
@@ -200,16 +197,12 @@ public class Map_graphics extends Map implements KeyListener {
 	
 	
 	String check() {
-		System.out.println("check");
 		int i = 0;
 		for (GImage f: spawned_list) {
 			if(f.getX() > 575 && f.getX() < 625) {
-				System.out.println("working");
-				
 				String str = food_images.get(i);
 				overall_delete = f;
 				food_images.remove(i);
-				System.out.println(str);
 				return str;
 			}
 			i++;
@@ -219,6 +212,8 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		System.out.println(spawned_list);
+		System.out.println(food_images);
 		int score_streak_SIZE_x = 100;
 		int score_streak_SIZE_y = 100;
 		int score_streak_loc_x = 0;
@@ -247,12 +242,15 @@ public class Map_graphics extends Map implements KeyListener {
 
 		ArrayList<GImage> to_delete = new ArrayList<GImage> ();
 		spawn_food();
+		int count = 0;
 		for (GImage i: spawned_list) {
 			i.move(speed, 0);
 			if (i.getX() > 625) {
+				food_images.remove(count);
 				passed_hit_circle.add(i);
-				remove(getElementAt((i.getX()), (i.getY())));
 				to_delete.add(i);
+				remove(getElementAt((i.getX()), (i.getY())));
+				box.reset_streak();
 				if (failed(box)) {
 					stopMusic();
 					box.reset();
@@ -261,9 +259,10 @@ public class Map_graphics extends Map implements KeyListener {
 					score_streak_graphic.stop();
 				}
 			}
+			count ++;
 		}
-		for (GImage i: to_delete) {
-			spawned_list.remove(i);
+		for (GImage a: to_delete) {
+			spawned_list.remove(a);
 		}
 	}
 	
