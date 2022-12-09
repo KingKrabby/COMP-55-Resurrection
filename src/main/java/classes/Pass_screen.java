@@ -6,6 +6,12 @@ import acm.graphics.*;
 public class Pass_screen extends Map{
 	//private Play_game program;
 	// function to identify map 
+	private Level level;
+	private int index;
+	public Pass_screen(Level l) {
+		this.level = l;
+		index = level_arr.indexOf(l);
+	}
 	private int identifier = 2;
 	int get_identifier() {
 		return identifier;
@@ -24,13 +30,14 @@ public class Pass_screen extends Map{
 	}
 	
 	public void run() {
+		System.out.println("Before: " + curr_level_num);
 		curr_level_num ++;
-		if (curr_level_num < 3) {
-			current = level_arr[curr_level_num ];
+		System.out.println("After: " + curr_level_num);
+		if (index < 2) {
+			level = level_arr.get(index + 1);
 		}
 		else {
-			curr_level_num = 0;
-			current = level_arr[0];
+			level = level_1;
 		}
 		//game.stop();
 		playBackgroundNoise();
@@ -71,9 +78,9 @@ public class Pass_screen extends Map{
 				menu.start();
 			}
 			else {
-				curr_level_num += 1;
-				current = level_arr[curr_level_num];
-				game.run();
+				System.out.println("NEXT LEVEL");
+				Play_game g = new Play_game(level);
+				g.run();
 			}
 		}
 	}

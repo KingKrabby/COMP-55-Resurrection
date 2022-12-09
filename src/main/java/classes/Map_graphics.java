@@ -16,6 +16,10 @@ import acm.program.GraphicsProgram;
 import edu.pacific.comp55.starter.GraphicsApplication;
 
 public class Map_graphics extends Map implements KeyListener {
+	private Level current;
+	public Map_graphics(Level c){
+		this.current = c;
+	}
 	GraphicsApplication app = this;
 	long start, end;
 	int speed = 8;
@@ -39,6 +43,7 @@ public class Map_graphics extends Map implements KeyListener {
 
 	
 	public void run() {
+		System.out.println("Current: " + curr_level_num);
 		start = System.currentTimeMillis();
 		requestFocus();
 		addKeyListeners();
@@ -138,7 +143,7 @@ public class Map_graphics extends Map implements KeyListener {
 	
 	boolean passed(int score) {
 		
-		if(score == 27) {
+		if(score == 1) {
 			return true;
 		}
 		return false;
@@ -216,8 +221,8 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		System.out.println(spawned_list);
-		System.out.println(food_images);
+//		System.out.println(spawned_list);
+//		System.out.println(food_images);
 		int score_streak_SIZE_x = 100;
 		int score_streak_SIZE_y = 100;
 		int score_streak_loc_x = 0;
@@ -328,7 +333,8 @@ public class Map_graphics extends Map implements KeyListener {
 			box.reset_fail();
 			stopMusic();
 			reset();
-			pass.start();
+			Pass_screen p = new Pass_screen(current);
+			p.start();
 		}
 		//box_display_on();
 		 

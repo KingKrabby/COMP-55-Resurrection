@@ -12,7 +12,12 @@ import javax.swing.Timer;
 import acm.graphics.GImage;
 
 
-public class Play_game implements ActionListener{
+public class Play_game extends Map implements ActionListener{
+	private Level level;
+	Play_game(Level l){
+		this.level = l;
+	}
+	
 	private Timer spawnerTimer;
 	//screen windows
 	public static final int WINDOW_WIDTH = 800;
@@ -27,15 +32,16 @@ public class Play_game implements ActionListener{
 	Map_graphics map_graphics;
 
 	public void run() {
+		System.out.println("cur game :" + curr_level_num);
 		spawnerTimer =  new Timer(500, this);
 		//spawnerTimer.start();
 		System.out.println("game is running");
 		
-		map_graphics = new Map_graphics();
+		map_graphics = new Map_graphics(level);
 		map_graphics.map_track = 3;
 		map_graphics.start();
 		
-		belt = map_graphics.current.getConveyorBelt();
+		//belt = map_graphics.current.getConveyorBelt();
 		playBackgroundNoise();
 		spawner = Map_Database.spawner1;
 		//spawner.setGame(map_graphics.game);	
@@ -52,11 +58,11 @@ public class Play_game implements ActionListener{
 	
 	private void playBackgroundNoise() {
 		Song test = Song.getInstance();
-		test.playSound(MUSIC_FOLDER, map_graphics.current.get_string());
+		test.playSound(MUSIC_FOLDER, level.get_string());
 	}
 	
 	public void stopMusic() {
 		Song test = Song.getInstance();
-		test.stopSound(MUSIC_FOLDER, map_graphics.current.get_string());
+		test.stopSound(MUSIC_FOLDER, level.get_string());
 	}
 }
