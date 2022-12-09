@@ -43,6 +43,9 @@ public class Map_graphics extends Map implements KeyListener {
 
 	
 	public void run() {
+		if (current == level_2) {
+			speed = 20;
+		}
 		System.out.println("Current: " + curr_level_num);
 		start = System.currentTimeMillis();
 		requestFocus();
