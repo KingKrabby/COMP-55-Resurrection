@@ -24,6 +24,14 @@ public class Pass_screen extends Map{
 	}
 	
 	public void run() {
+		curr_level_num ++;
+		if (curr_level_num < 3) {
+			current = level_arr[curr_level_num ];
+		}
+		else {
+			curr_level_num = 0;
+			current = level_arr[0];
+		}
 		//game.stop();
 		playBackgroundNoise();
 		System.out.println("pass");
