@@ -37,10 +37,10 @@ public class Title_screen extends Map implements KeyListener{
 		System.out.println("title");
 		playBackgroundNoise();
 		
-		GImage title = new GImage("turntuptofu!.png", 50, 400);
+		GImage title = new GImage("turntuptofu!.png", 50, 10);
   		add(title);
   		
-  		GImage tofuGuy = new GImage("tofuchefimage.png", 150, 10);
+  		GImage tofuGuy = new GImage("Burgur Bun Vinyl.png", 200, 140);
   		add(tofuGuy);
   		
   		GImage logo = new GImage("World's Hardest Games Logo.png", -45, 480);
