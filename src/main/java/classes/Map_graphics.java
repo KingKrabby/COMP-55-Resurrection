@@ -271,7 +271,7 @@ public class Map_graphics extends Map implements KeyListener {
 		int i = 0;
 
 		for (GImage f : spawned_list) {
-			if (f.getX() > 250 && f.getX() < 320) {
+			if (f.getX() > 270 && f.getX() < 340) {
 				String str = food_images.get(i);
 				overall_delete = f;
 				index_left = i;
@@ -285,7 +285,7 @@ public class Map_graphics extends Map implements KeyListener {
 	String check_right() {
 		int i = 0;
 		for (GImage f : spawned_list_right) {
-			if (f.getX() > 450 && f.getX() < 500) {
+			if (f.getX() > 425 && f.getX() < 485) {
 
 				String str = food_images_right.get(i);
 				overall_delete1 = f;
@@ -375,7 +375,7 @@ public class Map_graphics extends Map implements KeyListener {
 			for (int j = 0; j < new_list.size(); j++) {
 				GImage i = new_list.get(j);
 				i.move(speed, 0);
-				if (i.getX() > 300) {
+				if (i.getX() > 325) {
 					new_list.remove(i);
 					food_images.remove(count);
 					passed_hit_circle.add(i);
