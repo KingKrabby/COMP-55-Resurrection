@@ -26,7 +26,7 @@ public class Map_graphics extends Map implements KeyListener {
 	GImage hitCircle2;
 	long start, end;
 	int speed = 8;
-	int count = 0;
+	int countl = 0;
 	int count1 = 0;
 	int spawned = 0;
 	int spawned1 = 0;
@@ -154,7 +154,7 @@ public class Map_graphics extends Map implements KeyListener {
 	boolean failed(Score_streak current) {
 		//activates when buttons are pressed
 		// looks at current map --> fail screen
-		if (box.get_failCount() + passed_hit_circle.size() >= 3) {
+		if (box.get_failCount() + passed_hit_circle.size() >= 6) {
 			box.reset_fail();
 			return true;
 		}
@@ -164,7 +164,7 @@ public class Map_graphics extends Map implements KeyListener {
 	
 	boolean passed(int score) {
 		
-		if(score == 1) {
+		if(score == 10) {
 			return true;
 		}
 		return false;
@@ -184,11 +184,11 @@ public class Map_graphics extends Map implements KeyListener {
 		for (Food f: items) {
 			long elapsed = end - start;
 
-			if (elapsed > f.getDuration() && count == i) {
+			if (elapsed > f.getDuration() && countl == i) {
 				GImage image = creates_new_image(f);
 				add(image);
 				spawned_list.add(image);
-				count ++;
+				countl ++;
 				spawned ++;
 			}
 			i ++;
@@ -268,19 +268,20 @@ public class Map_graphics extends Map implements KeyListener {
 	
 	String check() {
 		if (current == level_3) {
-			ArrayList<GImage> new_List = spawned_list_right; 
-			for (int j = 0; j < new_List.size(); j++) {
-				GImage f = new_List.get(j);
+			
+			int i = 0;
+			for (GImage f:spawned_list_right) {
 				if(f.getX() > 450 && f.getX() < 500) {
-					String str = food_images_right.get(j);
+					System.out.println(spawned_list_right);
+					String str = food_images_right.get(i);
 					overall_delete1 = f;
-					index_right = j;
+					index_right = i;
 					return str;
 				}
 				
 			}
-			int i = 0;
-			new_List = spawned_list;
+			i = 0;
+			
 			for (GImage f: spawned_list) {
 				if(f.getX() > 250 && f.getX() < 300) {
 					String str = food_images.get(i);
@@ -315,8 +316,8 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-//		System.out.println(spawned_list);
-//		System.out.println(food_images);
+		//System.out.println(spawned_list);
+		//System.out.println(food_images);
 		int score_streak_SIZE_x = 100;
 		int score_streak_SIZE_y = 100;
 		int score_streak_loc_x = 0;
@@ -343,14 +344,9 @@ public class Map_graphics extends Map implements KeyListener {
 		}
 
 
-		if (current == level_3) {
-			add(hitCircle1);
-			add(hitCircle2);
-			spawn_food2();
-		}
-		else {
-			add(singleHitCircle);
-		}
+//		if (current == level_3) {
+//			spawn_food2();
+//		}
 		spawn_food();
 
 		int count = 0;
@@ -448,59 +444,67 @@ public class Map_graphics extends Map implements KeyListener {
 		//W
 		if (key == KeyEvent.VK_W) {
 			if (check() == "bun") {
+				if(current == level_3) {
+					System.out.println("nope");
+					spawned_list_right.remove(overall_delete1);
+					food_images_right.remove(index_right);
+					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
+				}
 				box.incrementScore();
 				box.incrementStreak();
 				spawned_list.remove(overall_delete);
 				food_images.remove(index_left);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
-				if(current==level_3) {
-					spawned_list_right.remove(overall_delete1);
-					food_images_right.remove(index_right);
-					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
-				}
+				System.out.println(current.get_string());
+
 			}
 		}
 		if (key == KeyEvent.VK_A) {
 			if (check() == "tofu") {
+				if(current==level_3) {
+					System.out.println("nope");
+					spawned_list_right.remove(overall_delete1);
+					food_images_right.remove(index_right);
+					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
+				}
 				box.incrementScore();
 				box.incrementStreak();
 				spawned_list.remove(overall_delete);
 				food_images.remove(index_left);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
-				if(current==level_3) {
-					spawned_list_right.remove(overall_delete1);
-					food_images_right.remove(index_right);
-					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
-				}
 			}
 		}
 		if (key == KeyEvent.VK_S) {
 			if (check() == "ketchup") {
+				if(current==level_3) {
+					System.out.println("nope");
+					spawned_list_right.remove(overall_delete1);
+					food_images_right.remove(index_right);
+					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
+				}
 				box.incrementScore();
 				box.incrementStreak();
 				spawned_list.remove(overall_delete);
 				food_images.remove(index_left);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
-				if(current==level_3) {
-					spawned_list_right.remove(overall_delete1);
-					food_images_right.remove(index_right);
-					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
-				}
+
 				
 			}
 		}
 		if (key == KeyEvent.VK_D) {
 			if (check() == "tomato") {
+				if(current==level_3) {
+					System.out.println("nope");
+					spawned_list_right.remove(overall_delete1);
+					food_images_right.remove(index_right);
+					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
+				}
 				box.incrementScore();
 				box.incrementStreak();
 				spawned_list.remove(overall_delete);
 				food_images.remove(index_left);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
-				if(current==level_3) {
-					spawned_list_right.remove(overall_delete1);
-					food_images_right.remove(index_right);
-					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
-				}
+
 			}
 		}
 		if (failed(box) ){
