@@ -51,7 +51,7 @@ public class Map_graphics extends Map implements KeyListener {
 	
 	public void run() {
 		if (current == level_2) {
-			speed = 20;
+			speed = 15;
 		}
 		if(current == level_3) {
 			speed = 4;
@@ -267,7 +267,7 @@ public class Map_graphics extends Map implements KeyListener {
 			ArrayList<GImage> new_List = spawned_list_right; 
 			for (int j = 0; j < new_List.size(); j++) {
 				GImage f = new_List.get(j);
-				if(f.getX() > 445 && f.getX() < 495) {
+				if(f.getX() > 470 && f.getX() < 520) {
 					String str = food_images_right.get(j);
 					overall_delete1 = f;
 					index = j;
@@ -277,7 +277,7 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 			int i = 0;
 			for (GImage f: spawned_list) {
-				if(f.getX() > 375 && f.getX() < 325) {
+				if(f.getX() > 250 && f.getX() < 300) {
 					String str = food_images.get(i);
 					overall_delete = f;
 					food_images.remove(i);
