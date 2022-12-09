@@ -35,6 +35,7 @@ public class Map_graphics extends Map implements KeyListener {
 	GLabel score1;
 	GLabel streak1;
 	GLabel fail1;
+	GImage wasd = new GImage("wasd2.png", 200,0);
 	int fail_x = 0;
 	Timer score_streak_graphic;
 	
@@ -79,6 +80,7 @@ public class Map_graphics extends Map implements KeyListener {
 		score_streak_graphic.start();
 		add(score1);
 		add(streak1);
+		add(wasd);
 		
 		// Conveyor
 		final int x1 = 0; //still need to initialize these
