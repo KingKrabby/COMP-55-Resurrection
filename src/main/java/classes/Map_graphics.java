@@ -88,10 +88,10 @@ public class Map_graphics extends Map implements KeyListener {
 	  	}
 	  	
 	  	if (current.getConveyorBelt().getNumConveyors() ==2) {
-	  		GImage conveyor1 = new GImage("conveyor2.png", x1, y1);
+	  		GImage conveyor1 = new GImage("shortconveyor.png", x1, y1);
 	  		add(conveyor1);
 	  		
-	  		GImage conveyor2 = new GImage("conveyor2.png", x2, y2);
+	  		GImage conveyor2 = new GImage("shortconveyor.png", x2, y2);
 	  		add(conveyor2);
 	  	}
 
