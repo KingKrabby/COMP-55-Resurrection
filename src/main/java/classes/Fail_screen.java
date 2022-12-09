@@ -35,37 +35,45 @@ public class Fail_screen extends Map{
 		playBackgroundNoise();
 		System.out.println("fail");
 		
-		GImage red = new GImage("Red Background.jpg");
+		GImage red = new GImage("redbackground.jpg", -167, -50);
+		
 		add(red);
 		
 		
-		GImage gordon = new GImage("Gordon.png", 475, 400);
+		GImage gordon = new GImage("Gordon.png", 30, 175);
 		add(gordon);
+		
+		
+		GImage title = new GImage("youfailed!.png", 403, 33);
+		add(title);
+		GImage shadow = new GImage("youfailed!shadow.png", 400, 30);
+		add(shadow);
+		
+		GImage enterbutton = new GImage("yellowbutton.png", 350, 160);
+  		add(enterbutton);
+  		GImage spacebutton = new GImage("yellowbutton.png", 350, 265);
+  		add(spacebutton);
+  		GImage enterlabel = new GImage("enter=menu.png", 435, 293);
+  		add(enterlabel);
+  		GImage spacelabel = new GImage("space=retry.png", 435, 187);
+  		add(spacelabel);
+  		
 		
 		GLabel b = new GLabel("ITS RAW! >:(", 125, 500);
 		b.setColor(Color.white);
 		b.setFont("Arial-50");
-		add(b);
+		//add(b);
 		
 		GLabel x = new GLabel("IF YOU CANT HANDLE THE HEAT", 0, 80);
 		x.setColor(Color.white);
 		x.setFont("Arial-50");
-		add(x);
+		//add(x);
 		
 		GLabel a = new GLabel("STAY OUT OF THE KITCHEN!", 50, 125);
 		a.setColor(Color.white);
 		a.setFont("Arial-50");
-		add(a);		
+		//add(a);		
 		
-		GLabel y = new GLabel("Press Spacebar to try again", 0, 280);
-		y.setColor(Color.white);
-		y.setFont("Arial-40");
-		add(y);
-		
-		GLabel z = new GLabel("Press Enter to return back to the menu", 0, 380);
-		z.setColor(Color.white);
-		z.setFont("Arial-40");
-		add(z);
 		
 		GImage logo = new GImage("World's Hardest Games Logo.png", -25, 475);
   		add(logo);
