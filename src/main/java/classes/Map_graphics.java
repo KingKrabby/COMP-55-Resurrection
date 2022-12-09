@@ -271,7 +271,7 @@ public class Map_graphics extends Map implements KeyListener {
 		int i = 0;
 
 		for (GImage f : spawned_list) {
-			if (f.getX() > 250 && f.getX() < 300) {
+			if (f.getX() > 250 && f.getX() < 320) {
 				String str = food_images.get(i);
 				overall_delete = f;
 				index_left = i;
