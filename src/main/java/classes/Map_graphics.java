@@ -265,7 +265,8 @@ public class Map_graphics extends Map implements KeyListener {
 						stopMusic();
 						box.reset();
 						reset();
-						fail.start();
+						Fail_screen f = new Fail_screen(current);
+						f.start();
 						score_streak_graphic.stop();
 					}
 				}
@@ -326,7 +327,8 @@ public class Map_graphics extends Map implements KeyListener {
 			box.reset_fail();
 			stopMusic();
 			reset();
-			fail.start();
+			Fail_screen f = new Fail_screen(current);
+			f.start();
 			//app.switch
 		}
 		if (passed(box.get_score())) {
