@@ -46,7 +46,7 @@ public final class Map_Database {
 		}
 
 		int start3 = 0;
-		
+		 
 		for (int k = 0; k < 15; k++) {
 			Food f = new Food(list[getRandomValue(0, 3)], start3);
 			food_level3a.add(f);
