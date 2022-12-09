@@ -17,9 +17,11 @@ import edu.pacific.comp55.starter.GraphicsApplication;
 
 public class Map_graphics extends Map implements KeyListener {
 	private Level current;
-	public Map_graphics(Level c){
+
+	public Map_graphics(Level c) {
 		this.current = c;
 	}
+
 	GraphicsApplication app = this;
 	GImage singleHitCircle;
 	GImage hitCircle1;
@@ -34,184 +36,184 @@ public class Map_graphics extends Map implements KeyListener {
 	int index_left;
 	GImage overall_delete;
 	GImage overall_delete1;
-	ArrayList <GImage> spawned_list = new ArrayList<GImage> ();
-	ArrayList <GImage> spawned_list_right = new ArrayList<GImage> ();
-	ArrayList <GImage> passed_hit_circle = new ArrayList<GImage> ();
-	ArrayList <String> food_images = new ArrayList<String> ();
-	ArrayList <String> food_images_right = new ArrayList<String> ();
+	ArrayList<GImage> spawned_list = new ArrayList<GImage>();
+	ArrayList<GImage> spawned_list_right = new ArrayList<GImage>();
+	ArrayList<GImage> passed_hit_circle = new ArrayList<GImage>();
+	ArrayList<String> food_images = new ArrayList<String>();
+	ArrayList<String> food_images_right = new ArrayList<String>();
 	// String[] food_images = new String[] {"bun", "ketchup", "tofu", "tomato"};
 
 	GRect score_streak;
 	GLabel score1;
 	GLabel streak1;
 	GLabel fail1;
-	GImage wasd = new GImage("wasd2.png", 200,0);
+	GImage wasd = new GImage("wasd2.png", 200, 0);
 	int fail_x = 0;
 	Timer score_streak_graphic;
-	
-	public static final String MUSIC_FOLDER = "sounds";
-	
 
-	
+	public static final String MUSIC_FOLDER = "sounds";
+
 	public void run() {
 		if (current == level_2) {
 			speed = 15;
 		}
-		if(current == level_3) {
+		if (current == level_3) {
 			speed = 4;
 		}
 		System.out.println("Current: " + curr_level_num);
 		start = System.currentTimeMillis();
 		requestFocus();
 		addKeyListeners();
-		//play game background 
+		// play game background
 		GImage blue = new GImage("title_screen_bluebackground.jpg", 0, 0);
 		add(blue);
-		
-		//DJ
+
+		// DJ
 		GImage dj = new GImage("DJ 1.png", 270, 285);
 		add(dj);
-		
+
 		// Score Streak box
 		int score_streak_SIZE_x = 100;
 		int score_streak_SIZE_y = 100;
 		int score_streak_loc_x = 0;
 		int score_streak_loc_y = 0;
 		int score_streak_ms = 50;
-		GRect score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
+		GRect score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,
+				score_streak_SIZE_y);
 		score_streak.setFillColor(Color.white);
 		score_streak.setFilled(true);
-		
+
 		score_streak_graphic = new Timer(score_streak_ms, this);
 		add(score_streak);
-		score1 = new GLabel("Score: " + box.get_score(),0, 20);
-		streak1 = new GLabel("Streak: " + box.get_streak(),0, 40);
-		fail1 = new GLabel("Fail: " ,0, 60);
+		score1 = new GLabel("Score: " + box.get_score(), 0, 20);
+		streak1 = new GLabel("Streak: " + box.get_streak(), 0, 40);
+		fail1 = new GLabel("Fail: ", 0, 60);
 		add(fail1);
-		
-		
+
 		score_streak_graphic.start();
 		add(score1);
 		add(streak1);
 		add(wasd);
-		
-		// Conveyor
-		final int x1 = 0; //still need to initialize these
-		final int y1 = 500; 
-		final int x2 = 400;
-		final int y2 = 500; 
-	  	if (current.getConveyorBelt().getNumConveyors() == 1) {
-	  		GImage singleConveyor = new GImage("longconveyor.png", x1, y1);
-	  		add(singleConveyor);
-	  	}
-	  	
-	  	if (current.getConveyorBelt().getNumConveyors() ==2) {
-	  		GImage conveyor1 = new GImage("shortconveyor.png", x1, y1);
-	  		add(conveyor1);
-	  		
-	  		GImage conveyor2 = new GImage("shortconveyor.png", x2, y2);
-	  		add(conveyor2);
-	  	}
 
-		
+		// Conveyor
+		final int x1 = 0; // still need to initialize these
+		final int y1 = 500;
+		final int x2 = 400;
+		final int y2 = 500;
+		if (current.getConveyorBelt().getNumConveyors() == 1) {
+			GImage singleConveyor = new GImage("longconveyor.png", x1, y1);
+			add(singleConveyor);
+		}
+
+		if (current.getConveyorBelt().getNumConveyors() == 2) {
+			GImage conveyor1 = new GImage("shortconveyor.png", x1, y1);
+			add(conveyor1);
+
+			GImage conveyor2 = new GImage("shortconveyor.png", x2, y2);
+			add(conveyor2);
+		}
+
 		// hit Circle
 		final int WINDOW_WIDTH = 800;
 		final int WINDOW_HEIGHT = 600;
-		final int h1 = 550; //will be for HitCircle on large conveyor
-		final int w1 = 400; //will be for HitCircle on large conveyornb
-		final int h2 = 275; //will be for first HitCircle on smaller conveyor
-		final int w2 = 400; //will be for first HitCircle on smaller conveyor
-		final int h3 = 425; //will be for second HitCircle on smaller conveyor
-		final int w3 = 400; //will be for second HitCircle on smaller conveyor
-		//int numHitCircles;
-	  	if (current.getHitCircle().returnNHC() == 1) {
-	  		singleHitCircle = new GImage("hitcircle.png", h1, w1);
-	  		add(singleHitCircle);
-	  	}
-	  	if (current.getHitCircle().returnNHC() == 2) {
-	  		hitCircle1 = new GImage("hitcircle.png", h2, w2);
-	  		add(hitCircle1);
-	  		hitCircle2 = new GImage("hitcircle.png", h3, w3);
-	  		add(hitCircle2);
-	  	}
-	  	
-	  	GImage logo = new GImage("World's Hardest Games Logo.png", 680, -20);
+		final int h1 = 550; // will be for HitCircle on large conveyor
+		final int w1 = 400; // will be for HitCircle on large conveyornb
+		final int h2 = 275; // will be for first HitCircle on smaller conveyor
+		final int w2 = 400; // will be for first HitCircle on smaller conveyor
+		final int h3 = 425; // will be for second HitCircle on smaller conveyor
+		final int w3 = 400; // will be for second HitCircle on smaller conveyor
+		// int numHitCircles;
+		if (current.getHitCircle().returnNHC() == 1) {
+			singleHitCircle = new GImage("hitcircle.png", h1, w1);
+			add(singleHitCircle);
+		}
+		if (current.getHitCircle().returnNHC() == 2) {
+			hitCircle1 = new GImage("hitcircle.png", h2, w2);
+			add(hitCircle1);
+			hitCircle2 = new GImage("hitcircle.png", h3, w3);
+			add(hitCircle2);
+		}
+
+		GImage logo = new GImage("World's Hardest Games Logo.png", 680, -20);
 		logo.sendToFront();
-  		add(logo);
+		add(logo);
 
 	}
+
 	public void reset() {
 		overall_delete = null;
-		spawned_list = new ArrayList<GImage> ();
-		passed_hit_circle = new ArrayList<GImage> ();
-		food_images = new ArrayList<String> ();
+		spawned_list = new ArrayList<GImage>();
+		passed_hit_circle = new ArrayList<GImage>();
+		food_images = new ArrayList<String>();
 		overall_delete1 = null;
-		spawned_list_right = new ArrayList<GImage> ();
-		food_images_right = new ArrayList<String> ();
+		spawned_list_right = new ArrayList<GImage>();
+		food_images_right = new ArrayList<String>();
 		score_streak_graphic.stop();
 	}
-	
+
 	boolean failed(Score_streak current) {
-		//activates when buttons are pressed
+		// activates when buttons are pressed
 		// looks at current map --> fail screen
-		if (box.get_failCount() + passed_hit_circle.size() >= 6) {
+		if (box.get_failCount() + passed_hit_circle.size() >= 3) {
 			box.reset_fail();
 			return true;
 		}
 		return false;
 	}
 
-	
 	boolean passed(int score) {
-		
-		if(score == 10) {
+
+		if (score == 15) {
 			return true;
 		}
 		return false;
-		
 
 	}
+
 	public void stopMusic() {
 		Song test = Song.getInstance();
 		test.stopSound(MUSIC_FOLDER, current.get_string());
 	}
-	//Spawner
+
+	// Spawner
 	void spawn_food() {
 		long end = System.currentTimeMillis();
 		int i = 0;
 		ArrayList<Food> items = current.getFoodList();
-		
-		for (Food f: items) {
+
+		for (Food f : items) {
 			long elapsed = end - start;
 
 			if (elapsed > f.getDuration() && countl == i) {
 				GImage image = creates_new_image(f);
 				add(image);
 				spawned_list.add(image);
-				countl ++;
-				spawned ++;
+				countl++;
+				spawned++;
 			}
-			i ++;
+			i++;
 		}
 	}
+
 	void spawn_food2() {
 		long end = System.currentTimeMillis();
 		int i = 0;
 		ArrayList<Food> items = current.getFoodList3();
-		
-		for (Food f: items) {
+
+		for (Food f : items) {
 			long elapsed = end - start;
 
 			if (elapsed > f.getDuration() && count1 == i) {
 				GImage image = creates_new_image_right(f);
 				add(image);
 				spawned_list_right.add(image);
-				count1 ++;
-				spawned1 ++;
+				count1++;
+				spawned1++;
 			}
-			i ++;
+			i++;
 		}
 	}
+
 	GImage creates_new_image(Food food) {
 		GImage item = null;
 		int x = 0;
@@ -224,19 +226,20 @@ public class Map_graphics extends Map implements KeyListener {
 		if (type == FoodType.KETCHUP) {
 			item = new GImage("ketchup.png", x, y);
 			food_images.add("ketchup");
-			
+
 		}
 		if (type == FoodType.TOFU) {
 			item = new GImage("tofu.png", x, y);
 			food_images.add("tofu");
-			
+
 		}
-		if (type== FoodType.TOMATO) {
+		if (type == FoodType.TOMATO) {
 			item = new GImage("tomato.png", x, y);
 			food_images.add("tomato");
 		}
 		return item;
 	}
+
 	GImage creates_new_image_right(Food food) {
 		System.out.print("working");
 		GImage item = null;
@@ -250,26 +253,25 @@ public class Map_graphics extends Map implements KeyListener {
 		if (type == FoodType.KETCHUP) {
 			item = new GImage("ketchup.png", x, y);
 			food_images_right.add("ketchup");
-			
+
 		}
 		if (type == FoodType.TOFU) {
 			item = new GImage("tofu.png", x, y);
 			food_images_right.add("tofu");
-			
+
 		}
-		if (type== FoodType.TOMATO) {
+		if (type == FoodType.TOMATO) {
 			item = new GImage("tomato.png", x, y);
 			food_images_right.add("tomato");
 		}
 		return item;
 	}
 
-	
 	String check_left() {
 		int i = 0;
-		
-		for (GImage f: spawned_list) {
-			if(f.getX() > 250 && f.getX() < 300) {
+
+		for (GImage f : spawned_list) {
+			if (f.getX() > 250 && f.getX() < 300) {
 				String str = food_images.get(i);
 				overall_delete = f;
 				index_left = i;
@@ -279,24 +281,26 @@ public class Map_graphics extends Map implements KeyListener {
 		}
 		return "none";
 	}
+
 	String check_right() {
 		int i = 0;
-		for (GImage f:spawned_list_right) {
-			if(f.getX() > 450 && f.getX() < 500) {
+		for (GImage f : spawned_list_right) {
+			if (f.getX() > 450 && f.getX() < 500) {
 				System.out.println(spawned_list_right);
 				String str = food_images_right.get(i);
 				overall_delete1 = f;
 				index_right = i;
 				return str;
 			}
-			
+
 		}
 		return "none";
 	}
+
 	String check() {
 		int i = 0;
-		for (GImage f: spawned_list) {
-			if(f.getX() > 575 && f.getX() < 625) {
+		for (GImage f : spawned_list) {
+			if (f.getX() > 575 && f.getX() < 625) {
 				String str = food_images.get(i);
 				overall_delete = f;
 				index_left = i;
@@ -304,21 +308,19 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 			i++;
 		}
-			
-		
 
 		return "nope";
 
 	}
-	
+
 	public void actionPerformed(ActionEvent e) {
-		//System.out.println(spawned_list);
-		//System.out.println(food_images);
+		// System.out.println(spawned_list);
+		// System.out.println(food_images);
 		int score_streak_SIZE_x = 100;
 		int score_streak_SIZE_y = 100;
 		int score_streak_loc_x = 0;
 		int score_streak_loc_y = 0;
-		score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,score_streak_SIZE_y );
+		score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x, score_streak_SIZE_y);
 		score1.setLabel("Score: " + box.get_score());
 		streak1.setLabel("Streak: " + box.get_streak());
 		int fail_x = 0;
@@ -339,7 +341,6 @@ public class Map_graphics extends Map implements KeyListener {
 			add(x3);
 		}
 
-
 		if (current == level_3) {
 			spawn_food2();
 		}
@@ -348,7 +349,7 @@ public class Map_graphics extends Map implements KeyListener {
 		int count = 0;
 		ArrayList<GImage> new_right = spawned_list_right;
 		if (current == level_3) {
-			for (int j = 0; j < new_right.size();j++) {
+			for (int j = 0; j < new_right.size(); j++) {
 				GImage i = new_right.get(j);
 				i.move(-speed, 0);
 				if (i.getX() < 450) {
@@ -367,77 +368,72 @@ public class Map_graphics extends Map implements KeyListener {
 						score_streak_graphic.stop();
 					}
 				}
-				count ++;
+				count++;
 			}
-			count = 0 ;
+			count = 0;
 			ArrayList<GImage> new_list = spawned_list;
-			
-				for (int j = 0; j < new_list.size(); j++) {
-					GImage i = new_list.get(j);
-					i.move(speed, 0);
-					if (i.getX() > 300) {
-						new_list.remove(i);
-						food_images.remove(count);
-						passed_hit_circle.add(i);
-						
-						remove(getElementAt((i.getX()), (i.getY())));
-						box.reset_streak();
-						if (failed(box)) {
-							stopMusic();
-							box.reset();
-							reset();
-							Fail_screen f = new Fail_screen(current);
-							f.start();
-							score_streak_graphic.stop();
-						}
-					}
-					count ++;
-				}
 
-		}
-		else {
-			count = 0 ;
+			for (int j = 0; j < new_list.size(); j++) {
+				GImage i = new_list.get(j);
+				i.move(speed, 0);
+				if (i.getX() > 300) {
+					new_list.remove(i);
+					food_images.remove(count);
+					passed_hit_circle.add(i);
+
+					remove(getElementAt((i.getX()), (i.getY())));
+					box.reset_streak();
+					if (failed(box)) {
+						stopMusic();
+						box.reset();
+						reset();
+						Fail_screen f = new Fail_screen(current);
+						f.start();
+						score_streak_graphic.stop();
+					}
+				}
+				count++;
+			}
+
+		} else {
+			count = 0;
 			ArrayList<GImage> new_list = spawned_list;
-			
-				for (int j = 0; j < new_list.size(); j++) {
-					GImage i = new_list.get(j);
-					i.move(speed, 0);
-					if (i.getX() > 625) {
-						new_list.remove(i);
-						food_images.remove(count);
-						passed_hit_circle.add(i);
-						
-						remove(getElementAt((i.getX()), (i.getY())));
-						box.reset_streak();
-						if (failed(box)) {
-							stopMusic();
-							box.reset();
-							reset();
-							Fail_screen f = new Fail_screen(current);
-							f.start();
-							score_streak_graphic.stop();
-						}
+
+			for (int j = 0; j < new_list.size(); j++) {
+				GImage i = new_list.get(j);
+				i.move(speed, 0);
+				if (i.getX() > 625) {
+					new_list.remove(i);
+					food_images.remove(count);
+					passed_hit_circle.add(i);
+
+					remove(getElementAt((i.getX()), (i.getY())));
+					box.reset_streak();
+					if (failed(box)) {
+						stopMusic();
+						box.reset();
+						reset();
+						Fail_screen f = new Fail_screen(current);
+						f.start();
+						score_streak_graphic.stop();
 					}
-					count ++;
 				}
+				count++;
+			}
 		}
-
-
-		
-
 
 	}
-	
+
 	@Override
-	
+
 	public void keyPressed(KeyEvent e) {
-		//box_display_off();
+		// box_display_off();
 		int key = e.getKeyCode();
-		//up = bun
-		//down = ketchup
-		//left = tofu 
-		//right = tomato
-		//W
+		// up = bun
+		// down = ketchup
+		// left = tofu
+		// right = tomato
+		// W
 		if (key == KeyEvent.VK_W) {
 			if (current == level_3) {
 				if (check_left() == "bun") {
@@ -455,8 +451,7 @@ public class Map_graphics extends Map implements KeyListener {
 					box.incrementStreak();
 				}
 
-			}
-			else {
+			} else {
 				if (check() == "bun") {
 					box.incrementScore();
 					box.incrementStreak();
@@ -486,9 +481,7 @@ public class Map_graphics extends Map implements KeyListener {
 					box.incrementStreak();
 				}
 
-
-			}
-			else {
+			} else {
 				if (check() == "tofu") {
 					box.incrementScore();
 					box.incrementStreak();
@@ -517,11 +510,8 @@ public class Map_graphics extends Map implements KeyListener {
 					box.incrementScore();
 					box.incrementStreak();
 				}
-					
 
-
-			}
-			else {
+			} else {
 				if (check() == "ketchup") {
 					box.incrementScore();
 					box.incrementStreak();
@@ -551,8 +541,7 @@ public class Map_graphics extends Map implements KeyListener {
 					box.incrementStreak();
 				}
 
-			}
-			else {
+			} else {
 				if (check() == "tomato") {
 					box.incrementScore();
 					box.incrementStreak();
@@ -565,13 +554,13 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 
 		}
-		if (failed(box) ){
+		if (failed(box)) {
 			box.reset_fail();
 			stopMusic();
 			reset();
 			Fail_screen f = new Fail_screen(current);
 			f.start();
-			//app.switch
+			// app.switch
 		}
 		if (passed(box.get_score())) {
 			box.reset_fail();
@@ -580,14 +569,12 @@ public class Map_graphics extends Map implements KeyListener {
 			Pass_screen p = new Pass_screen(current);
 			p.start();
 		}
-		//box_display_on();
-		 
+		// box_display_on();
+
 	}
-	
-	
+
 	public static void main(String args[]) {
-		//new Map_graphics().start();
+		// new Map_graphics().start();
 	}
-	
-	  
+
 }
