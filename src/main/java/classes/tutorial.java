@@ -142,7 +142,7 @@ public class tutorial extends Map {
 				add(box_score);
 			} else {
 				streak = 0;
-				score = 0;
+				//score = 0;
 				fail = 1;
 				remove(box_streak);
 				remove(box_score);
