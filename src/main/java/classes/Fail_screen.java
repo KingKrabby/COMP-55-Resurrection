@@ -7,6 +7,10 @@ import acm.graphics.GImage;
 import acm.graphics.GLabel;
 
 public class Fail_screen extends Map{
+	private Level level;
+	public Fail_screen(Level l) {
+		this.level = l;
+	}
 	// function to identify map 
 	// function to identify map 
 	private int identifier = 3;
@@ -77,7 +81,8 @@ public class Fail_screen extends Map{
 		}
 		if (keyCode == KeyEvent.VK_SPACE) {
 			//replays level
-			game.run();
+			Play_game g = new Play_game(level);
+			g.start();
 		}
 	}
 	

@@ -35,6 +35,7 @@ public class Map_graphics extends Map implements KeyListener {
 	GLabel score1;
 	GLabel streak1;
 	GLabel fail1;
+	GImage wasd = new GImage("wasd2.png", 200,0);
 	int fail_x = 0;
 	Timer score_streak_graphic;
 	
@@ -43,6 +44,9 @@ public class Map_graphics extends Map implements KeyListener {
 
 	
 	public void run() {
+		if (current == level_2) {
+			speed = 20;
+		}
 		System.out.println("Current: " + curr_level_num);
 		start = System.currentTimeMillis();
 		requestFocus();
@@ -76,6 +80,7 @@ public class Map_graphics extends Map implements KeyListener {
 		score_streak_graphic.start();
 		add(score1);
 		add(streak1);
+		add(wasd);
 		
 		// Conveyor
 		final int x1 = 0; //still need to initialize these
@@ -265,7 +270,8 @@ public class Map_graphics extends Map implements KeyListener {
 						stopMusic();
 						box.reset();
 						reset();
-						fail.start();
+						Fail_screen f = new Fail_screen(current);
+						f.start();
 						score_streak_graphic.stop();
 					}
 				}
@@ -326,7 +332,8 @@ public class Map_graphics extends Map implements KeyListener {
 			box.reset_fail();
 			stopMusic();
 			reset();
-			fail.start();
+			Fail_screen f = new Fail_screen(current);
+			f.start();
 			//app.switch
 		}
 		if (passed(box.get_score())) {
