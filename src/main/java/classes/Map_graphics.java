@@ -198,15 +198,19 @@ public class Map_graphics extends Map implements KeyListener {
 	
 	String check() {
 		int i = 0;
-		for (GImage f: spawned_list) {
-			if(f.getX() > 575 && f.getX() < 625) {
-				String str = food_images.get(i);
-				overall_delete = f;
-				food_images.remove(i);
-				return str;
+		if (spawned_list.size() > 0) {
+			for (GImage f: spawned_list) {
+				if(f.getX() > 575 && f.getX() < 625) {
+					String str = food_images.get(i);
+					overall_delete = f;
+					food_images.remove(i);
+					return str;
+				}
+				i++;
 			}
-			i++;
+			
 		}
+
 		return "nope";
 
 	}
@@ -243,27 +247,31 @@ public class Map_graphics extends Map implements KeyListener {
 		ArrayList<GImage> to_delete = new ArrayList<GImage> ();
 		spawn_food();
 		int count = 0;
-		for (GImage i: spawned_list) {
-			i.move(speed, 0);
-			if (i.getX() > 625) {
-				food_images.remove(count);
-				passed_hit_circle.add(i);
-				to_delete.add(i);
-				remove(getElementAt((i.getX()), (i.getY())));
-				box.reset_streak();
-				if (failed(box)) {
-					stopMusic();
-					box.reset();
-					reset();
-					fail.start();
-					score_streak_graphic.stop();
+		if (spawned_list.size() > 0) {
+			for (GImage i: spawned_list) {
+				i.move(speed, 0);
+				if (i.getX() > 625) {
+					food_images.remove(count);
+					passed_hit_circle.add(i);
+					to_delete.add(i);
+					remove(getElementAt((i.getX()), (i.getY())));
+					box.reset_streak();
+					if (failed(box)) {
+						stopMusic();
+						box.reset();
+						reset();
+						fail.start();
+						score_streak_graphic.stop();
+					}
 				}
+				count ++;
 			}
-			count ++;
+			for (GImage a: to_delete) {
+				spawned_list.remove(a);
+			}
 		}
-		for (GImage a: to_delete) {
-			spawned_list.remove(a);
-		}
+
+
 	}
 	
 	@Override
