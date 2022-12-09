@@ -263,17 +263,6 @@ public class Map_graphics extends Map implements KeyListener {
 	
 	
 	String check() {
-		int i = 0;
-			for (GImage f: spawned_list) {
-				if(f.getX() > 575 && f.getX() < 625) {
-					String str = food_images.get(i);
-					overall_delete = f;
-					food_images.remove(i);
-					return str;
-				}
-				i++;
-			}
-			
 		if (current == level_3) {
 			ArrayList<GImage> new_List = spawned_list_right; 
 			for (int j = 0; j < new_List.size(); j++) {
@@ -286,8 +275,34 @@ public class Map_graphics extends Map implements KeyListener {
 				}
 				
 			}
+			int i = 0;
+			for (GImage f: spawned_list) {
+				if(f.getX() > 375 && f.getX() < 325) {
+					String str = food_images.get(i);
+					overall_delete = f;
+					food_images.remove(i);
+					return str;
+				}
+				i++;
+			}
 			
 		}
+		else {
+			int i = 0;
+			for (GImage f: spawned_list) {
+				if(f.getX() > 575 && f.getX() < 625) {
+					String str = food_images.get(i);
+					overall_delete = f;
+					food_images.remove(i);
+					return str;
+				}
+				i++;
+			}
+			
+		}
+
+			
+
 		
 
 		return "nope";
@@ -353,32 +368,59 @@ public class Map_graphics extends Map implements KeyListener {
 				}
 				count ++;
 			}
+			count = 0 ;
+			ArrayList<GImage> new_list = spawned_list;
+			
+				for (int j = 0; j < new_list.size(); j++) {
+					GImage i = new_list.get(j);
+					i.move(speed, 0);
+					if (i.getX() > 300) {
+						new_list.remove(i);
+						food_images.remove(count);
+						passed_hit_circle.add(i);
+						
+						remove(getElementAt((i.getX()), (i.getY())));
+						box.reset_streak();
+						if (failed(box)) {
+							stopMusic();
+							box.reset();
+							reset();
+							Fail_screen f = new Fail_screen(current);
+							f.start();
+							score_streak_graphic.stop();
+						}
+					}
+					count ++;
+				}
 
 		}
-		count = 0 ;
-		ArrayList<GImage> new_list = spawned_list;
-		
-			for (int j = 0; j < new_list.size(); j++) {
-				GImage i = new_list.get(j);
-				i.move(speed, 0);
-				if (i.getX() > 300) {
-					new_list.remove(i);
-					food_images.remove(count);
-					passed_hit_circle.add(i);
-					
-					remove(getElementAt((i.getX()), (i.getY())));
-					box.reset_streak();
-					if (failed(box)) {
-						stopMusic();
-						box.reset();
-						reset();
-						Fail_screen f = new Fail_screen(current);
-						f.start();
-						score_streak_graphic.stop();
+		else {
+			count = 0 ;
+			ArrayList<GImage> new_list = spawned_list;
+			
+				for (int j = 0; j < new_list.size(); j++) {
+					GImage i = new_list.get(j);
+					i.move(speed, 0);
+					if (i.getX() > 625) {
+						new_list.remove(i);
+						food_images.remove(count);
+						passed_hit_circle.add(i);
+						
+						remove(getElementAt((i.getX()), (i.getY())));
+						box.reset_streak();
+						if (failed(box)) {
+							stopMusic();
+							box.reset();
+							reset();
+							Fail_screen f = new Fail_screen(current);
+							f.start();
+							score_streak_graphic.stop();
+						}
 					}
+					count ++;
 				}
-				count ++;
-			}
+		}
+
 
 		
 
