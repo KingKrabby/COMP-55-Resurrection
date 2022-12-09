@@ -9,16 +9,13 @@ public final class Map_Database {
 	static ArrayList<Food> food_level2 = new ArrayList<Food>();
 	static ArrayList<Food> food_level3a = new ArrayList<Food>();
 	static ArrayList<Food> food_level3b = new ArrayList<Food>();
-	//intialize variable
+
+	// intialize variable
 	Map_Database() {
 		initialize();
 	}
 
 	FoodType[] list = new FoodType[] { FoodType.KETCHUP, FoodType.TOFU, FoodType.BUN, FoodType.TOMATO };
-	public static Food[] tutorialFood = new Food[] { new Food(FoodType.BUN, 1), new Food(FoodType.KETCHUP, 5),
-			new Food(FoodType.TOFU, 9), new Food(FoodType.TOMATO, 30) };
-	public static Food[] food1 = new Food[] { new Food(FoodType.BUN, 1), new Food(FoodType.KETCHUP, 5),
-			new Food(FoodType.TOFU, 9), new Food(FoodType.TOMATO, 13) };
 
 	public static int getRandomValue(int Min, int Max) {
 
@@ -30,7 +27,6 @@ public final class Map_Database {
 	public void initialize() {
 		int start1 = 5000;
 
-
 		for (int i = 0; i < 30; i++) {
 			Food f = new Food(list[getRandomValue(0, 3)], start1);
 			food_level1.add(f);
@@ -38,15 +34,15 @@ public final class Map_Database {
 		}
 
 		int start2 = 14000;
-		
+
 		for (int j = 0; j < 30; j++) {
 			Food f = new Food(list[getRandomValue(0, 3)], start2);
 			food_level2.add(f);
-			start2 += getRandomValue(1000, 1500 );
+			start2 += getRandomValue(1000, 1500);
 		}
 
 		int start3 = 0;
-		 
+
 		for (int k = 0; k < 15; k++) {
 			Food f = new Food(list[getRandomValue(0, 3)], start3);
 			food_level3a.add(f);
@@ -58,18 +54,8 @@ public final class Map_Database {
 			food_level3b.add(f);
 			start3 += getRandomValue(3000, 4000);
 		}
-		
-		
-		
+
 	}
-
-
-	public static Food[] food2; // nate needs to complete initialization
-	public static Food[] food3; // nate needs to complete initialization ifweo
-
-	public static Conductor conductor1 = new Conductor(109, Song.getInstance(), 3, food1);
-	public static Conductor conductor2 = new Conductor(118, Song.getInstance(), 2, food2);
-	public static Conductor conductor3 = new Conductor(160, Song.getInstance(), 1, food3);
 
 	public static Conveyor conveyor1 = new Conveyor(false);
 	public static Conveyor conveyor2 = new Conveyor(false);
@@ -88,9 +74,9 @@ public final class Map_Database {
 	public static Spawner spawner3 = new Spawner();;
 
 	// add a level called tutorial
-	public static Level level1 = new Level("tutorial.mp3", conductor1, conveyor1, food1, circle1, spawner1, food_level1, food_level3b);
-	public static Level level2 = new Level("level2.mp3", conductor2, conveyor2, food2, circle2, spawner2, food_level2, food_level3b) ;
-	public static Level level3 = new Level("level3.mp3", conductor3, conveyor3, food3, circle3, spawner3, food_level3a, food_level3b);
+	public static Level level1 = new Level("tutorial.mp3", conveyor1, circle1, spawner1, food_level1, food_level3b);
+	public static Level level2 = new Level("level2.mp3", conveyor2, circle2, spawner2, food_level2, food_level3b);
+	public static Level level3 = new Level("level3.mp3", conveyor3, circle3, spawner3, food_level3a, food_level3b);
 
 	// get hitcircles
 

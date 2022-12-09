@@ -42,7 +42,4 @@ public class Map extends GraphicsApplication implements ActionListener, KeyListe
 		new Map().start();
 	}
 
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-	}
 }
