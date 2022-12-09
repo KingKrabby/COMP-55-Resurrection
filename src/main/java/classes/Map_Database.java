@@ -7,7 +7,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public final class Map_Database {
 	static ArrayList<Food> food_level1 = new ArrayList<Food>();
 	static ArrayList<Food> food_level2 = new ArrayList<Food>();
-	static ArrayList<Food> food_level3 = new ArrayList<Food>();
+	static ArrayList<Food> food_level3a = new ArrayList<Food>();
+	static ArrayList<Food> food_level3b = new ArrayList<Food>();
 	//intialize variable
 	Map_Database() {
 		initialize();
@@ -46,11 +47,19 @@ public final class Map_Database {
 
 		int start3 = 0;
 		
-		for (int k = 0; k < 30; k++) {
+		for (int k = 0; k < 15; k++) {
 			Food f = new Food(list[getRandomValue(0, 3)], start3);
-			food_level3.add(f);
+			food_level3a.add(f);
 			start3 += getRandomValue(300, 400);
 		}
+		for (int k = 0; k < 15; k++) {
+			Food f = new Food(list[getRandomValue(0, 3)], start3);
+			food_level3b.add(f);
+			start3 += getRandomValue(300, 400);
+		}
+		
+		
+		
 	}
 
 	/*
@@ -99,9 +108,9 @@ public final class Map_Database {
 	public static Spawner spawner3 = new Spawner();;
 
 	// add a level called tutorial
-	public static Level level1 = new Level("tutorial.mp3", conductor1, conveyor1, food1, circle1, spawner1, food_level1);
-	public static Level level2 = new Level("level2.mp3", conductor2, conveyor2, food2, circle2, spawner2, food_level2);
-	public static Level level3 = new Level("level3.mp3", conductor3, conveyor3, food3, circle3, spawner3, food_level3);
+	public static Level level1 = new Level("tutorial.mp3", conductor1, conveyor1, food1, circle1, spawner1, food_level1, food_level3b);
+	public static Level level2 = new Level("level2.mp3", conductor2, conveyor2, food2, circle2, spawner2, food_level2, food_level3b) ;
+	public static Level level3 = new Level("level3.mp3", conductor3, conveyor3, food3, circle3, spawner3, food_level3a, food_level3b);
 
 	// get hitcircles
 

@@ -12,9 +12,10 @@ public class Level{
 	Spawner spawner;
 	String s;
 	ArrayList <Food> food_items;
+	ArrayList <Food> food_items_3;
 
 	
-	Level(String string, Conductor currConductor, Conveyor currBelt, Food[] currItems, HitCircle currCircle, Spawner currSpawner, ArrayList <Food> list) {
+	Level(String string, Conductor currConductor, Conveyor currBelt, Food[] currItems, HitCircle currCircle, Spawner currSpawner, ArrayList <Food> list, ArrayList<Food> list2) {
 		conductor = currConductor;
 		conveyorBelt = currBelt;
 		foodItems = currItems;
@@ -23,6 +24,7 @@ public class Level{
 		spawner = currSpawner;
 		s = string;
 		food_items = list;
+		food_items_3 = list2;
 		
 	}
 
@@ -58,6 +60,9 @@ public class Level{
 	
 	public String get_string() {
 		return s;
+	}
+	public ArrayList<Food> getFoodList3() {
+		return food_items_3;
 	}
 	
 
