@@ -25,10 +25,13 @@ public class Menu_screen extends Map {
 		playBackgroundNoise();
 		current = level_1;
 		
-		GImage blue = new GImage("title_screen_bluebackground.jpg", 0, 0);
+		GImage blue = new GImage("bluemenubackground.jpg", -167, -50);
   		add(blue);
   		
-  		GImage title = new GImage("turntuptofu!.png", 40, 0);
+  		GImage titleshadow = new GImage("smallblacktut!.png", 304, 54);
+  		add(titleshadow);
+  		
+  		GImage title = new GImage("smalltut!.png", 300, 50);
   		add(title);
 		
 		GLabel y = new GLabel("Press 'L' to play the Tutorial!", 0, 180);
