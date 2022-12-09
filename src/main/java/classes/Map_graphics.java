@@ -58,7 +58,7 @@ public class Map_graphics extends Map implements KeyListener {
 			speed = 15;
 		}
 		if (current == level_3) {
-			speed = 4;
+			speed = 6;
 		}
 		System.out.println("Current: " + curr_level_num);
 		start = System.currentTimeMillis();
