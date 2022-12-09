@@ -50,12 +50,13 @@ public final class Map_Database {
 		for (int k = 0; k < 15; k++) {
 			Food f = new Food(list[getRandomValue(0, 3)], start3);
 			food_level3a.add(f);
-			start3 += getRandomValue(300, 400);
+			start3 += getRandomValue(3000, 4000);
 		}
+		start3 = 0;
 		for (int k = 0; k < 15; k++) {
 			Food f = new Food(list[getRandomValue(0, 3)], start3);
 			food_level3b.add(f);
-			start3 += getRandomValue(300, 400);
+			start3 += getRandomValue(3000, 4000);
 		}
 		
 		
