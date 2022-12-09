@@ -33,21 +33,20 @@ public class Menu_screen extends Map {
   		
   		GImage title = new GImage("smalltut!.png", 300, 50);
   		add(title);
+  		
+  		GImage Lbutton = new GImage("yellowbutton.png", 350, 160);
+  		add(Lbutton);
+  		GImage spacebutton = new GImage("yellowbutton.png", 350, 265);
+  		add(spacebutton);
+  		GImage escbutton = new GImage("yellowbutton.png", 350, 370);
+  		add(escbutton);
+  		GImage Llabel = new GImage("l=tutorial.png", 415, 182);
+  		add(Llabel);
+  		GImage spacelabel = new GImage("space=level1.png", 382, 287);
+  		add(spacelabel);
+  		GImage esclabel = new GImage("esc=quit.png", 445, 392);
+  		add(esclabel);
 		
-		GLabel y = new GLabel("Press 'L' to play the Tutorial!", 0, 180);
-		y.setColor(Color.white);
-		y.setFont("Arial-47");
-		add(y);
-		
-		GLabel z = new GLabel("Press Spacebar to play the first level!", 0, 280);
-		z.setColor(Color.white);
-		z.setFont("Arial-47");
-		add(z);
-		
-		GLabel a = new GLabel("Press 'Esc' to quit the game", 0, 380);
-		a.setColor(Color.white);
-		a.setFont("Arial-47");
-		add(a);
 		
 		GImage logo = new GImage("World's Hardest Games Logo.png", -45, 480);
   		add(logo);
