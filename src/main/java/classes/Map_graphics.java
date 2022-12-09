@@ -267,7 +267,7 @@ public class Map_graphics extends Map implements KeyListener {
 			ArrayList<GImage> new_List = spawned_list_right; 
 			for (int j = 0; j < new_List.size(); j++) {
 				GImage f = new_List.get(j);
-				if(f.getX() > 470 && f.getX() < 520) {
+				if(f.getX() > 450 && f.getX() < 500) {
 					String str = food_images_right.get(j);
 					overall_delete1 = f;
 					index = j;
@@ -350,7 +350,7 @@ public class Map_graphics extends Map implements KeyListener {
 			for (int j = 0; j < new_right.size();j++) {
 				GImage i = new_right.get(j);
 				i.move(-speed, 0);
-				if (i.getX() < 470) {
+				if (i.getX() < 450) {
 					System.out.println("fail");
 					spawned_list_right.remove(i);
 					food_images_right.remove(count);
