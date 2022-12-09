@@ -21,6 +21,9 @@ public class Map_graphics extends Map implements KeyListener {
 		this.current = c;
 	}
 	GraphicsApplication app = this;
+	GImage singleHitCircle;
+	GImage hitCircle1;
+	GImage hitCircle2;
 	long start, end;
 	int speed = 8;
 	int count = 0;
@@ -122,13 +125,13 @@ public class Map_graphics extends Map implements KeyListener {
 		final int w3 = 400; //will be for second HitCircle on smaller conveyor
 		//int numHitCircles;
 	  	if (current.getHitCircle().returnNHC() == 1) {
-	  		GImage singleHitCircle = new GImage("hitcircle.png", h1, w1);
+	  		singleHitCircle = new GImage("hitcircle.png", h1, w1);
 	  		add(singleHitCircle);
 	  	}
 	  	if (current.getHitCircle().returnNHC() == 2) {
-	  		GImage hitCircle1 = new GImage("hitcircle.png", h2, w2);
+	  		hitCircle1 = new GImage("hitcircle.png", h2, w2);
 	  		add(hitCircle1);
-	  		GImage hitCircle2 = new GImage("hitcircle.png", h3, w3);
+	  		hitCircle2 = new GImage("hitcircle.png", h3, w3);
 	  		add(hitCircle2);
 	  	}
 	  	
@@ -277,6 +280,7 @@ public class Map_graphics extends Map implements KeyListener {
 				
 			}
 			int i = 0;
+			new_List = spawned_list;
 			for (GImage f: spawned_list) {
 				if(f.getX() > 250 && f.getX() < 300) {
 					String str = food_images.get(i);
@@ -294,7 +298,7 @@ public class Map_graphics extends Map implements KeyListener {
 				if(f.getX() > 575 && f.getX() < 625) {
 					String str = food_images.get(i);
 					overall_delete = f;
-					food_images.remove(i);
+					index_left = i;
 					return str;
 				}
 				i++;
@@ -340,8 +344,12 @@ public class Map_graphics extends Map implements KeyListener {
 
 
 		if (current == level_3) {
-			
+			add(hitCircle1);
+			add(hitCircle2);
 			spawn_food2();
+		}
+		else {
+			add(singleHitCircle);
 		}
 		spawn_food();
 
@@ -446,7 +454,7 @@ public class Map_graphics extends Map implements KeyListener {
 				food_images.remove(index_left);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
 				if(current==level_3) {
-					spawned_list.remove(overall_delete1);
+					spawned_list_right.remove(overall_delete1);
 					food_images_right.remove(index_right);
 					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
 				}
@@ -460,7 +468,7 @@ public class Map_graphics extends Map implements KeyListener {
 				food_images.remove(index_left);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
 				if(current==level_3) {
-					spawned_list.remove(overall_delete1);
+					spawned_list_right.remove(overall_delete1);
 					food_images_right.remove(index_right);
 					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
 				}
@@ -474,7 +482,7 @@ public class Map_graphics extends Map implements KeyListener {
 				food_images.remove(index_left);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
 				if(current==level_3) {
-					spawned_list.remove(overall_delete1);
+					spawned_list_right.remove(overall_delete1);
 					food_images_right.remove(index_right);
 					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
 				}
@@ -489,7 +497,7 @@ public class Map_graphics extends Map implements KeyListener {
 				food_images.remove(index_left);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
 				if(current==level_3) {
-					spawned_list.remove(overall_delete1);
+					spawned_list_right.remove(overall_delete1);
 					food_images_right.remove(index_right);
 					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
 				}
