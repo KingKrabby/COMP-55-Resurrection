@@ -18,7 +18,7 @@ import edu.pacific.comp55.starter.GraphicsApplication;
 public class Map_graphics extends Map implements KeyListener {
 	GraphicsApplication app = this;
 	long start, end;
-	int speed = 3;
+	int speed = 8;
 	int count = 0;
 	int spawned = 0;
 	GImage overall_delete;
@@ -139,9 +139,9 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 
 	
-	boolean passed(int score, int s) {
+	boolean passed(int score) {
 		System.out.println("pass");
-		if(score == 27 && s >= 30) {
+		if(score == 27) {
 			return true;
 		}
 		return false;
@@ -284,10 +284,6 @@ public class Map_graphics extends Map implements KeyListener {
 				spawned_list.remove(overall_delete);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
 			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
-			}
 		}
 		if (key == KeyEvent.VK_A) {
 			if (check() == "tofu") {
@@ -296,10 +292,6 @@ public class Map_graphics extends Map implements KeyListener {
 				spawned_list.remove(overall_delete);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
 			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
-			}
 		}
 		if (key == KeyEvent.VK_S) {
 			if (check() == "ketchup") {
@@ -307,10 +299,7 @@ public class Map_graphics extends Map implements KeyListener {
 				box.incrementStreak();
 				spawned_list.remove(overall_delete);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
-			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
+				
 			}
 		}
 		if (key == KeyEvent.VK_D) {
@@ -320,10 +309,6 @@ public class Map_graphics extends Map implements KeyListener {
 				spawned_list.remove(overall_delete);
 				remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
 			}
-			else {
-				box.reset_streak();
-				box.incrementFail();
-			}
 		}
 		if (failed(box) ){
 			box.reset_fail();
@@ -332,7 +317,7 @@ public class Map_graphics extends Map implements KeyListener {
 			fail.start();
 			//app.switch
 		}
-		if (passed(box.get_score(), box.get_streak())) {
+		if (passed(box.get_score())) {
 			box.reset_fail();
 			stopMusic();
 			reset();
