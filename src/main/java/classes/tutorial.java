@@ -35,7 +35,7 @@ public class tutorial extends Map {
 	Song test = Song.getInstance();
 	Timer movement;
 	GLabel W, A, S, D;
-	GLabel w_label, a_label, s_label, d_label;
+	GLabel w_label, a_label, s_label, s2_label, d_label;
 	GImage bun, ketchup, tofu, tomato;
 	GImage belt, background, hCircle;
 	GImage[] food = new GImage[] {};
@@ -62,17 +62,19 @@ public class tutorial extends Map {
 		Score_box.setFilled(true);
 
 		String label_font = "Arial-20";
-		w_label = new GLabel("Press the Right Key for the Right Item (e.g. Bun for W)", xlabel, ylabel);
-		a_label = new GLabel("Pressing the correct button generates a streak and adds a point", xlabel, ylabel);
-		s_label = new GLabel("Pressing the wrong button resets streak and point", xlabel, ylabel);
-		d_label = new GLabel("Enjoy the game, press ESC to return to menu", xlabel, ylabel);
+		w_label = new GLabel("Press the correct Key for each item Item (e.g. W for Bun)", xlabel, ylabel);
+		a_label = new GLabel("Pressing the correct button starts a streak and gives yout a point", xlabel, ylabel);
+		s_label = new GLabel("Pressing the wrong button resets the streak, but you will keep your points", xlabel, ylabel);
+		s2_label = new GLabel("3 Strikes and you're out!", xlabel, ylabel + 30);
+		d_label = new GLabel("Enjoy the game! press ESC to return to menu", xlabel, ylabel);
 
 		w_label.setColor(Color.white);
 		a_label.setColor(Color.white);
 		s_label.setColor(Color.white);
+		s2_label.setColor(Color.red);
 		d_label.setColor(Color.white);
 
-		GLabel[] label_list = new GLabel[] { w_label, a_label, s_label, d_label };
+		GLabel[] label_list = new GLabel[] { w_label, a_label, s_label, s2_label, d_label };
 		for (int i = 0; i < label_list.length; i++) {
 			GLabel label = label_list[i];
 			label.setFont(label_font);
@@ -186,6 +188,7 @@ public class tutorial extends Map {
 		else if (num == 2) {
 
 			add(s_label);
+			add(s2_label);
 			delay();
 			a_label.setVisible(false);
 
@@ -194,7 +197,7 @@ public class tutorial extends Map {
 		// D
 		else if (num == 3) {
 			s_label.setVisible(false);
-
+			s2_label.setVisible(false);
 			add(d_label);
 			delay();
 			// test.stopSound("sounds","tutorial.mp3");
