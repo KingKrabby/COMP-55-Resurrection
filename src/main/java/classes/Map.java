@@ -35,7 +35,7 @@ public class Map extends GraphicsApplication implements ActionListener, KeyListe
 		addKeyListeners();
 		title.start();
 	}
-
+ 
 	
 	public static void main(String args[]) {
 		new Map().start();
