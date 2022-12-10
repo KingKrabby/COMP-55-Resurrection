@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public final class Map_Database {
+	Level l;
 	static ArrayList<Food> food_level1 = new ArrayList<Food>();
 	static ArrayList<Food> food_level2 = new ArrayList<Food>();
 	static ArrayList<Food> food_level3a = new ArrayList<Food>();
@@ -18,9 +19,6 @@ public final class Map_Database {
 	FoodType[] list = new FoodType[] { FoodType.KETCHUP, FoodType.TOFU, FoodType.BUN, FoodType.TOMATO };
 
 	public static int getRandomValue(int Min, int Max) {
-
-		// Get and return the random integer
-		// within Min and Max
 		return ThreadLocalRandom.current().nextInt(Min, Max + 1);
 	}
 
@@ -69,16 +67,9 @@ public final class Map_Database {
 	public static HitCircle circle2 = new HitCircle(1);
 	public static HitCircle circle3 = new HitCircle(2);
 
-	public static Spawner spawner1 = new Spawner();
-	public static Spawner spawner2 = new Spawner();;
-	public static Spawner spawner3 = new Spawner();;
-
-	// add a level called tutorial
-	public static Level level1 = new Level("tutorial.mp3", conveyor1, circle1, spawner1, food_level1, food_level3b);
-	public static Level level2 = new Level("level2.mp3", conveyor2, circle2, spawner2, food_level2, food_level3b);
-	public static Level level3 = new Level("level3.mp3", conveyor3, circle3, spawner3, food_level3a, food_level3b);
-
-	// get hitcircles
+	public static Level level1 = new Level("tutorial.mp3", conveyor1, circle1, food_level1, food_level3b);
+	public static Level level2 = new Level("level2.mp3", conveyor2, circle2, food_level2, food_level3b);
+	public static Level level3 = new Level("level3.mp3", conveyor3, circle3, food_level3a, food_level3b);
 
 	// get level function
 	Level get_level1() {

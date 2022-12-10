@@ -61,22 +61,6 @@ public class Conductor {
 	}
 
 	public static void main(String[] args) {
-//		Song testSong = Song.getInstance();
-//		Conductor testConductor = new Conductor(150, testSong, 1, Map_Database.tutorialFood);
-//		Scanner scan = new Scanner(System.in);
-//		double d = testConductor.getCurrentBeat("level1");
-//		
-//		testConductor.playSong("level1");
-//		for(int i = 0; i < 10; i++) {
-//			int input = scan.nextInt();
-//			if(input == 1) {
-//				testConductor.stopSong("level1");
-//			}
-//			if (input == 2) {
-//				System.out.println(testConductor.getCurrentBeat("level1"));
-//				System.out.println(testConductor.getCurrentNote("level1"));
-//			}
-//		}
-//		System.exit(0);
+
 	}
 }

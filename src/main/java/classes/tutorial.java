@@ -129,7 +129,7 @@ public class tutorial extends Map {
 			count += 1;
 		}
 		if (getElementAt(600, 450) != hCircle) {
-			// System.out.println("Score + Streak +");
+
 			remove(getElementAt(600, 450));
 			if (score != 3) {
 				streak++;
@@ -168,7 +168,7 @@ public class tutorial extends Map {
 	}
 
 	public void label(int num) {
-		System.out.println(num);
+		
 
 		// W
 		if (num == 0) {

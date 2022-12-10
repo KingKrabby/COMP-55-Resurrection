@@ -8,12 +8,24 @@ import java.util.Scanner;
 import acm.graphics.*;
 
 public class Spawner extends Map {
-	private Play_game game;
 
-//	public Spawner(int x, int y) {
-//		spawnerX = x;
-//		spawnerY = y;
-//	}
+	long start;
+	int l_count = 0;
+	int r_count = 0;
+	ArrayList<GImage> left_images = new ArrayList<GImage>();
+	ArrayList<GImage> right_images = new ArrayList<GImage>();
+	Level current;
+
+	public Spawner(Level level, long s, int left_count, int right_count, ArrayList<GImage> l_images,
+			ArrayList<GImage> r_images) {
+		this.start = s;
+		this.l_count = left_count;
+		this.r_count = right_count;
+		this.left_images = l_images;
+		this.right_images = r_images;
+		this.current = level;
+
+	}
 
 	public void setGame(Play_game game) {
 		this.game = game;
@@ -23,20 +35,41 @@ public class Spawner extends Map {
 	int spawnerX;
 	int spawnerY;
 
-	void spawn_food() {
-		long start = System.currentTimeMillis();
+	void spawn_food_left() {
 		long end = System.currentTimeMillis();
-		int count = 0;
+		int i = 0;
 		ArrayList<Food> items = current.getFoodList();
+
 		for (Food f : items) {
 			long elapsed = end - start;
-			if (elapsed > f.getDuration()) {
+
+			if (elapsed > f.getDuration() && l_count == i) {
 				GImage image = creates_new_image(f);
 				add(image);
-				count++;
+				left_images.add(image);
+				l_count++;
 
 			}
+			i++;
+		}
+	}
 
+	void spawn_food2() {
+		long end = System.currentTimeMillis();
+		int i = 0;
+		ArrayList<Food> items = current.getFoodList3();
+
+		for (Food f : items) {
+			long elapsed = end - start;
+
+			if (elapsed > f.getDuration() && r_count == i) {
+				GImage image = creates_new_image(f);
+				add(image);
+				right_images.add(image);
+				r_count++;
+
+			}
+			i++;
 		}
 	}
 
@@ -63,16 +96,12 @@ public class Spawner extends Map {
 	}
 
 	public void run() {
-		spawn_food();
+
 	}
 
 	public static void main(String args[]) {
-		/*
-		 * Spawner testSpawner = new Spawner(-100, 100); testSpawner.start(); Song
-		 * testSong = Song.getInstance(); Conductor testConductor = new Conductor(150,
-		 * testSong, 1, Map_Database.tutorialFood);
-		 */
-		new Spawner().start();
+
+		// new Spawner().start();
 
 	}
 }

@@ -30,8 +30,7 @@ public class Map_graphics extends Map implements KeyListener {
 	int speed = 8;
 	int countl = 0;
 	int count1 = 0;
-	int spawned = 0;
-	int spawned1 = 0;
+
 	int index_right;
 	int index_left;
 	GImage overall_delete;
@@ -189,7 +188,7 @@ public class Map_graphics extends Map implements KeyListener {
 				add(image);
 				spawned_list.add(image);
 				countl++;
-				spawned++;
+
 			}
 			i++;
 		}
@@ -208,7 +207,7 @@ public class Map_graphics extends Map implements KeyListener {
 				add(image);
 				spawned_list_right.add(image);
 				count1++;
-				spawned1++;
+
 			}
 			i++;
 		}
@@ -423,40 +422,46 @@ public class Map_graphics extends Map implements KeyListener {
 
 	}
 
+	void left_is_Hit() {
+		spawned_list.remove(overall_delete);
+		food_images.remove(index_left);
+		remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
+		box.incrementScore();
+		box.incrementStreak();
+	}
+
+	void right_is_Hit() {
+		spawned_list_right.remove(overall_delete1);
+		food_images_right.remove(index_right);
+		remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
+		box.incrementScore();
+		box.incrementStreak();
+	}
+
 	@Override
 
 	public void keyPressed(KeyEvent e) {
-		// box_display_off();
+
 		int key = e.getKeyCode();
-		// up = bun
-		// down = ketchup
-		// left = tofu
-		// right = tomato
-		// W
+		if (key == KeyEvent.VK_ESCAPE) {
+			box.reset_fail();
+			stopMusic();
+			reset();
+			menu.start();
+		}
+
 		if (key == KeyEvent.VK_W) {
 			if (current == level_3) {
 				if (check_left() == "bun") {
-					spawned_list.remove(overall_delete);
-					food_images.remove(index_left);
-					remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
-					box.incrementScore();
-					box.incrementStreak();
+					left_is_Hit();
 				}
 				if (check_right() == "bun") {
-					spawned_list_right.remove(overall_delete1);
-					food_images_right.remove(index_right);
-					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
-					box.incrementScore();
-					box.incrementStreak();
+					right_is_Hit();
 				}
 
 			} else {
 				if (check() == "bun") {
-					box.incrementScore();
-					box.incrementStreak();
-					spawned_list.remove(overall_delete);
-					food_images.remove(index_left);
-					remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
+					left_is_Hit();
 
 				}
 			}
@@ -465,27 +470,15 @@ public class Map_graphics extends Map implements KeyListener {
 		if (key == KeyEvent.VK_A) {
 			if (current == level_3) {
 				if (check_left() == "tofu") {
-					spawned_list.remove(overall_delete);
-					food_images.remove(index_left);
-					remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
-					box.incrementScore();
-					box.incrementStreak();
+					left_is_Hit();
 				}
 				if (check_right() == "tofu") {
-					spawned_list_right.remove(overall_delete1);
-					food_images_right.remove(index_right);
-					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
-					box.incrementScore();
-					box.incrementStreak();
+					right_is_Hit();
 				}
 
 			} else {
 				if (check() == "tofu") {
-					box.incrementScore();
-					box.incrementStreak();
-					spawned_list.remove(overall_delete);
-					food_images.remove(index_left);
-					remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
+					left_is_Hit();
 
 				}
 			}
@@ -494,27 +487,15 @@ public class Map_graphics extends Map implements KeyListener {
 		if (key == KeyEvent.VK_S) {
 			if (current == level_3) {
 				if (check_left() == "ketchup") {
-					spawned_list.remove(overall_delete);
-					food_images.remove(index_left);
-					remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
-					box.incrementScore();
-					box.incrementStreak();
+					left_is_Hit();
 				}
 				if (check_right() == "ketchup") {
-					spawned_list_right.remove(overall_delete1);
-					food_images_right.remove(index_right);
-					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
-					box.incrementScore();
-					box.incrementStreak();
+					right_is_Hit();
 				}
 
 			} else {
 				if (check() == "ketchup") {
-					box.incrementScore();
-					box.incrementStreak();
-					spawned_list.remove(overall_delete);
-					food_images.remove(index_left);
-					remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
+					left_is_Hit();
 
 				}
 			}
@@ -523,27 +504,15 @@ public class Map_graphics extends Map implements KeyListener {
 		if (key == KeyEvent.VK_D) {
 			if (current == level_3) {
 				if (check_left() == "tomato") {
-					spawned_list.remove(overall_delete);
-					food_images.remove(index_left);
-					remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
-					box.incrementScore();
-					box.incrementStreak();
+					left_is_Hit();
 				}
 				if (check_right() == "tomato") {
-					spawned_list_right.remove(overall_delete1);
-					food_images_right.remove(index_right);
-					remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
-					box.incrementScore();
-					box.incrementStreak();
+					right_is_Hit();
 				}
 
 			} else {
 				if (check() == "tomato") {
-					box.incrementScore();
-					box.incrementStreak();
-					spawned_list.remove(overall_delete);
-					food_images.remove(index_left);
-					remove(getElementAt(overall_delete.getX(), overall_delete.getY()));
+					left_is_Hit();
 
 				}
 			}
@@ -555,7 +524,7 @@ public class Map_graphics extends Map implements KeyListener {
 			reset();
 			Fail_screen f = new Fail_screen(current);
 			f.start();
-			// app.switch
+
 		}
 		if (passed(box.get_score())) {
 			box.reset_fail();
@@ -564,7 +533,6 @@ public class Map_graphics extends Map implements KeyListener {
 			Pass_screen p = new Pass_screen(current);
 			p.start();
 		}
-		// box_display_on();
 
 	}
 

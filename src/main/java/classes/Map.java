@@ -22,7 +22,7 @@ public class Map extends GraphicsApplication implements ActionListener, KeyListe
 	static Level level_2 = data.get_level2();
 	static Level level_3 = data.get_level3();
 	ArrayList<Level> level_arr = new ArrayList<Level>(Arrays.asList(level_1, level_2, level_3));
-	int curr_level_num = 0;
+	int curr_level_num = 0;  
 	static Level current = level_1;
 
 	static Title_screen title = new Title_screen(); // 0

@@ -32,10 +32,9 @@ public class Play_game extends Map implements ActionListener {
 	Map_graphics map_graphics;
 
 	public void run() {
-		System.out.println("cur game :" + curr_level_num);
+
 		spawnerTimer = new Timer(500, this);
 		// spawnerTimer.start();
-		System.out.println("game is running");
 
 		map_graphics = new Map_graphics(level);
 		map_graphics.map_track = 3;
@@ -43,7 +42,7 @@ public class Play_game extends Map implements ActionListener {
 
 		// belt = map_graphics.current.getConveyorBelt();
 		playBackgroundNoise();
-		spawner = Map_Database.spawner1;
+
 		// spawner.setGame(map_graphics.game);
 	}
 
