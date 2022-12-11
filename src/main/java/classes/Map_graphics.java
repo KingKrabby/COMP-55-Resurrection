@@ -40,7 +40,6 @@ public class Map_graphics extends Map implements KeyListener {
 	ArrayList<GImage> passed_hit_circle = new ArrayList<GImage>();
 	ArrayList<String> food_images = new ArrayList<String>();
 	ArrayList<String> food_images_right = new ArrayList<String>();
-	// String[] food_images = new String[] {"bun", "ketchup", "tofu", "tomato"};
 
 	GRect score_streak;
 	GLabel score1;
