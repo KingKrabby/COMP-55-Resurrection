@@ -4,14 +4,17 @@ import acm.graphics.*;
 import acm.program.*;
 
 public class HitCircle extends GraphicsProgram {
-	public static final int WINDOW_WIDTH = 800;
-	public static final int WINDOW_HEIGHT = 600;
-	public static final int x1 = 550; // will be for HitCircle on large conveyor
-	public static final int y1 = 400; // will be for HitCircle on large conveyornb
-	public static final int x2 = 275; // will be for first HitCircle on smaller conveyor
-	public static final int y2 = 400; // will be for first HitCircle on smaller conveyor
-	public static final int x3 = 425; // will be for second HitCircle on smaller conveyor
-	public static final int y3 = 400; // will be for second HitCircle on smaller conveyor
+	
+	Level current;
+	HitCircle(Level l){
+		this.current = l;
+	}
+	final int h1 = 550; // will be for HitCircle on large conveyor
+	final int w1 = 400; // will be for HitCircle on large conveyornb
+	final int h2 = 275; // will be for first HitCircle on smaller conveyor
+	final int w2 = 400; // will be for first HitCircle on smaller conveyor
+	final int h3 = 425; // will be for second HitCircle on smaller conveyor
+	final int w3 = 400; // will be for second HitCircle on smaller conveyor
 	public int numHitCircles;
 	public int firstx;
 	public int y;
@@ -21,19 +24,23 @@ public class HitCircle extends GraphicsProgram {
 
 	}
 
-
-
-	public void run() {
-		if (numHitCircles == 1) {
-			GImage singleHitCircle = new GImage("hitcircle.png", x1, y1);
+	public void create_hit_circle() {
+	
+		// int numHitCircles;
+		if (current.getHitCircle().returnNHC() == 1) {
+			GImage singleHitCircle = new GImage("hitcircle.png", h1, w1);
 			add(singleHitCircle);
 		}
-		if (numHitCircles == 2) {
-			GImage hitCircle1 = new GImage("hitcircle.png", x2, y2);
+		if (current.getHitCircle().returnNHC() == 2) {
+			GImage hitCircle1 = new GImage("hitcircle.png", h2, w2);
 			add(hitCircle1);
-			GImage hitCircle2 = new GImage("hitcircle.png", x3, y3);
+			GImage hitCircle2 = new GImage("hitcircle.png", h3, w3);
 			add(hitCircle2);
 		}
+	}
+
+	public void run() {
+
 
 	}
 
