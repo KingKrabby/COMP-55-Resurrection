@@ -72,6 +72,60 @@ public class Map_graphics extends Map implements KeyListener {
 		add(dj);
 
 		// Score Streak box
+		create_score_box();
+
+		// Conveyor
+		create_conveyor();
+
+		// hit Circle
+		create_hit_circle();
+
+		GImage logo = new GImage("World's Hardest Games Logo.png", 680, -20);
+		logo.sendToFront();
+		add(logo);
+
+	}
+
+	public void create_conveyor() {
+		final int x1 = 0;
+		final int y1 = 500;
+		final int x2 = 400;
+		final int y2 = 500;
+		if (current.getConveyorBelt().getNumConveyors() == 1) {
+			GImage singleConveyor = new GImage("longconveyor.png", x1, y1);
+			add(singleConveyor);
+		}
+
+		if (current.getConveyorBelt().getNumConveyors() == 2) {
+			GImage conveyor1 = new GImage("shortconveyor.png", x1, y1);
+			add(conveyor1);
+
+			GImage conveyor2 = new GImage("shortconveyor.png", x2, y2);
+			add(conveyor2);
+		}
+	}
+
+	public void create_hit_circle() {
+		final int h1 = 550; // will be for HitCircle on large conveyor
+		final int w1 = 400; // will be for HitCircle on large conveyornb
+		final int h2 = 275; // will be for first HitCircle on smaller conveyor
+		final int w2 = 400; // will be for first HitCircle on smaller conveyor
+		final int h3 = 425; // will be for second HitCircle on smaller conveyor
+		final int w3 = 400; // will be for second HitCircle on smaller conveyor
+		// int numHitCircles;
+		if (current.getHitCircle().returnNHC() == 1) {
+			singleHitCircle = new GImage("hitcircle.png", h1, w1);
+			add(singleHitCircle);
+		}
+		if (current.getHitCircle().returnNHC() == 2) {
+			hitCircle1 = new GImage("hitcircle.png", h2, w2);
+			add(hitCircle1);
+			hitCircle2 = new GImage("hitcircle.png", h3, w3);
+			add(hitCircle2);
+		}
+	}
+
+	public void create_score_box() {
 		int score_streak_SIZE_x = 100;
 		int score_streak_SIZE_y = 100;
 		int score_streak_loc_x = 0;
@@ -93,50 +147,6 @@ public class Map_graphics extends Map implements KeyListener {
 		add(score1);
 		add(streak1);
 		add(wasd);
-
-		// Conveyor
-		final int x1 = 0; // still need to initialize these
-		final int y1 = 500;
-		final int x2 = 400;
-		final int y2 = 500;
-		if (current.getConveyorBelt().getNumConveyors() == 1) {
-			GImage singleConveyor = new GImage("longconveyor.png", x1, y1);
-			add(singleConveyor);
-		}
-
-		if (current.getConveyorBelt().getNumConveyors() == 2) {
-			GImage conveyor1 = new GImage("shortconveyor.png", x1, y1);
-			add(conveyor1);
-
-			GImage conveyor2 = new GImage("shortconveyor.png", x2, y2);
-			add(conveyor2);
-		}
-
-		// hit Circle
-		final int WINDOW_WIDTH = 800;
-		final int WINDOW_HEIGHT = 600;
-		final int h1 = 550; // will be for HitCircle on large conveyor
-		final int w1 = 400; // will be for HitCircle on large conveyornb
-		final int h2 = 275; // will be for first HitCircle on smaller conveyor
-		final int w2 = 400; // will be for first HitCircle on smaller conveyor
-		final int h3 = 425; // will be for second HitCircle on smaller conveyor
-		final int w3 = 400; // will be for second HitCircle on smaller conveyor
-		// int numHitCircles;
-		if (current.getHitCircle().returnNHC() == 1) {
-			singleHitCircle = new GImage("hitcircle.png", h1, w1);
-			add(singleHitCircle);
-		}
-		if (current.getHitCircle().returnNHC() == 2) {
-			hitCircle1 = new GImage("hitcircle.png", h2, w2);
-			add(hitCircle1);
-			hitCircle2 = new GImage("hitcircle.png", h3, w3);
-			add(hitCircle2);
-		}
-
-		GImage logo = new GImage("World's Hardest Games Logo.png", 680, -20);
-		logo.sendToFront();
-		add(logo);
-
 	}
 
 	public void reset() {
