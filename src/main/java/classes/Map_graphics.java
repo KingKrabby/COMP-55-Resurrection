@@ -249,7 +249,7 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 
 	GImage creates_new_image_right(Food food) {
-		System.out.print("working");
+		
 		GImage item = null;
 		int x = 700;
 		int y = 435;

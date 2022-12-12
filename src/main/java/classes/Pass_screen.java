@@ -36,9 +36,9 @@ public class Pass_screen extends Map {
 	}
 
 	public void run() {
-		System.out.println("Before: " + curr_level_num);
+
 		curr_level_num++;
-		System.out.println("After: " + curr_level_num);
+
 		if (index < 2) {
 			level = level_arr.get(index + 1);
 		} else {
@@ -46,7 +46,6 @@ public class Pass_screen extends Map {
 		}
 		// game.stop();
 		playBackgroundNoise();
-		System.out.println("pass");
 
 		GImage green = new GImage("greenbackground.jpg", 0, 0);
 		add(green);
@@ -82,7 +81,7 @@ public class Pass_screen extends Map {
 			if (curr_level_num == 2) {
 				menu.start();
 			} else {
-				System.out.println("NEXT LEVEL");
+
 				Play_game g = new Play_game(level);
 				g.run();
 			}
