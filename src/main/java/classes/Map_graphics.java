@@ -28,8 +28,8 @@ public class Map_graphics extends Map implements KeyListener {
 	GImage hitCircle2;
 	long start, end;
 	int speed = 8;
-	int countl = 0;
-	int count1 = 0;
+	int count_left = 0;
+	int count_right = 0;
 
 	int index_right;
 	int index_left;
@@ -51,6 +51,9 @@ public class Map_graphics extends Map implements KeyListener {
 
 	public static final String MUSIC_FOLDER = "sounds";
 
+	
+	//Spawners
+	Spawner spawner = new Spawner(current, start, count_left, count_right, spawned_list, spawned_list_right);
 	public void run() {
 		if (current == level_2) {
 			speed = 15;
@@ -192,11 +195,11 @@ public class Map_graphics extends Map implements KeyListener {
 		for (Food f : items) {
 			long elapsed = end - start;
 
-			if (elapsed > f.getDuration() && countl == i) {
+			if (elapsed > f.getDuration() && count_left == i) {
 				GImage image = creates_new_image(f);
 				add(image);
 				spawned_list.add(image);
-				countl++;
+				count_left++;
 
 			}
 			i++;
@@ -211,11 +214,11 @@ public class Map_graphics extends Map implements KeyListener {
 		for (Food f : items) {
 			long elapsed = end - start;
 
-			if (elapsed > f.getDuration() && count1 == i) {
+			if (elapsed > f.getDuration() && count_right == i) {
 				GImage image = creates_new_image_right(f);
 				add(image);
 				spawned_list_right.add(image);
-				count1++;
+				count_right++;
 
 			}
 			i++;
