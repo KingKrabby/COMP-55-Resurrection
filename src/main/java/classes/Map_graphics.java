@@ -21,8 +21,14 @@ public class Map_graphics extends Map implements KeyListener {
 	public Map_graphics(Level c) {
 		this.current = c;
 	}
-
+	// Extracts From Main Map database
+	static Map_Database data = new Map_Database();
+	// Creates Default Graphics
+	static default_graphics dfg = new default_graphics();
+	
 	GraphicsApplication app = this;
+	
+	// Makes images
 	GImage singleHitCircle;
 	GImage hitCircle1;
 	GImage hitCircle2;
@@ -35,12 +41,15 @@ public class Map_graphics extends Map implements KeyListener {
 	int index_left;
 	GImage overall_delete;
 	GImage overall_delete1;
+	
+	//Creates List of Arrays
 	ArrayList<GImage> spawned_list = new ArrayList<GImage>();
 	ArrayList<GImage> spawned_list_right = new ArrayList<GImage>();
 	ArrayList<GImage> passed_hit_circle = new ArrayList<GImage>();
 	ArrayList<String> food_images = new ArrayList<String>();
 	ArrayList<String> food_images_right = new ArrayList<String>();
-
+	
+	// Creates Score Box
 	GRect score_streak;
 	GLabel score1;
 	GLabel streak1;
@@ -48,20 +57,12 @@ public class Map_graphics extends Map implements KeyListener {
 	GImage wasd = new GImage("wasd2.png", 200, 0);
 	int fail_x = 0;
 	Timer score_streak_graphic;
-
-	public static final String MUSIC_FOLDER = "sounds";
-
 	
 	//Spawners
 	Spawner spawner = new Spawner(current, start, count_left, count_right, spawned_list, spawned_list_right);
 	public void run() {
-		if (current == level_2) {
-			speed = 15;
-		}
-		if (current == level_3) {
-			speed = 6;
-		}
-
+		//change speed
+		speed = dfg.change_speed(current);
 		start = System.currentTimeMillis();
 		requestFocus();
 		addKeyListeners();
@@ -79,14 +80,132 @@ public class Map_graphics extends Map implements KeyListener {
 		// Conveyor
 		create_conveyor();
 
-		// hit Circle
+		// Hit Circle
 		create_hit_circle();
-
+		
+		// Adds team Logo
 		GImage logo = new GImage("World's Hardest Games Logo.png", 680, -20);
 		logo.sendToFront();
 		add(logo);
 
 	}
+
+	@Override
+
+	public void keyPressed(KeyEvent e) {
+
+		// To Leave the Game
+		int key = e.getKeyCode();
+		if (key == KeyEvent.VK_ESCAPE) {
+			box.reset_fail();
+			dfg.stopMusic();
+			reset();
+			menu.start();
+		}
+		
+		// Press W when a bun hits the middle of a hit circle(s)
+
+		if (key == KeyEvent.VK_W) {
+			if (current == level_3) {
+				if (check_left() == "bun") {
+					left_is_Hit();
+				}
+				if (check_right() == "bun") {
+					right_is_Hit();
+				}
+
+			} else {
+				if (check() == "bun") {
+					left_is_Hit();
+
+				}
+			}
+
+		}
+		
+		// Press A when a tofu hits the middle of a hit circle(s)
+		if (key == KeyEvent.VK_A) {
+			if (current == level_3) {
+				if (check_left() == "tofu") {
+					left_is_Hit();
+				}
+				if (check_right() == "tofu") {
+					right_is_Hit();
+				}
+
+			} else {
+				if (check() == "tofu") {
+					left_is_Hit();
+
+				}
+			}
+
+		}
+		
+		// Press S when a ketchup hits the middle of a hit circle(s)
+		if (key == KeyEvent.VK_S) {
+			if (current == level_3) {
+				if (check_left() == "ketchup") {
+					left_is_Hit();
+				}
+				if (check_right() == "ketchup") {
+					right_is_Hit();
+				}
+
+			} else {
+				if (check() == "ketchup") {
+					left_is_Hit();
+
+				}
+			}
+
+		}
+		
+		// Press D when a tomato hits the middle of a hit circle(s)
+		if (key == KeyEvent.VK_D) {
+			if (current == level_3) {
+				if (check_left() == "tomato") {
+					left_is_Hit();
+				}
+				if (check_right() == "tomato") {
+					right_is_Hit();
+				}
+
+			} else {
+				if (check() == "tomato") {
+					left_is_Hit();
+
+				}
+			}
+
+		}
+		
+		// To Check if Player Fails
+		if (failed(box)) {
+			box.reset_fail();
+			dfg.stopMusic();
+			reset();
+			Fail_screen f = new Fail_screen(current);
+			f.start();
+
+		}
+		
+		//To Check if Player Passes
+		if (passed(box.get_score())) {
+			box.reset_fail();
+			dfg.stopMusic();
+			reset();
+			Pass_screen p = new Pass_screen(current);
+			p.start();
+		}
+
+	}
+	
+	
+	
+	
+	
+//Background
 
 	public void create_conveyor() {
 		final int x1 = 0;
@@ -109,7 +228,7 @@ public class Map_graphics extends Map implements KeyListener {
 
 	public void create_hit_circle() {
 		final int h1 = 550; // will be for HitCircle on large conveyor
-		final int w1 = 400; // will be for HitCircle on large conveyornb
+		final int w1 = 400; // will be for HitCircle on large conveyor
 		final int h2 = 275; // will be for first HitCircle on smaller conveyor
 		final int w2 = 400; // will be for first HitCircle on smaller conveyor
 		final int h3 = 425; // will be for second HitCircle on smaller conveyor
@@ -181,10 +300,6 @@ public class Map_graphics extends Map implements KeyListener {
 
 	}
 
-	public void stopMusic() {
-		Song test = Song.getInstance();
-		test.stopSound(MUSIC_FOLDER, current.get_string());
-	}
 
 	// Spawner
 	void spawn_food() {
@@ -370,7 +485,7 @@ public class Map_graphics extends Map implements KeyListener {
 					remove(getElementAt((i.getX()), (i.getY())));
 					box.reset_streak();
 					if (failed(box)) {
-						stopMusic();
+						dfg.stopMusic();
 						box.reset();
 						reset();
 						Fail_screen f = new Fail_screen(current);
@@ -394,7 +509,7 @@ public class Map_graphics extends Map implements KeyListener {
 					remove(getElementAt((i.getX()), (i.getY())));
 					box.reset_streak();
 					if (failed(box)) {
-						stopMusic();
+						dfg.stopMusic();
 						box.reset();
 						reset();
 						Fail_screen f = new Fail_screen(current);
@@ -420,7 +535,7 @@ public class Map_graphics extends Map implements KeyListener {
 					remove(getElementAt((i.getX()), (i.getY())));
 					box.reset_streak();
 					if (failed(box)) {
-						stopMusic();
+						dfg.stopMusic();
 						box.reset();
 						reset();
 						Fail_screen f = new Fail_screen(current);
@@ -448,108 +563,6 @@ public class Map_graphics extends Map implements KeyListener {
 		remove(getElementAt(overall_delete1.getX(), overall_delete1.getY()));
 		box.incrementScore();
 		box.incrementStreak();
-	}
-
-	@Override
-
-	public void keyPressed(KeyEvent e) {
-
-		int key = e.getKeyCode();
-		if (key == KeyEvent.VK_ESCAPE) {
-			box.reset_fail();
-			stopMusic();
-			reset();
-			menu.start();
-		}
-
-		if (key == KeyEvent.VK_W) {
-			if (current == level_3) {
-				if (check_left() == "bun") {
-					left_is_Hit();
-				}
-				if (check_right() == "bun") {
-					right_is_Hit();
-				}
-
-			} else {
-				if (check() == "bun") {
-					left_is_Hit();
-
-				}
-			}
-
-		}
-		if (key == KeyEvent.VK_A) {
-			if (current == level_3) {
-				if (check_left() == "tofu") {
-					left_is_Hit();
-				}
-				if (check_right() == "tofu") {
-					right_is_Hit();
-				}
-
-			} else {
-				if (check() == "tofu") {
-					left_is_Hit();
-
-				}
-			}
-
-		}
-		if (key == KeyEvent.VK_S) {
-			if (current == level_3) {
-				if (check_left() == "ketchup") {
-					left_is_Hit();
-				}
-				if (check_right() == "ketchup") {
-					right_is_Hit();
-				}
-
-			} else {
-				if (check() == "ketchup") {
-					left_is_Hit();
-
-				}
-			}
-
-		}
-		if (key == KeyEvent.VK_D) {
-			if (current == level_3) {
-				if (check_left() == "tomato") {
-					left_is_Hit();
-				}
-				if (check_right() == "tomato") {
-					right_is_Hit();
-				}
-
-			} else {
-				if (check() == "tomato") {
-					left_is_Hit();
-
-				}
-			}
-
-		}
-		if (failed(box)) {
-			box.reset_fail();
-			stopMusic();
-			reset();
-			Fail_screen f = new Fail_screen(current);
-			f.start();
-
-		}
-		if (passed(box.get_score())) {
-			box.reset_fail();
-			stopMusic();
-			reset();
-			Pass_screen p = new Pass_screen(current);
-			p.start();
-		}
-
-	}
-
-	public static void main(String args[]) {
-		// new Map_graphics().start();
 	}
 
 }

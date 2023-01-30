@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public final class Map_Database {
+public final class Map_Database extends Map {
 	Level l;
 	static ArrayList<Food> food_level1 = new ArrayList<Food>();
 	static ArrayList<Food> food_level2 = new ArrayList<Food>();
@@ -83,5 +83,7 @@ public final class Map_Database {
 	Level get_level3() {
 		return level3;
 	}
+	
+
 
 }
