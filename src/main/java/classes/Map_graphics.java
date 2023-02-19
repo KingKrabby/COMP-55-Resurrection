@@ -21,13 +21,14 @@ public class Map_graphics extends Map implements KeyListener {
 	public Map_graphics(Level c) {
 		this.current = c;
 	}
+
 	// Extracts From Main Map database
 	static Map_Database data = new Map_Database();
 	// Creates Default Graphics
 	static default_graphics dfg = new default_graphics();
-	
+
 	GraphicsApplication app = this;
-	
+
 	// Makes images
 	GImage singleHitCircle;
 	GImage hitCircle1;
@@ -41,14 +42,14 @@ public class Map_graphics extends Map implements KeyListener {
 	int index_left;
 	GImage overall_delete;
 	GImage overall_delete1;
-	
-	//Creates List of Arrays
+
+	// Creates List of Arrays
 	ArrayList<GImage> spawned_list = new ArrayList<GImage>();
 	ArrayList<GImage> spawned_list_right = new ArrayList<GImage>();
 	ArrayList<GImage> passed_hit_circle = new ArrayList<GImage>();
 	ArrayList<String> food_images = new ArrayList<String>();
 	ArrayList<String> food_images_right = new ArrayList<String>();
-	
+
 	// Creates Score Box
 	GRect score_streak;
 	GLabel score1;
@@ -57,11 +58,12 @@ public class Map_graphics extends Map implements KeyListener {
 	GImage wasd = new GImage("wasd2.png", 200, 0);
 	int fail_x = 0;
 	Timer score_streak_graphic;
-	
-	//Spawners
+
+	// Spawners
 	Spawner spawner = new Spawner(current, start, count_left, count_right, spawned_list, spawned_list_right);
+
 	public void run() {
-		//change speed
+		// change speed
 		speed = dfg.change_speed(current);
 		start = System.currentTimeMillis();
 		requestFocus();
@@ -82,7 +84,7 @@ public class Map_graphics extends Map implements KeyListener {
 
 		// Hit Circle
 		create_hit_circle();
-		
+
 		// Adds team Logo
 		GImage logo = new GImage("World's Hardest Games Logo.png", 680, -20);
 		logo.sendToFront();
@@ -102,7 +104,7 @@ public class Map_graphics extends Map implements KeyListener {
 			reset();
 			menu.start();
 		}
-		
+
 		// Press W when a bun hits the middle of a hit circle(s)
 
 		if (key == KeyEvent.VK_W) {
@@ -122,7 +124,7 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 
 		}
-		
+
 		// Press A when a tofu hits the middle of a hit circle(s)
 		if (key == KeyEvent.VK_A) {
 			if (current == level_3) {
@@ -141,7 +143,7 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 
 		}
-		
+
 		// Press S when a ketchup hits the middle of a hit circle(s)
 		if (key == KeyEvent.VK_S) {
 			if (current == level_3) {
@@ -160,7 +162,7 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 
 		}
-		
+
 		// Press D when a tomato hits the middle of a hit circle(s)
 		if (key == KeyEvent.VK_D) {
 			if (current == level_3) {
@@ -179,7 +181,7 @@ public class Map_graphics extends Map implements KeyListener {
 			}
 
 		}
-		
+
 		// To Check if Player Fails
 		if (failed(box)) {
 			box.reset_fail();
@@ -189,8 +191,8 @@ public class Map_graphics extends Map implements KeyListener {
 			f.start();
 
 		}
-		
-		//To Check if Player Passes
+
+		// To Check if Player Passes
 		if (passed(box.get_score())) {
 			box.reset_fail();
 			dfg.stopMusic();
@@ -200,11 +202,7 @@ public class Map_graphics extends Map implements KeyListener {
 		}
 
 	}
-	
-	
-	
-	
-	
+
 //Background
 
 	public void create_conveyor() {
@@ -300,7 +298,6 @@ public class Map_graphics extends Map implements KeyListener {
 
 	}
 
-
 	// Spawner
 	void spawn_food() {
 		long end = System.currentTimeMillis();
@@ -367,7 +364,7 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 
 	GImage creates_new_image_right(Food food) {
-		
+
 		GImage item = null;
 		int x = 700;
 		int y = 435;
