@@ -10,10 +10,17 @@ Section 1 Overview
 
 Section 2 Pseudocode
 1
-new class sceneSwitch
-	#bring in level class
-	void 
-	
+new class game state
+	menu
+	title
+	tutorial
+	exit game
+
+new class gameScreen
+	 void UI
+	 	design elements
+	 void sceneSwitching
+	 	game states
 2
 Code isn't really needed, simply combining classes together
 ex) food = food + foodtype
