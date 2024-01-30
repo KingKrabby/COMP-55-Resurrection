@@ -35,3 +35,8 @@ But for the readable file food types:
 3
 Code isn't really needed, simply impove the UI images
 ex) change images, update background, change score streak corner
+
+Section 3
+To see the scene switch, simply play the game and notice how it doesn't open a new window
+To see the combined classes, open up Food and Foodtype classes
+To see the new game UI, run the "Score_Streak" class
