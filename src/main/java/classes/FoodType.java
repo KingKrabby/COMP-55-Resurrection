@@ -1,4 +1,4 @@
-/*package classes;
+package classes;
 
 public enum FoodType {
 
@@ -19,4 +19,3 @@ public enum FoodType {
 	}
 
 }
-*/
