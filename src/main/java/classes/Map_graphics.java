@@ -245,8 +245,8 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 
 	public void create_score_box() {
-		int score_streak_SIZE_x = 100;
-		int score_streak_SIZE_y = 100;
+		int score_streak_SIZE_x = 150;
+		int score_streak_SIZE_y = 150;
 		int score_streak_loc_x = 0;
 		int score_streak_loc_y = 0;
 		int score_streak_ms = 50;
@@ -341,22 +341,22 @@ public class Map_graphics extends Map implements KeyListener {
 		GImage item = null;
 		int x = 0;
 		int y = 435;
-		FoodType type = food.getFoodType();
-		if (type == FoodType.BUN) {
+		Food.FoodType type = food.getFoodType();
+		if (type == Food.FoodType.BUN) {
 			item = new GImage("bun.png", x, y);
 			food_images.add("bun");
 		}
-		if (type == FoodType.KETCHUP) {
+		if (type == Food.FoodType.KETCHUP) {
 			item = new GImage("ketchup.png", x, y);
 			food_images.add("ketchup");
 
 		}
-		if (type == FoodType.TOFU) {
+		if (type == Food.FoodType.TOFU) {
 			item = new GImage("tofu.png", x, y);
 			food_images.add("tofu");
 
 		}
-		if (type == FoodType.TOMATO) {
+		if (type == Food.FoodType.TOMATO) {
 			item = new GImage("tomato.png", x, y);
 			food_images.add("tomato");
 		}
@@ -368,22 +368,22 @@ public class Map_graphics extends Map implements KeyListener {
 		GImage item = null;
 		int x = 700;
 		int y = 435;
-		FoodType type = food.getFoodType();
-		if (type == FoodType.BUN) {
+		Food.FoodType type = food.getFoodType();
+		if (type == Food.FoodType.BUN) {
 			item = new GImage("bun.png", x, y);
 			food_images_right.add("bun");
 		}
-		if (type == FoodType.KETCHUP) {
+		if (type == Food.FoodType.KETCHUP) {
 			item = new GImage("ketchup.png", x, y);
 			food_images_right.add("ketchup");
 
 		}
-		if (type == FoodType.TOFU) {
+		if (type == Food.FoodType.TOFU) {
 			item = new GImage("tofu.png", x, y);
 			food_images_right.add("tofu");
 
 		}
-		if (type == FoodType.TOMATO) {
+		if (type == Food.FoodType.TOMATO) {
 			item = new GImage("tomato.png", x, y);
 			food_images_right.add("tomato");
 		}

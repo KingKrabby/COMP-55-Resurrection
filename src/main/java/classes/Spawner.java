@@ -77,19 +77,19 @@ public class Spawner extends Map {
 		GImage item = null;
 		int x = 0;
 		int y = 435;
-		FoodType type = food.getFoodType();
-		if (type == FoodType.BUN) {
+		Food.FoodType type = food.getFoodType();
+		if (type == Food.FoodType.BUN) {
 			item = new GImage("bun.png", x, y);
 		}
-		if (type == FoodType.KETCHUP) {
+		if (type == Food.FoodType.KETCHUP) {
 			item = new GImage("ketchup.png", x, y);
 
 		}
-		if (type == FoodType.TOFU) {
+		if (type == Food.FoodType.TOFU) {
 			item = new GImage("tofu.png", x, y);
 
 		}
-		if (type == FoodType.TOMATO) {
+		if (type == Food.FoodType.TOMATO) {
 			item = new GImage("tomato.png", x, y);
 		}
 		return item;

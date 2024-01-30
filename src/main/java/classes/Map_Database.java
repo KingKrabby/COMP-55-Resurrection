@@ -16,7 +16,7 @@ public final class Map_Database extends Map {
 		initialize();
 	}
 
-	FoodType[] list = new FoodType[] { FoodType.KETCHUP, FoodType.TOFU, FoodType.BUN, FoodType.TOMATO };
+	Food.FoodType[] list = new Food.FoodType[] { Food.FoodType.KETCHUP, Food.FoodType.TOFU, Food.FoodType.BUN, Food.FoodType.TOMATO };
 
 	public static int getRandomValue(int Min, int Max) {
 		return ThreadLocalRandom.current().nextInt(Min, Max + 1);

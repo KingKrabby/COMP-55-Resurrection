@@ -1,4 +1,4 @@
-package classes;
+/*package classes;
 
 import acm.graphics.*;
 
@@ -45,4 +45,55 @@ public class Food {
 		return ftype;
 	}
 
+}*/
+package classes;
+
+public class Food {
+    public enum FoodType {
+        BUN, TOMATO, KETCHUP, TOFU;
+
+        public String toString() {
+            switch (this) {
+                case BUN:
+                    return "bun";
+                case TOMATO:
+                    return "tomato";
+                case KETCHUP:
+                    return "ketchup";
+                case TOFU:
+                    return "tofu";
+            }
+            return "n/a";
+        }
+    }
+
+    private FoodType ftype;
+    private double spawnOnBeat;
+    private int time;
+
+    public Food() {
+        ftype = FoodType.BUN;
+        time = 0;
+    }
+
+    public Food(FoodType type, int t) {
+        ftype = type;
+        time = t;
+    }
+
+    public FoodType getFoodType() {
+        return ftype;
+    }
+
+    public double getSpawnBeat() {
+        return spawnOnBeat;
+    }
+
+    public int getDuration() {
+        return time;
+    }
+
+    public FoodType getType() {
+        return ftype;
+    }
 }
