@@ -245,21 +245,24 @@ public class Map_graphics extends Map implements KeyListener {
 	}
 
 	public void create_score_box() {
-		int score_streak_SIZE_x = 150;
-		int score_streak_SIZE_y = 150;
+		int score_streak_SIZE_x = 100;
+		int score_streak_SIZE_y = 100;
 		int score_streak_loc_x = 0;
 		int score_streak_loc_y = 0;
 		int score_streak_ms = 50;
 		GRect score_streak = new GRect(score_streak_loc_x, score_streak_loc_y, score_streak_SIZE_x,
 				score_streak_SIZE_y);
-		score_streak.setFillColor(Color.white);
+		score_streak.setFillColor(Color.GREEN);
 		score_streak.setFilled(true);
 
 		score_streak_graphic = new Timer(score_streak_ms, this);
 		add(score_streak);
 		score1 = new GLabel("Score: " + box.get_score(), 0, 20);
 		streak1 = new GLabel("Streak: " + box.get_streak(), 0, 40);
+		score1.setFont("verdana");
+		streak1.setFont("verdana");
 		fail1 = new GLabel("Fail: ", 0, 60);
+		fail1.setFont("verdana");
 		add(fail1);
 
 		score_streak_graphic.start();
